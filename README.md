@@ -1,5 +1,7 @@
 ## ASPLOS21 Drone
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4546175.svg)](https://doi.org/10.5281/zenodo.4546175)
+
 __Artifact for Quantifying the Design-Space Tradeoffs in Autonomous Drones
 at ASPLOS 2021__
 
