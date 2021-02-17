@@ -1,0 +1,705 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived:Using Xbee radios for telemetry with APM &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="Archived: Quick Start Guide for Ready-to-Fly Vehicles" href="quick-start-guide.html"/>
+        <link rel="prev" title="Archived:Edge Quick Start" href="common-edge-quick-start.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4fmu-overview.html">PX4FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vrgimbal.html">VR Gimbal Controller (3-Axis Open Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Xbee radios for telemetry with APM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hooking-up-your-xbee-wireless-modules">Hooking up your Xbee wireless modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wiring-it-up">Wiring it up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-ground-side">On the ground side</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-xbee-modules">Setting up the Xbee modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-non-pc-users">For Non-PC users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-the-connection">Testing the connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-code">Test code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unbricking-an-xbee">Unbricking an Xbee</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-your-own-multicopter.html">Build Your Own Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-news.html">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="landing-gear.html">Landing Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived:Using Xbee radios for telemetry with APM</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/xbee-radios.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="archived-using-xbee-radios-for-telemetry-with-apm">
+<span id="xbee-radios"></span><h1>Archived:Using Xbee radios for telemetry with APM<a class="headerlink" href="#archived-using-xbee-radios-for-telemetry-with-apm" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>ARCHIVED ARTICLE</strong></p>
+<p class="last">The correct topic to use is
+<a class="reference internal" href="common-telemetry-xbee.html#common-telemetry-xbee"><span class="std std-ref">Telemetry-XBee</span></a></p>
+</div>
+<a class="reference external image-reference" href="../_images/KT-Telemetry-Xbee-2new.jpg"><img alt="../_images/KT-Telemetry-Xbee-2new.jpg" src="../_images/KT-Telemetry-Xbee-2new.jpg" /></a>
+<div class="section" id="hooking-up-your-xbee-wireless-modules">
+<h2>Hooking up your Xbee wireless modules<a class="headerlink" href="#hooking-up-your-xbee-wireless-modules" title="Permalink to this headline">¶</a></h2>
+<p>Adding wireless telemetry is not difficult and can extend the
+capabilities of your UAV immensely. We recommend
+<a class="reference external" href="https://www.sparkfun.com/categories/222.html">900Mhz Xbees</a>. If you are in
+Europe, where 900Mhz is not allowed, you can use a 2.4Ghz Xbee kit instead.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>On APM 2, you cannot use the Xbee while your APM board is
+connected to the USB port.</p>
+<p class="last">That’s because the Xbee and USB share the same serial port, with some clever multiplexing to detect if the USB cable is plugged in and switching output to the USB if so.
+Although that has the huge win of freeing up a serial port for some other use (e.g.
+connect an Android phone),
+it does mean that you need to disconnect the board from the USB cable and power it some other way when testing wireless telemetry on your bench.</p>
+</div>
+</div>
+<div class="section" id="wiring-it-up">
+<h2>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apm-2-0">
+<h3>APM 2.0<a class="headerlink" href="#apm-2-0" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="../_images/telemtry.jpg"><img alt="../_images/telemtry.jpg" src="../_images/telemtry.jpg" /></a>
+<a class="reference external image-reference" href="../_images/xbee_amp2_connection.jpg"><img alt="../_images/xbee_amp2_connection.jpg" src="../_images/xbee_amp2_connection.jpg" /></a>
+<p>Connect the XtremeBee adapter (with the Xbee plugged in) to APM 2 as
+shown above. Your adapter should be in “Master” mode. (“Master” and
+“Slave” just reverse the TX and RX pins).</p>
+<p>We recommend the 3DR four-wire Xbee cable, which comes with the official
+Wireless Telemetry kit shown above. It is designed to connect the
+XtreamBee adapter to APM, as it will provide the neatest and safest
+connection.</p>
+</div>
+<div class="section" id="apm-2-5">
+<h3>APM 2.5<a class="headerlink" href="#apm-2-5" title="Permalink to this headline">¶</a></h3>
+<p>On APM 2.5, use the dedicated telemetry port and supplied cable, as
+shown:</p>
+<a class="reference external image-reference" href="../_images/xbee_amp2.5_telemetry_port_connection.jpg"><img alt="../_images/xbee_amp2.5_telemetry_port_connection.jpg" src="../_images/xbee_amp2.5_telemetry_port_connection.jpg" /></a>
+</div>
+</div>
+<div class="section" id="on-the-ground-side">
+<h2>On the ground side<a class="headerlink" href="#on-the-ground-side" title="Permalink to this headline">¶</a></h2>
+<p>If you’re using a USB adapter, simply connect it via a USB cable as shown:</p>
+<a class="reference external image-reference" href="../_images/xbee_usb_connection.jpg"><img alt="../_images/xbee_usb_connection.jpg" src="../_images/xbee_usb_connection.jpg" /></a>
+<p>If you’re using an XtreamBee adapter on the ground side, connect it to a
+FTDI cable as shown below and plug that into your USB port. The adapter
+should also be in Master mode.</p>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/XtreemBee.jpg"><img alt="../_images/XtreemBee.jpg" src="../_images/XtreemBee.jpg" /></a>
+<p class="caption"><span class="caption-text">XBee with XtreemBee Adapter</span></p>
+</div>
+<p>Now you’re done! Remember to select the right Xbee port (you can see
+which one has been assigned to the Xbee in the Windows Control Panel
+device manager) and a baud rate of 57k in the Mission Planner or other
+GCS when you’re connecting.</p>
+<a class="reference external image-reference" href="../_images/xbeebaud.png"><img alt="../_images/xbeebaud.png" src="../_images/xbeebaud.png" /></a>
+<div class="section" id="optional-changing-your-telemetry-to-use-uart2-aka-serial3">
+<h3>(Optional) Changing your telemetry to use UART2 (aka Serial3)<a class="headerlink" href="#optional-changing-your-telemetry-to-use-uart2-aka-serial3" title="Permalink to this headline">¶</a></h3>
+<p>By default an Xbee connected to the APM2 will use UART0 (aka “Serial” in
+Arduino) which is shared with the USB as mentioned above. If you wish to
+instead use UART2 (aka “Serial3”) for telemetry you can change the
+“AutoMUX UART0” jumper on the bottom of the APM2.</p>
+<p>Although difficult to see, by default there are two small jumpers
+between the upper pads that must be cut with an X-Acto blade. Then a new
+solder bridge must be made to join the bottom pads.</p>
+<a class="reference external image-reference" href="../_images/BOTTOM_AutoMUX_UART02_small.jpg"><img alt="../_images/BOTTOM_AutoMUX_UART02_small.jpg" src="../_images/BOTTOM_AutoMUX_UART02_small.jpg" /></a>
+</div>
+<div class="section" id="optional-rolling-your-own-xbee-telemetry-setup">
+<h3>(Optional) Rolling your own Xbee telemetry setup<a class="headerlink" href="#optional-rolling-your-own-xbee-telemetry-setup" title="Permalink to this headline">¶</a></h3>
+<p>You can make your own telemetry kit if you’d like. The first thing to
+keep in mind is that you should use Xbee modules in a different
+frequency range than your RC equipment.</p>
+<p>In general, we recommend 900Mhz Xbee modules, but in some countries
+900Mhz is not approved. In those cases you can use 2.4Ghz Xbee modules.
+In that configuration, we use <em>Xbee Pro wireless modules</em></p>
+<p>Setup can be a little tricky, so please see the comments below in this
+manual to see how other people have done it. In particular, we do not
+recommend the DIY Drones XtreamBee adapter for those modules. Instead,
+try the</p>
+<p><a class="reference external" href="https://www.sparkfun.com/categories/111">Sparkfun</a> adapters. Please
+note that the DIY Drones team will only support the recommended 900Mhz
+Xbee modules, so if you use something else please turn the community for
+help, not the DIY Drones developers.</p>
+<p><a class="reference external" href="https://diydrones.com/profiles/blogs/some-tips-on-picking-frequencies">Here is more discussion</a>
+on how to pick the best frequencies for your setup.</p>
+<p>All Xbee modules need adapters to work with APM. You have two choices:</p>
+<ul class="simple">
+<li>A DIY Drones XtreamBee adapters on the aircraft side, and a <em>USB
+adapter board</em> on the ground/laptop side with a USB cable.</li>
+<li>If you already have an FTDI cable, get two DIY Drones XtreamBee
+adapters.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="setting-up-the-xbee-modules">
+<h2>Setting up the Xbee modules<a class="headerlink" href="#setting-up-the-xbee-modules" title="Permalink to this headline">¶</a></h2>
+<p>If you have the DIY Drones Telemetry Kit, your Xbee modules are already
+set up and ready to go. But if you’re setting up your own, here are some
+instructions:</p>
+<p>The Xbee modules ship with a default of 9600bps, which you must change
+to match the APM’s serial speed of 57600 bps; set your Xbee modules to
+match this speed. (If you want to use a different speed, you can change
+that by entering the following line in the APM_Config.h file: <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">:ref:`SERIAL3_BAUD&lt;SERIAL3_BAUD&gt;`</span> <span class="pre">[whatever</span> <span class="pre">baud</span> <span class="pre">rate</span> <span class="pre">you</span> <span class="pre">want]</span></code>)</p>
+<p>Connect each one of the them to the USB adapter board, plug the USB
+cable into your PC, and use Digi’s X-CTU utility (Mac/Linux users see
+section below on an alternative utility from motosenso) to select the
+right serial port and communicate with them. Remember to initially set
+the utility to 9600bps to contact the new Xbee modules, and than after
+you’ve changed the speed, change the utility’s serial speed accordingly.
+You should also give the modules unique Network IDs (VIDs) so they will
+be paired. Just use any 3-digit number, and just make sure you have set
+it the same on both modules. (Note: If you will be flying near other UAV
+planes make sure to verify the Network IDs are unique and not used by
+others in your vicinity.)</p>
+<p>This is what the setting should look like when you click “Read” in Modem
+Configuration tab of X-CTU (we’re using 999 as the VID here as an
+example, and I’ve highlighted the correct baud rate):</p>
+<a class="reference external image-reference" href="../_images/Xbeescreenshot.png"><img alt="../_images/Xbeescreenshot.png" src="../_images/Xbeescreenshot.png" /></a>
+<p>Note: If you bought your Xbee modules from Sparkfun, rather than the
+official DIY Drones kit, please note that they sometimes ship with the
+wrong firmware. X-CTU may try to download new code, which will probably
+fail (cancel it). If your Xbee module is reporting that it’s an XBP09-DM
+(rather than the correct XBP09-DP), do the following:</p>
+<ol class="arabic simple">
+<li>If you have the XBP09-DP modules, you must download XBP09-DP
+firmware. If you have downloaded XBP09-DM firmware, it will kind-of
+work, but will fail at the PID-config screen.</li>
+<li>X-CTU will report the module as XBP09-DM. Ignore that. Go to the
+Modem Configuration tab and do the following:<ol class="arabic">
+<li>Select Modem as XBP09-DP, Function Set XBEE-PRO 900, Version 1002.
+It is important that you select 1002. Version 1061 does not work
+at first.</li>
+<li>Click the Show Defaults button under the Parameter View.</li>
+<li>Click the Write button under “Modem Parameters and Firmware”.</li>
+<li>Go back to PC Settings, change Baud to 9600. Click Query. It will
+show XBP09-DM. Ignore that.</li>
+<li>Go back to Modem Configuration. Click Read. It should show
+XBP09-DP as the modem. Version 1002.</li>
+<li>Now select Version 1061.</li>
+<li>Click “Show Defaults”</li>
+<li>Click on the DD parameter and set it to 0. This step is important,
+otherwise the 1161 firmware download will fail.</li>
+<li>Click “Write”. Now your firmware is XBP09-DP Version 1161.</li>
+</ol>
+</li>
+<li>Now change the baud rate and Modem VID, redownload and you should be
+good to go.</li>
+</ol>
+<p>It will still show XBP09-DM in the PC Settings Query. Don’t worry about
+that.</p>
+</div>
+<div class="section" id="for-non-pc-users">
+<h2>For Non-PC users<a class="headerlink" href="#for-non-pc-users" title="Permalink to this headline">¶</a></h2>
+<p>MacOS, Linux or Windows users - there is a free cross-platform
+alternative to X-CTU, called moltosenso Network Manager.
+Download the software
+<a class="reference external" href="https://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php">here</a>.
+The moltosenso Team collaborated with us writing a
+<a class="reference external" href="https://forum.moltosenso.com/viewtopic.php?f=16&amp;t=8#p9">special tutorial</a>
+on the setup of Xbee radios for ArduPilot and Copter Telemetry using
+their software. Enjoy!</p>
+</div>
+<div class="section" id="testing-the-connection">
+<h2>Testing the connection<a class="headerlink" href="#testing-the-connection" title="Permalink to this headline">¶</a></h2>
+<p>If you open up a terminal program on your laptop (you can use the
+Arduino IDE’s serial monitor for this, too), select the correct serial
+port, and set the baud rate to whatever you set the Xbee modules to
+above (the default is 57600). Once you do this, you should see APM
+telemetry coming in. Anytime there is a “Serial3.println” in the code,
+that data will be sent through the Xbees to the ground. You can record
+any data you want, and even datalog from the ground! You can also open
+the Ground Station software, setting the right port and baud speed) and
+it should begin to show APM data.</p>
+<p>Additionally, if you want to test the range of your Xbee link, connect
+the plane-side Xbee module’s RX and TX pins together to create a
+loopback circuit and use the X-CTU utility’s range test function. For
+the modules we are using you should get around a mile.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you’ve got an Xbee attached to your APM, the USB cable will
+probably not provide enough power by itself to drive them both. Please
+also have an ESC and LiPo connected to the RC pins to provide additional
+power. (You can tell that you’ve got a low power (“brownout”) condition
+if you just have the red C LED blinking dimly, or the APM board is
+otherwise intermittent.)</p>
+</div>
+</div>
+<div class="section" id="test-code">
+<h2>Test code<a class="headerlink" href="#test-code" title="Permalink to this headline">¶</a></h2>
+<p>ArduPilot Mega has four serial ports so all the usual Arduino serial
+commands now take a specifier to say which port you want to read from or
+write to. For example: <code class="docutils literal notranslate"><span class="pre">Serial1.print()</span></code>, <code class="docutils literal notranslate"><span class="pre">Serial2.print()</span></code>. The port
+connected to the USB/FDTI connector is Serial0. The port connected to
+the Telecom pins is Serial3.</p>
+<ol class="arabic">
+<li><p class="first">Plug your Xbee into one USB port and your APM into another. Use Arduino
+to load the demo code, and then in the Arduino IDE set the serial port
+to the one assigned to your APM board. Then open the serial monitor,
+setting the baud rate to 115200. You should see “Port 0” repeated as
+follows, showing the output from the APM’s USB port:</p>
+<a class="reference external image-reference" href="../_images/xbeetest2.png"><img alt="../_images/xbeetest2.png" src="../_images/xbeetest2.png" /></a>
+</li>
+<li><p class="first">Now switch the serial port to the one your Xbee is assigned to and
+reopen the serial monitor, setting the baud rate to 57600 (which is the
+speed your Xbees should already be programmed for). You should now see
+“Port 3” repeated, showing the output from APM’s Xbee port.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="unbricking-an-xbee">
+<h2>Unbricking an Xbee<a class="headerlink" href="#unbricking-an-xbee" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sometimes Xbee modules get corrupted due to spurious
+signals. If you’re finding that yours stops working (green LED on
+Adafruit adapter doesn’t come on), instructions to reload the firmware
+follow:</p>
+</div>
+<p>Using the USB adapter board:</p>
+<ol class="arabic simple">
+<li>Take the module out of the interface board.</li>
+<li>Connect the interface board to the computer.</li>
+<li>Open X-CTU make sure Baud Rate is set to 9600</li>
+<li>Go to “Modem Configuration”</li>
+<li>Put a check in the “Always update firmware” box</li>
+<li>Select proper modem from drop down menu (for the 900Mhz ones
+recommended above select “XBP09-DP”; for 2.4GHZ Xeebee Pro 2 select
+“XBP24-B”)</li>
+<li>Click on the “Write” button. After a few seconds of trying to read
+the modem, you will get an Info box that says Action Needed. At this
+point, CAREFULLY insert the module into the interface board. After a
+few seconds, this should trigger a reloading of the firmware.</li>
+<li>You may get the info box again a short while after; if so just repeat
+the previous step a few times and it should work.</li>
+<li>This will put the module back to 9600 baud. Set your X-CTU PC
+settings to that and test it. It should report back that it’s
+recognized.</li>
+<li>Once you’ve confirmed that it’s working again, make you sure you
+reset its baud rate (typically 57k for APM) and VID number to match
+your other module.</li>
+</ol>
+<p>(Thanks to Doug Barnett for these tips)</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quick-start-guide.html" class="btn btn-neutral float-right" title="Archived: Quick Start Guide for Ready-to-Fly Vehicles" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-edge-quick-start.html" class="btn btn-neutral" title="Archived:Edge Quick Start" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived:Using Xbee radios for telemetry with APM&amp;body=[Archived:Using Xbee radios for telemetry with APM](https://ardupilot.org/copter/docs/xbee-radios.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

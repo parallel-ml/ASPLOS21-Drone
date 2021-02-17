@@ -1,0 +1,471 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multi-Vehicle Flying &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Use-Cases and Applications" href="common-use-cases-and-applications.html"/>
+        <link rel="next" title="Indoor Flying Guidelines" href="indoor-flying.html"/>
+        <link rel="prev" title="Web Apps" href="common-web-apps.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-3d-mapping.html">3d Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-web-apps.html">Web Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View (FPV)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-Vehicle Flying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#equipment-you-will-need">Equipment you will need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-flight-setup">Pre-Flight Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-the-vehicles">Controlling the vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Positioning Systems.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-use-cases-and-applications.html">Use-Cases and Applications</a> &raquo;</li>
+      
+    <li>Multi-Vehicle Flying</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-multi-vehicle-flying.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multi-vehicle-flying">
+<span id="common-multi-vehicle-flying"></span><h1>Multi-Vehicle Flying<a class="headerlink" href="#multi-vehicle-flying" title="Permalink to this headline">¶</a></h1>
+<p>This page shows how to monitor and control multiple vehicles using a
+single ground station. Although this capability has been demonstrated
+(see video below) it is somewhat
+<a class="reference external" href="https://diydrones.com/profiles/blogs/multi-vehicle-testing-with-apm-copter-tracker-and-mission-planner">experimental</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This example has been greatly surpassed by <a class="reference external" href="https://diydrones.com/profiles/blogs/from-zero-to-fifty-planes-in-twenty-seven-minutes">Michael Clement’s 50 plane demonstration</a></p>
+</div>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/M4LxtYa94nk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="section" id="equipment-you-will-need">
+<h2>Equipment you will need<a class="headerlink" href="#equipment-you-will-need" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Multiple <a class="reference external" href="https://ardupilot.org/plane/index.html">Planes</a> or
+<a class="reference external" href="https://ardupilot.org/copter/index.html#home" title="(in Copter)"><span class="xref std std-ref">Copters</span></a> or
+<a class="reference external" href="https://ardupilot.org/rover/index.html#home" title="(in Rover)"><span class="xref std std-ref">Rovers</span></a></li>
+<li>An <a class="reference external" href="https://ardupilot.org/antennatracker/index.html#home" title="(in AntennaTracker)"><span class="xref std std-ref">Antenna Tracker</span></a>(a.k.a. Tracker)
+to combine the telemetry data from vehicles and send to the GCS.</li>
+<li>Pairs of<a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry radios</span></a> for
+each vehicle (i.e. 2x number of vehicles) OR multi-point radios (like
+the <a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900</span></a>) in which case just 1 radio for
+each vehicle + 1 for the ground station.</li>
+<li>GCS capable of displaying/controlling multiple vehicles (i.e. the
+<a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>).</li>
+<li>RC transmitter for each vehicle (optional).</li>
+</ul>
+</div>
+<div class="section" id="pre-flight-setup">
+<h2>Pre-Flight Setup<a class="headerlink" href="#pre-flight-setup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If using SiK radios, <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio-configuring-using-the-mission-planner"><span class="std std-ref">set the NetID</span></a>
+of each pair of radios to a unique number.  I.e. if controlling 3
+vehicles, set the <code class="docutils literal notranslate"><span class="pre">NetID</span></code> of one pair to “23”, the 2nd pair to
+“24”, the 3rd pair to “25”.</li>
+<li>Connect one of each radio pairs to the vehicle autopilots
+(i.e. Pixhawk) using Telem1 or Telem2.</li>
+<li>Connect the other pairs to the Tracker’s controller (i.e. Pixhawk)
+using Telem1, Telem2 and Serial 4/5 ports.</li>
+<li>If using Serial 4/5 set the Tracker’s <code class="docutils literal notranslate"><span class="pre">SERIAL4_PROTOCOL</span></code> to “1” to
+enable MAVLink communication on that port.</li>
+<li>Connect to each vehicle’s autopilot and the tracker and set
+the <code class="docutils literal notranslate"><span class="pre">SYSID_THISMAV</span></code> to a unique number (i.e. “1” for first vehicle,
+“2” for second vehicle, “3” for third, “9” for the tracker).</li>
+<li>On the GCS, <a class="reference internal" href="common-mission-planner-telemetry-logs.html#common-mission-planner-telemetry-logs-setting-the-datarate"><span class="std std-ref">reduce data rate</span></a>
+to the minimum acceptable value to reduce network traffic.</li>
+<li>Plug in the tracker to the ground station PC using a USB cable.</li>
+</ul>
+</div>
+<div class="section" id="controlling-the-vehicles">
+<h2>Controlling the vehicles<a class="headerlink" href="#controlling-the-vehicles" title="Permalink to this headline">¶</a></h2>
+<p>Plug in the battery of each vehicle and tracker.  After connecting to
+the tracker from the <em>Mission Planner</em> (or other GCS) each vehicle
+including the tracker should appear on the Map.</p>
+<p>Controlling the vehicle depends upon the GCS used but if using the
+<em>Mission Planner</em>, “Ctrl-X” pulls up a drop-down selector which allows
+the user to choose which vehicle to control.</p>
+<p>If using Copter, switch each vehicle into GUIDED mode.  On the MP’s map,
+right-mouse-button-click and select “Takeoff” and input 2m to get the
+vehicle off the air.  Once in the air, each vehicle can be pushed around
+in GUIDED mode (by using Ctrl-X to select the vehicle and then click on
+the map) or the mode can be changed to AUTO etc.</p>
+<p>If you wish to retake control of a vehicle, use the transmitter for that
+vehicle to change the flight to LOITER, STABILIZE, etc and then fly
+manually.  If only one transmitter is being used (not recommended) then
+use the GCS to switch the single vehicle’s mode to LOITER and then
+control with the TX sticks (the other vehicles will ignore the TX’s
+roll, pitch and throttle input if they are in AUTO or GUIDED - they will
+accept yaw input however).</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="indoor-flying.html" class="btn btn-neutral float-right" title="Indoor Flying Guidelines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-web-apps.html" class="btn btn-neutral" title="Web Apps" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Multi-Vehicle Flying&amp;body=[Multi-Vehicle Flying](https://ardupilot.org/copter/docs/common-multi-vehicle-flying.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

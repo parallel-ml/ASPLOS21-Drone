@@ -1,0 +1,501 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Follow Me Mode (GCS Enabled) &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Flight Modes" href="flight-modes.html"/>
+        <link rel="next" title="Guided Mode" href="ac2_guidedmode.html"/>
+        <link rel="prev" title="Follow Mode" href="follow-mode.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">First Flight</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="flight-modes.html">Flight Modes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="acro-mode.html">Acro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="altholdmode.html">Altitude Hold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airmode.html">AirMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto-mode.html">Auto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="brake-mode.html">Brake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="circle-mode.html">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="drift-mode.html">Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flip-mode.html">Flip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flowhold-mode.html">FlowHold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow-mode.html">Follow</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Follow Me (GCS Enabled)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ac2_guidedmode.html">Guided</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-autorotation-mode.html">Heli_Autorotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="land-mode.html">Land</a></li>
+<li class="toctree-l4"><a class="reference internal" href="loiter-mode.html">Loiter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poshold-mode.html">PosHold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ac2_positionmode.html">Position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rtl-mode.html">RTL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simpleandsuper-simple-modes.html">Simple and Super Simple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smartrtl-mode.html">Smart RTL (Return-to-Launch)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sport-mode.html">Sport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stabilize-mode.html">Stabilize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemid-mode.html">System Identification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="throw-mode.html">Throw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigzag-mode.html">ZigZag</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-prearm-safety-checks.html">Pre-arm Safety Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_tipsfornewpilots.html">Getting Off the Ground – Tips for New Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotrim.html">Save Trim &amp; Auto Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="flying-arducopter.html">First Flight with Copter</a> &raquo;</li>
+      
+          <li><a href="flight-modes.html">Flight Modes</a> &raquo;</li>
+      
+    <li>Follow Me Mode (GCS Enabled)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/ac2_followme.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="follow-me-mode-gcs-enabled">
+<span id="ac2-followme"></span><h1>Follow Me Mode (GCS Enabled)<a class="headerlink" href="#follow-me-mode-gcs-enabled" title="Permalink to this headline">¶</a></h1>
+<p>Follow Me mode makes it possible for you to have your copter follow you
+as you move, using a telemetry radio and a ground station.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unlike other autopilot modes, this feature is implemented in
+the Ground Station. The ground station controls the movement by reading
+the vehicle position using MAVLink Telemetry and sending GUIDED mode
+instructions to move the vehicle appropriately. Currently this sort of
+functionality is supported by <em>Mission Planner</em> for Windows laptops, APM
+Planner for OS X laptops, and DroidPlanner for Android devices.</p>
+</div>
+<div class="section" id="what-you-ll-need">
+<h2>What you’ll need<a class="headerlink" href="#what-you-ll-need" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>A Copter with telemetry</li>
+<li>A laptop (or a phone/tablet with an integrated GPS available to the GCS app)</li>
+<li>A GPS USB dongle <a class="reference external" href="https://www.amazon.com/ND-100S-GlobalSat-USB-GPS-Receiver/dp/B004K39QTY/">like this</a>
+or Bluetooth GPS module <a class="reference external" href="https://www.amazon.com/GlobalSat-BT-368i-Bluetooth-GPS-Receiver/dp/B0018YZ836/">like this</a>.</li>
+</ol>
+</div>
+<div class="section" id="instructions-for-mission-planner">
+<h2>Instructions for Mission Planner<a class="headerlink" href="#instructions-for-mission-planner" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Set one of your flight modes to “Loiter”</li>
+<li>Set up your Copter at the field and establish a MAVLink connection
+over wireless telemetry</li>
+<li>Ensure that your GPS USB dongle or Bluetooth device is plugged into
+to your laptop and showing up as a serial port. Using the software
+that came with the module, make sure that it’s working and that you
+have GPS lock.</li>
+<li>Take off, and once in the air switch to Loiter. (Sufficient altitude
+to ensure that while it is following you it isn’t attacking you might
+be a good idea).</li>
+<li>In the Mission Planner Flight Data screen try right-clicking on a
+nearby spot and select “Fly to Here”. If this works, you’re ready to
+try Follow Me mode.</li>
+<li>In the Mission Planner, enter Control-F, which will open the
+following window. Click on “Follow Me”</li>
+</ol>
+<a class="reference external image-reference" href="../_images/followme1.jpg"><img alt="../_images/followme1.jpg" src="../_images/followme1.jpg" /></a>
+<ul class="simple">
+<li>This will bring up this window. Select the serial port that is
+assigned to your GPS device and whatever baud rate it uses.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/followme2.png"><img alt="../_images/followme2.png" src="../_images/followme2.png" /></a>
+<ul class="simple">
+<li>Once you click “Connect”, the Mission Planner will read the GPS data
+from your device and send it to your Copter as “fly to here” commands
+every two seconds.</li>
+<li>Now pick up your laptop and start walking around.</li>
+<li>The Copter should follow you!<ul>
+<li>If you have set the altitude to 5 feet it might be a good idea to
+see if you can out run it.</li>
+<li>As mentioned before, sufficient altitude to prevent injury is
+useful.</li>
+<li>Seriously this is a great capability, but safety is really
+important when using Follow Me mode especially with an open bladed
+Multicopter.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The barometer is used in the altitude calculation meaning that it can
+drift over time and impact rising terrain. Watch for obstacles and
+elevation changes. The altitude maintaining behavior is similar to loiter mode.</p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ac2_guidedmode.html" class="btn btn-neutral float-right" title="Guided Mode" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="follow-mode.html" class="btn btn-neutral" title="Follow Mode" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Follow Me Mode (GCS Enabled)&amp;body=[Follow Me Mode (GCS Enabled)](https://ardupilot.org/copter/docs/ac2_followme.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

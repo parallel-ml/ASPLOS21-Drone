@@ -1,0 +1,516 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Typical Autopilot Wiring Connections &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot System Assembly Instructions" href="autopilot-assembly-instructions.html"/>
+        <link rel="next" title="Autopilot Inputs and Outputs" href="common-flight-controller-io.html"/>
+        <link rel="prev" title="Mounting the Autopilot" href="common-mounting-the-flight-controller.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">First Time Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">Install Ground Station Software</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">Autopilot System Assembly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Autopilot Wiring</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-input">RC input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">Installing GPS+Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware to boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware to boards without existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="autopilot-assembly-instructions.html">Autopilot System Assembly Instructions</a> &raquo;</li>
+      
+    <li>Typical Autopilot Wiring Connections</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-flight-controller-wiring.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="typical-autopilot-wiring-connections">
+<span id="common-flight-controller-wiring"></span><h1>Typical Autopilot Wiring Connections<a class="headerlink" href="#typical-autopilot-wiring-connections" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/fc-io.jpg"><img alt="../_images/fc-io.jpg" src="../_images/fc-io.jpg" style="width: 450px;" /></a>
+<p>This topic covers the wiring/connection of basic/mandatory peripherals to the autopilot. For detailed explanations about each autopilot port/connector, see <a class="reference internal" href="common-flight-controller-io.html#common-flight-controller-io"><span class="std std-ref">Autopilot Inputs and Outputs</span></a></p>
+<div class="section" id="gps-compass">
+<h2>GPS/Compass<a class="headerlink" href="#gps-compass" title="Permalink to this headline">¶</a></h2>
+<p>GPS is mandatory in all vehicles. Compass is mandatory for Copter and Rover and QuadPlane types of Plane, but not for Conventional Planes, however it is highly recommended.</p>
+<a class="reference internal image-reference" href="../_images/gps-connection.jpg"><img alt="../_images/gps-connection.jpg" src="../_images/gps-connection.jpg" style="width: 450px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TX and RX are swapped from autopilot to GPS module.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Usually GPS is attached to the logical Serial Port 3 by default in ArduPilot. However, which  physical UART is assigned to ArduPilot’s Serial Port 3 on the autopilot is documented in the autopilots <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">documentation</span></a></p>
+</div>
+<p>As a wiring example, the topic <a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#common-installing-3dr-ublox-gps-compass-module"><span class="std std-ref">3DR UBlox GPS + Compass Module</span></a> shows how to connect to a Pixhawk autopilot and includes additional configuration and mounting information.</p>
+</div>
+<div class="section" id="rc-input">
+<h2>RC input<a class="headerlink" href="#rc-input" title="Permalink to this headline">¶</a></h2>
+<p>Radio Control Receivers are normally used for pilot control. While exclusive pilot control via ground stations using telemetry is possible, it is not recommended.
+(However, it is possible to control the vehicle via ground station software using a joystick. See <a class="reference internal" href="common-joystick.html#common-joystick"><span class="std std-ref">Joysticks</span></a> .</p>
+<a class="reference internal image-reference" href="../_images/rx-connection.jpg"><img alt="../_images/rx-connection.jpg" src="../_images/rx-connection.jpg" style="width: 450px;" /></a>
+<p>Ardupilot autodetects the following serial RC receiver protocols:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>PPM remote control (R/C) receivers</li>
+<li>SBus receivers</li>
+<li>FPort receivers (see <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">FPort Receivers</span></a> )</li>
+<li>Spektrum DSM and DSM2 receivers</li>
+<li>Spektrum DSM-X Satellite receivers</li>
+<li>IBUS receivers</li>
+<li>MULTIPLEX SRXL version 1 and version 2 receivers.</li>
+</ol>
+</div></blockquote>
+<p>For traditional single-wire-per-channel (PWM) receivers a PPM encoder
+can be used to convert the receiver outputs to PPM.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">As of Ardupilot 4.0 versions of firmware, any autopilot UART may be used as an input for an RC receiver, instead of the designated RCin or SBUS input pin, by setting that port’s <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to 23. However, some serial protocols require inversion (SBUS,FPort) and the UART must be capable of using the <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> parameter to invert the RX input, otherwise, an external inverter will be required. This also allows a second RC receiver to be attached to the autopilot for redundancy. If the first receiver (first detected valid after boot) fails, then the second will be used. Note that whatever RC input ranges and trims were calibrated will be used for the second when it becomes active. Both receivers MUST be set to send no pulses in failsafe for this to work properly.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Information about compatible receivers and how they are connected can be found in <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a>. Also see <a class="reference internal" href="common-multiple-rx.html#common-multiple-rx"><span class="std std-ref">Multiple Radio Control Receivers</span></a> for use of multiple RC receivers</p>
+</div>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/FRSkyTaranis.jpg"><img alt="../_images/FRSkyTaranis.jpg" src="../_images/FRSkyTaranis.jpg" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-text">FRSky Taranis Transmitter</span></p>
+</div>
+</div>
+<div class="section" id="motor-servo-connections">
+<h2>Motor/Servo Connections<a class="headerlink" href="#motor-servo-connections" title="Permalink to this headline">¶</a></h2>
+<p>Motor ESCs and/or PWM Servos are attached to the PWM outputs of the autopilot.</p>
+<p>They are labeled either as MAIN/AUX outputs or just as OUTPUTs. These outputs provide the PWM or Dshot signals for motor ESC or servo control of flight surfaces. They can also be sometimes used as general purpose I/O pins for controlling relays, parachutes, grippers, etc.</p>
+<p>Those controllers with MAIN/AUX output labels usually indicate that a IOMCU co-processor is being employed. These provide outputs intended for use as the motor/servo outputs and provide a redundant means of control via RC if the main autopilot fails. The MAIN outputs come from this co-processor, while the AUX designated outputs are controlled directly from the autopilot. Most board level autopilots do not use an IOMCU and have outputs only labeled OUTPUTx or Mx.</p>
+<p>This distinction is important, since AUX outputs(and OUTPUTs from autopilots without an IOMCU) can be used as GPIOs as well as PWM or Dshot. While MAIN outputs can only be used for PWM.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A few autopilots that do NOT use an IOMCU label their outputs as MAIN, so actually do have the capability of use as GPIOs and/or Dshot ESC control outputs. CUAV V5 Nano and Holybro Pixhawk 4 Mini are examples.</p>
+</div>
+<p>Often these outputs are provided on 3 pin connector strips supplying or distributing servo power and ground, in addition to the individual output signals. This power is usually provided externally, such as by the ESC or a BEC, although some autopilots provide this power from internal regulators.</p>
+<p>A connection example for Rover</p>
+<a class="reference internal image-reference" href="../_images/servo-motor-connection.jpg"><img alt="../_images/servo-motor-connection.jpg" src="../_images/servo-motor-connection.jpg" style="width: 450px;" /></a>
+<p>An example for Copters using only motors. In this case, only ESC signal lines are being connected.</p>
+<a class="reference external image-reference" href="../_images/pixhawk_motor_outputs.jpg"><img alt="../_images/pixhawk_motor_outputs.jpg" src="../_images/pixhawk_motor_outputs.jpg" style="width: 450px;" /></a>
+<p>For Copter see <a class="reference external" href="https://ardupilot.org/copter/docs/connect-escs-and-motors.html#connect-escs-and-motors" title="(in Copter)"><span class="xref std std-ref">Connect ESCs and Motors</span></a>.</p>
+<p>In overview, for copters connect each signal wire from the PDB to the
+main output signal (S) pins by motor number:</p>
+<ul class="simple">
+<li>Output 1 = Motor 1 - - Output 5 = Motor 5</li>
+<li>Output 2 = Motor 2 - - Output 6 = Motor 6</li>
+<li>Output 3 = Motor 3 - - Output 7 = Motor 7</li>
+<li>Output 4 = Motor 4 - - Output 8 = Motor 8</li>
+</ul>
+<div class="section" id="connect-buzzer-and-safety-switch">
+<h3>Connect buzzer and safety switch<a class="headerlink" href="#connect-buzzer-and-safety-switch" title="Permalink to this headline">¶</a></h3>
+<p>The buzzer and safety switch button are optional but recommended, if the autopilot provides those connections (many closed source autopilots do not). Connect to the BUZZER and SWITCH ports as shown.</p>
+<a class="reference internal image-reference" href="../_images/safetysw-connection.jpg"><img alt="../_images/safetysw-connection.jpg" src="../_images/safetysw-connection.jpg" style="width: 450px;" /></a>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Mount the beeper at least 5cm away from the flight
+controller or the noise may upset the accelerometers.</p>
+</div>
+</div>
+<div class="section" id="connect-other-peripherals">
+<h3>Connect other peripherals<a class="headerlink" href="#connect-other-peripherals" title="Permalink to this headline">¶</a></h3>
+<p>Depending on your hardware there may be any number of other peripherals
+attached, including sensors, cameras, grippers etc. These can be found
+as sub-pages of the topic <a class="reference internal" href="common-optional-hardware.html#common-optional-hardware"><span class="std std-ref">Optional Hardware</span></a>.</p>
+<p>Information about connecting these peripherals to the autopilot is found in
+those respective pages.</p>
+</div>
+<div class="section" id="related-information">
+<h3>Related information<a class="headerlink" href="#related-information" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-flight-controller-io.html">Autopilot I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-pixhawk-wiring-and-quick-start.html">Wiring Example using Pixhawk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-powering-the-pixhawk.html">Powering the Pixhawk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rc-systems.html">Compatible RC Tx/Rx Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-pixhawk-quadcopter-wiring-chart.html">Advanced Pixhawk Quadcopter Wiring Chart</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-flight-controller-io.html" class="btn btn-neutral float-right" title="Autopilot Inputs and Outputs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-mounting-the-flight-controller.html" class="btn btn-neutral" title="Mounting the Autopilot" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Typical Autopilot Wiring Connections&amp;body=[Typical Autopilot Wiring Connections](https://ardupilot.org/copter/docs/common-flight-controller-wiring.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

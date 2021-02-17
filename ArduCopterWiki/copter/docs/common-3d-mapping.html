@@ -1,0 +1,522 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3d Mapping &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Use-Cases and Applications" href="common-use-cases-and-applications.html"/>
+        <link rel="next" title="Web Apps" href="common-web-apps.html"/>
+        <link rel="prev" title="Use-Cases and Applications" href="common-use-cases-and-applications.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3d Mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#equipment-you-will-need">Equipment you will need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-mission">Sample Mission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recommended-desktop-3d-mapping-software">Recommended Desktop 3d mapping software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-your-model">Sharing your model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-resources-and-examples">Additional resources and Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-web-apps.html">Web Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View (FPV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multi-vehicle-flying.html">Multi-Vehicle Flying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Positioning Systems.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-use-cases-and-applications.html">Use-Cases and Applications</a> &raquo;</li>
+      
+    <li>3d Mapping</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-3d-mapping.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d-mapping">
+<span id="common-3d-mapping"></span><h1>3d Mapping<a class="headerlink" href="#d-mapping" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This page introduces how Copter/Plane along with the right equipment can
+be used to create 3d maps.</p>
+<a class="reference external image-reference" href="https://sketchfab.com/models/ca785239f99643499fab7c62e1944f95"><img alt="../_images/3d_mapping_the_fallen_blockhouse.jpg" src="../_images/3d_mapping_the_fallen_blockhouse.jpg" /></a>
+<p>The image above is
+<a class="reference external" href="http://www.diydrones.com/profile/Sylvain793">Sylvain</a>’s <a class="reference external" href="https://www.diydrones.com/profiles/blogs/the-fallen-blockhouse-t3-entry">“the fallen
+blockhouse”</a> and <a class="reference external" href="https://www.diydrones.com/profiles/blogs/announcing-the-winner-of-the-13th-t3-competition">the winner</a>of
+the Feb 2014 T3 competition.</p>
+</div>
+<div class="section" id="equipment-you-will-need">
+<h2>Equipment you will need<a class="headerlink" href="#equipment-you-will-need" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ardupilot.org/plane/index.html">Plane</a> or
+<a class="reference external" href="https://ardupilot.org/copter/index.html#home" title="(in Copter)"><span class="xref std std-ref">Multicopter</span></a></p>
+<p>A digital still camera:</p>
+<p><a class="reference external" href="http://chdk.wikia.com/wiki/For_Developers">Canon cameras capable of CHDK</a> including the S100,
+S110, Elph 110 HS and SX230HS</p>
+<p>Other camera types including Canon ELPH 520 HS (not CHDK capable) with
+some method of triggering the camera shutter</p>
+<p>GoPro cameras are not recommended because of their fish-eye lenses</p>
+<p>A downward facing <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">gimbal</span></a> or hard
+mount to attach a camera to the vehicle.</p>
+</div>
+<div class="section" id="sample-mission">
+<h2>Sample Mission<a class="headerlink" href="#sample-mission" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/3dMapping_FlightPlanExample.jpg"><img alt="../_images/3dMapping_FlightPlanExample.jpg" src="../_images/3dMapping_FlightPlanExample.jpg" /></a>
+<p>A good 3d rendering can be accomplished with 60 ~ 100 still pictures.
+There should be at least 65% overlap between consecutive pictures but
+aiming for 80% or even higher is recommended.  The aerial photographs
+can also be combined with photos taken from the ground.</p>
+<p>The altitude of the mission depends upon the subject.  For large flat
+areas, flying 40m ~ 80m above the surface should provide very detailed
+images (and thus a detailed final product) but for buildings flying
+higher (i.e. 100m above the building) reduces distortion.</p>
+<p>It is recommended to fly a mission that is made up of parallel tracks
+with each track between 25m and 100m apart.  The higher the vehicle, the
+wider apart the tracks can be.  In general you should aim for 65%
+overlap in pictures from adjacent tracks.</p>
+<p>The camera shutter needs to be triggered throughout the mission (i.e
+every 2 to 5 seconds or at regular distance intervals).  Many cameras
+include a feature to take pictures at regular time intervals.  <a class="reference external" href="http://chdk.wikia.com/wiki/User_Written_Scripts">Canon cameras loaded with CHDK can run a script</a> that does
+this.  Alternatively <a class="reference internal" href="common-chdk-camera-control-tutorial.html#common-chdk-camera-control-tutorial"><span class="std std-ref">Copter/Plane/Rover can trigger a Canon CHDK camera at timed or distance based intervals</span></a>.</p>
+<p>A mission to accomplish this would include some or all of these
+commands:</p>
+<p><strong>TAKEOFF</strong> - will cause the vehicle to climb straight to the target
+altitude provided in the “Alt” column (normally in meters)</p>
+<p><strong>WAYPOINT</strong> - provide as many waypoints as required to fly over the
+scene in a grid pattern.  Altitude should be entered in the “Alt”
+column.  Adding “1” to the “Delay” columns will cause the copter to
+momentarily stop at each waypoint.</p>
+<p><strong>DO_DIGICAM_CONTROL</strong> will cause the camera shutter to be pushed once
+immediately if the APM/Pixhawk have been connected using CHDK or a
+servo.  This command takes no arguments and like other “do” commands it
+executes immediately after the preceding waypoint command begins.</p>
+<p><strong>DO_TRIGG_DISTANCE</strong> is the same as do-digicam-control (above) except
+the camera shutter will trigger every X meters.  Where X can be defined
+in the first column labelled “Dist (m)”.  Note: in AC3.1.2 there is no
+mission command to stop the command from running so the shutter will be
+triggered continuously until the vehicle is switched out of AUTO mode.</p>
+<p><strong>RETURN_TO_LAUNCH</strong> should be the last command in the mission so the
+vehicles returns home.</p>
+<p><strong>DO_SET_ROI</strong> can be used to point the nose of the vehicle and gimbal
+at a specific point on the map.</p>
+<a class="reference external image-reference" href="../_images/3dMapping_MPFlightPlanExample.jpg"><img alt="../_images/3dMapping_MPFlightPlanExample.jpg" src="../_images/3dMapping_MPFlightPlanExample.jpg" /></a>
+</div>
+<div class="section" id="recommended-desktop-3d-mapping-software">
+<h2>Recommended Desktop 3d mapping software<a class="headerlink" href="#recommended-desktop-3d-mapping-software" title="Permalink to this headline">¶</a></h2>
+<p>MicMac based toolchain together with
+(<a class="reference external" href="http://fiji.sc/">ImageJ/Fiji</a>, <a class="reference external" href="https://qgis.org/en/site/">QGIS</a>,
+<a class="reference external" href="https://sourceforge.net/projects/saga-gis/">SAGA GIS</a>): open source
+and free!</p>
+<p><a class="reference external" href="http://ccwu.me/vsfm/">VisualSFM</a> : free for non-commercial use</p>
+<p><a class="reference external" href="http://www.agisoft.com/">Agisoft Photscan</a> : $179 for the
+standard edition, $3,499 for the pro edition including georeferencing,
+orthopotos, etc</p>
+<p><a class="reference external" href="https://www.pix4d.com/">Pix4d</a> : 6500 euros or 260 euros per month</p>
+<p><a class="reference external" href="http://opendronemap.github.io/odm/">OpenDroneMap</a> : open source and
+free! (<a class="reference external" href="https://www.youtube.com/watch?v=e2qp3o8caPs">user intro video</a>)</p>
+<p>All of these software packages work in generally the same way in that
+they consume the still images you’ve taken from the vehicle (and you may
+also choose to add pictures taken by hand from the ground as well) and
+produce a 3d image (in what format?).  This is accomplished by
+automatically matching up the images, it does not rely upon knowing the
+actual location from where the image was taken.</p>
+</div>
+<div class="section" id="sharing-your-model">
+<h2>Sharing your model<a class="headerlink" href="#sharing-your-model" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://sketchfab.com/">Sketchfab</a> allows you to upload your
+completed 3d models so that others can interactively view the model in
+their web browsers.  Click on the image at the top of the blog post to
+see an example.</p>
+<p><a class="reference external" href="http://threejs.org/">Three.js</a> allows you to provide 3D models on
+your own webpage.</p>
+<p><a class="reference external" href="https://www.blender.org/">Blender</a> can be used to create video files
+of virtual fly throughs of the 3d model which can then be posted to
+YouTube.  Here is an example by
+<a class="reference external" href="http://www.diydrones.com/profile/Richard721">Richard</a>.</p>
+<p><a class="reference external" href="https://dronemapper.com/">Dronemapper</a> allows uploading and managing
+raw images.</p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/MlON0X_nxBw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="additional-resources-and-examples">
+<h2>Additional resources and Examples<a class="headerlink" href="#additional-resources-and-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.diydrones.com/profiles/blogs/t3-season-2-the-model">T3 season 2 - “the model” blog post</a>
+and <a class="reference external" href="https://www.diydrones.com/profiles/blogs/announcing-the-winner-of-the-13th-t3-competition">winner announcement</a></li>
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/the-fallen-blockhouse-t3-entry">Sylvain’s “fallen blockhouse” T3 entry blog post</a></li>
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/3d-reconstruction-of-largest-hallstatt-tumulus-grave-in-central">Thorsten’s “resconstruction of largest hallstatt tumulus grave” T3 entry blog post</a></li>
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/apm-octocopter-build-and-mission">Stephen Gienow’s “Octocopter scan of UMBC” T3 entry blog post</a></li>
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/krasiczyn-castle-3d-model-poland">Krasiczyn Castle 3D model, Poland</a></li>
+<li><a class="reference external" href="http://prebut.free.fr/">MyDrone’s “Buisante Chapel” T3 entry</a></li>
+<li><a class="reference external" href="https://www.mapbox.com/blog/processing-drone-imagery/">Creating Maps from Drone Imagery - 3DRobotics and Aero drone</a></li>
+<li><a class="reference external" href="http://wiki.ecosynth.org/index.php?title=Main_Page">Ecosynth wiki - a suite of tools used to map vegetation in 3d using
+off-the-shelf digital cameras and open-source computer vision software</a></li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-web-apps.html" class="btn btn-neutral float-right" title="Web Apps" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-use-cases-and-applications.html" class="btn btn-neutral" title="Use-Cases and Applications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=3d Mapping&amp;body=[3d Mapping](https://ardupilot.org/copter/docs/common-3d-mapping.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

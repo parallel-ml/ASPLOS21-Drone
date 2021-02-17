@@ -1,0 +1,587 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Optitrack for Non-GPS Navigation &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Non-GPS Navigation" href="common-non-gps-navigation-landing-page.html"/>
+        <link rel="next" title="Pozyx for Non-GPS Navigation" href="common-pozyx.html"/>
+        <link rel="prev" title="OpenMV for Optical Flow" href="common-openmv-optflow.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-rcoutput-mapping.html">Autopilot Output Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotune.html">AutoTune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-auxiliary-functions.html">Auxiliary Function Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel-7-and-8-options.html">Auxiliary Function Switches (3.6 and earlier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-temp-comp.html">Baro Temperature Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boat-mode.html">Boat mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-bootloader-update.html">Bootloader Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-canbus-setup-advanced.html">CAN Bus Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-setup-advanced.html">Compass Setup (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current-limiting-and-voltage-scaling.html">Current Limiting and Voltage Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-dshot.html">Brushless ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html">Extended Kalman Filter (EKF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geofencing-landing-page.html">Fence Failsafes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-flight-time-recorder.html">Flight Time Recorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-FPort-receivers.html">FPort Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gpios.html">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gps-for-yaw.html">GPS for Yaw (aka Moving Baseline)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gcs-only-operation.html">Ground Control Station Only Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ground-effect-compensation.html">Ground Effect Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FFT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lua-scripts.html">LUA Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Packet Signing (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-vio-tracking-camera.html">Intel RealSense T265</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-marvelmind.html">MarvelMind Beacons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">    Optical Flow</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OptiTrack motion capture system</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#required-hardware">Required hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#motion-capture-system-setup">Motion capture system setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#required-softwares">Required softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-the-drone">Prepare the drone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-the-drone">Configuration the drone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#send-data-to-the-drone">Send data to the drone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ground-testing">Ground testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-testing">Flight testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-pozyx.html">Pozyx Beacons</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://ardupilot.org/dev/docs/ros-cartographer-slam.html">ROS with Google Cartographer (Developers only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vicon-for-nongps-navigation.html">Vicon Positioning System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-zed.html">Visual Odometry with OpenKai and ZED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-to-gps.html">GPS/Non-GPS Transitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-ntf-devices.html">Notification Devices (LEDs,Buzzer,etc.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensor-setup.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Parameter List (Full)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-parameter-reset.html">Parameter Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rcmap.html">RC Input Channel Mapping (RCMAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-options.html">RC Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Configuration and Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-offset-compensation.html">Sensor Position Offset Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-testing.html">Sensor Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-passthrough.html">Serial Port to Port Passthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-options.html">Serial Port Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-port-setup.html">Telemetry Port Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following (Autonomous modes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-setup-advanced.html">UAVCAN Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ublox-gps.html">UBlox GPS Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="copter-flight-features.html">Flight Features</a> &raquo;</li>
+      
+          <li><a href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a> &raquo;</li>
+      
+    <li>Optitrack for Non-GPS Navigation</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-optitrack.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="optitrack-for-non-gps-navigation">
+<span id="common-optitrack"></span><h1>Optitrack for Non-GPS Navigation<a class="headerlink" href="#optitrack-for-non-gps-navigation" title="Permalink to this headline">¶</a></h1>
+<p>This article explains how a <a class="reference external" href="https://optitrack.com/">OptiTrack</a> motion catpure system can be used as a short-range substitute for a GPS allowing position control modes like Loiter, Guided, RTL, and Auto indoors.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is an new feature released in Copter-3.6 and currently only supported in EKF2.</p>
+</div>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/IocykCXJmhw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="section" id="required-hardware">
+<h2>Required hardware<a class="headerlink" href="#required-hardware" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to OptiTrack <a class="reference external" href="https://optitrack.com/systems/">build your own</a> tool for all hardware required to setup a motion capture system.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In order to track the both location and orientation of a drone, you need at least 4 markers.</p>
+</div>
+</div>
+<div class="section" id="motion-capture-system-setup">
+<h2>Motion capture system setup<a class="headerlink" href="#motion-capture-system-setup" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to OptiTrack <a class="reference external" href="https://v20.wiki.optitrack.com/index.php?title=Quick_Start_Guide:_Getting_Started">quick start guides</a> for hardware and software setup. When you set the ground plane, do not forget to mark the origin and the axis. The positive X will point to the “north” of our indoor flight environment (because we do not use compass, it do not need pointing to the real/magnetic north)</p>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/optitrack_mark_ground_plane.jpg"><img alt="../_images/optitrack_mark_ground_plane.jpg" src="../_images/optitrack_mark_ground_plane.jpg" /></a>
+<p class="caption"><span class="caption-text">Mark motion capture system coordinate system using tape</span></p>
+</div>
+</div>
+<div class="section" id="required-softwares">
+<h2>Required softwares<a class="headerlink" href="#required-softwares" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://optitrack.com/products/motive/tracker/">Motive:Tracker</a></li>
+<li><a class="reference external" href="https://optitrack.com/products/natnet-sdk/">NatNet SDK</a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/MissionPlanner">Mission Planner source</a></li>
+</ul>
+</div>
+<div class="section" id="prepare-the-drone">
+<h2>Prepare the drone<a class="headerlink" href="#prepare-the-drone" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is highly recommended that use small drone for indoor flight and deploy cage in your test flight enviorment.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you are looking for a small drone for indoor flight test, Skyviper V2450 GPS drone or its successor journey GPS drone is a good choice. It is very affordable and running ArduPilot out-of-box. You can easily flash it wit custom build ArduPilot. If you perfer custom build small drone, there is a very good discuss <a class="reference external" href="https://discuss.ardupilot.org/t/microarducopter-3-props-omnibus-nano-success/32568?u=chobitsfan">here</a>. The RTF quadcopter frame used in another example video is available from <a class="reference external" href="https://goods.ruten.com.tw/item/show?21806678027603">sdmodel</a>.</p>
+</div>
+<p>First, you need to place markers on the drone. It is very important to place markers so that they form a stereoscopic, asymmetrical shape. Please refer to OptiTrack <a class="reference external" href="https://v20.wiki.optitrack.com/index.php?title=Rigid_Body_Tracking#Rigid_Body_Marker_Placement">rigid body marker placement</a> for details.</p>
+<div class="figure" id="id2">
+<a class="reference external image-reference" href="../_images/optitrack_place_markers.jpg"><img alt="../_images/optitrack_place_markers.jpg" src="../_images/optitrack_place_markers.jpg" /></a>
+<p class="caption"><span class="caption-text">Place markers on the drone</span></p>
+</div>
+<p>Then, put the drone in the ground plane and align it with X axis of motion capture system. The drone should heading to positive X direction.</p>
+<div class="figure" id="id3">
+<a class="reference external image-reference" href="../_images/optitrack_drone_align_x.jpg"><img alt="../_images/optitrack_drone_align_x.jpg" src="../_images/optitrack_drone_align_x.jpg" /></a>
+<p class="caption"><span class="caption-text">Align the drone with X axis</span></p>
+</div>
+<p>Select all markers in Motive and create a rigid body from them. Please refer to OptiTrack <a class="reference external" href="https://v20.wiki.optitrack.com/index.php?title=Rigid_Body_Tracking#Creating_Rigid_Body">creating rigid body</a> for details</p>
+</div>
+<div class="section" id="configuration-the-drone">
+<h2>Configuration the drone<a class="headerlink" href="#configuration-the-drone" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>set <a class="reference internal" href="parameters.html#ahrs-ekf-type"><span class="std std-ref">AHRS_EKF_TYPE</span></a> to 2 and <a class="reference internal" href="parameters.html#ek2-enable"><span class="std std-ref">EK2_ENABLE</span></a> to 1. Currently, external navigation is only supported in EKF2</li>
+<li>set <a class="reference internal" href="parameters.html#compass-use"><span class="std std-ref">COMPASS_USE</span></a>, <a class="reference internal" href="parameters.html#compass-use2"><span class="std std-ref">COMPASS_USE2</span></a>, <a class="reference internal" href="parameters.html#compass-use3"><span class="std std-ref">COMPASS_USE3</span></a> to 0. It makes ardupilot use orientation from motion capture system rather than compass, because there are many source casue electromagnetic interference in indoor enviorment</li>
+<li>set <a class="reference internal" href="parameters.html#ek2-gps-type"><span class="std std-ref">EK2_GPS_TYPE</span></a> to 3 and <a class="reference internal" href="parameters.html#gps-type"><span class="std std-ref">GPS_TYPE</span></a> to 0 to disable the GPS</li>
+<li>set <a class="reference internal" href="parameters.html#ek2-posne-m-nse"><span class="std std-ref">EK2_POSNE_M_NSE</span></a> to 0.1 or lower to increase the weighting of position measurements from motion capture system.</li>
+</ul>
+</div>
+<div class="section" id="send-data-to-the-drone">
+<h2>Send data to the drone<a class="headerlink" href="#send-data-to-the-drone" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<a class="reference external image-reference" href="../_images/optitrack_example_system.jpg"><img alt="../_images/optitrack_example_system.jpg" src="../_images/optitrack_example_system.jpg" /></a>
+<p class="caption"><span class="caption-text">Example system block diagram</span></p>
+</div>
+<p>We need to modify NatNet SDK sample code and use it to read and send position data to the drone. Open Samples/NatNetSamples.sln, add all .cs files in MissionPlanner/ExtLibs/Mavlink/ (Mavlink.cs, MavlinkMessage.cs, MavlinkCRC.cs, etc) to the project called SampleClientML. You may need to change target framework to 4.6.1 and select “allow unsafe code” in project properties.</p>
+<p>In SampleClientML.cs, modify or add following code</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net.Sockets</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">SampleClientML</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="n">IPEndPoint</span> <span class="n">drone_ep</span> <span class="p">=</span> <span class="k">new</span> <span class="n">IPEndPoint</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;192.168.99.1&quot;</span><span class="p">),</span> <span class="m">14550</span><span class="p">);</span> <span class="c1">//assume your drone is connected to PC running SampleClientML through wifi and its ip is 192.168.99.1</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Socket</span> <span class="n">mavSock</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Socket</span><span class="p">(</span><span class="n">AddressFamily</span><span class="p">.</span><span class="n">InterNetwork</span><span class="p">,</span> <span class="n">SocketType</span><span class="p">.</span><span class="n">Dgram</span><span class="p">,</span> <span class="n">ProtocolType</span><span class="p">.</span><span class="n">Udp</span><span class="p">);</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="n">MAVLink</span><span class="p">.</span><span class="n">MavlinkParse</span> <span class="n">mavlinkParse</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MAVLink</span><span class="p">.</span><span class="n">MavlinkParse</span><span class="p">()</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Stopwatch</span> <span class="n">stopwatch</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">stopwatch</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stopwatch</span><span class="p">();</span>
+        <span class="n">stopwatch</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>inside function <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">fetchFrameData(NatNetML.FrameOfMocapData</span> <span class="pre">data,</span> <span class="pre">NatNetML.NatNetClientML</span> <span class="pre">client)</span></code></p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">iFrame</span> <span class="p">%</span> <span class="m">4</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="c1">//camera 120 fps, but ardupilot limit data rate to 70ms. I found 30hz is enough (in case some packet lost)</span>
+</pre></div>
+</div>
+<p>inside function <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">processFrameData(NatNetML.FrameOfMocapData</span> <span class="pre">data)</span></code></p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">rbData</span><span class="p">.</span><span class="n">Tracked</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">long</span> <span class="n">cur_ms</span> <span class="p">=</span> <span class="n">stopwatch</span><span class="p">.</span><span class="n">ElapsedMilliseconds</span><span class="p">;</span>
+    <span class="n">MAVLink</span><span class="p">.</span><span class="n">mavlink_att_pos_mocap_t</span> <span class="n">att_pos</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MAVLink</span><span class="p">.</span><span class="n">mavlink_att_pos_mocap_t</span><span class="p">();</span>
+    <span class="n">att_pos</span><span class="p">.</span><span class="n">time_usec</span> <span class="p">=</span> <span class="p">(</span><span class="kt">ulong</span><span class="p">)(</span><span class="n">cur_ms</span> <span class="p">*</span> <span class="m">1000</span><span class="p">);</span>
+    <span class="n">att_pos</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">rbData</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="c1">//north</span>
+    <span class="n">att_pos</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">rbData</span><span class="p">.</span><span class="n">z</span><span class="p">;</span> <span class="c1">//east</span>
+    <span class="n">att_pos</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="p">-</span><span class="n">rbData</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="c1">//down</span>
+    <span class="n">att_pos</span><span class="p">.</span><span class="n">q</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">float</span><span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="p">{</span> <span class="n">rbData</span><span class="p">.</span><span class="n">qw</span><span class="p">,</span> <span class="n">rbData</span><span class="p">.</span><span class="n">qx</span><span class="p">,</span> <span class="n">rbData</span><span class="p">.</span><span class="n">qz</span><span class="p">,</span> <span class="p">-</span><span class="n">rbData</span><span class="p">.</span><span class="n">qy</span> <span class="p">};</span>
+    <span class="kt">byte</span><span class="p">[]</span> <span class="n">pkt</span> <span class="p">=</span> <span class="n">mavlinkParse</span><span class="p">.</span><span class="n">GenerateMAVLinkPacket20</span><span class="p">(</span><span class="n">MAVLink</span><span class="p">.</span><span class="n">MAVLINK_MSG_ID</span><span class="p">.</span><span class="n">ATT_POS_MOCAP</span><span class="p">,</span> <span class="n">att_pos</span><span class="p">);</span>
+    <span class="n">mavSock</span><span class="p">.</span><span class="n">SendTo</span><span class="p">(</span><span class="n">pkt</span><span class="p">,</span> <span class="n">drone_ep</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The coordinate system of both Motive and ArduPilot are right-handed. While Z axis of ArduPilot is pointing down, Y axis of Motive is pointing up.</p>
+</div>
+<p>Save and build the project</p>
+</div>
+<div class="section" id="ground-testing">
+<h2>Ground testing<a class="headerlink" href="#ground-testing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Connect the drone to a ground station</li>
+<li>Start Motive and make sure <a class="reference external" href="https://v20.wiki.optitrack.com/index.php?title=Data_Streaming">data streaming</a> is turned on, then start SampleClientML.exe we just build.</li>
+<li>If you see following message in ground station console (initial pos may vary), then the drone should be ready for flight test</li>
+</ul>
+<p><em>EKF2 IMU0 is using external nav data
+EKF2 IMU0 initial pos NED = 0.1,-0.2,0.0 (m)
+EKF2 IMU0 ext nav yaw alignment complete</em></p>
+</div>
+<div class="section" id="flight-testing">
+<h2>Flight testing<a class="headerlink" href="#flight-testing" title="Permalink to this headline">¶</a></h2>
+<p>Take off in AltHold mode and maintain a stable hover. Switch to Loiter but be ready to switch back to AltHold or Stabilize if the vehicle’s position or altitude becomes unstable.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In order to take off in guided or auto mode, you need to use <a class="reference external" href="https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN">GPS_GLOBAL_ORIGIN</a> to set the GPS location of motion capture system origin. It is not need to be accurate, any valid lat/lng is ok.</p>
+</div>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/JKzuaVQZclI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-pozyx.html" class="btn btn-neutral float-right" title="Pozyx for Non-GPS Navigation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-openmv-optflow.html" class="btn btn-neutral" title="OpenMV for Optical Flow" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Optitrack for Non-GPS Navigation&amp;body=[Optitrack for Non-GPS Navigation](https://ardupilot.org/copter/docs/common-optitrack.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

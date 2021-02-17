@@ -1,0 +1,1016 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Future Wiki Changes (in Master branch now) &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Items in Master Branch Only" href="common-master-features.html"/>
+        <link rel="next" title="User Alerts" href="common-user-alerts.html"/>
+        <link rel="prev" title="Yaapu FrSky GCS using FrSky Bi-Directional Telemetry" href="common-yaapu-gcs.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-master-features.html">Upcoming Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-buttons.html">Button Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compassless.html">Compass-less Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-to-gps.html">GPS/Non-GPS Transitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imutempcal.html">IMU Temperature Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FTT and filter control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-hott-telemetry.html">Hott Telem (already in Plane release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lightware-sf45b.html">Lightware SF45/B (350 degree)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-msp-osd-overview.html">MSP OSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-msp-overview.html">MSP (MultiWii Serial Protocol)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-nooploop.html">Nooploop Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-paramosd.html">OSD Parameter Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-generators.html">Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-velocity-can-escs.html">Velocity ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-yaapu-gcs.html">Yaapu Bi-Directional Telemetry GCS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Other wiki changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-wiki-pages">COMMON WIKI PAGES</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rcx-options-on-auxillary-functions-page">RCx_OPTIONs on Auxillary Functions Page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serial-port-protocol-options">Serial Port Protocol Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-mapping-page-under-quadplane-functions">Output Mapping Page under QuadPlane Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-options-page">RC Options Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lua-scripting-common-lua-scripts">LUA Scripting (common-lua-scripts)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-common-downloading-and-analyzing-data-logs-in-mission-planner">Logging (common-downloading-and-analyzing-data-logs-in-mission-planner)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-gyro-noise-with-the-static-notch-and-dynamic-harmonic-notch-filters-common-imu-notch-filtering">Managing Gyro Noise with the Static Notch and Dynamic Harmonic Notch Filters(common-imu-notch-filtering)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#srxl2-and-crsf-rx-protocol-additions">SRXL2 and CRSF RX Protocol Additions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-setup-page">Advanced Setup Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firmware-limitations-section-common-autopilots-rst">Firmware Limitations Section (common-autopilots.rst)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#msp-protocol-and-osd">MSP Protocol and OSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integrated-osd-page">Integrated OSD page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bidirectional-dshot-and-blheli-s-passthrough">BiDirectional DSHOT and BLHeli_S Passthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#plane">PLANE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-quadplane-flying-page">On Quadplane Flying Page:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-forward-throttle-in-vtol-modes">Manual Forward Throttle in VTOL Modes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-quadplane-parameters-page">On QuadPlane Parameters page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-terrain-following-page">On Terrain Following Page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-dspoiler-page">On Dspoiler Page:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#crow-mode-switch">Crow Mode Switch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-soaring-page">On Soaring page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-automatic-landing-page">On Automatic Landing page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-tilt-rotors-and-tailsitters-pages">On Tilt Rotors and Tailsitters pages:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-tilt-rotors-page">On Tilt Rotors page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-tailsitters-page-under-vectored-thrust">On Tailsitters page, under Vectored Thrust:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-tailsitters-page-under-tailsitter-configuration">On Tailsitters page, under Tailsitter Configuration:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-airspeed-calibration-page">On Airspeed Calibration Page</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#miscalibration-safeguards">Miscalibration Safeguards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-quadplane-tips-page">On Quadplane Tips Page:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#copter">Copter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-bendyruler-page">On BendyRuler page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-airmode-page">On AIRMODE  page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-auto-mode-page">On AUTO mode page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-acro-mode-page">On ACRO mode page:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-circle-mode-page">On Circle mode page:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rover">Rover</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fences">Fences</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-master-features.html">Items in Master Branch Only</a> &raquo;</li>
+      
+    <li>Future Wiki Changes (in Master branch now)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-future-wiki-changes.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="future-wiki-changes-in-master-branch-now">
+<span id="common-future-wiki-changes"></span><h1>Future Wiki Changes (in Master branch now)<a class="headerlink" href="#future-wiki-changes-in-master-branch-now" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="common-wiki-pages">
+<h2>COMMON WIKI PAGES<a class="headerlink" href="#common-wiki-pages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rcx-options-on-auxillary-functions-page">
+<h3>RCx_OPTIONs on Auxillary Functions Page:<a class="headerlink" href="#rcx-options-on-auxillary-functions-page" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="36%" />
+<col width="13%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>RCx_OPTION value</strong></td>
+<td><strong>Feature Description</strong></td>
+<td><strong>Copter</strong></td>
+<td><strong>Plane</strong></td>
+<td><strong>Rover</strong></td>
+</tr>
+<tr class="row-even"><td>78</td>
+<td>RunCam Control</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>79</td>
+<td>RunCam OSD Control</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>80</td>
+<td>Viso Align</td>
+<td>X</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>81</td>
+<td>Disarm</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>82</td>
+<td>Q_Assist 3Pos Sw</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>83</td>
+<td>ZIGZAG Auto</td>
+<td>X</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>84</td>
+<td>AIRMODE(not a flight mode)</td>
+<td>X</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>85</td>
+<td>Generator</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>86</td>
+<td>Non Auto Terrain Follow
+Disable</td>
+<td>&#160;</td>
+<td>x</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>87</td>
+<td>CROW Mode Switch</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>88</td>
+<td>Soaring Enable</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>89</td>
+<td>Force Flare</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>90</td>
+<td>EKF Position Source</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>91</td>
+<td>Airspeed Ratio Calibrate</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>92</td>
+<td>FBWA Mode</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>105</td>
+<td>GPS Disable Yaw
+(testing only!)</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>209</td>
+<td>Forward Throttle</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>210</td>
+<td>Airbrakes</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>300-307</td>
+<td>Scripting RC channels</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr></td>
+<tr>
+<td><strong>ZigZag Mode Learn Waypoints</strong></td>
+<td><p>Sets zigzag point A and B. See <a class="reference internal" href="zigzag-mode.html#zigzag-mode"><span class="std std-ref">ZigZag Mode</span></a> .</p>
+</td>
+</tr>
+<tr>
+
+<td><strong>RunCam Control</strong></td>
+<td><p>Allows starting and stopping video recording of compatible RunCam cameras. See <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>RunCam OSD Control</strong></td>
+<td><p>Enables control of RunCam cameras OSDs. See <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Viso Align</strong></td>
+<td><p>Align T265 Visual Odometry camera attitude to vehicle’s.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Disarm</strong></td>
+<td><p>Disarm vehicle unconditionally and immediately. Unlike Emergency Stop Motors, which waits for <a class="reference internal" href="parameters.html#disarm-delay"><span class="std std-ref">DISARM_DELAY</span></a> in Copter.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Q_Assist 3Pos SW</strong></td>
+<td><p>Low: disable Q_Assist entirely, Middle: Normal Q_Assist operation, High: Q_Assist active at all times. See Assisted Fixed Wing Flight section of <a class="reference external" href="https://ardupilot.org/plane/docs/quadplane-flying.html#quadplane-flying" title="(in Plane)"><span>Flying a QuadPlane</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>ZigZag Mode Auto Enable</strong></td>
+<td><p>Enable automatic zigzag and sprayer in ZIGZAG mode. See <a class="reference internal" href="zigzag-mode.html#zigzag-mode"><span class="std std-ref">ZigZag Mode</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>AIRMODE (not a regular flight mode)</strong></td>
+<td><p>Enables and disables AIRMODE feature. See <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>GPS Disable Yaw</strong></td>
+<td><p>Disables yaw for testing (advanced users only!)</p>
+</td>
+</tr>
+   <tr>
+<td><Generator</strong></td>
+<td><p>Mode control for Richenpower Hybrid Power Generator</p>
+</td>
+</tr>
+<tr>
+<td><strong>Non Auto Terrain Follow Disable</strong></td>
+<td><p>Disables Terrain Following in CRUISE and FBWB modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>CROW Mode Switch</strong></td>
+<td><p>Selects between different CROW aileron operating modes</p>
+</td>
+</tr>
+   <tr>
+<td><strong>Soaring Enable</strong></td>
+<td><p>Enables Soaring function operating modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>Force Flare</strong></td>
+<td><p>Moves tilt motors to upright position and optionally sets pitch for flare when landing Tilt Rotor Quadplanes. Middle: Pilot retains pitch control during flare. High: Pitch set to <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#land-pitch-cd" title="(in Plane)"><span class="xref std std-ref">LAND_PITCH_CD</span></a>.</p>
+</td>
+</tr>
+   <tr>
+<td><strong>EKF Position Source</strong></td>
+<td><p>Allows switching between up to three source sets manually for EKF3 (only). See <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">GPS / Non-GPS Transitions</span></a></p>
+</td>
+</tr>
+   <tr>
+<td><strong>Airspeed Ratio Calibrate</strong></td>
+<td><p>Activates calibration of airspeed ratio in flight. Best results occur while executing course changes over 360 degrees over time, as in LOITER mode. See <a class="reference external" href="https://ardupilot.org/plane/docs/calibrating-an-airspeed-sensor.html#calibrating-an-airspeed-sensor" title="(in Plane)"><span>Calibrating an Airspeed Sensor</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Kill IMU1 </strong></td>
+<td><p>Disables IMU1 for testing (advanced users only!)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Kill IMU2 </strong></td>
+<td><p>Disables IMU2 for testing (advanced users only!)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Forward Throttle </strong></td>
+<td><p>Manual forward motor throttle in QSTABILIZE, QACRO, and QHOVER modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>Airbrakes </strong></td>
+<td><p>Controls deployment of <a class="reference external" href="https://ardupilot.org/plane/docs/airbrakes-on-plane.html#airbrakes-on-plane" title="(in Plane)"><span class="xref std std-ref">Airbrakes</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Scripting RC channels </strong></td>
+<td><p>Allows reading a dedicated RC channel for script inputs</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="serial-port-protocol-options">
+<h3>Serial Port Protocol Options<a class="headerlink" href="#serial-port-protocol-options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Value</th>
+<th>Protocol</th>
+</tr>
+
+<tr>
+<td>26</td>
+<td><p>Runcam see <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td>28</td>
+<td><p>Scripting see <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">Lua Scripts</span></a></p>
+</td>
+</tr>
+
+</tbody>
+</table></div>
+<div class="section" id="output-mapping-page-under-quadplane-functions">
+<h3>Output Mapping Page under QuadPlane Functions<a class="headerlink" href="#output-mapping-page-under-quadplane-functions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="4%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Tilt Motor Rear</td>
+<td>45</td>
+<td>QuadPlane</td>
+</tr>
+<tr class="row-even"><td>Tilt Motor Rear Left</td>
+<td>46</td>
+<td>QuadPlane</td>
+</tr>
+<tr class="row-odd"><td>Tilt Motor Rear Right</td>
+<td>47</td>
+<td>QuadPlane</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>change title of explanations from “Motor Tilt/ Tilt Motor Left/ Tilt Motor Right” to “Tilt Motor/ Tilt Motor Left/ Tilt Motor Right/ Tilt Motor Rear/ Tilt Motor Rear Left/ Tilt Motor Rear Right”</li>
+</ul>
+</div>
+<div class="section" id="rc-options-page">
+<h3>RC Options Page<a class="headerlink" href="#rc-options-page" title="Permalink to this headline">¶</a></h3>
+<p>Add to table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><a class="reference internal" href="parameters.html#rc-options"><span class="std std-ref">RC_OPTIONS</span></a> bit</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4</td>
+<td>Log RC raw RC input bytes for serial protocols</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Require Throttle input at idle position in order to arm</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Allows arming if the rudder,elevator, or aileron
+stick is not neutral</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>Allow Aux Switches to honor the <code class="docutils literal notranslate"><span class="pre">RCx_REVERSED</span></code> parameter</td>
+</tr>
+</tbody>
+</table>
+<p>Add section at end:</p>
+<p>There is also an <a class="reference internal" href="parameters.html#rc-protocols"><span class="std std-ref">RC_PROTOCOLS</span></a> bitmask that can be used to restrict which RC protocols are detected and used. This is useful in cases where the RC protocol autodetection fails and an incorrect RC protocol handler is chosen. This is rare, but if you do find it happens then you can lock in a single RC protocol that can be detected and used with this parameter.</p>
+</div>
+<div class="section" id="lua-scripting-common-lua-scripts">
+<h3>LUA Scripting (common-lua-scripts)<a class="headerlink" href="#lua-scripting-common-lua-scripts" title="Permalink to this headline">¶</a></h3>
+<p>see <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/2839">Wiki PR #2839</a>  many new bindings</p>
+<p>add to “Getting Started”:</p>
+<ul class="simple">
+<li>Scripts which require no user editing before use (Applets) can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets">here</a> . Each of these have an .md file of the same name detailing its capabilities, use and setup. For example, there is a script to allow a user to change a SmartAudio capable video transmitter’s output power level from a transmitter channel and set its power-up value via parameter.</li>
+<li>Up to 8 RC channels can be assigned as scripting inputs/controls using the``RCX_OPTION`` = “300-307” options. In addition, four dedicated script parameters are avaliable: <a class="reference internal" href="parameters.html#scr-user1"><span class="std std-ref">SCR_USER1</span></a> thru <a class="reference internal" href="parameters.html#scr-user4"><span class="std std-ref">SCR_USER4</span></a> and are accessed with the same method as any other parameter, but these are reserved for script use.</li>
+</ul>
+</div>
+<div class="section" id="logging-common-downloading-and-analyzing-data-logs-in-mission-planner">
+<h3>Logging (common-downloading-and-analyzing-data-logs-in-mission-planner)<a class="headerlink" href="#logging-common-downloading-and-analyzing-data-logs-in-mission-planner" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="parameters.html#log-file-mb-free"><span class="std std-ref">LOG_FILE_MB_FREE</span></a> : This parameter sets the minimum free space on the logging media before logging begins. If this is not available, then older logs will be deleted to provide it during initialization. Default is 500MB.</p>
+</div>
+<div class="section" id="managing-gyro-noise-with-the-static-notch-and-dynamic-harmonic-notch-filters-common-imu-notch-filtering">
+<h3>Managing Gyro Noise with the Static Notch and Dynamic Harmonic Notch Filters(common-imu-notch-filtering)<a class="headerlink" href="#managing-gyro-noise-with-the-static-notch-and-dynamic-harmonic-notch-filters-common-imu-notch-filtering" title="Permalink to this headline">¶</a></h3>
+<p>see <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/2901">Wiki PR #2901 &lt;</a> improved notch filtering operation</p>
+</div>
+<div class="section" id="srxl2-and-crsf-rx-protocol-additions">
+<h3>SRXL2 and CRSF RX Protocol Additions<a class="headerlink" href="#srxl2-and-crsf-rx-protocol-additions" title="Permalink to this headline">¶</a></h3>
+<p>see <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/2905">Wiki PR #2905</a></p>
+<p>update Common-RC-Systems and Common-Autopilot-Wiring pages with links to new pages</p>
+</div>
+<div class="section" id="advanced-setup-page">
+<h3>Advanced Setup Page<a class="headerlink" href="#advanced-setup-page" title="Permalink to this headline">¶</a></h3>
+<p>Add link to <a class="reference external" href="https://ardupilot.org/dev/docs/ek3-affinity-lane-switching.html#ek3-affinity-lane-switching" title="(in Dev)"><span class="xref std std-ref">EKF3 Affinity and Lane Switching</span></a>.</p>
+</div>
+<div class="section" id="firmware-limitations-section-common-autopilots-rst">
+<h3>Firmware Limitations Section (common-autopilots.rst)<a class="headerlink" href="#firmware-limitations-section-common-autopilots-rst" title="Permalink to this headline">¶</a></h3>
+<p>include in the note that OSD-base parameter editing not available on KakuteF7 and OmnibusF7V2 boards.
+include in the note that ADSB is not included in 1MB boards.</p>
+</div>
+<div class="section" id="msp-protocol-and-osd">
+<h3>MSP Protocol and OSD<a class="headerlink" href="#msp-protocol-and-osd" title="Permalink to this headline">¶</a></h3>
+<p>Add link to MSP (MultiWii Serial Protocol) &lt;common-msp-overview&gt; on Telemetry Landing Page, and add to OSD page:</p>
+<p>“MSP protocol allows MSP compatible goggles (like the DJI Air system) to overlay telemetry data directly in the goggle display.”
+and link in TOC to : MSP OSD &lt;common-msp-osd-overview&gt;</p>
+</div>
+<div class="section" id="integrated-osd-page">
+<h3>Integrated OSD page<a class="headerlink" href="#integrated-osd-page" title="Permalink to this headline">¶</a></h3>
+<p>OSD enhancements : <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/3173">OSD Call Sign and Fonts</a></p>
+</div>
+<div class="section" id="bidirectional-dshot-and-blheli-s-passthrough">
+<h3>BiDirectional DSHOT and BLHeli_S Passthrough<a class="headerlink" href="#bidirectional-dshot-and-blheli-s-passthrough" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/3329/files">Bi-Directional DShot</a></p>
+</div>
+</div>
+<div class="section" id="plane">
+<h2>PLANE<a class="headerlink" href="#plane" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-quadplane-flying-page">
+<h3>On Quadplane Flying Page:<a class="headerlink" href="#on-quadplane-flying-page" title="Permalink to this headline">¶</a></h3>
+<p>Change to WARNING box:</p>
+<p>This can be managed somewhat with manual throttle control when manually transitioning, but in AUTO mode, a VTOL to fixed wing transition is currently done with <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tkoff-thr-max" title="(in Plane)"><span class="xref std std-ref">TKOFF_THR_MAX</span></a> p on the forward motor until transition is complete, so very high currents can be experienced..</p>
+<p>Changes to Assisted Fixed-Wing Flight:</p>
+<ul class="simple">
+<li>change From: “To enable quad assistance you should set Q_ASSIST_SPEED parameter to the airspeed below which you want assistance.” To : VTOL motor assistance is enabled if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-assist-speed" title="(in Plane)"><span class="xref std std-ref">Q_ASSIST_SPEED</span></a>, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-assist-alt" title="(in Plane)"><span class="xref std std-ref">Q_ASSIST_ALT</span></a> , or <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-assist-angle" title="(in Plane)"><span class="xref std std-ref">Q_ASSIST_ANGLE</span></a> are non-zero.</li>
+<li>remove: “The attitude assistance will only be used if Q_ASSIST_SPEED greater than zero.”</li>
+<li>add after Q_ASSIST_ALT paragraph: Assistance can also be enabled, disabled, or forced by setting an RC switch to <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 82. If that channel is below  1200us (LOW), then assistance is unconditionally disabled, if above 1800us, (HIGH) then assistance is always enabled. Fot other RC values, assistance will be enabled as explained above.</li>
+</ul>
+<p>Assistance can also be forced active all the time by setting <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 7 to “1”. For Tailsitters, assistance for tailsitters can be limited only to VTOL motors by by setting <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 8 to “1”. This can increase stabiity during assistance by not using the copter style pid gains on the flying surfaces as well as the VTOL motors, or for use with copter tailsitters without servo controlled flying surfaces.</p>
+<ul class="simple">
+<li>add .. note:: Assistance is available for all QuadPlane frame types except the single motor and non-tilt dual motor tailsitter frames.</li>
+</ul>
+<p>Assistance will be activated <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-assist-delay" title="(in Plane)"><span class="xref std std-ref">Q_ASSIST_DELAY</span></a> after any of the above enabling thresholds are reached.</p>
+<p>Add section:</p>
+</div>
+</div>
+<div class="section" id="manual-forward-throttle-in-vtol-modes">
+<h2>Manual Forward Throttle in VTOL Modes<a class="headerlink" href="#manual-forward-throttle-in-vtol-modes" title="Permalink to this headline">¶</a></h2>
+<p>By setting an RC channel option (<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code>) to “209”, that channel can provide a separate throttle input to the forward motor(s) in QSTABILIZE, QACRO, and QHOVER VTOL modes. This allows forward movement without having to tilt the QuadPlane forward requiring throttle stick repositioning in QSTABILIZE and QACRO to maintain altitude, and present more forward flat plate resistance to forward movement in all modes.</p>
+<div class="section" id="on-quadplane-parameters-page">
+<h3>On QuadPlane Parameters page:<a class="headerlink" href="#on-quadplane-parameters-page" title="Permalink to this headline">¶</a></h3>
+<p>-add to Q_OPTIONS description:</p>
+<ul class="simple">
+<li>bit 6, if set, will enforce the ICE idle governor even in MANUAL mode.</li>
+<li>bit 7, if set, will force QASSIST to be active at all times in VTOL modes. See <a class="reference external" href="https://ardupilot.org/plane/docs/quadplane-flying.html#assisted-fixed-wing-flight" title="(in Plane)"><span class="xref std std-ref">Assisted Fixed-Wing Flight</span></a>.</li>
+<li>bit 8, if set, QASSIST will only affect VTOL motors. If not set, QAssist will also use flying surfaces to stabilize(<a class="reference external" href="https://ardupilot.org/plane/docs/quadplane-flying.html#assisted-fixed-wing-flight" title="(in Plane)"><span class="xref std std-ref">Assisted Fixed-Wing Flight</span></a> ).</li>
+<li>bit 9, if set, will enable AirMode (<a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a>) if armed via an RC switch. See <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Functions</span></a> option value 41.</li>
+<li>bit 10, if set, will allow the tilt servos to move with rudder input in vectored tilt setups while disarmed to determine range of motion.</li>
+<li>bit 11, if set, will delay VTOL motor spin up until 2 seconds after arming.</li>
+<li>bit 12, if set, disable speed based Qassist when using synthetic airspeed</li>
+<li>bit 13, if set, will disable Ground Effect Compensation</li>
+</ul>
+</div>
+<div class="section" id="on-terrain-following-page">
+<h3>On Terrain Following Page:<a class="headerlink" href="#on-terrain-following-page" title="Permalink to this headline">¶</a></h3>
+<p>At the end of Flight Modes section:</p>
+<p>Terrain Following in CRUISE and FBWB modes can be disabled with an RC switch assigned <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 86. When enabling (&lt;1200us) or disabling (&gt;1800us) terrain following with the switch, the present altitude will be the target set point either above terrain, or home, respectively. The target altitude can be changed as normal with elevator whether the altitude refernce being used is above home or above terrain.</p>
+</div>
+<div class="section" id="on-dspoiler-page">
+<h3>On Dspoiler Page:<a class="headerlink" href="#on-dspoiler-page" title="Permalink to this headline">¶</a></h3>
+<p>Add at bottom of page:</p>
+</div>
+</div>
+<div class="section" id="crow-mode-switch">
+<h2>Crow Mode Switch<a class="headerlink" href="#crow-mode-switch" title="Permalink to this headline">¶</a></h2>
+<p>If Differential Spoilers are used, setting an <code class="docutils literal notranslate"><span class="pre">RCx_OPTIONS</span></code> channel to “87” will allow the control of CROW aileron (outer spoilers) operation.</p>
+<ul class="simple">
+<li>HIGH position: No change to CROW deflection amount or use of progressive crow.</li>
+<li>MIDDLE position: force progressive crow, assuming <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#dspoiler-crow-w1" title="(in Plane)"><span class="xref std std-ref">DSPOILER_CROW_W1</span></a> is non-zero, even if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#dspoiler-opts" title="(in Plane)"><span class="xref std std-ref">DSPOILER_OPTS</span></a> bit 2 is zero.</li>
+<li>LOW position: effectively sets <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#dspoiler-crow-w1" title="(in Plane)"><span class="xref std std-ref">DSPOILER_CROW_W1</span></a> to zero. Only inner spoilers move with FLAP channel, ie normal flaps.</li>
+</ul>
+<p>This allows live changes to CROW operation on approaches so that speed braking and descent rates can be changed during the approach.</p>
+<div class="section" id="on-soaring-page">
+<h3>On Soaring page:<a class="headerlink" href="#on-soaring-page" title="Permalink to this headline">¶</a></h3>
+<p>see <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pull/3013">WIKI PR #3013</a></p>
+</div>
+<div class="section" id="on-automatic-landing-page">
+<h3>On Automatic Landing page:<a class="headerlink" href="#on-automatic-landing-page" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>add note in Reverse-Thrust Landing section:</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Airbrakes can also be automatically deployed during reverse thrust operation. See <a class="reference external" href="https://ardupilot.org/plane/docs/airbrakes-on-plane.html#airbrakes-on-plane" title="(in Plane)"><span class="xref std std-ref">Airbrakes</span></a>.</p>
+</div>
+</div>
+<div class="section" id="on-tilt-rotors-and-tailsitters-pages">
+<h3>On Tilt Rotors and Tailsitters pages:<a class="headerlink" href="#on-tilt-rotors-and-tailsitters-pages" title="Permalink to this headline">¶</a></h3>
+<p>add note:</p>
+<p>For landing in fixed wing, manual throttle controlled modes, there is an <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> (89) that will force the tilt servos upright, force idle throttle, and optionally force the pitch to target <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#land-pitch-cd" title="(in Plane)"><span class="xref std std-ref">LAND_PITCH_CD</span></a> for flaring to the normal fixed wing landing. This allows intentional or emergency fixed wing landings in MANUAL, ACRO, STABILIZE, and FBWA modes without the risk of a prop strike in configurations where this could occur otherwise.</p>
+</div>
+<div class="section" id="on-tilt-rotors-page">
+<h3>On Tilt Rotors page:<a class="headerlink" href="#on-tilt-rotors-page" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>add note and change table to:</li>
+</ul>
+<table border="1" class="docutils">
+<tr><th>Tilt Control</th><th>SERVOn_FUNCTION</th></tr>
+<tr><td>Tilt Motors Rear</td><td>45</td></tr>
+<tr><td>Tilt Motor Rear Left</td><td>46</td></tr>
+<tr><td>Tilt Motor Rear Right</td><td>47</td></tr>
+<tr><td>Tilt Motor</td><td>41</td></tr>
+<tr><td>Tilt Motor Left</td><td>75</td></tr>
+<tr><td>Tilt Motor Right</td><td>76</td></tr>
+</table><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For vectored yaw applications, the right and left tilt servos would be used for front and/or back.</p>
+</div>
+</div>
+<div class="section" id="on-tailsitters-page-under-vectored-thrust">
+<h3>On Tailsitters page, under Vectored Thrust:<a class="headerlink" href="#on-tailsitters-page-under-vectored-thrust" title="Permalink to this headline">¶</a></h3>
+<p>add note:</p>
+<p>To allow vectored thrust QuadPlanes to land in the Fixed Wing (FW) stance in non-throttled controlled modes (in case of low battery level or emergency), an RC channel option, <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span> <span class="pre">=</span> <span class="pre">89</span></code>. This forces up the motor’s tilts while still in FW non-throttled control modes (FBWA, MANUAL, STABILIZE, and ACRO) to avoid prop strikes upon ground contact when landing.</p>
+<p>change note about Copter Tailsitters to read:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in firmware versions previous to 4.1, CopterMotor Tailsitters did not use any yaw torque control. Roll (with respect to plane body) is only controlled by the flying surface (ailerons or elevons). Now QUAD PLUS and X frames have yaw control via motors, and frame types 16 and 17 are added that have no torque yaw control, as previous versions of PLUS and X did.</p>
+</div>
+</div>
+<div class="section" id="on-tailsitters-page-under-tailsitter-configuration">
+<h3>On Tailsitters page, under Tailsitter Configuration:<a class="headerlink" href="#on-tailsitters-page-under-tailsitter-configuration" title="Permalink to this headline">¶</a></h3>
+<p>add frame types 16 and 17 to table of supported frame types for CopterMotor No Yaw Torque Tailsitters and add new diagrams with motor rotation matching Copter for yaw torque controlled plus (0) and X (1) frames.</p>
+<img alt="../_images/x-copter-yawtorque-quadplane.jpg" src="../_images/x-copter-yawtorque-quadplane.jpg" />
+<img alt="../_images/plus-copter-yawtorque-quadplane.jpg" src="../_images/plus-copter-yawtorque-quadplane.jpg" />
+<p>add note:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">it is possible to have a CopterMotor Tailsitter using no fixed wing control surfaces, ie basically a quadcopter with a wing. For that configuration, all Copter motors would be set to be active in fixed wing modes via <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-tailsit-motmx" title="(in Plane)"><span class="xref std std-ref">Q_TAILSIT_MOTMX</span></a> and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bitmask would have bit 7 (Force QASSIST) set to have QASSIST active in all modes.</p>
+</div>
+</div>
+<div class="section" id="on-airspeed-calibration-page">
+<h3>On Airspeed Calibration Page<a class="headerlink" href="#on-airspeed-calibration-page" title="Permalink to this headline">¶</a></h3>
+<p>Add section at end:</p>
+</div>
+</div>
+<div class="section" id="miscalibration-safeguards">
+<h2>Miscalibration Safeguards<a class="headerlink" href="#miscalibration-safeguards" title="Permalink to this headline">¶</a></h2>
+<p>In order to help prevent Airspeed sensor use when its been miscalibrated either during ground static calibration during the power up sequence, or by accidental parameter changes to offset or ratio, three parameters are available. If the ground speed is consistently lower than the reported airspeed for a few seconds by <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-wind-max" title="(in Rover)"><span class="xref std std-ref">ARSPD_WIND_MAX</span></a>, i.e. the apparent wind speed is greater than that amount, the sensor can be disabled to avoid erroneous reporting. It can be allowed to re-enable if the apparent wind falls back below that value. These actions are controlled by <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-options" title="(in Rover)"><span class="xref std std-ref">ARSPD_OPTIONs</span></a>.</p>
+<p>You can also send a warning to the Ground Control Station if the apparent wind exceeds <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-wind-warn" title="(in Rover)"><span class="xref std std-ref">ARSPD_WIND_WARN</span></a>. This can be used instead of, or together with the above.</p>
+<div class="section" id="on-quadplane-tips-page">
+<h3>On Quadplane Tips Page:<a class="headerlink" href="#on-quadplane-tips-page" title="Permalink to this headline">¶</a></h3>
+<p>Under Tilt Rotor Servo Setup, add:</p>
+<p>Note that setting <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 10 (Disarmed Yaw Tilt) allows the motors to tilt in response to rudder input while disarmed to facilitate adjustment of parameters.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="copter">
+<h2>Copter<a class="headerlink" href="#copter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-bendyruler-page">
+<h3>On BendyRuler page:<a class="headerlink" href="#on-bendyruler-page" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>replace OA_LOOKAHEAD label with <a class="reference internal" href="parameters.html#oa-br-lookahead"><span class="std std-ref">OA_BR_LOOKAHEAD</span></a></li>
+<li><dl class="first docutils">
+<dt>add these params under configuration:</dt>
+<dd><ul class="first last">
+<li><a class="reference internal" href="parameters.html#oa-br-cont-ratio"><span class="std std-ref">OA_BR_CONT_RATIO</span></a> : BendyRuler will avoid changing bearing unless ratio of previous margin from obstacle (or fence) to present calculated margin is atleast this much.</li>
+<li><a class="reference internal" href="parameters.html#oa-br-cont-angle"><span class="std std-ref">OA_BR_CONT_ANGLE</span></a> : BendyRuler will resist changing current bearing if the change in bearing is over this angle</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="on-airmode-page">
+<h3>On AIRMODE  page:<a class="headerlink" href="#on-airmode-page" title="Permalink to this headline">¶</a></h3>
+<p>AIRMODE can also be set to be active without using the <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> ARM/DISARM switch to arm. Setting an RC channel to <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 84, allows enabling or disabling AIRMODE in ACRO and STABILIZE modes directly. In addition, setting bit 0 of <a class="reference internal" href="parameters.html#acro-options"><span class="std std-ref">ACRO_OPTIONS</span></a> will activate AIRMODE in those modes all the time.</p>
+</div>
+<div class="section" id="on-auto-mode-page">
+<h3>On AUTO mode page:<a class="headerlink" href="#on-auto-mode-page" title="Permalink to this headline">¶</a></h3>
+<p>Add note in Control section:</p>
+<p>The <a class="reference internal" href="parameters.html#auto-options"><span class="std std-ref">AUTO_OPTIONS</span></a> parameter can be used to alter this behaviour, allowing arming while in AUTO mode, and/or, allowing a mission takeoff command to start upon AUTO mode entry, even if the thorttle has not been raised.</p>
+</div>
+<div class="section" id="on-acro-mode-page">
+<h3>On ACRO mode page:<a class="headerlink" href="#on-acro-mode-page" title="Permalink to this headline">¶</a></h3>
+<p>in the first paragraph add:
+Pure Rate mode stabilization, utilizing only the gyros with no attitude feedback from the accelerometers, can be forced by setting bit 1 of <a class="reference internal" href="parameters.html#acro-options"><span class="std std-ref">ACRO_OPTIONS</span></a> to one. Attitude will still have an open loop correction applied in this mode, similar to “heading hold” tail gyros, but attitude can drift over time.</p>
+</div>
+<div class="section" id="on-circle-mode-page">
+<h3>On Circle mode page:<a class="headerlink" href="#on-circle-mode-page" title="Permalink to this headline">¶</a></h3>
+<p>Add info on CIRCLE_OPTIONS parameter which replaces the CIRCLE_CONTROL enable parameter:</p>
+<p>When bit 0 is set of the <a class="reference internal" href="parameters.html#circle-options"><span class="std std-ref">CIRCLE_OPTIONS</span></a> parameter the pilot can adjust circle’s radius and angular velocity with the control sticks:
+When bit 1 is set of the <a class="reference internal" href="parameters.html#circle-options"><span class="std std-ref">CIRCLE_OPTIONS</span></a> parameter the Copter will face the direction of travel as it circles, otherwise, the Copter will point its nose at the center of the circle as it orbits.
+When bit 2 is set of the <a class="reference internal" href="parameters.html#circle-options"><span class="std std-ref">CIRCLE_OPTIONS</span></a> parameter the circle’s center position will set upon mode entry at the current location, rather than on the perimeter with the center in front of the Copter at the start.</p>
+</div>
+</div>
+<div class="section" id="rover">
+<h2>Rover<a class="headerlink" href="#rover" title="Permalink to this headline">¶</a></h2>
+<p>add Fence section to Sailboat configuration page:</p>
+<div class="section" id="fences">
+<h3>Fences<a class="headerlink" href="#fences" title="Permalink to this headline">¶</a></h3>
+<p>Sailboats behave in the same manner as other Rovers regarding fence operation and breach failsafe actions. However, unlike other Rovers, which slow as they approach a fence boundary, Sailboats will just attempt to tack away from the boundary since they have no speed controller, as such.</p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-user-alerts.html" class="btn btn-neutral float-right" title="User Alerts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-yaapu-gcs.html" class="btn btn-neutral" title="Yaapu FrSky GCS using FrSky Bi-Directional Telemetry" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Future Wiki Changes (in Master branch now)&amp;body=[Future Wiki Changes (in Master branch now)](https://ardupilot.org/copter/docs/common-future-wiki-changes.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

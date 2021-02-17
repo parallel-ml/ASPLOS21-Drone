@@ -1,0 +1,608 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Intelligent Energy Fuel Cell 2.4kW &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Generators" href="common-generators.html"/>
+        <link rel="next" title="Velocity CAN ESCs" href="common-velocity-can-escs.html"/>
+        <link rel="prev" title="Intelligent Energy Fuel Cell 650W/800W" href="common-ie650-fuelcell.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-master-features.html">Upcoming Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-buttons.html">Button Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compassless.html">Compass-less Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-to-gps.html">GPS/Non-GPS Transitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imutempcal.html">IMU Temperature Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FTT and filter control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-hott-telemetry.html">Hott Telem (already in Plane release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lightware-sf45b.html">Lightware SF45/B (350 degree)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-msp-osd-overview.html">MSP OSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-msp-overview.html">MSP (MultiWii Serial Protocol)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-nooploop.html">Nooploop Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-paramosd.html">OSD Parameter Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-generators.html">Generators</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-richenpower-generator.html">RichenPower generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-ie650-fuelcell.html">Intelligent Energy 650W/800W Hydrogen Fuel Cell</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Intelligent Energy 2.4kW Hydrogen Fuel Cell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fuel-cell-status">Fuel Cell Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#failsafes-and-pre-arm-checks">Failsafes and Pre-Arm Checks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#driver-not-healthy">Driver Not Healthy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-log-data">Flight Log Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-velocity-can-escs.html">Velocity ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-yaapu-gcs.html">Yaapu Bi-Directional Telemetry GCS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-future-wiki-changes.html">Other wiki changes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-master-features.html">Items in Master Branch Only</a> &raquo;</li>
+      
+          <li><a href="common-generators.html">Generators</a> &raquo;</li>
+      
+    <li>Intelligent Energy Fuel Cell 2.4kW</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-ie24-fuelcell.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="intelligent-energy-fuel-cell-2-4kw">
+<span id="common-ie24-fuelcell"></span><h1>Intelligent Energy Fuel Cell 2.4kW<a class="headerlink" href="#intelligent-energy-fuel-cell-2-4kw" title="Permalink to this headline">¶</a></h1>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/ie2400W_fuelcell.jpg"><img alt="../_images/ie2400W_fuelcell.jpg" src="../_images/ie2400W_fuelcell.jpg" /></a>
+</div>
+<p>This page explains how to connect Intelligent Energy’s 2.4 kW fuel cell to ArduPilot.  Telemetry from the fuel cell is transmitted via serial to ArduPilot.  This gives the following feedback:</p>
+<ul class="simple">
+<li>Hydrogen tank level as a percentage.</li>
+<li>Battery voltage.</li>
+<li>Battery current.</li>
+<li>Battery remaining.</li>
+<li>Fuel cell state.</li>
+<li>Error codes.</li>
+<li>Total power out (log only).</li>
+<li>Stack Power Module (SPM) power (log only).</li>
+</ul>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connecting-the-device">
+<h3>Connecting the Device<a class="headerlink" href="#connecting-the-device" title="Permalink to this headline">¶</a></h3>
+<p>Connect the UART from the port No 8 on the fuel cell to any serial port on your flight controller.  <a class="reference external" href="https://www.intelligent-energy.com/our-products/support/">See device user manual</a> for details on where to find port No 8.  Only the GND, UART TX, and UART RX connections are required.  See the diagram below:</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../_images/ie2400_Connection.png"><img alt="../_images/ie2400_Connection.png" src="../_images/ie2400_Connection.png" style="width: 400px;" /></a>
+</div>
+</div>
+<div class="section" id="parameter-configuration">
+<h3>Parameter Configuration<a class="headerlink" href="#parameter-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Enable the fuel cell driver by setting <a class="reference internal" href="parameters.html#gen-type"><span class="std std-ref">GEN_TYPE</span></a> to 2.</p>
+<p>Fuel cell telemetry is transmitted over serial.  The appropriate serial port needs to be configured to receive fuel cell data.  Set the <a class="reference internal" href="parameters.html#serial1-protocol"><span class="std std-ref">SERIALX_PROTOCOL</span></a> parameter to 30 for generator.</p>
+<p>The generator library utilises the battery monitor mavlink messages to display fuel cell telemetry on the ground station.  Two battery monitor instances are required for one fuel cell.  One for the fuel tank and another for the battery.  Set <a class="reference internal" href="parameters.html#batt-monitor"><span class="std std-ref">BATTX_MONITOR</span></a> parameter to 17 for the fuel cells electrical data.  Set another <a class="reference internal" href="parameters.html#batt-monitor"><span class="std std-ref">BATTX_MONITOR</span></a> parameter to 18 for the hydrogen tank telemetry.</p>
+<p>This fuel cell unit reports tank percentage remaining.  As such, the following parameter must be set for the tank battery monitor:</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#batt-capacity"><span class="std std-ref">BATTX_CAPACITY</span></a> = 100 must be set to give a sensible readout of a percentage on the GCS.</li>
+<li>Tank capacity related failsafes can be set using <a class="reference internal" href="parameters.html#batt-low-mah"><span class="std std-ref">BATTX_LOW_MAH</span></a>, <a class="reference internal" href="parameters.html#batt-crt-mah"><span class="std std-ref">BATTX_CRT_MAH</span></a>, <a class="reference internal" href="parameters.html#batt-arm-mah"><span class="std std-ref">BATTX_ARM_MAH</span></a>.</li>
+</ul>
+<p>Reboot the flight controller after setting the parameters for the settings to take effect.</p>
+<p>Normal battery monitor failsafes for battery capacity and battery voltage can be set on the monitor instance designated as ‘Generator-Elec’.  However, keep in mind that the battery capacity on these units is small for the size of vehicle required to lift them.  Hence, if the battery voltage or capacity remaining failsafes are triggered there is not a lot of flight time left and you should land immediately.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In this instance, ignore the units of the the fuel tank capacity parameter.  The tank capacity is only reported as a percentage.  As such values should be entered in the range from 1 to 100.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Voltage data is reported for the battery.  Because the fuel cell is constantly charging the battery, you will not see a significant change in battery voltage.  Only once the fuel cell has used all of its hydrogen and you are using the battery exclusively will you see large changes in voltage.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The current reported on the GCS is the battery current.  What is unusual if you are used to using a normal battery monitor, is that the current will go negative.  A negative current indicates that the battery is charging.  A positive current will indicate that the battery is being used to supplement the fuel cell’s power output.  Similarly you will notice that the battery remaining percentage will increase again as the battery is recharged.</p>
+</div>
+</div>
+</div>
+<div class="section" id="fuel-cell-status">
+<h2>Fuel Cell Status<a class="headerlink" href="#fuel-cell-status" title="Permalink to this headline">¶</a></h2>
+<p>The fuel cell reports status over the telemetry.  The status levels are:</p>
+<ul class="simple">
+<li>Starting</li>
+<li>Ready</li>
+<li>Running</li>
+<li>Fault</li>
+<li>Battery Only</li>
+</ul>
+<p>A message will be displayed on the GCS and in the flight log whenever the fuel cell status changes.  The vehicle can only be armed when the fuel cell is reporting a status of ‘Running’.</p>
+</div>
+<div class="section" id="failsafes-and-pre-arm-checks">
+<h2>Failsafes and Pre-Arm Checks<a class="headerlink" href="#failsafes-and-pre-arm-checks" title="Permalink to this headline">¶</a></h2>
+<p>Failsafes and pre-arm checks are hard-coded and based on the error codes sent by the fuel cell.  Failsafes have been separated into two groups: Low and Critical.  The error code groups are listed below.  If an error code is received from the fuel cell, the resulting failsafe action will be set by the <a class="reference internal" href="parameters.html#batt-fs-low-act"><span class="std std-ref">BATTX_FS_LOW_ACT</span></a> and <a class="reference internal" href="parameters.html#batt-fs-crt-act"><span class="std std-ref">BATTX_FS_CRT_ACT</span></a> respectively.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Monitoring of the fuel cell’s internal error codes for pre-arm checks and failsafes are only done on the battery monitor instance allocated for the electrical telemetry.  The electrical battery monitor instance must therefore be set to trigger failsafes based on error codes.</p>
+</div>
+<div class="section" id="failsafe-low-action-error-code-group">
+<h3>Failsafe Low Action Error Code Group<a class="headerlink" href="#failsafe-low-action-error-code-group" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+
+<tr>
+<th>Error Code</th>
+<th>Definition</th>
+</tr>
+
+<tr>
+<td>31</td>
+<td>Start Denied</th>
+</tr>
+
+<tr>
+<td>30</td>
+<td>Pressure Alert</th>
+</tr>
+
+<tr>
+<td>21</td>
+<td>Battery Low</th>
+</tr>
+
+<tr>
+<td>20</td>
+<td>Pressure Low</th>
+</tr>
+
+<tr>
+<td>11</td>
+<td>SPM Lost</th>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Reduced Power</th>
+</tr>
+
+</tbody>
+</table></div>
+<div class="section" id="failsafe-critical-action-error-code-group">
+<h3>Failsafe Critical Action Error Code Group<a class="headerlink" href="#failsafe-critical-action-error-code-group" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+
+<tr>
+<th>Error Code</th>
+<th>Definition</th>
+</tr>
+
+<tr>
+<td>40</td>
+<td>Battery Critical</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td>Pressure Critical</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td>System Critical</td>
+</tr>
+
+</tbody>
+</table></div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>This example has been provided to make it clear how the failsafe actions are set.</p>
+<p>The battery monitors have been configured so that electrical telemetry data is on battery monitor 1 and hydrogen tank telemetry is on battery monitor 2:</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#batt-monitor"><span class="std std-ref">BATT_MONITOR</span></a> = 17 (electrical data)</li>
+<li><a class="reference internal" href="parameters.html#batt2-monitor"><span class="std std-ref">BATT2_MONITOR</span></a> = 18 (tank data)</li>
+</ul>
+<p>The failsafe actions that correspond to the error code groups listed above are then set on battery monitor 1 as that is the one associated with the electrical telemetry data.</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#batt-fs-low-act"><span class="std std-ref">BATT_FS_LOW_ACT</span></a> = 2 (RTL)</li>
+<li><a class="reference internal" href="parameters.html#batt-fs-crt-act"><span class="std std-ref">BATT_FS_CRT_ACT</span></a> = 1 (land)</li>
+</ul>
+<p>A tank level failsafe has been set on battery monitor 2 so that the vehicle will return to land when the fuel level gets below 20%.  This is done by setting:</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#batt2-fs-low-act"><span class="std std-ref">BATT2_FS_LOW_ACT</span></a> = 2 (RTL)</li>
+<li><a class="reference internal" href="parameters.html#batt2-capacity"><span class="std std-ref">BATT2_CAPACITY</span></a> = 100</li>
+<li><a class="reference internal" href="parameters.html#batt-low-mah"><span class="std std-ref">BATTX_LOW_MAH</span></a> = 20</li>
+</ul>
+<p>As previously mentioned, normal voltage failsafes can be used on this fuel cell model.  Hence, as a final belt-and-braces approach a critical voltage failsafe has been set on the electrical generator monitor instance to initiate an immediate landing if voltage gets to 3.3 V per cell:</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#batt-crt-volt"><span class="std std-ref">BATT_CRT_VOLT</span></a> = 39.6</li>
+</ul>
+</div>
+</div>
+<div class="section" id="driver-not-healthy">
+<h2>Driver Not Healthy<a class="headerlink" href="#driver-not-healthy" title="Permalink to this headline">¶</a></h2>
+<p>If you see the <cite>Generator: Not Healthy</cite> message in the GCS then ArduPilot has not received any data packets from the fuel cell for at least 5 seconds.  Check the following for common causes to this issue:</p>
+<ul class="simple">
+<li>Fuel cell is powered on</li>
+<li>Telemetry is connected to a flight controller serial port.</li>
+<li>The serial connection is wired correctly (TX-&gt;RX, RX-&gt;TX).</li>
+<li>The <a class="reference internal" href="parameters.html#serial1-protocol"><span class="std std-ref">SERIALX_PROTOCOL</span></a> parameter is set to generator for the correct telemetry port.</li>
+</ul>
+</div>
+<div class="section" id="flight-log-data">
+<h2>Flight Log Data<a class="headerlink" href="#flight-log-data" title="Permalink to this headline">¶</a></h2>
+<p>The telemetry data is stored across a few data groups in the flight data log.  This data can be found as follows:</p>
+<ul class="simple">
+<li>Hydrogen percent used in BAT-&gt;CurrTot for the battery monitor instance set as Generator-Fuel.</li>
+<li>Hydrogen remaing is also logged in IE24-&gt;FUEL as percentage remaining.</li>
+<li>Battery voltage in BAT-&gt;Volt for the battery monitor instance set as Generator-Elec.</li>
+<li>Battery current in BAT-&gt;Curr for the battery monitor instance set as Generator-Elec.</li>
+<li>Battery used in BAT-&gt;CurrTot for the battery monitor instance set as Generator-Elec.</li>
+<li>Fuel cell state logged when state changes in MSG.</li>
+<li>Error codes logged when error code changes in MSG and in IE24-&gt;ERR.</li>
+<li>Total power out is logged in IE24-&gt;POUT.</li>
+<li>SPM power is logged in IE24-&gt;SPMPWR</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-velocity-can-escs.html" class="btn btn-neutral float-right" title="Velocity CAN ESCs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-ie650-fuelcell.html" class="btn btn-neutral" title="Intelligent Energy Fuel Cell 650W/800W" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Intelligent Energy Fuel Cell 2.4kW&amp;body=[Intelligent Energy Fuel Cell 2.4kW](https://ardupilot.org/copter/docs/common-ie24-fuelcell.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mission Planner Initial SETUP &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Mission Planner Features/Screens" href="mission-planner-features.html"/>
+        <link rel="next" title="Mission Planner CONFiguration and Tuning" href="mission-planner-configuration-and-tuning.html"/>
+        <link rel="prev" title="Mission Planner Flight PLAN" href="mission-planner-flight-plan.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SETUP Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-firmware">Install Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-firmware-legacy">Install Firmware Legacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-hardware">Mandatory Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-hardware">Optional Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+    <li>Mission Planner Initial SETUP</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/mission-planner-initial-setup.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mission-planner-initial-setup">
+<span id="id1"></span><h1>Mission Planner Initial SETUP<a class="headerlink" href="#mission-planner-initial-setup" title="Permalink to this headline">¶</a></h1>
+<p>This section of Mission Planner, invoked by the Menu item  <code class="docutils literal notranslate"><span class="pre">SETUP</span></code>
+at the top of Mission Planner, has several subsections. The subsection
+are where you set up and configure you auto pilot to prepare it for your
+particular vehicle. Typically these sections are “must do” actions that
+are required.</p>
+<p>What you see when you enter this section depends on whether or not you
+are connected. Each menu item will bring up a new screen, each is
+discussed below with links to more detail.</p>
+<div class="section" id="install-firmware">
+<h2>Install Firmware<a class="headerlink" href="#install-firmware" title="Permalink to this headline">¶</a></h2>
+<p>You will see this menu item If the auto pilot is Not connected. If you
+have a new auto pilot or if you want to update the control software that
+resides in you autopilot, you must install (upload) the
+<a class="reference internal" href="common-glossary.html#common-glossary"><span class="std std-ref">firmware</span></a> into it.</p>
+<p>The firmware is located at <a class="reference external" href="https://firmware.ardupilot.org">firmware.ardupilot.org</a> .
+If the autopilot has ArduPilot firmware already installed, you can use this page to upload firmware for different vehicles or version. See this <a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#common-loading-firmware-onto-pixhawk"><span class="std std-ref">Loading firmware</span></a> page. Otherwise, you must use other methods than Mission Planner for getting ArduPilot installed for the first time, see this <a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#common-loading-firmware-onto-chibios-only-boards"><span class="std std-ref">section</span></a> .</p>
+<p>From this screen you can also select “All Options” allowing you to select and load any variation of the firmware, or “Load custom firmware”, most often used when a developer has trial code to load.</p>
+</div>
+<div class="section" id="install-firmware-legacy">
+<h2>Install Firmware Legacy<a class="headerlink" href="#install-firmware-legacy" title="Permalink to this headline">¶</a></h2>
+<p>Yet another way load older versions of the firmware. Again, shown only when not connected.</p>
+</div>
+<div class="section" id="mandatory-hardware">
+<h2>Mandatory Hardware<a class="headerlink" href="#mandatory-hardware" title="Permalink to this headline">¶</a></h2>
+<p>You will see this menu item If the auto pilot IS connected.  Click this
+menu item to see the items you must setup before you attempt to
+operate your vehicle.  Specifics are located in the Ardupilot.org documents which
+cover you specific vehicle (Copter, Plane, Rover).</p>
+<a class="reference external image-reference" href="../_images/MP-mandatory-hardware.png"><img alt="../_images/MP-mandatory-hardware.png" src="../_images/MP-mandatory-hardware.png" /></a>
+<p>Before operating the vehicle, you must setup:</p>
+<ul class="simple">
+<li><a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">Accel Calibration</span></a></li>
+<li><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">Compass (optional for Plane)</span></a></li>
+<li><a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">Radio Calibration</span></a></li>
+<li>Servo Output : configure each <a class="reference external" href="https://ardupilot.org/rover/docs/common-rcoutput-mapping.html#common-rcoutput-mapping" title="(in Rover)"><span class="xref std std-ref">output’s function</span></a>. Default values get loaded upon initial firmware install, but be sure to check them here.</li>
+<li><a class="reference external" href="https://ardupilot.org/copter/docs/esc-calibration.html#esc-calibration" title="(in Copter)"><span class="xref std std-ref">ESC Calibration</span></a> for Copter only (not required for ESCs running DShot protocol, but must be <a class="reference external" href="https://ardupilot.org/rover/docs/common-dshot.html#common-dshot" title="(in Rover)"><span class="xref std std-ref">configured</span></a> in ArduPilot) Plane uses its own <a class="reference external" href="https://ardupilot.org/plane/docs/guide-esc-calibration.html#guide-esc-calibration" title="(in Plane)"><span>ESC Calibration</span></a> technique, but is also a mandatory setup item.</li>
+<li>Flight Modes: Refer to <a class="reference external" href="https://ardupilot.org/plane/docs/flight-modes.html#flight-modes" title="(in Plane)"><span class="xref std std-ref">Plane</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/flight-modes.html#flight-modes" title="(in Copter)"><span class="xref std std-ref">Copter</span></a> or <a class="reference external" href="https://ardupilot.org/rover/docs/rover-control-modes.html#rover-control-modes" title="(in Rover)"><span class="xref std std-ref">Rover</span></a> mode pages.</li>
+<li>Failsafe: Refer to <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span class="xref std std-ref">Plane</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/failsafe-landing-page.html#failsafe-landing-page" title="(in Copter)"><span class="xref std std-ref">Copter</span></a> or <a class="reference external" href="https://ardupilot.org/rover/docs/rover-failsafes.html#rover-failsafes" title="(in Rover)"><span class="xref std std-ref">Rover</span></a> failsafe pages.</li>
+</ul>
+</div>
+<div class="section" id="optional-hardware">
+<h2>Optional Hardware<a class="headerlink" href="#optional-hardware" title="Permalink to this headline">¶</a></h2>
+<p>This submenu allows the configuration of optional devices, many of which can be configured while Mission Planner is unconnected. Programming of the Sik  Telemetry Radio, UAVCAN setup, PX4 Optical Flow sensor,Antenna Tracker can be done here, as well as setup of a joystick to be used in conjunction with Mission Planner.</p>
+<p>When connected, peripherals such as Battery Monitors, Integrated OSD, Airspeed Sensors, and Rangefinders can be configured. Also, this submenu has a Motor Test function allowing you to test direction and order of Copter and Quadplane Motors.</p>
+</div>
+<div class="section" id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<p>This section is for advanced users.</p>
+<img alt="../_images/MP-advanced-setup.png" src="../_images/MP-advanced-setup.png" />
+<ul class="simple">
+<li>Warning Manager:You can create custom warning messages to be displayed on the HUD and in the messages tab of the DATA screen, based on values of the status items.</li>
+<li>MAVLink Inspector: allows monitoring, real time, of the various MAVLink status messages being received.</li>
+<li>Proximity: View the data from a 360 lidar, if equipped</li>
+<li>Mavlink Signing: Allows you to setup <a class="reference internal" href="common-MAVLink2-signing.html#common-mavlink2-signing"><span class="std std-ref">secure communications</span></a> with the vehicle.</li>
+<li>Mavlink mirror: allows you to forward the MAVLink traffic to another network connected location for monitoring. Also see <a class="reference external" href="https://ardupilot.org/mavproxy/docs/getting_started/forwarding.html#mavproxy-forwarding" title="(in MAVProxy)"><span class="xref std std-ref">MAVProxy Forwarding</span></a> for another method.</li>
+<li>NMEA: Output the vehicle location as a NMEA GPS string over the network or to a COM port</li>
+<li>Follow Me: If using an attached NEMA mode gps on a COM port to establish the MP GPS location, can send Guided Mode waypoints to the vehicle to follow the GCS.</li>
+<li>Param Gen: Regenerates Mission Planners parameter list. Occasionally required if new firmware parameters are not being displayed.</li>
+<li>Moving Base: if NMEA GPS is attaced to PC, shows PCs location as moving on the map display</li>
+<li>Anon Log: Allows you to hide your location when sharing log files by creating a version with scrambled locations</li>
+<li>FFT: Plot an FFT from a log that has IMU batch sampling enabled. See <a class="reference external" href="https://ardupilot.org/plane/docs/common-imu-notch-filtering.html#common-imu-notch-filtering" title="(in Plane)"><span>Managing Gyro Noise with the Static Notch and Dynamic Harmonic Notch Filters</span></a> for an example of its use.</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mission-planner-configuration-and-tuning.html" class="btn btn-neutral float-right" title="Mission Planner CONFiguration and Tuning" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mission-planner-flight-plan.html" class="btn btn-neutral" title="Mission Planner Flight PLAN" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Mission Planner Initial SETUP&amp;body=[Mission Planner Initial SETUP](https://ardupilot.org/planner/docs/mission-planner-initial-setup.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

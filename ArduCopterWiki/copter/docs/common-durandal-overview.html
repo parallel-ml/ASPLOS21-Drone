@@ -1,0 +1,1058 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Holybro Durandal &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot Hardware Options" href="common-autopilots.html"/>
+        <link rel="next" title="Holybro Kakute F4" href="common-holybro-kakutef4.html"/>
+        <link rel="prev" title="Furious FPV F-35 Lightning and Wing FC10" href="common-furiousfpv-f35.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#open-hardware">Open hardware</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#closed-hardware">Closed hardware</a><ul class="current">
+<li class="toctree-l3"><a class="reference external" href="https://aerotenna.com/shop/ocpoc-zynq-mini/">Aerotenna Ocpoc-Zynq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-overview.html">Emlid NAVIO2 (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-furiousfpv-f35.html">Furious FPV F-35 Lightning and Wing FC-10</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Holybro Durandal H7</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pinout">Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-mapping">UART Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connectors">Connectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-input">RC Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-output">PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#battery-monitoring">Battery Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compass">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpios">GPIOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analog-inputs">Analog inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imu-heater">IMU Heater</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loading-firmware">Loading Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-holybro-kakutef4.html">Holybro Kakute F4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-holybro-kakutef7aio.html">Holybro Kakute F7 AIO*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-holybro-kakutef7mini.html">Holybro Kakute F7 Mini* (only V1 and V2 are compatible)</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PH4-mini/README.md">Holybro Pixhawk 4 Mini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matekf765-wing.html">Mateksys F765-Wing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matekh743-wing.html">Mateksys H743-Wing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mro-control-zero-F7.html">mRo ControlZero F7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pixracer-pro.html">mRo Pixracer Pro (H7)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mro-nexus.html">mRo Nexus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-omnibusf4pro.html">Omnibus F4 AIO/Pro*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-omnibusnanov6.html">OmnibusNanoV6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-omnibusf7.html">Omnibus F7V2*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parrot-bebop-autopilot.html">Parrot Bebop Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-CHUCK-overview.html">Parrot C.H.U.C.K</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radiolink-minipix.html">RadioLink MiniPix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qiotek-zealot.html">QioTek Zealot F427</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-speedybeef4.html">SpeedyBee F4 (this board currently is non-verified)</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/autopilot/vrbrain5-detail">VR Brain 5</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/autopilot/vrbrainmicro51-detail">VR uBrain 5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#firmware-limitations">Firmware Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#discontinued-boards">Discontinued boards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-autopilots.html">Autopilot Hardware Options</a> &raquo;</li>
+      
+    <li>Holybro Durandal</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-durandal-overview.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="holybro-durandal">
+<h1>Holybro Durandal<a class="headerlink" href="#holybro-durandal" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="../_images/durandal_iso.png"><img alt="../_images/durandal_iso.png" src="../_images/durandal_iso.png" style="width: 360px;" /></a>
+<p>Durandal is the latest update to the successful family of Holybro autopilots.
+It was designed and developed by Holybro, optimized to run the latest ArduPilot firmware.
+It features the STM32H743 microprocessor, the latest advanced processor technology from STMicroelectronics®,
+plus sensor technology from Bosch® and InvenSense®, and a ChibiOS real-time operating system, delivering incredible
+performance, flexibility, and reliability for controlling any autonomous vehicle.
+Durandal’s microcontroller now has 2 MB of Flash memory and 1 MB of RAM.</p>
+<div class="section" id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Processor</strong><ul>
+<li>32-bit STM32H743 main processor</li>
+<li>400Mhz / 1MB RAM / 2MB Flash</li>
+<li>32-bit co-processor</li>
+</ul>
+</li>
+<li><strong>Sensors</strong><ul>
+<li>InvenSense ICM20689 accelerometer / gyroscope</li>
+<li>Bosch BMI088 accelerometer / gyroscope</li>
+<li>MS5611 barometer</li>
+<li>IST8310 magnetometer</li>
+</ul>
+</li>
+<li><strong>Power</strong><ul>
+<li>Operating power: 4.9~5.5V (6v max input)</li>
+<li>USB Input: 4.75~5.25V</li>
+<li>High-power servo rail, up to 36V
+(servo rail does not power the autopilot)</li>
+<li>Dual voltage and current monitor inputs</li>
+</ul>
+</li>
+<li><strong>Interfaces</strong><ul>
+<li>USB-C and JST_GH USB ports</li>
+<li>16 PWM outputs, 8 of which can be used as GPIO pins</li>
+<li>Dual power module inputs</li>
+<li>S.Bus servo output</li>
+<li>R/C inputs for CPPM and S.Bus</li>
+<li>DSM input port</li>
+<li>Analogue / PWM RSSI input</li>
+<li>5x general purpose serial ports plus debug port</li>
+<li>3x I2C ports</li>
+<li>4x SPI buses enabled</li>
+<li>2x CAN Bus ports</li>
+<li>2x additional analog inputs</li>
+<li>Safety Switch/LED</li>
+</ul>
+</li>
+<li><strong>Other</strong></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Weight: 64g</li>
+<li>Builtin IMU heater for temperature stability</li>
+<li>Dimensions: 80mm x 45mm x 20.5mm</li>
+<li>Operating temperature: -40 ~ 85°c（claimed）</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/Durandal-top.png" src="../_images/Durandal-top.png" />
+<img alt="../_images/Durandal-front.png" src="../_images/Durandal-front.png" />
+<img alt="../_images/Durandal-back.png" src="../_images/Durandal-back.png" />
+<img alt="../_images/Durandal-left.png" src="../_images/Durandal-left.png" />
+<img alt="../_images/Durandal-right.png" src="../_images/Durandal-right.png" />
+</div>
+<div class="section" id="uart-mapping">
+<h2>UART Mapping<a class="headerlink" href="#uart-mapping" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>SERIAL0 -&gt; USB</li>
+<li>SERIAL1 -&gt; UART2 (Telem1)</li>
+<li>SERIAL2 -&gt; UART3 (Telem2)</li>
+<li>SERIAL3 -&gt; UART1 (GPS)</li>
+<li>SERIAL4 -&gt; UART4 (GPS2, Telem4/I2C)</li>
+<li>SERIAL5 -&gt; UART6 (Telem3)</li>
+<li>SERIAL6 -&gt; UART7 (debug port)</li>
+<li>SERIAL7 -&gt; USB2</li>
+</ul>
+</div></blockquote>
+<p>The Telem1, Telem2 and Telem3 ports have RTS/CTS pins, the other UARTs do not
+have RTS/CTS.</p>
+</div>
+<div class="section" id="connectors">
+<h2>Connectors<a class="headerlink" href="#connectors" title="Permalink to this headline">¶</a></h2>
+<p>Unless noted otherwise all connectors are JST GH</p>
+<div class="section" id="telem1-telem2-telem3-ports">
+<h3>TELEM1, TELEM2, TELEM3 ports<a class="headerlink" href="#telem1-telem2-telem3-ports" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin </th>
+<th>Signal </th>
+<th>Volt </th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>CTS</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>RTS</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="gps1-port">
+<h3>GPS1 port<a class="headerlink" href="#gps1-port" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>SCL I2C1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>SDA I2C1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>Button</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>7 (blk)</td>
+<td>button LED</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>8 (blk)</td>
+<td>3.3V</td>
+<td>3.3</td>
+</tr>
+<tr>
+<td>9 (blk)</td>
+<td>buzzer</td>
+<td>GND</td>
+</tr>
+<tr>
+<td> (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="gps2-telem4-i2c-port">
+<h3>GPS2, Telem4/I2C port<a class="headerlink" href="#gps2-telem4-i2c-port" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>SCL I2C2</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>SDA I2C2</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="sbus-out-port">
+<h3>SBUS Out port<a class="headerlink" href="#sbus-out-port" title="Permalink to this headline">¶</a></h3>
+<p>The SBUS out port is a port attached to the IO processor which can be
+used to output all servo channels via SBUS. It is enabled by setting
+the BRD_SBUS_OUT parameter.</p>
+<p>When SBUS output is disabled (by setting BRD_SBUS_OUT to 0) you can
+use the pin for analog RSSI input from receivers. To enable for RSSI
+input you need to set:</p>
+<blockquote>
+<div><ul class="simple">
+<li>BRD_SBUS_OUT 0</li>
+<li>RSSI_TYPE 1</li>
+<li>RSSI_PIN 103</li>
+</ul>
+</div></blockquote>
+<p>You cannot have both SBUS output and analog RSSI input at the same time.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5v(Vservo)</td>
+<td>+5.0V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="dsm-spkt-port">
+<h3>DSM/SPKT port<a class="headerlink" href="#dsm-spkt-port" title="Permalink to this headline">¶</a></h3>
+<p>The SPKT port provides a connector for Spektrum satellite
+receivers. It is needed to allow for software controlled binding of
+satellite receivers.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3.3v</td>
+<td>+3.3V</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="adc-capture">
+<h3>ADC / CAPTURE<a class="headerlink" href="#adc-capture" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+
+<tr>
+<td>2 (blk)</td>
+<td>FMU_CAP6, AUX6, GPIO 55</td>
+<td></td>
+</tr>
+
+<tr>
+<td>3 (blk)</td>
+<td>FMU_CAP5, AUX7, GPIO 56</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4 (blk)</td>
+<td>FMU_CAP4, AUX8, GPIO 57</td>
+<td></td>
+</tr>
+
+<tr>
+<td>5 (blk)</td>
+<td>FMU_CAP3, GPIO 60</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6 (blk)</td>
+<td>FMU_CAP2, GPIO 59</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7 (blk)</td>
+<td>FMU_CAP1, GPIO 58</td>
+<td></td>
+</tr>
+
+<tr>
+<td>8 (blk)</td>
+<td>ADC1_3V3 (ADC pin 4)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>9 (blk)</td>
+<td>ADC1_6V6 (ADC pin 18)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>10 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+
+</tbody>
+</table></div>
+<div class="section" id="i2c">
+<h3>I2C<a class="headerlink" href="#i2c" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>SCL</td>
+<td>+3.3 (pullups)</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>SDA</td>
+<td>+3.3 (pullups)</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="can1-2">
+<h3>CAN1&amp;2<a class="headerlink" href="#can1-2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>CAN_H</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CAN_L</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="power1-2">
+<h3>POWER1&amp;2<a class="headerlink" href="#power1-2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CURRENT</td>
+<td>up to +3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>VOLTAGE</td>
+<td>up to +3.3V</td>
+</tr>
+<td>5 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="usb">
+<h3>USB<a class="headerlink" href="#usb" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin </th>
+<th>Signal </th>
+<th>Volt </th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>D_minus</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>D_plus</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this headline">¶</a></h2>
+<p>RC input is configured on the RCIN pin, at one end of the servo rail,
+marked RCIN in the above diagram. This pin supports all RC
+protocols. In addition there is a dedicated Spektrum satellite port
+which supports software power control, allowing for binding of
+Spektrum satellite receivers.</p>
+</div>
+<div class="section" id="pwm-output">
+<h2>PWM Output<a class="headerlink" href="#pwm-output" title="Permalink to this headline">¶</a></h2>
+<p>The Durandal supports up to 16 PWM outputs. First first 8 outputs (labelled
+“MAIN”) are controlled by a dedicated STM32F100 IO controller. These 8
+outputs support all PWM output formats, but not DShot.</p>
+<p>The remaining 8 outputs (labelled AUX1 to AUX8) are the “auxillary”
+outputs. These are directly attached to the STM32F427 and support all
+PWM protocols as well as DShot.</p>
+<p>All 13 back-side PWM outputs have GND on the top row, 5V on the middle row and
+signal on the bottom row.</p>
+<p>The 8 main PWM outputs are in 3 groups:</p>
+<blockquote>
+<div><ul class="simple">
+<li>PWM 1 and 2 in group1</li>
+<li>PWM 3 and 4 in group2</li>
+<li>PWM 5, 6, 7 and 8 in group3</li>
+</ul>
+</div></blockquote>
+<p>The 8 auxillary PWM outputs are in 2 groups:</p>
+<blockquote>
+<div><ul class="simple">
+<li>PWM 1, 2, 3 and 4 in group4</li>
+<li>PWM 5 and 6 in group5</li>
+<li>PWM 7 and 8 in group6 (no DMA, no DShot)</li>
+</ul>
+</div></blockquote>
+<p>Channels within the same group need to use the same output rate. If
+any channel in a group uses DShot then all channels in the group need
+to use DShot.</p>
+</div>
+<div class="section" id="battery-monitoring">
+<h2>Battery Monitoring<a class="headerlink" href="#battery-monitoring" title="Permalink to this headline">¶</a></h2>
+<p>The board has two dedicated power monitor ports on 6 pin
+connectors. The correct battery setting parameters are dependent on
+the type of power brick which is connected.</p>
+</div>
+<div class="section" id="compass">
+<h2>Compass<a class="headerlink" href="#compass" title="Permalink to this headline">¶</a></h2>
+<p>The Durandal has one builtin IST8310 compass.</p>
+</div>
+<div class="section" id="gpios">
+<h2>GPIOs<a class="headerlink" href="#gpios" title="Permalink to this headline">¶</a></h2>
+<p>The 8 AUX PWM ports can be used as GPIOs (relays, buttons, RPM etc). To
+use them you need to limit the number of these pins that is used for
+PWM by setting the <a class="reference internal" href="parameters.html#brd-pwm-count"><span class="std std-ref">BRD_PWM_COUNT</span></a> to a number less than 8. For example
+if you set it to 6 then PWM7 and PWM8 will be available for
+use as GPIOs.</p>
+<p>The numbering of the GPIOs for PIN variables in ArduPilot is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>PWM1 50</li>
+<li>PWM2 51</li>
+<li>PWM3 52</li>
+<li>PWM4 53</li>
+<li>PWM5 54</li>
+<li>PWM6 55</li>
+<li>PWM7 56</li>
+<li>PWM8 57</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="analog-inputs">
+<h2>Analog inputs<a class="headerlink" href="#analog-inputs" title="Permalink to this headline">¶</a></h2>
+<p>The Durandal has 7 analog inputs</p>
+<blockquote>
+<div><ul class="simple">
+<li>ADC Pin16 -&gt; Battery Voltage</li>
+<li>ADC Pin17 -&gt; Battery Current Sensor</li>
+<li>ADC Pin14 -&gt; Battery2 Voltage</li>
+<li>ADC Pin15 -&gt; Battery2 Current Sensor</li>
+<li>ADC Pin4 -&gt; ADC port pin 8 (3.3V limit)</li>
+<li>ADC Pin18 -&gt; ADC port pin 9 (6.6V limit)</li>
+<li>ADC Pin9 -&gt; RSSI in</li>
+<li>ADC Pin10 -&gt; 5V Sense</li>
+<li>ADC Pin11 -&gt; 3.3V Sense</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="imu-heater">
+<h2>IMU Heater<a class="headerlink" href="#imu-heater" title="Permalink to this headline">¶</a></h2>
+<p>The IMU heater in the Durandal can be controlled with the
+<a class="reference internal" href="parameters.html#brd-imu-targtemp"><span class="std std-ref">BRD_IMU_TARGTEMP</span></a> parameter, which is in degrees C.</p>
+</div>
+<div class="section" id="loading-firmware">
+<h2>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Permalink to this headline">¶</a></h2>
+<p>The board comes pre-installed with an ArduPilot compatible bootloader,
+allowing the loading of *.apj firmware files with any ArduPilot
+compatible ground station.</p>
+</div>
+<div class="section" id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Order from <a class="reference external" href="https://shop.holybro.com/durandalbeta_p1189.html">Holybro</a>.</li>
+<li>Holybro distributors are listed <a class="reference external" href="https://shop.holybro.com/art/distributors_a0050.html">here</a>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>Use the <a class="reference internal" href="common-pixhawk-wiring-and-quick-start.html#common-pixhawk-wiring-and-quick-start"><span class="std std-ref">Pixhawk Wiring QuickStart</span></a> as a general guide.</p>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>Thanks to [Holybro](<a class="reference external" href="http://www.holybro.com">http://www.holybro.com</a>) for images</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-holybro-kakutef4.html" class="btn btn-neutral float-right" title="Holybro Kakute F4" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-furiousfpv-f35.html" class="btn btn-neutral" title="Furious FPV F-35 Lightning and Wing FC10" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Holybro Durandal&amp;body=[Holybro Durandal](https://ardupilot.org/copter/docs/common-durandal-overview.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

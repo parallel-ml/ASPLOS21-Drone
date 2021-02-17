@@ -1,0 +1,415 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Mission Planner (Windows) &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="next" title="Mission Planner Advanced Installation" href="mission-planner-advanced-installation.html"/>
+        <link rel="prev" title="Mission Planner Overview" href="mission-planner-overview.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Mission Planner (Windows)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#open-mission-planner">Open Mission Planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-mission-planner">Updating Mission Planner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-advanced-installation.html">Mission Planner Advanced Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Installing Mission Planner (Windows)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/mission-planner-installation.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-mission-planner-windows">
+<span id="install-mission-planner"></span><h1>Installing Mission Planner (Windows)<a class="headerlink" href="#installing-mission-planner-windows" title="Permalink to this headline">¶</a></h1>
+<p>The below instructions show how to install <em>Mission Planner</em> on Windows. These instructions will be suitable for most users.  For advanced users and non-standard installations, instructions are found <a class="reference internal" href="mission-planner-advanced-installation.html#mission-planner-advanced-installation"><span class="std std-ref">here:</span></a>.  A useful video guide for advanced installation of <em>Mission Planner</em> is located <a class="reference external" href="https://youtu.be/cw7adeD1yeg">here</a>.</p>
+<ul>
+<li><p class="first">Download the <a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.msi">latest Mission Planner installer from here</a></p>
+</li>
+<li><p class="first">Double click on the downloaded <strong>.msi</strong> file to run the installer</p>
+<a class="reference external image-reference" href="_images/mp_installation.png"><img alt="../_images/mp_installation.png" src="../_images/mp_installation.png" /></a>
+</li>
+<li><p class="first">Follow the instructions to complete the setup process.
+The installation utility will automatically install any necessary software drivers.
+If you receive a DirectX installation error,
+please update your DirectX plug-in from the <a class="reference external" href="https://www.microsoft.com/en-us/download/windows.aspx">Windows Download Center</a>.</p>
+</li>
+<li><p class="first">If you receive the warning pictured below, select <strong>Install this driver software anyway</strong> to continue.</p>
+<a class="reference external image-reference" href="../_images/driver_installation_warning.png"><img alt="../_images/driver_installation_warning.png" src="../_images/driver_installation_warning.png" /></a>
+</li>
+</ul>
+<p>Mission Planner is normally installed in the <strong>C:\Program Files (x86)\Mission Planner</strong> folder.</p>
+<p>An icon to open the <em>Mission Planner</em> is created according to your instructions during the installation.</p>
+<div class="section" id="open-mission-planner">
+<h2>Open Mission Planner<a class="headerlink" href="#open-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p>Once installation is complete, open <em>Mission Planner</em> by clicking on its system icon.</p>
+<p>Then you can either:</p>
+<ul class="simple">
+<li><a class="reference internal" href="common-connect-mission-planner-autopilot.html#common-connect-mission-planner-autopilot"><span class="std std-ref">Connect Mission Planner to AutoPilot</span></a> in order to receive telemetry and control the vehicle OR</li>
+<li><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#common-loading-firmware-onto-pixhawk"><span class="std std-ref">Load Firmware</span></a> OR <a class="reference internal" href="common-mission-planning.html#common-mission-planning"><span class="std std-ref">plan autonomous missions</span></a> .</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If ArduPilot firmware is not already installed on the autopilot, see <a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#common-loading-firmware-onto-chibios-only-boards"><span class="std std-ref">Loading Firmware to boards without existing ArduPilot firmware</span></a>.</p>
+</div>
+</div>
+<div class="section" id="updating-mission-planner">
+<h2>Updating Mission Planner<a class="headerlink" href="#updating-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p><em>Mission Planner</em> automatically notifies you about available updates (when it is connected to the Internet).</p>
+<p>Please always run the most current version of Mission Planner.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-advanced-installation.html">Mission Planner Advanced Installation</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mission-planner-advanced-installation.html" class="btn btn-neutral float-right" title="Mission Planner Advanced Installation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mission-planner-overview.html" class="btn btn-neutral" title="Mission Planner Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Installing Mission Planner (Windows)&amp;body=[Installing Mission Planner (Windows)](https://ardupilot.org/planner/docs/mission-planner-installation.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

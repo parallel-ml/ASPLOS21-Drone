@@ -1,0 +1,534 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mission Planner Flight PLAN &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Mission Planner Features/Screens" href="mission-planner-features.html"/>
+        <link rel="next" title="Mission Planner Initial SETUP" href="mission-planner-initial-setup.html"/>
+        <link rel="prev" title="Mission Planner Flight Data Screen" href="mission-planner-flight-data.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Flight PLAN Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-flight-plan-screen">The Flight PLAN Screen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#right-click-menu">Right Click Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-mission-creation-tools">Advanced Mission Creation Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mission-planning-details">Mission Planning Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fences-creation">FENCES Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rally-points-creation">Rally Points Creation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+    <li>Mission Planner Flight PLAN</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/mission-planner-flight-plan.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mission-planner-flight-plan">
+<span id="id1"></span><h1>Mission Planner Flight PLAN<a class="headerlink" href="#mission-planner-flight-plan" title="Permalink to this headline">¶</a></h1>
+<p>This section covers what you see and what you can do when in the Flight
+PLAN screen of Mission Planner - selected in the menu at the top of the
+Mission Planner application.  This section provides for planning and
+executing flight plans - called missions.</p>
+<div class="section" id="the-flight-plan-screen">
+<h2>The Flight PLAN Screen<a class="headerlink" href="#the-flight-plan-screen" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/PlanScreen.png" src="../_images/PlanScreen.png" />
+<ul class="simple">
+<li><strong>Upper left corner</strong>: Displays the distance from HOME, the heading and distance from the last entered waypoint (HOME if one does not exist), and total mission trip distance</li>
+<li><strong>Right side</strong>: Displays the Waypoints list for the mission. See <a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events"><span class="std std-ref">Planning a Mission with Waypoints and Events</span></a> for more details. Above this you can set the WPradius, Loiter Radius,and default altitude for waypoints. Altitudes can be entered in Relative (above HOME altitude),Absolute (ASL), and above Terrain. Units are set in the CONFIG/Planner page.</li>
+<li><strong>Bottom</strong> :At the bottom of the planner view you will see the latitude and longitude of the mouse cursor, its ASL (from SRTM, ie Terrain, data). You can select different map providers, Load or Save waypoints files, Read or Write the mission to the autopilot. In addition, the details of the HOME position on the map is shown.</li>
+</ul>
+<p>Any left mouse click adds a waypoint to the mission.</p>
+<div class="section" id="right-click-menu">
+<h3>Right Click Menu<a class="headerlink" href="#right-click-menu" title="Permalink to this headline">¶</a></h3>
+<p>Many options are available with a right mouse click:</p>
+<img alt="../_images/MP-Plan-rightclick.png" src="../_images/MP-Plan-rightclick.png" />
+<ul class="simple">
+<li>Delete WP: left click a waypoint, Ineright click and select this, deletes it.</li>
+<li>Insert WP: adds a waypoint to the mission list at the current vehicle location</li>
+<li>Insets Spline WP: Inserts a spline waypoint at current mouse position into the mission list. See <a class="reference external" href="https://en.wikipedia.org/wiki/Spline_%28mathematics%29">here</a> for more info on spline paths. (valid only for Copter, will insert normal waypoint in other vehicles)</li>
+<li>Loiter: Adds a Loiter waypoint to the mission at the cursor</li>
+<li>Jump: Adds a JUMP command to the mission</li>
+<li>RTL: Adds an RTL to the mission at the cursor</li>
+<li>Land: Adds a Land point to the mission at the cursor</li>
+<li>Takeoff: Adds a TAKEOFF point to the mission at the cursor</li>
+<li>DO_SET_ROI: Adds a SET_ROI mission command</li>
+<li>Clear Mission: Clears the displayed mission, but only in the workspace, not the autopilot. To clear the autopilot mission, WRITE a cleared workspace to the autopilot</li>
+</ul>
+</div>
+<div class="section" id="advanced-mission-creation-tools">
+<h3>Advanced Mission Creation Tools<a class="headerlink" href="#advanced-mission-creation-tools" title="Permalink to this headline">¶</a></h3>
+<p>Mission Planner has the ability to auto-generate numerous survey and grid type missions. Most are based on a drawn polygon on the map.</p>
+<img alt="../_images/MP-Polygon.png" src="../_images/MP-Polygon.png" />
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Polygon:</dt>
+<dd><ul class="first last">
+<li>Draw a Polygon: Clicking this starts drawing a polygon between mouse clicks.</li>
+<li>Clear Polygon: Clears the displayed polygon</li>
+<li>Save Polygon: Save points to a file</li>
+<li>Load Polygon: Load polygon points from a file</li>
+<li>From SHP: Load polygon shape from a .shp file</li>
+<li>Area: Displays area of drawn polygon</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Once drawn, many different surveys,fences, or waypoint grids can be generated with:</p>
+<ul class="simple">
+<li>GeoFence (Plane only): Plane uses a different method for loading and reading its GeoFence to/from the autopilot, than Copter and Rover use, so this submenu is provided. See below, under Fence Creation, for details.</li>
+<li>Rally Points (Plane only): Plane uses a different method for loading and reading its Rally points to/from the autopilot, than Copter and Rover use, so this submenu is provided. See below, under Rally Points Creation, for details.</li>
+<li><dl class="first docutils">
+<dt>Auto WP:</dt>
+<dd><ul class="first last">
+<li>Create WP Circle: Creates a circle of waypoints</li>
+<li>Create Spline WP Circle: Creates a circle of spline waypoints.</li>
+<li>Area:Displays area of polygon</li>
+<li>Text:(in development)</li>
+<li>Create Circle Survey: Creates a circular survey. A survey is a set of spaced waypoints designed to allow a camera to take overlapping photos of the survey area. This does not require a drawn polygon.</li>
+<li>Survey (Grid): Creats a survey mission based on drawn polygon.</li>
+<li>Face Map: (in development)</li>
+<li>Survey(Gridv2): Creates a box survey mission with a different user interface. No pre-drawn polygon required.</li>
+<li>Simple Grid: Creates a simple grid of waypoints within the drawn polygon.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Map Tools: Provides several map tools for measuring distances, pre-fetching map areas for off line use in the field, the ability to plot the mission altitude vs terrain, etc.</li>
+<li>File Load and Save: Load and Save waypoint, KML, and SHP files</li>
+<li>POI: This provides a means to create map markers for points of interest. This allows an easy method to be able to point the camera or fly to points of interest on the map. You can add, delete,save them to a file or load them from a file you have created. They will appear on the map.</li>
+<li>Tracker Home: Set or retrieve an Antenna Trackers HOME position.</li>
+<li>Modify Alt: Quickly change all mission altitudes.</li>
+<li>Enter UTM Coord: Sets your current location to a UTM location in the absence of GPS lock</li>
+<li>Set Home Here: Sets the HOME position at current cursor location.</li>
+<li>Fix mission top/bottom: experimental</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mission-planning-details">
+<h2>Mission Planning Details<a class="headerlink" href="#mission-planning-details" title="Permalink to this headline">¶</a></h2>
+<p>Here is where you will find the details for mission planning:</p>
+<ul class="simple">
+<li><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events"><span class="std std-ref">Planning a Mission with Way points and Events</span></a></li>
+<li><a class="reference internal" href="using-python-scripts-in-mission-planner.html#using-python-scripts-in-mission-planner"><span class="std std-ref">Using Python Scripts in Mission Planner</span></a></li>
+</ul>
+</div>
+<div class="section" id="fences-creation">
+<h2>FENCES Creation<a class="headerlink" href="#fences-creation" title="Permalink to this headline">¶</a></h2>
+<p>In the upper right of the map panel is a drop-down box, normally showing MISSION. If the FENCES option, is selected, then instead of mission/waypoint planning, fence creation is enabled.</p>
+<p>Fences can be circular, or polygons. In Plane only polygon fences are allowed. In Copter and Rover,  circular and polygon, or both superimposed, are possible. Also, exclusion zones (normally a fence is an inclusion zone), are possible.</p>
+<p>For Plane, the right click menu item, has the GeoFence sub-menu:</p>
+<img alt="../_images/MP-Fence-Plane-rightclick.png" src="../_images/MP-Fence-Plane-rightclick.png" />
+<ul>
+<li><p class="first">Geo-Fence:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Upload: Upload a fence based on drawn polygon</li>
+<li>Download: Retrieve fence from autopilot</li>
+<li>Set Return Location: Plane fences require a return location. See <a class="reference external" href="https://ardupilot.org/plane/docs/geofencing.html#geofencing" title="(in Plane)"><span>Geo-Fencing in Plane</span></a>.</li>
+<li>Load from File: Load a geo-fence from a file</li>
+<li>Save to File: Save the geo-fence points and return point to a file</li>
+<li>Clear: Clear the geo-fence on the map. This <strong>does clear</strong> the fence in the autopilot as well as the map workspace.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>For Copter and Rover, the polygon drawing icon in the upper left of the screen is used to create fences.</p>
+<img alt="../_images/MP-Fence-tool.png" src="../_images/MP-Fence-tool.png" />
+<p>This is an expanded version of the Polygon tools in the right click menu.</p>
+<p>To create a polygon fence, select “Draw a Polygon”, and left click the points desired. Then select “Fence Inclusion”. You will see a list of items in the mission list area. These are fence items and can be loaded to the autopilot with the “Write” button below, like waypoint lists were. Similarly, they can be read from the autopilot, saved or loaded from a file.</p>
+<p>To create a circular fence, simply left click. An item will be placed in the mission list. You can adjust the radius of the zone. This may be either an inclusion zone, where flight is allowed, or an exclusion zone, where flight will be prevented.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These circular zones may only be shown as blue markers in the PLAN and DATA view at certain zoom levels.</p>
+</div>
+<p>In Copter, various parameters of the fences can be set in the CONFIG/GeoFence screen. You can have different types of geo-fences loaded in the autopilot, but elect only to use combinations or altitude, circular, and/or polygon fences loaded by selecting the “Type” on this page. For Rover, these parameters must be set manually in the CONFIG/Full Parameter List screen</p>
+</div>
+<div class="section" id="rally-points-creation">
+<h2>Rally Points Creation<a class="headerlink" href="#rally-points-creation" title="Permalink to this headline">¶</a></h2>
+<p>The third option in the MISSION/FENCES/RALLY drop-down box, RALLY, allows creation of a RALLY points list. For use of RALLY points, see <a class="reference internal" href="common-rally-points.html#common-rally-points"><span class="std std-ref">Rally Points</span></a>.</p>
+<p>Left clicking will create a Rally Point at the cursor, and it will appear in the mission list to the right. Just like waypoints, these can be written to and read from, the autopilot, as well as being saved or loaded to/from a file using the “Read”, “Write”, “Load File”, and “Save File” buttons.</p>
+<p>In Plane only, saving and loading, is done from  the right-click menu:</p>
+<img alt="../_images/MP-plan-rally-points.png" src="../_images/MP-plan-rally-points.png" />
+<ul>
+<li><p class="first">Rally Points:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Rally Point: Create rally point at cursor location</li>
+<li>Download: Retrieve rally points from autopilot</li>
+<li>Upload: Save rally points to autopilot</li>
+<li>Clear Rally Points: Clear the rally points. This <strong>does clear</strong> the points in the autopilot as well as the map workspace.</li>
+<li>Save Rally to File: Save the rally points to a file</li>
+<li>Load Rally from File: Load the rally points from a file</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mission-planner-initial-setup.html" class="btn btn-neutral float-right" title="Mission Planner Initial SETUP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mission-planner-flight-data.html" class="btn btn-neutral" title="Mission Planner Flight Data Screen" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Mission Planner Flight PLAN&amp;body=[Mission Planner Flight PLAN](https://ardupilot.org/planner/docs/mission-planner-flight-plan.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

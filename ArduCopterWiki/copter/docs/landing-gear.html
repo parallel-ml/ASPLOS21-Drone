@@ -1,0 +1,510 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived: Landing Gear &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="ARCHIVED:Mouse-based Optical Flow Sensor (ADNS3080)" href="common-mouse-based-optical-flow-sensor-adns3080.html"/>
+        <link rel="prev" title="Archived: Troubleshooting" href="troubleshooting.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4fmu-overview.html">PX4FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vrgimbal.html">VR Gimbal Controller (3-Axis Open Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xbee-radios.html">Using Xbee radios for telemetry with APM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-your-own-multicopter.html">Build Your Own Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-news.html">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Landing Gear</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-to-the-pixhawk">Connecting to the Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-through-the-mission-planner">Setup through the Mission Planner</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived: Landing Gear</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/landing-gear.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition note" id="landing-gear">
+<p class="first admonition-title">Note</p>
+<p class="last">This information is superceded by <a class="reference internal" href="common-landing-gear.html#common-landing-gear"><span class="std std-ref">Landing Gear/ Retractable Camera Mount</span></a></p>
+</div>
+<div class="section" id="archived-landing-gear">
+<h1>Archived: Landing Gear<a class="headerlink" href="#archived-landing-gear" title="Permalink to this headline">¶</a></h1>
+<p>Copter supports retractable Landing Gear activated by a servo mechanism
+(like these sold by <a class="reference external" href="https://hobbyking.com/en_us/quanum-600-class-quick-release-universal-retractable-gear-set-680uc-pro-hexa-copter.html?___store=en_us">Hobby King</a>).
+The gear can be manually retracted/deployed with an auxiliary switch.
+The gear will also automatically deploy during landing.</p>
+<p>There is some simple logic controlling the operation beyond simply
+responding to retract/deploy commands from the controller.  If the
+system is booted up and the landing gear control switch is in
+the retract position, the landing gear will not retract.  This is done
+to prevent damage to the landing gear or airframe should the switch be
+accidentally left in the retract position on start-up.  In this case,
+the landing gear will not retract until the switch is first moved to the
+deploy position, and then back to the retract position.</p>
+<p>The landing gear will automatically deploy when the flight mode is changed to Land,
+during the final landing phase of RTL mode, and when a Land command is executed in AUTO mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Support for landing gear was introduced in AC 3.3</p>
+</div>
+<a class="reference external image-reference" href="../_images/LandingGear_HobbyKing.jpg"><img alt="../_images/LandingGear_HobbyKing1.jpg" src="../_images/LandingGear_HobbyKing1.jpg" /></a>
+<div class="section" id="connecting-to-the-pixhawk">
+<h2>Connecting to the Pixhawk<a class="headerlink" href="#connecting-to-the-pixhawk" title="Permalink to this headline">¶</a></h2>
+<p>Most retractable landing gear will require just a single PWM cable to
+connected to one of the AUX outputs on the back of the Pixhawk (AUX1 ~
+AUX4).</p>
+<a class="reference external image-reference" href="../_images/LandingGear_Pixhawk.jpg"><img alt="../_images/LandingGear_Pixhawk.jpg" src="../_images/LandingGear_Pixhawk.jpg" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The signal wire (usually white) should be connected to the lower most “S” pin.</p>
+</div>
+</div>
+<div class="section" id="setup-through-the-mission-planner">
+<h2>Setup through the Mission Planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p>Use the Mission Planner’s Full Parameter List (or equivalent) to set the
+following parameters:</p>
+<ul class="simple">
+<li>If using AC3.5 (or higher) set <code class="docutils literal notranslate"><span class="pre">SERVOn_FUNCTION</span> <span class="pre">to</span> <span class="pre">29</span></code> “Landing Gear”, where <strong>n</strong> is the number for
+the connected servo (e.g. <a class="reference internal" href="parameters.html#servo9-function"><span class="std std-ref">SERVO9_FUNCTION</span></a> for AUX1, <a class="reference internal" href="parameters.html#servo10-function"><span class="std std-ref">SERVO10_FUNCTION</span></a> for AUX2 etc.)</li>
+<li>If using AC3.4.6 (or lower) set <code class="docutils literal notranslate"><span class="pre">RCn_FUNCTION</span> <span class="pre">to</span> <span class="pre">29</span></code> “Landing Gear”, where <strong>n</strong> is the number for the connected servo (e.g. <code class="docutils literal notranslate"><span class="pre">RC9_FUNCTION</span> <span class="pre">&lt;RC9_FUNCTION&gt;</span></code> for AUX1, <code class="docutils literal notranslate"><span class="pre">RC10_FUNCTION</span> <span class="pre">&lt;RC10_FUNCTION&gt;</span></code> for AUX2 etc.)</li>
+<li><code class="docutils literal notranslate"><span class="pre">LGR_SERVO_DEPLOY</span> <span class="pre">&lt;LGR_SERVO_DEPLOY&gt;</span></code>
+— servo PWM value required to deploy the landing gear.</li>
+<li><code class="docutils literal notranslate"><span class="pre">LGR_SERVO_RTRACT</span> <span class="pre">&lt;LGR_SERVO_RTRACT&gt;</span></code>
+— servo PWM value required to retract the landing gear.</li>
+</ul>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/LandingGear_PixhawkSetup1.png"><img alt="../_images/LandingGear_PixhawkSetup1.png" src="../_images/LandingGear_PixhawkSetup1.png" /></a>
+<p class="caption"><span class="caption-text">MissionPlanner: Landing Gear Configuration</span></p>
+</div>
+<p>Set an <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">auxiliary switch</span></a> to “Landing Gear” in order to enable manual control (i.e. set CH7_OPT or CH8_OPT to “29”)</p>
+<p>When the switch is in the “low” position the gear will be deployed, “high” will be retracted, “middle” is a neutral position that will not change the gear’s state.</p>
+<div class="figure" id="id2">
+<a class="reference external image-reference" href="../_images/LandingGear_PixhawkSetup2.png"><img alt="../_images/LandingGear_PixhawkSetup2.png" src="../_images/LandingGear_PixhawkSetup2.png" /></a>
+<p class="caption"><span class="caption-text">Mission Planner: Setting Manual Landing Gear Control</span></p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-mouse-based-optical-flow-sensor-adns3080.html" class="btn btn-neutral float-right" title="ARCHIVED:Mouse-based Optical Flow Sensor (ADNS3080)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="troubleshooting.html" class="btn btn-neutral" title="Archived: Troubleshooting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived: Landing Gear&amp;body=[Archived: Landing Gear](https://ardupilot.org/copter/docs/landing-gear.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

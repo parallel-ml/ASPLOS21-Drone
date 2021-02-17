@@ -1,0 +1,524 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tips For New Pilots &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="First Flight with Copter" href="flying-arducopter.html"/>
+        <link rel="next" title="Tuning" href="common-tuning.html"/>
+        <link rel="prev" title="Arming the motors" href="arming_the_motors.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">First Flight</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flight-modes.html">Flight Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-prearm-safety-checks.html">Pre-arm Safety Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Off the Ground – Tips for New Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-flight">First flight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-for-your-first-flights">Tips for your first flights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warning-about-low-batteries">Warning about low batteries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotrim.html">Save Trim &amp; Auto Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="flying-arducopter.html">First Flight with Copter</a> &raquo;</li>
+      
+    <li>Tips For New Pilots</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/ac_tipsfornewpilots.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tips-for-new-pilots">
+<span id="ac-tipsfornewpilots"></span><h1>Tips For New Pilots<a class="headerlink" href="#tips-for-new-pilots" title="Permalink to this headline">¶</a></h1>
+<p>This page gives some advice on initial flying strategies for those with
+limited or no previous experience flying RC aircraft or multicopters.</p>
+<div class="section" id="first-flight">
+<h2>First flight<a class="headerlink" href="#first-flight" title="Permalink to this headline">¶</a></h2>
+<p>Place the copter on level ground and connect the battery — do not move
+the copter until gyroscope calibration is completed (LED’s flashing red
+and blue). Ensure that your RC mode toggle switch is in Stabilize mode.
+Slowly raise the throttle until the copter just lifts off the ground.</p>
+<p>If it seems like it’s going to flip or otherwise isn’t lifting straight up
+it is possible that you’ve set the wrong +/x orientation, hooked up your motors
+in the wrong order or have the prop direction or pusher/puller order wrong.
+You can test this by following the instructions in
+<a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors-testing-motor-spin-directions"><span class="std std-ref">Testing motor spin directions</span></a>.</p>
+<p>If any of the controls are reversed (pitch or roll are backwards,
+meaning the copter moves in the opposite direction as your stick),
+you’ll need to reverse the affected channel at your RC transmitter side.
+Please see your RC transmitter’s manual if you’re not familiar with the
+process. It’s a good idea to re-do your RC calibration in the Mission
+Planner after you’ve reversed a channel.</p>
+<p>If it lifts off smoothly, you may see a little yaw. That shouldn’t be
+more than about 30 degrees and will correct itself with more flying
+time. There should be no pronounced wobble (if there is, you may have an
+unbalanced prop or out-of-true motor).</p>
+<p>The copter should also tend to stay in place, and you shouldn’t have to
+fight strong tendencies to move left or right or forward or back. If you
+do see that behavior, do NOT use your RC trims to correct (this just
+throws off the calibration). Instead, it probably means that the copter
+may not have been completely flat during calibration or the airframe is
+out of true (one motor tilted). Land and correct that.</p>
+<p>If you’re having trouble and the copter is not hovering smoothly, run
+through the <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">troubleshooting guide</span></a>.</p>
+<p>Assuming that all is fine so far, you’re ready for more advanced modes,
+such as Alt Hold and Loiter.</p>
+</div>
+<div class="section" id="tips-for-your-first-flights">
+<h2>Tips for your first flights<a class="headerlink" href="#tips-for-your-first-flights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Make sure you are in a wind free environment
+(wind will play against you on in air auto trim).</li>
+<li>Make sure you have no trim on your Radio
+(the APM is what we want to trim, the radio should never get trimmed).</li>
+<li>Hold the copter still and level after connecting the battery to allow
+the gyroscopes to initialize.</li>
+<li>Get above ground effect, around 3-4 feet is enough on most models.</li>
+<li>Make sure to practice a lot before you actually try the auto trim to
+find the sweet spot on the Radio right stick to have the copter super
+stable and not moving
+(This is where wind affect your inputs).</li>
+<li>We recommend not starting in Simple mode. Begin your flying in the
+basic Stabilize mode.</li>
+<li>Copter establishes its home position at the time of arming, so arm
+your copter in the location you wish to designate as the home
+position.</li>
+</ul>
+</div>
+<div class="section" id="warning-about-low-batteries">
+<h2>Warning about low batteries<a class="headerlink" href="#warning-about-low-batteries" title="Permalink to this headline">¶</a></h2>
+<p>When flying Copter, you need to keep in mind that it flies much
+differently than a winged airplane. In an airplane, lift is generated by
+the wing and you still have control surfaces for maneuvering if the
+motor were to stop. Multicopters generate lift solely from the thrust of
+the motors, so if your battery is excessively depleted, you have no lift
+and no control over your Copter, and it may flip over and crash without
+a gradual warning. During first flights, fly only short durations until
+you know your battery consumption and use one of the following batteries
+monitoring methods to ensure that you always have enough power remaining
+to safely land your copter (and not ruin the battery).</p>
+<ul>
+<li><p class="first">ArduPilot support Battery voltage monitoring. For more information, visit the <a class="reference internal" href="common-3dr-power-module.html#common-3dr-power-module"><span class="std std-ref">3DR Power Module for Measuring Voltage and Current</span></a> page.</p>
+</li>
+<li><p class="first">You may also program your ESCs to use a slow or no cutoff at low
+voltages.</p>
+</li>
+<li><p class="first">For APM 2 or 2.5 without power module it is HIGHLY recommended you
+install a <a class="reference external" href="https://hobbyking.com/en_us/catalogsearch/result/?q=Battery+Voltage+Monitor">Battery Voltage Monitor</a>.</p>
+<ul>
+<li><p class="first">For 3S LiPo batteries, the two wires can be soldered to the P-PCB
+directly, or you can connect to the balancing plug of your
+battery.</p>
+</li>
+<li><p class="first">The battery voltage monitor linked above has a buzzer and LEDs
+that function as follows:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Voltage</th>
+<th>LED</th>
+<th>Buzzer</th>
+</tr>
+<tr>
+<td>11.0v</td>
+<td>Solid Blue</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>10.0v - 11.0v</td>
+<td>Flashing Blue</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>9.8v - 10.0v</td>
+<td>Solid Red</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>9.8v</td>
+<td>Flashing Red</td>
+<td>On</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using a battery monitor, always connect the main LiPo
+battery wire before connecting the balancing port wire to the
+APM.</p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-tuning.html" class="btn btn-neutral float-right" title="Tuning" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="arming_the_motors.html" class="btn btn-neutral" title="Arming the motors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Tips For New Pilots&amp;body=[Tips For New Pilots](https://ardupilot.org/copter/docs/ac_tipsfornewpilots.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RPM Sensors &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Peripheral Hardware" href="common-optional-hardware.html"/>
+        <link rel="next" title="Servos" href="common-servo-landingpage.html"/>
+        <link rel="prev" title="Relay Switch" href="common-relay.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-joystick.html">Joystick or Gamepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RPM Sensor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-the-rpm-sensor-library-works">How the RPM Sensor Library Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hall-effect-sensors">Hall Effect Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electrical-commutation-sensors">Electrical Commutation Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optical-sensors">Optical Sensors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+    <li>RPM Sensors</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/common-rpm.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rpm-sensors">
+<span id="common-rpm"></span><h1>RPM Sensors<a class="headerlink" href="#rpm-sensors" title="Permalink to this headline">¶</a></h1>
+<p>ArduPilot supports the use of numerous types of RPM sensors.  They are commonly used in traditional helicopters to measure main rotor speed and motor/engine RPM.
+RPM sensors are mandatory for those who wish to use the closed-loop throttle governor functionality available to helicopters.  Additionally, vehicles that employ
+2-stroke and 4-stroke Internal Combustion Engines (ICE) use RPM sensors are for ignition timing.  The same rpm sensor can be used to log engine RPM in ArduPilot.</p>
+<p>Common types or RPM sensor that can be used in ArduPilot:</p>
+<ul class="simple">
+<li>Hall effect</li>
+<li>Electrical commutation</li>
+<li>Optical</li>
+</ul>
+<p>Any RPM sensor that outputs a step-change in voltage as a function of RPM can be used with ArduPilot.  A brief explanation of how the RPM library works is given.  This is followed by
+instructions for how to setup the different types of RPM sensor.  Up to two RPM sensors can be used.</p>
+<div class="section" id="how-the-rpm-sensor-library-works">
+<h2>How the RPM Sensor Library Works<a class="headerlink" href="#how-the-rpm-sensor-library-works" title="Permalink to this headline">¶</a></h2>
+<p>The RPM library in ArduPilot monitors the voltage of the designated signal pin.   The image below shows a typical output voltage of an RPM sensor:</p>
+<a class="reference external image-reference" href="../_images/Autorotation_Wheel_Magnet.png"><img alt="../_images/Commutation_RPM_Sensor.png" src="../_images/Commutation_RPM_Sensor.png" style="width: 450px;" /></a>
+<p>As it can be seen the voltage oscillates between 0V and 5V.  The voltage drops are either caused by a magnet passing a hall effect sensor, or are the output of a
+different type of sensor.  When a ‘falling edge’ is detected the time is stored.  When the voltage drops again the time difference between the falling edges can be
+calculated.  The time between the voltage drops is proportional to the RPM.  The scaling value that correlates the time between the falling edges and the RPM is
+dependent upon the setup and device being used.  Device-specific advice on scaling parameters is given later in this guide.</p>
+<p>In this example, the output is from an electrical commutation sensor, connected to a motor with 4 poles.  The RPM can be calculated as follows:</p>
+<a class="reference external image-reference" href="../_images/RPM_Equation.png"><img alt="../_images/RPM_Equation.png" src="../_images/RPM_Equation.png" style="width: 130px;" /></a>
+<p>Where dt is the time between falling edges (in seconds) and S is the scaling factor.  In this example, 4 poles means that there will be 4 wave periods per revolution.
+Hence, the scaling factor would be 0.25 and the resulting RPM would be 5282.  This is a somewhat simplistic view of how ArduPilot calculates the RPM, but it illustrates
+the key underlying concepts.</p>
+</div>
+<div class="section" id="hall-effect-sensors">
+<h2>Hall Effect Sensors<a class="headerlink" href="#hall-effect-sensors" title="Permalink to this headline">¶</a></h2>
+<p><strong>Hardware Setup</strong></p>
+<p>Perhaps the most often used, hall effect sensors change their output voltage in the presence of a sufficiently strong magnetic field.  A magnet needs to be fixed to
+the rotating component that is to be measured.  For helicopters, this requires that a hole or recess is made in the autorotation tail drive wheel and the magnet
+glued in place (as in the image below).  For ICE the magnet will be mounted in the output shaft.</p>
+<a class="reference external image-reference" href="../_images/Autorotation_Wheel_Magnet.jpg"><img alt="../_images/Autorotation_Wheel_Magnet.jpg" src="../_images/Autorotation_Wheel_Magnet.jpg" style="width: 240px;" /></a>
+<p>The polarity of the magnet matters.  Only one pole will create the change in voltage required.  To ensure that the magnet is affixed in the correct orientation
+either an oscilloscope or the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_RPM/examples/ArduinoHallEffectDebug.ino">Arduino sketch found here</a>
+can be used.  If using an oscilloscope, this guide assumes that you have sufficient knowledge to be able to set up this test.  If using the Arduino sketch method
+in the link provided, a comprehensive set of instructions are commented at the beginning of the sketch.  An Arduino Uno was used when writing and testing the sketch
+and is recommended.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Most hall effect sensors that are intended for use with radio control vehicles will require some additional modification.  Often, they will need an additional
+pull-up resistor to be added between the Vcc and signal lines.  In some cases, their Vcc, gnd, and signal lines won’t match the colour coding of the wire.  Hence,
+it is advisable to experiment with the provided Arduino sketch and a bread board to be sure of the sensor pin orientation.</p>
+</div>
+<p>For a reliable RPM signal the hall effect pick-up should be mounted very close to the magnet.  The image below shows an example mounting on helicopter.</p>
+<a class="reference external image-reference" href="../_images/Installed_Hall_Effect_Sensor.jpg"><img alt="../_images/Installed_Hall_Effect_Sensor.jpg" src="../_images/Installed_Hall_Effect_Sensor.jpg" style="width: 240px;" /></a>
+<p>The three wires should then be plugged into autopilot.  This is commonly done using a standard servo plug.  Ground to Gnd, Vcc to 5V, and the signal line
+needs to be attached to a GPIO pin.  On most smaller boards this will be any one of the PWM pins on the servo rail.  On a Pixhawk this must be one of the AUX ports.
+For reasons explained later it is recommended to use the highest number pin first.  E.g. AUX 6 on a Pixhawk Cube or PWM 9 on an F405-Wing.</p>
+<p><strong>Parameter Setup</strong></p>
+<p>First the board needs to be configured to allow PWM pins to be set for GPIO.  This is done using the parameter <a class="reference internal" href="parameters.html#brd-pwm-count"><span class="std std-ref">BRD_PWM_COUNT</span></a> .  Reduce the PWM count to free up a pin to
+be used for GPIO.  On non-Pixhawk boards the PWM count will include all PWM outputs.  On Pixhawk boards this parameter only affects AUX pins.  Write the parameter
+and reboot the autopilot.</p>
+<p>Now the autopilot needs to be told which pin to find the RPM signal on.  To do this you will need to find the pin number in the hwdef.dat file for you
+board.  These can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a>.  Within the file for your board you will
+need to find where the GPIO(*) definition is.  The below example is an excerpt from the hwdef.dat file for the cube:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PD13</span> <span class="n">TIM4_CH2</span> <span class="n">TIM4</span> <span class="n">PWM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">GPIO</span><span class="p">(</span><span class="mi">54</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, pin 54 corresponds to AUX port 5.  Therefore, 54 must be entered into the parameter <a class="reference internal" href="parameters.html#rpm-pin"><span class="std std-ref">RPM_PIN</span></a> if using AUX 5 for the RPM sensor.</p>
+<p>The parameter <a class="reference internal" href="parameters.html#rpm-scaling"><span class="std std-ref">RPM_SCALING</span></a> will correspond to the number magnets used.  Most commonly only one magnet is used and this parameter is set to 1.  Some installations use
+2 magnets, 180 degrees out of phase.  In this case this parameter should be set to 0.5.</p>
+<p>The parameter <a class="reference internal" href="parameters.html#rpm-type"><span class="std std-ref">RPM_TYPE</span></a> should be set to 2 when using the AUX pins on Pixhawk type boards.  It should be set to 1 in all other instances.</p>
+<p>Initially, it is recommended to leave the parameters <a class="reference internal" href="parameters.html#rpm-min"><span class="std std-ref">RPM_MIN</span></a> , <a class="reference internal" href="parameters.html#rpm-max"><span class="std std-ref">RPM_MAX</span></a> , and <a class="reference internal" href="parameters.html#rpm-min-qual"><span class="std std-ref">RPM_MIN_QUAL</span></a> as their defaults.  If an RPM signal exceeds any of these limits then the
+value reported in the ground station and the logs is zero.  Therefore, only adjust these values once you have confirmed that your RPM sensor is working as expected,
+otherwise it can make it more difficult to debug if nothing is getting reported.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If using two RPM sensors the min, max, and quality parameters are valid for both of the RPM sensors.  In this case be sure to set these values to encompass the
+RPM ranges of both sensors.</p>
+</div>
+<p>Finally, to test that everything is working, you can use the rpm1/rpm2 live feeds in the quick tab in mission planner or the live tuning window.  Alternatively the
+RPM history can be reviewed in the logs.</p>
+</div>
+<div class="section" id="electrical-commutation-sensors">
+<h2>Electrical Commutation Sensors<a class="headerlink" href="#electrical-commutation-sensors" title="Permalink to this headline">¶</a></h2>
+<p>Electrical commutation RPM sensors can be added retrospectively using something like the Hobbywing brushless RPM sensor.  Some ESCs, such as the Castle Creations Edge
+series, that have an auxiliary output, can be configured to output a pulse per commutation.  For clarification, this is not the same as the RPM that can be passed
+via serial telemetry with BL Heli ESCs.  For information on how to set up RPM logging with BL Heli see the <a class="reference external" href="https://ardupilot.org/copter/docs/common-dshot.html#common-dshot" title="(in Copter)"><span class="xref std std-ref">BL Heli page</span></a>.</p>
+<p>The setup for electrical commutation RPM sensors is much the same as hall effect sensors, so the steps above are applicable.  The only difference is the scaling value
+to be entered in the <a class="reference internal" href="parameters.html#rpm-scaling"><span class="std std-ref">RPM_SCALING</span></a> parameter.  Now, the scaling value is a function of the number of poles in the motor and should be the reciprocal of the number of
+poles.  E.g. A 4 pole motor will need a scaling value of 0.25.</p>
+</div>
+<div class="section" id="optical-sensors">
+<h2>Optical Sensors<a class="headerlink" href="#optical-sensors" title="Permalink to this headline">¶</a></h2>
+<p>Again, the setup of optical sensors is much the same as the hall effect sensor.  The only difference is the scaling value.  <a class="reference internal" href="parameters.html#rpm-scaling"><span class="std std-ref">RPM_SCALING</span></a> should be set to be the reciprocal
+of the number of reflective obstacles that pass the sensor in a single rotation.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-servo-landingpage.html" class="btn btn-neutral float-right" title="Servos" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-relay.html" class="btn btn-neutral" title="Relay Switch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=RPM Sensors&amp;body=[RPM Sensors](https://ardupilot.org/copter/docs/common-rpm.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

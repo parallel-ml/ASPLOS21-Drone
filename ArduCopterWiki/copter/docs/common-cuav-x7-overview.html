@@ -1,0 +1,529 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CUAV X7 Overview &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot Hardware Options" href="common-autopilots.html"/>
+        <link rel="next" title="F4BY FMU" href="common-f4by.html"/>
+        <link rel="prev" title="CUAV Nora Overview" href="common-cuav-nora-overview.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#open-hardware">Open hardware</a><ul class="current">
+<li class="toctree-l3"><a class="reference external" href="https://github.com/mirkix/BBBMINI">BBBMini* (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-beagle-bone-blue.html">Beagle Bone Blue (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CUAV X7/ X7 Pro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-uart-order">Default UART Order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dshot-capability">DShot Capability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#battery-monitor">Battery Monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#size-and-pinouts">Size and Pinouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-video">Flight video</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecube-overview.html">Hex/ProfiCNC Cube Black</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubeorange-overview.html">Hex/ProfiCNC Cube Orange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubepurple-overview.html">Hex/ProfiCNC Cube Purple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubeyellow-overview.html">Hex/ProfiCNC Cube Yellow</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">Hex/ProfiCNC Cube Green</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm">mRo X2.1</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/mro-x2.1-777-mr.htm">mRo X2.1-777</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/PocketPilot/PocketPilot">PocketPilot* (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2**</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#closed-hardware">Closed hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#firmware-limitations">Firmware Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#discontinued-boards">Discontinued boards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-autopilots.html">Autopilot Hardware Options</a> &raquo;</li>
+      
+    <li>CUAV X7 Overview</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-cuav-x7-overview.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cuav-x7-overview">
+<span id="common-cuav-x7-overview"></span><h1>CUAV X7 Overview<a class="headerlink" href="#cuav-x7-overview" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="../_images/x7.jpg"><img alt="../_images/x7.jpg" src="../_images/x7.jpg" style="width: 360px;" /></a>
+<p><strong>X7®</strong> is an advanced autopilot independently designed by CUAV®. It uses a higher-performance STM32H7 processor and integrates industrial-grade sensors and ultra-low temperature drift sensors. Compared with previous flight controllers,it has better performance and more reliability.
+The modular design allows the users to customize their own carrier board and is fully compatible with CUAV V5 + carrier board. X7 is ideal for academic research and commercial systems integration.</p>
+<blockquote>
+<div>Other characteristics:</div></blockquote>
+<ul class="simple">
+<li>Internal shock absorption</li>
+<li>Supports High Speed USB (480mb/s), can download logs faster</li>
+<li>Supports more DShot outputs</li>
+<li>Supports IMU heating, making the sensor more consistent</li>
+<li>Dedicated UAVCAN battery port</li>
+<li>3 sets of IMU sensors</li>
+</ul>
+<div class="section" id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Processor</strong><ul>
+<li>32-bit STM32H743 main processor</li>
+<li>480Mhz / 1MB RAM / 2MB Flash</li>
+</ul>
+</li>
+<li><strong>Sensors</strong><ul>
+<li><strong>X7</strong> : InvenSense ICM20689 accelerometer / gyroscope</li>
+<li><strong>X7 Pro</strong> replaces the above IMU with a high G , high precision InvenSense ADIS16470 accelerometer / gyroscope</li>
+<li>InvenSense ICM20649 accelerometer / gyroscope</li>
+<li>Bosch BMI088 accelerometer / gyroscope</li>
+<li>2 MS5611 barometers</li>
+<li>RM3100 Industrial grade magnetometer</li>
+</ul>
+</li>
+<li><strong>Power</strong><ul>
+<li>Operating Voltage: 4.3~5.4V</li>
+<li>USB Input: 4.75~5.25V</li>
+<li>High-voltage capable servo rail, up to 36V
+(servo rail does not power the autopilot)</li>
+<li>Dual voltage and current monitor inputs</li>
+<li>X7 can have triple redundant powering, if power is provided
+to both battery monitor inputs and the USB port</li>
+</ul>
+</li>
+<li><strong>Interfaces</strong><ul>
+<li>14 PWM servo outputs（12 support DShot）</li>
+<li>Analog/ PWM RSSI input</li>
+<li>2 GPS ports(GPS and UART4 ports)</li>
+<li>4 I2C buses(Two external I2C ports)</li>
+<li>2 CAN bus ports</li>
+<li>2 Power ports(Power A is an ADC interface, Power C is a UAVCAN battery interface)</li>
+<li>2 ADC inputs</li>
+<li>1 High Speed (480mb/s)USB port</li>
+</ul>
+</li>
+<li><strong>Other</strong><ul>
+<li>Weight: 101g</li>
+<li>Operating temperature: -20 ~ 80°c（Measured value）</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="default-uart-order">
+<h2>Default UART Order<a class="headerlink" href="#default-uart-order" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>SERIAL0 = console = USB</li>
+<li>SERIAL1 = Telemetry1 = USART1</li>
+<li>SERIAL2 = Telemetry2 = USART6</li>
+<li>SERIAL3 = GPS1 = USART1</li>
+<li>SERIAL4 = GPS2 = UART4</li>
+<li>SERIAL5 = USER = UART8</li>
+<li>SERIAL6 = USER = UART7 (DEBUG TX/RX)</li>
+</ul>
+<p>Serial protocols can be adjusted to personal preferences.</p>
+</div>
+<div class="section" id="dshot-capability">
+<h2>DShot Capability<a class="headerlink" href="#dshot-capability" title="Permalink to this headline">¶</a></h2>
+<p>All motor/servo outputs are DShot and PWM capable. However, mixing DShot and normal PWM operation for outputs is restricted into groups, ie. enabling DShot for an output in a group requires that ALL outputs in that group be configured and used as DShot, rather than PWM outputs. The output groups that must be the same (PWM rate or DShot, when configured as a normal servo/motor output) are: 1-4, 5-8,and 9-12. Outputs 13 and 14 are not DShot capable.</p>
+</div>
+<div class="section" id="battery-monitor">
+<h2>Battery Monitor<a class="headerlink" href="#battery-monitor" title="Permalink to this headline">¶</a></h2>
+<p>The autopilot includes a UAVCAN power module and battery monitor, <a class="reference internal" href="common-can-pmu.html#common-can-pmu"><span class="std std-ref">CAN PMU Power detection module</span></a> . Connect to one of the CAN ports and its already pre-configured for use.</p>
+</div>
+<div class="section" id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this headline">¶</a></h2>
+<p>Order from <a class="reference external" href="https://store.cuav.net/index.php">here</a>.
+Official retailers are listed <a class="reference external" href="https://leixun.aliexpress.com/">here</a>.</p>
+</div>
+<div class="section" id="size-and-pinouts">
+<h2>Size and Pinouts<a class="headerlink" href="#size-and-pinouts" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7/x7-size.jpg"><img alt="../_images/x7-size.jpg" src="../_images/x7-size.jpg" /></a>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7/x7-pinouts.jpg"><img alt="../_images/x7-pinouts.jpg" src="../_images/x7-pinouts.jpg" /></a>
+</div>
+<div class="section" id="flight-video">
+<h2>Flight video<a class="headerlink" href="#flight-video" title="Permalink to this headline">¶</a></h2>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/KxN8nMHSi-0" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://doc.cuav.net/flight-controller/x7/en/x7.html">CUAV docs</a></li>
+<li><a class="reference external" href="https://github.com/cuav/hardware/tree/master/X7_Autopilot">x7 schematic</a></li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-f4by.html" class="btn btn-neutral float-right" title="F4BY FMU" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-cuav-nora-overview.html" class="btn btn-neutral" title="CUAV Nora Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=CUAV X7 Overview&amp;body=[CUAV X7 Overview](https://ardupilot.org/copter/docs/common-cuav-x7-overview.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Telemetry Logs &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Logs" href="common-logs.html"/>
+        <link rel="next" title="UAV LogViewer" href="common-uavlogviewer.html"/>
+        <link rel="prev" title="Measuring Vibration with IMU Batch Sampler" href="common-imu-batchsampling.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-logs.html">Logs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-logs.html#topics-related-to-logging-and-analysis">Topics related to logging and analysis</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-diagnosing-problems-using-logs.html">Diagnosing problems using Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html">Dataflash Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-batchsampling.html">Measuring Vibration with &quot;Batch Sampling&quot;</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Telemetry Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-logs.html#tools-for-log-analysis">Tools for log analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+          <li><a href="common-logs.html">Logs</a> &raquo;</li>
+      
+    <li>Telemetry Logs</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-mission-planner-telemetry-logs.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="telemetry-logs">
+<span id="common-mission-planner-telemetry-logs"></span><h1>Telemetry Logs<a class="headerlink" href="#telemetry-logs" title="Permalink to this headline">¶</a></h1>
+<p>Telemetry logs (also known as “tlogs”) are recorded by the ground station when you connect ArduPilot to your
+computer via a <a class="reference external" href="https://ardupilot.org/rover/docs/common-telemetry-landingpage.html#common-telemetry-landingpage" title="(in Rover)"><span class="xref std std-ref">telemetry link</span></a>. This topic explains how to configure and access tlogs.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">Dataflash logs</span></a>
+collect similar information to tlogs (see <a class="reference internal" href="common-diagnosing-problems-using-logs.html#common-diagnosing-problems-using-logs"><span class="std std-ref">Diagnosing problems using Logs</span></a> for more information).</p>
+</div>
+<div class="section" id="when-and-where-tlogs-are-created">
+<h2>When and where tlogs are created<a class="headerlink" href="#when-and-where-tlogs-are-created" title="Permalink to this headline">¶</a></h2>
+<p>Tlogs are recordings of the MAVLink telemetry messages sent between the
+autopilot and the ground station and are automatically created the moment
+you press the connect button on the ground station.</p>
+<p>If using the Mission Planner, files of the
+format YYYY-MM-DD hh-mm-ss.tlog appear in the “logs” subfolder in your
+Mission Planner installation folder or to the location you select in the
+Planner options [Config/Tuning] [Planner].</p>
+<p>Besides the “.tlog” files, “.rlog” files are also created.  These
+contain all the .tlog data plus additional debug output from the mission
+planner.  but cannot be parsed or played back so they should be ignored.</p>
+</div>
+<div class="section" id="setting-the-datarate">
+<span id="common-mission-planner-telemetry-logs-setting-the-datarate"></span><h2>Setting the datarate<a class="headerlink" href="#setting-the-datarate" title="Permalink to this headline">¶</a></h2>
+<p>The desired rate at which data is sent from the autopilot to the ground station can be controlled through the mission planner’s Config/Tuning &gt; Planner screen’s Telemetry drop-downs.  Because all data sent over the telemetry link is also recorded in the tlog, this also controls the rate of data saved to the tlogs.</p>
+<p>Note that due to bandwidth limitations, the actual rate of the data sent and saved may be lower than the rate requested.</p>
+<a class="reference external image-reference" href="../_images/mp_telemetry_rate.png"><img alt="../_images/mp_telemetry_rate.png" src="../_images/mp_telemetry_rate.png" /></a>
+</div>
+<div class="section" id="playing-back-missions">
+<h2>Playing back missions<a class="headerlink" href="#playing-back-missions" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to play back a tlog by doing the following:</p>
+<ul class="simple">
+<li>Open the mission planner’s Flight Data screen</li>
+<li>click on the Telemetry Logs tab</li>
+<li>Press “Load Log” and find the flight’s tlog file</li>
+<li>Press “Play”</li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_tlog_playback.jpg"><img alt="../_images/mp_tlog_playback.jpg" src="../_images/mp_tlog_playback.jpg" /></a>
+<p>You can also jump to the point of interest in the log using the slider
+and control the speed of the playback with the predefined Speed buttons.</p>
+<p>While the log is replaying, the HUD will move and the vehicles location
+on the map will update as it did during the flight.  Individual data
+values can be seen through the Status tab and you can even display them
+in a graph by clicking on the “Tuning” checkbox under the map and then
+double clicking on the data legend to bring up a box from which you can
+choose exactly which data fields are graphed as shown below.  This will
+show the recorded data changing as the flight progresses.</p>
+<a class="reference external image-reference" href="../_images/mptlog1.jpg"><img alt="../_images/mptlog1.jpg" src="../_images/mptlog1.jpg" /></a>
+</div>
+<div class="section" id="creating-3d-images-of-the-flight-path">
+<span id="common-mission-planner-telemetry-logs-creating-3d-images-of-the-flight-path"></span><h2>Creating 3d images of the flight path<a class="headerlink" href="#creating-3d-images-of-the-flight-path" title="Permalink to this headline">¶</a></h2>
+<p>You can create KMZ files by doing this:</p>
+<ul class="simple">
+<li>Open the mission planner’s Flight Data screen</li>
+<li>Click on the Telemetry Logs tab</li>
+<li>Press the “Tlog &gt; Kml or Graph” button</li>
+<li>Press the “Create KML + GPX” button</li>
+<li>select the flight tlog</li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_create_kmz_from_tlog.jpg"><img alt="../_images/mp_create_kmz_from_tlog.jpg" src="../_images/mp_create_kmz_from_tlog.jpg" /></a>
+<p>A .kmz and .kml file will be created along side the original .tlog and
+this can be opened in google earth to interactively view the 3d flight
+path. You can open the kmz file in Google Earth to view the flight or
+path. Just double click the file or drag it and drop into Google Earth.</p>
+<a class="reference external image-reference" href="../_images/kmz_flight_path_google_earth.jpg"><img alt="../_images/kmz_flight_path_google_earth.jpg" src="../_images/kmz_flight_path_google_earth.jpg" /></a>
+<p>The different flight modes used during the flight will appear as
+different colored tracks.  You can change some details about how the
+flight paths are displayed including their color and whether the paths
+extend to the ground by doing this:</p>
+<ul class="simple">
+<li>Find the log file’s name in the “Places” pane on the left.  It should
+appear in a “Temporary Places” folder.</li>
+<li>Right click on an individual path and select “Properties” to open the
+Edit Path window.</li>
+<li>The color can be changed on the “Style, Color” tab</li>
+<li>The area below the path can be removed (added) on the “Altitude” tab
+by un-checking (checking) “Extend path to ground”</li>
+</ul>
+</div>
+<div class="section" id="extracting-parameters-and-waypoints">
+<h2>Extracting parameters and Waypoints<a class="headerlink" href="#extracting-parameters-and-waypoints" title="Permalink to this headline">¶</a></h2>
+<p>You can extract the parameters and waypoints from the tlog by following
+the same steps as for creating the KML file except that at the last step
+select “Extract Params” or “Extract WPs”.</p>
+<p>Extract Params will cause a .param file to be created along side the
+tlog.  This file is tab separated and contains a full list of parameters
+(in the same order as they appear in the eeprom) along with their values
+during the flight.  This can be opened in excel or a text editor.</p>
+<p>Extract WPs will create one or more .txt files containing any missions
+uploaded to the autopilot.  These files can be opened in the Mission
+Planner by switching to the Flight Plan screen, right-mouse-button
+clicking on the map and selecting “File Load/Save”, “Load WP File”.</p>
+</div>
+<div class="section" id="graphing-data-from-a-flight">
+<h2>Graphing data from a flight<a class="headerlink" href="#graphing-data-from-a-flight" title="Permalink to this headline">¶</a></h2>
+<p>Data from the flight can be graphed by doing the following:</p>
+<ul class="simple">
+<li>Open the mission planner’s Flight Data screen</li>
+<li>Click on the Telemetry Logs tab</li>
+<li>Press the “Tlog &gt; Kml or Graph” button</li>
+<li>Press the “Graph Log” button</li>
+<li>select the flight tlog</li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_graph_data.jpg"><img alt="../_images/mp_graph_data.jpg" src="../_images/mp_graph_data.jpg" /></a>
+<ul class="simple">
+<li>When the “Graph This” screen appears, use the left or right mouse
+button to click on the checkboxes beside the items you wish to
+graph.  Note that the items are grouped into categories like
+“RC_CHANNELS” and “RAW_IMU” although it’s still often difficult to
+find exactly the item you wish to graph</li>
+<li>If you use the left mouse button the scale for the item will appear
+on the left of the graph.  If you use the right mouse button it will
+appear on the right</li>
+<li>Click the checkbox multiple times to cycle through all the possible
+colours</li>
+<li>Change the zoom of the graph with your mouse’s middle wheel, by
+select an area of the graph with the left mouse button held down or
+by right-mouse-button clicking on the graph and selecting “Set Scale
+To Default”</li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_graph_data2.png"><img alt="../_images/mp_graph_data2.png" src="../_images/mp_graph_data2.png" /></a>
+</div>
+<div class="section" id="video-overview-of-tlogs">
+<h2>Video overview of tlogs<a class="headerlink" href="#video-overview-of-tlogs" title="Permalink to this headline">¶</a></h2>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/4IRRN5YMHJA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-uavlogviewer.html" class="btn btn-neutral float-right" title="UAV LogViewer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-imu-batchsampling.html" class="btn btn-neutral" title="Measuring Vibration with IMU Batch Sampler" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Telemetry Logs&amp;body=[Telemetry Logs](https://ardupilot.org/planner/docs/common-mission-planner-telemetry-logs.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

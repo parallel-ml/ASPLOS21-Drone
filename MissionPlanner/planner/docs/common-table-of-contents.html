@@ -1,0 +1,828 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table of Contents &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="prev" title="Mission Planner - Proposed Table Of Contents (TOC)" href="mission-planner-toc-planning.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Table of Contents</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-table-of-contents.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-contents">
+<span id="common-table-of-contents"></span><h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+            
+            
+             
+               
+                 
+                     <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-overview.html#what-is-mission-planner">What is Mission Planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-overview.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-overview.html#support">Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-overview.html#navigating-the-documentation">Navigating the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-installation.html#open-mission-planner">Open Mission Planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-installation.html#updating-mission-planner">Updating Mission Planner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-advanced-installation.html">Mission Planner Advanced Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mission-planner-advanced-installation.html#installing-mission-planner-in-a-different-location">Installing Mission Planner In a Different Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mission-planner-advanced-installation.html#using-older-version-of-mission-planner">Using older version of Mission Planner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#connect-autopilot-to-computer">Connect autopilot to computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#select-the-com-port">Select the COM port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#install-firmware">Install firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#using-beta-and-developer-versions">Using Beta and Developer Versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#beta">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#latest-developer-version">Latest Developer Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#download-driver-and-flashing-tool">Download driver and flashing tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#download-the-ardupilot-firmware">Download the ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#using-beta-and-developer-versions">Using Beta and Developer Versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#beta">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#latest-developer-version">Latest Developer Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#upload-the-firmware-to-autopilot">Upload the firmware to autopilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#alternate-method">Alternate method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#download-and-install-zadig-windows-only">Download and Install Zadig (Windows only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#id1">Download the ArduPilot firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#upload-ardupilot-to-the-board">Upload ArduPilot to the board</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html#setting-up-the-connection">Setting up the connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html#troubleshooting-composite-connections">Troubleshooting Composite Connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html">Planning a Mission with Waypoints and Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#setting-the-home-position">Setting the Home Position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#video-produce-and-save-a-multi-waypoint-mission">Video: Produce and save a Multi-waypoint Mission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#video-load-an-already-saved-multi-waypoint-mission">Video: Load an already saved Multi-waypoint Mission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#instructions">Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#auto-grid">Auto grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#mission-commands">Mission commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#how-to-prefetch-a-stored-mission-map">How to prefetch a stored Mission Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#occasionally-you-will-see-some-really-big-numbers">Occasionally You will see some really big Numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html">Mission Command List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#types-of-commands">Types of commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#frames-of-reference">Frames of reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#how-accurate-is-the-information">How accurate is the information?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#how-to-interpret-the-commands-parameters">How to interpret the commands parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#using-this-information-with-a-gcs">Using this information with a GCS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#navigation-commands">Navigation commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-nav-waypoint">MAV_CMD_NAV_WAYPOINT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-nav-loiter-unlim">MAV_CMD_NAV_LOITER_UNLIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-nav-loiter-time">MAV_CMD_NAV_LOITER_TIME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-nav-return-to-launch">MAV_CMD_NAV_RETURN_TO_LAUNCH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-jump">MAV_CMD_DO_JUMP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#conditional-commands">Conditional commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-condition-delay">MAV_CMD_CONDITION_DELAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-condition-distance">MAV_CMD_CONDITION_DISTANCE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#do-commands">DO commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-mode">MAV_CMD_DO_SET_MODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-change-speed">MAV_CMD_DO_CHANGE_SPEED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-home">MAV_CMD_DO_SET_HOME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-relay">MAV_CMD_DO_SET_RELAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-repeat-relay">MAV_CMD_DO_REPEAT_RELAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-servo">MAV_CMD_DO_SET_SERVO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-repeat-servo">MAV_CMD_DO_REPEAT_SERVO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-roi">MAV_CMD_DO_SET_ROI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-digicam-configure">MAV_CMD_DO_DIGICAM_CONFIGURE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-digicam-control">MAV_CMD_DO_DIGICAM_CONTROL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-mount-control">MAV_CMD_DO_MOUNT_CONTROL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-cam-trigg-dist">MAV_CMD_DO_SET_CAM_TRIGG_DIST</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-fence-enable">MAV_CMD_DO_FENCE_ENABLE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-resume-dist">MAV_CMD_DO_SET_RESUME_DIST</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html">Camera Control in Auto Missions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#camera-commands">Camera commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#camera-gimbal-commands">Camera gimbal commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#servo-and-relay-commands">Servo and Relay commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#auto-mission-types">Auto-mission types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#survey-grid-example">Survey (Grid) Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#creating-composite-images">Creating composite images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-rally-points.html">Rally Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-rally-points.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rally-points.html#setting-up-rally-points">Setting Up Rally Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rally-points.html#example-flight">Example Flight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rally-points.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#geotagging-images">Geotagging images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#common-pre-steps">Common pre-steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#cam-messages">CAM messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#time-offset">Time offset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#common-post-steps">Common post-steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#interface-overview">Interface overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#files-selection">Files selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#geotag-mode">Geotag mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#time-offset-estimation-and-shutter-lag">Time offset estimation and shutter lag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#item-offsets-in-log">Item offsets in log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#fov-and-altitude-reference">FOV and altitude reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#action-buttons">Action buttons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#process-messages">Process messages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#additional-information">Additional information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-mission-rewind.html">Rewind-on-resume</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-rewind.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-rewind.html#how-it-works">How it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-rewind.html#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-ground-control-station.html#the-gcs-flight-data-screen-overview">The GCS Flight Data Screen Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mission-planner-ground-control-station.html#tips-for-using-the-flight-data-screen">Tips for using the Flight Data screen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-ground-control-station.html#guided-mode">Guided Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-flight-plan.html#the-flight-plan-screen">The Flight PLAN Screen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mission-planner-flight-plan.html#right-click-menu">Right Click Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mission-planner-flight-plan.html#advanced-mission-creation-tools">Advanced Mission Creation Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-flight-plan.html#mission-planning-details">Mission Planning Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-flight-plan.html#fences-creation">FENCES Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-flight-plan.html#rally-points-creation">Rally Points Creation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-initial-setup.html#install-firmware">Install Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-initial-setup.html#install-firmware-legacy">Install Firmware Legacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-initial-setup.html#mandatory-hardware">Mandatory Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-initial-setup.html#optional-hardware">Optional Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-initial-setup.html#advanced">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#planner">Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#flight-modes">Flight Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#geofence-copter-only">GeoFence (Copter only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#basic-tuning">Basic Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#extended-tuning-copter-only">Extended Tuning (Copter only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#standard-params">Standard Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#advanced-params">Advanced Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#onboard-osd">OnBoard OSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#mavftp">MAVftp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#user-params">User Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#full-parameter-list">Full Parameter List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-configuration-and-tuning.html#full-parameter-tree">Full Parameter Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-simulation.html#setup-and-use">Setup and Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-logs.html">Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-logs.html#topics-related-to-logging-and-analysis">Topics related to logging and analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-diagnosing-problems-using-logs.html">Diagnosing problems using Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html">Dataflash Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-batchsampling.html">Measuring Vibration with &quot;Batch Sampling&quot;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mission-planner-telemetry-logs.html">Telemetry Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-logs.html#tools-for-log-analysis">Tools for log analysis</a><ul>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/planner/">MissionPLanner</a></li>
+<li class="toctree-l4"><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://plot.dron.ee/">Dronee Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-uavlogviewer.html">UAV LogViewer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#geotagging-images">Geotagging images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#interface-overview">Interface overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#additional-information">Additional information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Signing (security)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-MAVLink2-signing.html#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-MAVLink2-signing.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="using-python-scripts-in-mission-planner.html">Using Python Scripts in Mission Planner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="using-python-scripts-in-mission-planner.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using-python-scripts-in-mission-planner.html#classes-exposed-by-mission-planner-to-python">Classes Exposed by Mission Planner to Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using-python-scripts-in-mission-planner.html#using-cpython-standard-libraries">Using CPython Standard Libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using-python-scripts-in-mission-planner.html#tutorials-and-sample-scripts">Tutorials and sample scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="swarming.html">Swarming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="swarming.html#swarming-formation-flying-interface-beta">Swarming/Formation-Flying Interface (Beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mp-tools.html">Advanced Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-mp-tools.html#mavlink-inspector">MAVLink Inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mp-tools.html#bootloader-upgrade">BootLoader Upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mp-tools.html#mavlink">Mavlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mp-tools.html#warning-manager">Warning Manager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#calibration-first-steps">Calibration first steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#onboard-calibration">Onboard Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#onboard-calibration-using-stick-gestures-no-gcs">Onboard Calibration using Stick Gestures (no GCS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#large-vehicle-magcal">Large Vehicle MagCal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#compass-ordering">Compass Ordering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#additional-information">Additional information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#video-demonstration">Video demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html#calibration-steps">Calibration steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html#video-demonstration-copter">Video demonstration (Copter)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-radio-control-calibration.html#check-the-transmitter-s-setup">Check the Transmitter’s Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-radio-control-calibration.html#calibration">Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-radio-control-calibration.html#mode1-and-mode2-transmitters">Mode1 and Mode2 Transmitters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-radio-control-calibration.html#channel-mappings">Channel mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-radio-control-calibration.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#flight-modes-configuration">Flight modes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#setting-the-flight-mode-channel">Setting the flight mode channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#transmitter-configuration">Transmitter configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#test-transmitter-switch-settings">Test transmitter switch settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#tutorials-for-specific-rc-hardware">Tutorials for specific RC hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#spektrum-dx8-alternate-method">Spektrum DX8 (alternate method)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_advanced_user_tools.html#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#tarot-gimbal-firmware">Tarot Gimbal firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#copter-firmware">Copter Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#rover-firmware">Rover Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#dr-ppm-encoder-v3-manual">3DR PPM Encoder V3 Manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#usb-driver-for-pixhawk-boards">USB Driver for Pixhawk Boards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#dr-ublox-configuration-file">3DR-uBlox configuration file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#apm2-ublox-passthrough">APM2 / Ublox passthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arducam-osd-config-for-minimosd-s-firmware-v2-0">ArduCAM OSD Config (For MinimOSD’s Firmware v2.0)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arducopter-apm-1-0-firmware">ArduCopter APM 1.0 Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arducopter-apm-2-x-firmware">ArduCopter APM 2.x Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arduppm-encoder-3dr-manual-v2-3-16-pdf">ArduPPM Encoder 3DR Manual v2.3.16.pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x-recommended-apm2-x">ArduPPM v2.3.16 ATMega32U2 firmware for APM 2.x (recommended APM2.x)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-copter-and-standalone-ppm-encoder">ArduPPM v2.3.16 ATMega328p firmware for APM1.x Copter and standalone PPM encoder.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-plane-and-standalone-ppm-encoder">ArduPPM v2.3.16 ATMega328p firmware for APM1.x Plane and standalone PPM encoder.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x">ArduPPM v2.3.16 ATMega32U2 firmware for APM 2.x</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#mediatek-gps-firmware-update-and-utility">MediaTek GPS firmware update and utility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#minimosd-firmware-v2-0">MinimOSD Firmware v2.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#minimosd-firmware-v2-2-beta-new-flight-modes">MinimOSD Firmware v2.2 (Beta) - New Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#opticalflow-test-sketch-apm2">OpticalFlow test sketch / APM2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#px4flow-klt">PX4Flow-KLT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_advanced_user_tools.html#usb-driver-for-apm-2">USB Driver for APM 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_advanced_user_tools.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_advanced_user_tools.html#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-commercial-support.html#how-to-get-added-to-this-list">How to get added to this list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html#support">Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html#development">Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html#facebook">Facebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html#youtube">YouTube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html#dronekit">DroneKit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_developer_tools.html#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#odroid-ubuntu-14-04-hostapd">Odroid Ubuntu 14.04 hostapd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#arduino-code-to-test-an-airspeed-sensor">Arduino code to test an airspeed sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#arduino-1-0-3-with-modifications-required-for-ardupilot-mac-os-x">Arduino 1.0.3 with modifications required for ArduPilot (Mac OS X)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#ardupilot-arduino-1-0-3-windows-zip">ArduPilot-Arduino-1.0.3-windows.zip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#crosstrack-demo-flash-version">CrossTrack demo (flash version)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#data-dump-of-three-attitude-solutions">Data dump of three attitude solutions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#declination-lookup-test-emm">Declination Lookup - Test EMM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#mavproxybeta1-msi">mavproxybeta1.msi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#mavproxybetanoneworktest-msi">mavproxyBetaNoNeworkTest.msi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_developer_tools.html#serial-port-test-program">Serial port test program</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_developer_tools.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_developer_tools.html#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-donation.html#support-merchandise">Support Merchandise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html#firmware">Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_firmware.html#arducopter-apm-2-x-firmware">ArduCopter APM 2.x Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-downloads_firmware.html#arducopter-apm-1-0-firmware">ArduCopter APM 1.0 Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html#bootloader">Bootloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html#apm2-x-autopilot">APM2.x Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#why-a-partners-program">Why a Partners Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#how-does-my-company-become-a-partner">How does my company become a partner?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#what-do-i-get-for-becoming-an-ardupilot-partner">What do I get for becoming an ArduPilot Partner?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#how-are-collected-funds-spent">How are collected funds spent?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#i-m-not-a-company-but-i-love-your-stuff-how-can-i-help">I’m not a company, but I love your stuff, how can I help?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html#i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it">I want a new feature, do I have to be a partner to get it?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#copters-from-partners">Copters from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#helicopters-from-partners">Helicopters from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#planes-from-partners">Planes from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#vtol-quadplanes-from-partners">VTOL/QuadPlanes from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#rovers-from-partners">Rovers from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#subs-from-partners">Subs from Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html#vehicles-from-non-partners">Vehicles from Non-Partners</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-team.html#collaboration-with-other-projects">Collaboration with other projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-quick-edit.html">Making a Quick Edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-infra-overview.html">Infrastructure Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-setup.html">Setting Up the Editing Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#fork-clone-and-update-your-copy-of-the-wiki">Fork, Clone, and Update Your Copy of the Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#setup-in-linux-or-windows-wsl">Setup in Linux or Windows WSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#setup-with-vagrant">Setup with Vagrant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#build-the-wiki">Build the Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#check-the-results">Check the Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#setup-with-docker">Setup with docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#rst-rendering-on-windows">RST rendering on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-setup.html#rst-rendering-on-linux">RST rendering on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-submitting-changes.html">Submitting Changes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-submitting-changes.html#how-to-get-changes-approved">How to get changes approved</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-style-guide.html">Style Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-style-guide.html#creating-a-new-page">Creating a new page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-style-guide.html#working-with-common-pages">Working with common pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-style-guide.html#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki-editing-archiving.html">Archiving and Deleting pages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="common-wiki-editing-archiving.html#deleting-wiki-pages">Deleting wiki pages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki_editing_guide.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki_editing_guide.html#translating-wiki-pages">Translating wiki pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-wiki_editing_guide.html#faq-why-are-my-changes-not-published">FAQ - Why are my changes not published?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Archived - Recording and Playing Back Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Archived - Loading ChiBios Firmware Onto Pixhawk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html#downloading-the-beta-firmware">Downloading the beta firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html#uploading-as-custom-firmware">Uploading as Custom Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-toc-planning.html">Mission Planner – Proposed Table Of Contents (TOC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-toc-planning.html#legend-for-the-proposed-toc-for-mission-planner">Legend for the ‘Proposed’ TOC for Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-toc-planning.html#other-things-to-consider">Other things to consider.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Table of Contents</a></li>
+</ul>
+
+                 
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="mission-planner-toc-planning.html" class="btn btn-neutral" title="Mission Planner - Proposed Table Of Contents (TOC)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Table of Contents&amp;body=[Table of Contents](https://ardupilot.org/planner/docs/common-table-of-contents.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

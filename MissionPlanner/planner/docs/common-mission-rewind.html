@@ -1,0 +1,473 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mission Rewind on Resume &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Mission Planning" href="common-mission-planning.html"/>
+        <link rel="next" title="Mission Planner Features/Screens" href="mission-planner-features.html"/>
+        <link rel="prev" title="Geotagging Images with Mission Planner" href="common-geotagging-images-with-mission-planner.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html">Planning a Mission with Waypoints and Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html">Mission Command List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html">Camera Control in Auto Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rally-points.html">Rally Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rewind-on-resume</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-mission-planning.html">Mission Planning</a> &raquo;</li>
+      
+    <li>Mission Rewind on Resume</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-mission-rewind.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mission-rewind-on-resume">
+<span id="common-mission-rewind"></span><h1>Mission Rewind on Resume<a class="headerlink" href="#mission-rewind-on-resume" title="Permalink to this headline">¶</a></h1>
+<p>This page explains what the mission rewind-on-resume feature is and how to use the feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This feature is available for Plane, Copter, and Rover from 4.1 onwards.</p>
+</div>
+<p>In certain applications or operating areas it can be common to interrupt a mission, for the purposes
+of deconfliction, by changing to another mode and manoeuvring the vehicle away from the planned mission
+path.  When ready to resume the mission, the normal behaviour of the vehicle is to fly/drive directly to
+the last ‘active’ waypoint that was loaded in the mission.  This behaviour is illustrated below:</p>
+<a class="reference external image-reference" href="../_images/mission-normal-resume-behaviour.png"><img alt="../_images/mission-normal-resume-behaviour.png" src="../_images/mission-normal-resume-behaviour.png" style="width: 600px;" /></a>
+<p>As it can be seen, this leaves a significant portion of the planned mission that is either covered with
+incorrect track and heading or is not covered at all.  This becomes an issue for data gathering missions
+such as surveys, resulting in legs of the mission needing to be repeated.</p>
+<p>The rewind-on-resume feature remedies this behaviour.  A rewind distance is defined by the operator.  When
+the mission is resumed the vehicle will return to the mission track at the desired distance behind the point
+that the mission was interrupted.  This gives the vehicle adequate time to achieve the desired track and
+heading before it achieves the position in which it was originally interrupted.  This behaviour can be seen
+below:</p>
+<a class="reference external image-reference" href="../_images/mission-rewind-behaviour.png"><img alt="../_images/mission-rewind-behaviour.png" src="../_images/mission-rewind-behaviour.png" style="width: 600px;" /></a>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The rewind-on-resume feature is enabled by setting a DO_SET_RESUME_REPEAT_DIST mission item.  This can
+be done in one of two ways:</p>
+<p><strong>1) Ground control station recognises the DO_SET_RESUME_DIST mission item</strong></p>
+<ul class="simple">
+<li>Add a DO_SET_RESUME_DIST mission item from the point in the mission that you wish to enable the feature.</li>
+<li>Set the first data column to be the distance in meters that you want the mission to be rewound to, on resume.</li>
+</ul>
+<p><strong>2) Ground control station does not recognise the DO_SET_RESUME_DIST mission item</strong></p>
+<ul class="simple">
+<li>Add an UNKNOWN mission item from the point in the mission that you wish to enable the feature and set the MAVLink ID to 215.</li>
+<li>Set the first data column to be the distance in meters that you want the mission to be rewound to, on resume.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The MIS_RESTART parameter must be set to zero, to prevent the mission restarting, for this feature to work.</p>
+</div>
+<p>To check that the rewind distance has been correctly set in the mission, monitor the message output in the ground
+control station.  When the vehicle registers the command the following message will be displayed: “Resume repeat
+dist set to &lt;DISTANCE&gt; m”.</p>
+<p>Multiple DO_SET_RESUME_DIST commands can be set throughout the mission.  This provides the operator the ability to
+vary the rewind distance or switch the feature on/off throughout the mission, where extreme care and accuracy is
+required to manoeuvre the vehicle on certain mission legs.</p>
+<p>This feature can be switched off by setting a DO_SET_RESUME_DIST mission item with a distance of zero.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When identifying the resume distance needed, a sensible value to try for most vehicles is twice the minimum turn
+radius.  The only exception is vehicles that can turn on the spot (multi-rotors and some rovers), in which a
+sensible distance would be twice the WP_RADIUS.</p>
+</div>
+</div>
+<div class="section" id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>Once enabled ArduPilot starts recording the waypoints that are successfully loaded as ‘active’.  A history of up to
+seven waypoints are stored.  Upon a mission rewind-and-resume the mission history will be searched until either:</p>
+<ul class="simple">
+<li>A position in the mission track is found that satisfies the rewind distance requirement.</li>
+<li>The end of stored mission history is found, in which case the resume position will be the last waypoint stored in the history.</li>
+</ul>
+<p>The vehicle will then resume to that location on the mission track and continue the mission as planned.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Height is accounted for in the resuming position.  If the vehicle is resuming to a location along the mission track
+whereby the aircraft is changing altitude, the height of the resuming position will be linearly interpolated between
+the two neighbouring waypoints.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To prevent the vehicle from storing an obscure history and resuming to an unexpected location, if the mission is
+altered by using the set waypoint feature in a ground control station or a script, the history is reset.  This prevents
+the vehicle from rewinding the mission back past the point that the history was reset.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This feature works with DO_JUMP commands and the jump count is not incremented whilst the vehicle is resuming the mission.</p>
+</div>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p><strong>1) Short mission legs:</strong> If the mission has closely spaced waypoints and the requested rewind distance is greater than
+the distance covered by the last six waypoints that have been passed, then the vehicle will resume on the ‘oldest’ waypoint
+stored.</p>
+<p><strong>2) Spline waypoints:</strong>  This feature will work with spline waypoints.  However, the accuracy of the resume distance will
+be diminished as the distance calculation is based on a straight line between navigation command locations.</p>
+<p><strong>3) Non-waypoint navigation commands:</strong>  This feature works with non-waypoint navigations commands, for example LOITER_TURNS.
+However, the distance calculation does not account for the distance of the vehicle track in those commands.  Using the previous
+example, the distance calculation does not account for the distance flown in the loiter.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mission-planner-features.html" class="btn btn-neutral float-right" title="Mission Planner Features/Screens" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-geotagging-images-with-mission-planner.html" class="btn btn-neutral" title="Geotagging Images with Mission Planner" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Mission Rewind on Resume&amp;body=[Mission Rewind on Resume](https://ardupilot.org/planner/docs/common-mission-rewind.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

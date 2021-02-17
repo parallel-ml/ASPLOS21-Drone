@@ -1,0 +1,536 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NAVIO2 Assembly and Wiring Quick Start &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot System Assembly Instructions" href="autopilot-assembly-instructions.html"/>
+        <link rel="next" title="Vibration Damping" href="common-vibration-damping.html"/>
+        <link rel="prev" title="Jumper T16 Pro Transmitter" href="common-jumperT16pro.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">First Time Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">Install Ground Station Software</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">Autopilot System Assembly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">NAVIO2 (Linux based) Wiring QuickStart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attaching-navio2-to-a-raspberry-pi">Attaching NAVIO2 to a Raspberry Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#powering-navio2">Powering NAVIO2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-remote-control-inputs">Connect remote control inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gnss-antenna">GNSS Antenna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-motors">Connect Motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-other-peripherals">Connect other peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#related-information">Related information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">Installing GPS+Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware to boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware to boards without existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="autopilot-assembly-instructions.html">Autopilot System Assembly Instructions</a> &raquo;</li>
+      
+    <li>NAVIO2 Assembly and Wiring Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-navio2-wiring-and-quick-start.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="navio2-assembly-and-wiring-quick-start">
+<span id="common-navio2-wiring-and-quick-start"></span><h1>NAVIO2 Assembly and Wiring Quick Start<a class="headerlink" href="#navio2-assembly-and-wiring-quick-start" title="Permalink to this headline">¶</a></h1>
+<p>This article provides information about attaching <a class="reference internal" href="common-navio2-overview.html#common-navio2-overview"><span class="std std-ref">NAVIO2</span></a> to a Raspberry Pi,  powering and connecting its most important peripherals.</p>
+<div class="section" id="attaching-navio2-to-a-raspberry-pi">
+<span id="common-navio2-wiring-and-quick-start-attaching-navio2"></span><h2>Attaching NAVIO2 to a Raspberry Pi<a class="headerlink" href="#attaching-navio2-to-a-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>ArduPilot on Navio2 is working on:</p>
+<ul class="simple">
+<li>Raspberry Pi 3 Model B</li>
+<li>Raspberry Pi 2 Model B</li>
+</ul>
+<p>To mount NAVIO2:</p>
+<ul class="simple">
+<li>Install spacers to the top side of Raspberry Pi and fix them with screws from the bottom.</li>
+<li>Connect extension header to the 40-pin gpio port.</li>
+<li>Attach NAVIO2 to the extension header.</li>
+<li>Fix NAVIO2 using screws.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/navio2-mount.jpg"><img alt="../_images/navio2-mount.jpg" src="../_images/navio2-mount.jpg" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Raspberry Pi2 requires an external USB Wi-Fi dongle. An extensive list of supported dongles is available <a class="reference external" href="http://elinux.org/RPi_USB_Wi-Fi_Adapters">here</a>.</p>
+</div>
+</div>
+<div class="section" id="powering-navio2">
+<span id="common-navio2-wiring-and-quick-start-powering-navio2"></span><h2>Powering NAVIO2<a class="headerlink" href="#powering-navio2" title="Permalink to this headline">¶</a></h2>
+<p>Navio2 has three power sources, all of them can be used simultaneously as they are protected by ideal diodes.</p>
+<p>For testing and development purposes:
+Connect 5V 1A power adapter to the Raspberry Pi’s microUSB port. Raspberry Pi will provide power to the NAVIO2.</p>
+<p>In a drone:
+NAVIO2 should be powered by a power module connected to the “POWER” port on NAVIO2. NAVIO2 will provide power to the Raspberry Pi.</p>
+<a class="reference external image-reference" href="../_images/navio2-power.jpg"><img alt="../_images/navio2-power.jpg" src="../_images/navio2-power.jpg" /></a>
+<p>Redundancy:
+In case of power module failure NAVIO2 will switch to power from the servo rail.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">All power sources should provide voltage in 4.8-5.3V range, otherwise you can damage your NAVIO2 and Raspberry Pi.</p>
+</div>
+</div>
+<div class="section" id="connect-remote-control-inputs">
+<span id="common-navio2-wiring-quick-start-rc-inputs-navio2"></span><h2>Connect remote control inputs<a class="headerlink" href="#connect-remote-control-inputs" title="Permalink to this headline">¶</a></h2>
+<p>NAVIO2 supports PPM and SBUS signals as an RC input. To connect receivers that do not support PPM output you can use PPM encoder. PPM receiver is powered by NAVIO2 and does not require power on the servo rail.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not connect servos to the RC receiver! Servos can consume a lot of power which RC receiver port may not be able to provide and that may lead to Raspberry Pi and NAVIO2 shutting down and even getting damaged.</p>
+</div>
+<p>Some of the receivers with PPM output:</p>
+<p>For ACCST (most FrSky transmitters):</p>
+<ul class="simple">
+<li>FrSky D4R-II 4ch 2.4Ghz ACCST Receiver</li>
+<li>FrSKY V8R7-SP ACCST 7 Channel RX with composite PPM</li>
+<li>FrSKY D8R-XP</li>
+</ul>
+<p>For FASST (Futaba &amp; some FrSky trasmitters):</p>
+<ul class="simple">
+<li>FrSky TFR4 4ch 2.4Ghz Surface/Air Receiver FASST Compatible</li>
+</ul>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-rc-receiver.jpg"><img alt="../_images/navio2-rc-receiver.jpg" src="../_images/navio2-rc-receiver.jpg" /></a>
+</div>
+</div>
+<div class="section" id="gnss-antenna">
+<span id="common-navio2-wiring-quick-start-gnss-navio2"></span><h2>GNSS Antenna<a class="headerlink" href="#gnss-antenna" title="Permalink to this headline">¶</a></h2>
+<p>GNSS antenna is plugged into the MCX port on top of NAVIO2.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-gnss-antenna.jpg"><img alt="../_images/navio2-gnss-antenna.jpg" src="../_images/navio2-gnss-antenna.jpg" /></a>
+</div>
+</div>
+<div class="section" id="connect-motors">
+<span id="common-navio2-wiring-quick-start-motors-navio2"></span><h2>Connect Motors<a class="headerlink" href="#connect-motors" title="Permalink to this headline">¶</a></h2>
+<p>ESCs are connected to RC outputs labeled from 1 to 14 on a 2.54mm header.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-escs.jpg"><img alt="../_images/navio2-escs.jpg" src="../_images/navio2-escs.jpg" /></a>
+</div>
+<p>For typical ESCs setup schemes visit <a class="reference external" href="https://docs.emlid.com/navio2/Navio-APM/typical-setup-schemes/">NAVIO2 documentation</a> which includes copter, plane, rover setups.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only one ESC power wire (central) should be connected to Navio2 servo rail, otherwise BECs built in ESCs will heat each other.</p>
+</div>
+</div>
+<div class="section" id="connect-other-peripherals">
+<h2>Connect other peripherals<a class="headerlink" href="#connect-other-peripherals" title="Permalink to this headline">¶</a></h2>
+<p>Depending on your hardware there may be any number of other peripherals attached, including sensors, cameras, grippers etc.</p>
+<div class="section" id="telemetry">
+<h3>Telemetry<a class="headerlink" href="#telemetry" title="Permalink to this headline">¶</a></h3>
+<p>Radio modems can be connected either over UART or over USB.</p>
+<ul class="simple">
+<li>UART radio</li>
+</ul>
+<p>For UART port use /dev/ttyAMA0 serial.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-uart-radio.jpg"><img alt="../_images/navio2-uart-radio.jpg" src="../_images/navio2-uart-radio.jpg" /></a>
+</div>
+<ul class="simple">
+<li>USB radio</li>
+</ul>
+<p>Use /dev/ttyUSB0 virtual serial port for USB.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-usb-radio.jpg"><img alt="../_images/navio2-usb-radio.jpg" src="../_images/navio2-usb-radio.jpg" /></a>
+</div>
+</div>
+<div class="section" id="servos">
+<h3>Servos<a class="headerlink" href="#servos" title="Permalink to this headline">¶</a></h3>
+<p>Servos are connected to RC outputs labeled from 1 to 14 on a 2.54mm header.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../_images/navio2-servos.jpg"><img alt="../_images/navio2-servos.jpg" src="../_images/navio2-servos.jpg" /></a>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Power module does not provide power to servos. To provide power to servos connect BEC to the servo rail. BEC would also serve as back-up power supply to Navio2.</p>
+</div>
+</div>
+</div>
+<div class="section" id="related-information">
+<h2>Related information<a class="headerlink" href="#related-information" title="Permalink to this headline">¶</a></h2>
+<p>Detailed information for NAVIO2 configuration and setup can be found in <a class="reference external" href="https://docs.emlid.com/navio2/">documentation</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-vibration-damping.html">Anti-vibration mount for NAVIO2 can be found in this article</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-vibration-damping.html" class="btn btn-neutral float-right" title="Vibration Damping" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-jumperT16pro.html" class="btn btn-neutral" title="Jumper T16 Pro Transmitter" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=NAVIO2 Assembly and Wiring Quick Start&amp;body=[NAVIO2 Assembly and Wiring Quick Start](https://ardupilot.org/copter/docs/common-navio2-wiring-and-quick-start.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

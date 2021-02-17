@@ -1,0 +1,700 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived:PX4FMU Overview &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="Archived:PX4IO Overview" href="common-px4io-overview.html"/>
+        <link rel="prev" title="Archived:PPM Encoder APM 2.x Atmega 32U2 (8 Channel PPM Encoder)" href="common-ppm-encoder-apm2x-atmega32u2.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PX4FMU</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pixhawk-fmuv2-and-px4fmu-fmuv1">Pixhawk (FMUv2) and PX4FMU (FMUv1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-px4fmu-px4io-fmuv1-flight-management-system-includes">The PX4FMU/PX4IO (FMUv1) Flight Management System Includes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detailed-description">Detailed Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#px4fmu-connector-diagram">PX4FMU Connector diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analog-and-digital-pins">Analog and digital pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copter-wiring-diagram-and-instructions">Copter wiring (diagram and instructions)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vrgimbal.html">VR Gimbal Controller (3-Axis Open Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xbee-radios.html">Using Xbee radios for telemetry with APM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-your-own-multicopter.html">Build Your Own Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-news.html">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="landing-gear.html">Landing Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived:PX4FMU Overview</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-px4fmu-overview.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="archived-px4fmu-overview">
+<span id="common-px4fmu-overview"></span><h1>Archived:PX4FMU Overview<a class="headerlink" href="#archived-px4fmu-overview" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+<p class="last">The PX4FMU (v1) is end of life and is not generally available for purchase.
+This article is made available for existing users.</p>
+</div>
+<p>This page provides an overview of the Pixhawk Flight Management Unit.</p>
+<div class="section" id="pixhawk-fmuv2-and-px4fmu-fmuv1">
+<h2>Pixhawk (FMUv2) and PX4FMU (FMUv1)<a class="headerlink" href="#pixhawk-fmuv2-and-px4fmu-fmuv1" title="Permalink to this headline">¶</a></h2>
+<p>The Pixhawk (FMUv2) single board autopilot evolved from the original “PX4 system”,
+which consists of the PX4FMU and various piggyback boards including the PX4IO and PX4IOAR.</p>
+<p>The Pixhawk incorporates several additional features to provide
+extended capabilities for our ArduPilot flight system.</p>
+<p>A connector diagram of the Pixhawk is shown below, but <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Go to this link for full information on the Pixhawk</span></a></p>
+</div>
+<div class="section" id="the-px4fmu-px4io-fmuv1-flight-management-system-includes">
+<h2>The PX4FMU/PX4IO (FMUv1) Flight Management System Includes:<a class="headerlink" href="#the-px4fmu-px4io-fmuv1-flight-management-system-includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>The PX4-FMU (Flight Management Unit).</strong><ul>
+<li>A powerful Cortex M4F micro-controller and flash memory for
+controlling flight and communications.</li>
+<li>A socket for a plug in SD memory card.</li>
+<li>A 3 axis gyro for determining orientation.</li>
+<li>A 3 axis Accelerometer for determining outside influences.</li>
+<li>A compass (magnetometer).</li>
+<li>A barometric pressure sensor for determining altitude.</li>
+<li>A connection for an externally mountable UBLOX LEA GPS for
+determining absolute position.</li>
+<li>Stackable board interconnections for adding various peripheral
+boards.</li>
+<li>Communications interfaces for USB, JTAG and Serial connections.</li>
+<li>Connections for PPM-SUM RC radio input and servo outputs.</li>
+</ul>
+</li>
+<li><strong>The PX4-IO (Input Output) Board.</strong><ul>
+<li>Contains its own on board micro-controller and stacks with the FMU.</li>
+<li>Direct battery input power supply.</li>
+<li>8 High speed servo PWM outputs.</li>
+<li>Futaba SBUS or PPM-SUM serial servo output.</li>
+<li>A variety of PPM-SUM / SBUS input connectors.</li>
+<li>Two user assignable relays, two 1/2 amp 5 volt outputs and an
+analog input port.</li>
+</ul>
+</li>
+<li><strong>The PX4FLOW Smart (Optical Flow) Camera.</strong><ul>
+<li>Specialized downward pointing camera module that uses ground
+texture and features to determine aircraft motion over the ground.</li>
+<li>The PX4FLOW has the same powerful Cortex M4F micro-controller as
+is used in the PX4FMU.</li>
+<li>The built in micro-controller performs on board automated binned
+pixel image analysis to determine motion relative to ground.</li>
+<li>A built in 3 axis gyro enables automatic compensation for variance
+in aircraft tilt angle.</li>
+</ul>
+</li>
+<li><strong>The PX4-IOAR Quad Carrier is a specialized interface board for the
+Parrot AR.Drone.</strong></li>
+</ul>
+<p><strong>The PX4FMU circuit board comes preassembled and ready to load the
+firmware for your airframe using the Mission Planner.</strong></p>
+<a class="reference external image-reference" href="../_images/PX4OverviewDiagram.jpg"><img alt="../_images/PX4OverviewDiagram.jpg" src="../_images/PX4OverviewDiagram.jpg" /></a>
+</div>
+<div class="section" id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4-2.jpg"><img alt="../_images/PX4-2.jpg" src="../_images/PX4-2.jpg" /></a>
+<p><strong>The Back of the PX4FMU board showing the SD card carrier and buzzer
+socket:</strong></p>
+<a class="reference external image-reference" href="../_images/PX4FMUbottom1.jpg"><img alt="../_images/PX4FMUbottom1.jpg" src="../_images/PX4FMUbottom1.jpg" /></a>
+</div>
+<div class="section" id="px4fmu-connector-diagram">
+<h2>PX4FMU Connector diagram<a class="headerlink" href="#px4fmu-connector-diagram" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/px4fmu-pinout.jpg"><img alt="../_images/px4fmu-pinout.jpg" src="../_images/px4fmu-pinout.jpg" /></a>
+</div>
+<div class="section" id="analog-and-digital-pins">
+<h2>Analog and digital pins<a class="headerlink" href="#analog-and-digital-pins" title="Permalink to this headline">¶</a></h2>
+<p>This section lists what pins (analog and digital) are available on the PX4FMU.</p>
+<div class="section" id="px4v1-analog-inputs">
+<h3>PX4v1 Analog inputs<a class="headerlink" href="#px4v1-analog-inputs" title="Permalink to this headline">¶</a></h3>
+<p>The PX4FMUv1 has the following “available” Analog input port pins which may
+be put to a variety of uses.</p>
+<p><strong>Pin 10</strong> (High voltage analog pin):</p>
+<ul class="simple">
+<li>FMU battery voltage measured on pin 5 of the 15 pin multi-connector
+on the end of the FMU board. It has 5.7:1 scaling, allowing it to
+measure up to 18.8V.</li>
+<li>Located on pin 5 of the DF13 15 pin “multi-connector” of the PX4FMU
+board.</li>
+<li>This pin can accept up to 18.6 volts. (You can add an additional
+resistor divider and set the scaling appropriately for higher
+voltages).</li>
+<li>With the Advanced Parameter VOLT_DIVIDER set to 1 voltage can be
+read directly.<ul>
+<li>For old releases VOLT_DIVIDER needed to be set to 5.66 for direct
+voltage scaling.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pin 11</strong> (Analog airspeed input pin)</p>
+<ul class="simple">
+<li>Located on pin 2 of the 3 pin “FMU-PRS” DF13 connector on the PX4IO
+board.</li>
+<li>Generally used in Plane for the Air Speed Sensor with VCC on pin 1,
+Sensor on pin 2 and Ground on pin 3.<ul>
+<li>Plane Advanced Parameter: ASPD_PIN set to 11.</li>
+</ul>
+</li>
+<li>This pin is directly connected to the ADC on the PX4FMU.</li>
+<li>This pin can accept up to 6.6 volts (it has an internal voltage
+divider with 2:1 scaling).</li>
+</ul>
+<p><strong>Pin 12</strong> (Analog 2 input)</p>
+<ul class="simple">
+<li>Located on pin 3 of the “FMU-SPI” port on the PX4IO board.</li>
+<li>Commonly used for Sonar<ul>
+<li>Copter and Rover Advanced Parameter: SONAR_PIN set to 12</li>
+</ul>
+</li>
+<li>This pin is directly connected to the ADC on the PX4FMU.</li>
+<li>This pin can accept up to 3.3 volts.</li>
+</ul>
+<p><strong>Pin 13</strong> (Analog 3 input)</p>
+<ul class="simple">
+<li>Located on pin 4 of the “FMU-SPI” port on the PX4IO board.</li>
+<li>Commonly used for Sonar 2 in dual Sonar installations.<ul>
+<li>Rover Advanced Parameter: SONAR2_PIN set to 13</li>
+</ul>
+</li>
+<li>This pin is directly connected to the ADC on the PX4FMU.</li>
+<li>This pin can accept up to 3.3 volts.</li>
+</ul>
+<p><strong>Pin 100</strong> (Battery voltage measured on the power connector on the IO
+board. Limit is 18V).</p>
+<ul class="simple">
+<li>A virtual analog input pin for voltage of a battery connected to the
+6V to 18V input of the PX4IO voltage regulator.</li>
+<li>This is the normal pin to use for LiPo monitoring on the PX4IO.</li>
+<li>If using this pin then set VOLT_DIVIDER to 1 for correct battery
+voltage reading.</li>
+<li>Virtual “pin” 100’s input comes only from the battery power in jack
+on the PX4IO board.</li>
+<li>This “pin” is not brought out for separate user access.</li>
+<li>This pin is separate from the Pin 10 high voltage analog pin on the
+PX4FMU listed above which can also be used as a battery voltage
+monitor.</li>
+</ul>
+<p><strong>Pin 101</strong>: Battery current measured on the pin next to the power
+connector on the IO board.</p>
+<p>A virtual analog input pin for a battery current sensor connected to the
+“current” pin next to the power connector on the PX4IO.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<dl class="last docutils">
+<dt>You need to be careful</dt>
+<dd>to use a current sensor that will not provide over 3.3V as too high a
+voltage on this pin can cause the PX4IO to reset.</dd>
+</dl>
+</div>
+<ul class="simple">
+<li>For use with a current sensor, a 0.1uF capacitor between this pin and
+ground will help reduce “noise”.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/px4_pins2.jpg"><img alt="../_images/px4_pins2.jpg" src="../_images/px4_pins2.jpg" /></a>
+<a class="reference external image-reference" href="../_images/px4-pins.jpg"><img alt="../_images/px4-pins.jpg" src="../_images/px4-pins.jpg" /></a>
+</div>
+<div class="section" id="px4v1-digital-outputs">
+<h3>PX4v1 Digital outputs<a class="headerlink" href="#px4v1-digital-outputs" title="Permalink to this headline">¶</a></h3>
+<p>The PX4V1 digital output pins come in two types, one is pins that give
+5V when on and 0V when off, and the other are ‘relay’ pins which provide
+low resistance when on and high resistance when off.</p>
+<p><strong>Pin 111</strong>: FMU Relay pin 1</p>
+<p><strong>Pin 112</strong>: FMU Relay pin 2</p>
+<p><strong>Pin 113</strong>: IO Relay pin 1</p>
+<p><strong>Pin 114</strong>: IO Relay pin 2</p>
+<p><strong>Pin 115</strong>: IO digital accessory pin 1</p>
+<p><strong>Pin 116</strong>: IO digital accessory pin 2</p>
+</div>
+</div>
+<div class="section" id="copter-wiring-diagram-and-instructions">
+<h2>Copter wiring (diagram and instructions)<a class="headerlink" href="#copter-wiring-diagram-and-instructions" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4IOWiring2PPMSUMrec.jpg"><img alt="../_images/PX4IOWiring2PPMSUMrec.jpg" src="../_images/PX4IOWiring2PPMSUMrec.jpg" /></a>
+<ol class="arabic simple">
+<li><strong>Wire the PX4-IO board.</strong><ol class="arabic">
+<li>The PX4IO board has a built in Power Supply which can connect to
+up to 18 volts.</li>
+<li>Insert the white PAP-02-VS 2 pin connector with the black and red
+wires coming out of it into the mating power connector you
+soldered in previously on the PX4IO board.</li>
+<li>Battery Plus is the(red wire) and should be soldered to your
+battery red power lead / connector.</li>
+<li>Battery Ground is the(black wire) and should be soldered to your
+battery black battery (Ground) lead / connector.</li>
+</ol>
+</li>
+<li><strong>The main power inputs of your ESC’s will also need to connect to
+these wires and to a battery connector.</strong><ol class="arabic">
+<li>A Power Distribution board can also be used.</li>
+</ol>
+</li>
+<li><strong>Connect your PPM-Sum RC receiver’s 3 wire cable to the end of the 9
+x 3 angle connector that is nearest the edge of the PX4IO board with
+the signal wire furthest from the board and the ground closest to the
+board.</strong></li>
+<li><strong>Wire the PX4FMU boards servo out signals to your ESC control inputs.</strong><ol class="arabic">
+<li>Run the Signal wires ONLY from the ESCs to the 3 x 9 Servo
+Connector on the PX4IO board.</li>
+<li>The PX4IO board connector for Motor 1 is at the edge of the
+connector next to the Battery power in wires.</li>
+<li>Insert the Motor ESC wires arranged progressively from that edge,
+(1,2,3,4,etc) for 2 to 8 motors depending on your copter type.</li>
+<li>You can put the ESC Signal wires into a single inline connector
+with the correct number of pins for your copter.</li>
+<li>The ESC Signal Wires / connector should be plugged into the top
+row (furthest from the board) of the PX4IO boards 3 x 9 Servo
+Connector.</li>
+</ol>
+</li>
+<li><strong>Note, the cable that is supplied in the plastic envelope with the
+UBLOX GPS which has white 6 pin connectors on both ends is not the
+correct cable for the PX4FMU board.</strong><ol class="arabic">
+<li>The correct longer GPS cable is provided in a separate envelope
+and has a 5 pin “beige” connector on one end and a 6 pin white
+connector on the other end.</li>
+<li>Plug the correct GPS cable’s white 6 pin connector into the 6 pin
+socket on the GPS.</li>
+<li>Plug the beige 5 pin connector into the PX4FMU board’s 5 pin GPS
+socket which is next to the 15 pin DF13 Mini connector.</li>
+</ol>
+</li>
+<li><strong>Plug the 2 pin connector attached to the lead supplied with the
+buzzer into the buzzer socket on the side of the PX4FMU board that
+has the SD card holder on it.</strong></li>
+<li><strong>Connect the “Arming Switch” to the Arming switch connector on the
+PX4IO board on the opposite side of the board from the Battery
+pads.</strong></li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="px4fmu-plus-px4io-wiring.html">Archived:PX4FMU Wiring QuickStart</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-px4io-overview.html" class="btn btn-neutral float-right" title="Archived:PX4IO Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-ppm-encoder-apm2x-atmega32u2.html" class="btn btn-neutral" title="Archived:PPM Encoder APM 2.x Atmega 32U2 (8 Channel PPM Encoder)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived:PX4FMU Overview&amp;body=[Archived:PX4FMU Overview](https://ardupilot.org/copter/docs/common-px4fmu-overview.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

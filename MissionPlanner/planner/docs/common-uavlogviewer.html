@@ -1,0 +1,449 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UAV LogViewer &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Logs" href="common-logs.html"/>
+        <link rel="next" title="Other Mission Planner Features" href="other-mission-planner-features.html"/>
+        <link rel="prev" title="Telemetry Logs" href="common-mission-planner-telemetry-logs.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-logs.html">Logs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-logs.html#topics-related-to-logging-and-analysis">Topics related to logging and analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-logs.html#tools-for-log-analysis">Tools for log analysis</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/planner/">MissionPLanner</a></li>
+<li class="toctree-l4"><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://plot.dron.ee/">Dronee Plotter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UAV LogViewer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+          <li><a href="common-logs.html">Logs</a> &raquo;</li>
+      
+    <li>UAV LogViewer</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-uavlogviewer.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uav-logviewer">
+<span id="common-uavlogviewer-rst"></span><h1>UAV LogViewer<a class="headerlink" href="#uav-logviewer" title="Permalink to this headline">¶</a></h1>
+<p>This utility provides an easy to use viewer for ArduPilot dataflash and telemetry logs. Data can be plotted and even manipulated, and the flight visually re-flown in 3D. It is accessed <a class="reference external" href="http://plot.ardupilot.org">here</a> and is web based, although most of the computations are done locally in the web browser. Both Chrome/Chromium and FireFox are supported browsers.</p>
+<div class="section" id="initial-screen">
+<h2>Initial Screen<a class="headerlink" href="#initial-screen" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/logviewer-initial-screen.png" src="../_images/logviewer-initial-screen.png" />
+<p>Upon accessing, this panel is presented. You can “Open (a) Sample” file to experiment with, or load an ArduPilot .tlog or .bin  log file, either by drag and drop or by clicking to obtain a file explorer dialog to select the file.</p>
+</div>
+<div class="section" id="main-screen">
+<h2>Main Screen<a class="headerlink" href="#main-screen" title="Permalink to this headline">¶</a></h2>
+<p>Once a log is loaded, if it has GPS data, it will display this screen:</p>
+<a class="reference external image-reference" href="../_images/logviewer-3d-screen.png"><img alt="../_images/logviewer-3d-screen.png" src="../_images/logviewer-3d-screen.png" /></a>
+<p>which is the 3D flight viewer. You can replay the flight in 3D by pressing the “play” button, or “pause”, “reverse”, or  change playback “speed”. Various map tools/options are in the upper right corner.</p>
+<p>In the upper left are setup menu buttons for the Plot (whose options are shown already), 3D panel, and additional widgets for parameters, log messages, and a joystick visualizer for the first four RC channels.</p>
+<div class="section" id="d-view-options">
+<h3>3D View Options<a class="headerlink" href="#d-view-options" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/logviewer-3d-setup.png" src="../_images/logviewer-3d-setup.png" />
+<p>In this panel, you can change the camera mode in 3D playback, if waypoints and/or trajectory is shown, the size of the vehicle in the display, and the data source used for showing the trajectory.</p>
+</div>
+<div class="section" id="plot-options">
+<h3>Plot Options<a class="headerlink" href="#plot-options" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="../_images/logviewer-plot-example1.png"><img alt="../_images/logviewer-plot-example1.png" src="../_images/logviewer-plot-example1.png" /></a>
+<p>This is one of the most powerful features of the viewer. This allows you to select which log values are plotted. You can search for an individual field to  plot, eg for CTUN.NavRoll you would type “Nav”) or just navigate thru to the message with that field. Here we have plotted CTUN.NavRoll, CTUN.Roll,CTUN.NavPitch, and CTUN.Pitch.The Navigation controller’s desired roll and pitch versu actual. ( For a complete list of log messages, see: <a class="reference external" href="https://ardupilot.org/copter/docs/logmessages.html">Copter Log Messages</a> , <a class="reference external" href="https://ardupilot.org/plane/docs/logmessages.html">Plane Log Messages</a> , or <a class="reference external" href="https://ardupilot.org/rover/docs/logmessages.html">Rover Log Messages</a> ).</p>
+</div>
+<div class="section" id="presets">
+<h3>Presets<a class="headerlink" href="#presets" title="Permalink to this headline">¶</a></h3>
+<p>Above the “Plot Individual Field” dropdown, is a “Presets” dropdown with many commonly used combinations of data plots already pre-configured.</p>
+</div>
+<div class="section" id="plot-features">
+<h3>Plot Features<a class="headerlink" href="#plot-features" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>When each field is added, a Y axis number is assigned, and the data autoscaled and centered. This can be changed by hovering over the axis and scrolling to change scale, or clicking and moving the origin. If you wish to automatically align and scale several fields to one another, just set the y axis number to be the same. They will remain together from that point on.</li>
+<li>You can change the color code by clicking the color swatch.</li>
+<li>You can remove a data plot by clicking the trash can icon.</li>
+<li>You can even create and plot expressions that use the fields by “Add Expression” button. See ` Graph Expressions for MavExplorer &lt;<a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html#graph-expressions">https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html#graph-expressions</a>&gt;`__ for examples of using expressions in a plot analysis.</li>
+<li>You can also save the present plot and its setup using the “Save Preset” button. These are persistent from session to session. A preset can be removed by tbd.</li>
+<li>Using the slider bars on the timeline under the main graphs, you can narrow or expand the plot region of the lob and move its center on the log timeline. Note that the 3D graph follows.</li>
+<li>The mouse cursor will move the 3D plot’s time position. It can also show the exact values of each plot line at its current position.</li>
+<li>You can dismiss the 3D screen by clicking in the X box in its upper right corner. The entire right side will now be devoted to the plots.</li>
+</ol>
+<a class="reference external image-reference" href="../_images/logviewer-plot-control.png"><img alt="../_images/logviewer-plot-control.png" src="../_images/logviewer-plot-control.png" /></a>
+<ul class="simple">
+<li>If you move the mouse to the upper right corner of the plot screen, several options will become visible. You can take a snapshot of the plot area, re-auto scale, zoom, move, change what values appear with the mouse cursor, toggle x/y lines that move with cursor position, etc.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
+<p>Three widgets are available when you click the widgets menu at the top left of the screen.</p>
+<img alt="../_images/logviewer-widgets.png" src="../_images/logviewer-widgets.png" />
+<p>These are sizable (bottom right corners) and movable (upper left corner) panels that display the log messages up to the cursor point, the joystick positions (first 4 rc channels), and a searchable parameter list. These can be shown or dismissed with their buttons when in this setup menu. Click “Plot” or “3D” to return to those screens.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="other-mission-planner-features.html" class="btn btn-neutral float-right" title="Other Mission Planner Features" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-mission-planner-telemetry-logs.html" class="btn btn-neutral" title="Telemetry Logs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=UAV LogViewer&amp;body=[UAV LogViewer](https://ardupilot.org/planner/docs/common-uavlogviewer.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

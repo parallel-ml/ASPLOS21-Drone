@@ -1,0 +1,468 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Connect Mission Planner to AutoPilot &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="next" title="Mission Planning" href="common-mission-planning.html"/>
+        <link rel="prev" title="Loading Firmware onto boards without existing ArduPilot firmware" href="common-loading-firmware-onto-chibios-only-boards.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connect Mission Planner to AutoPilot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-connection">Setting up the connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-composite-connections">Troubleshooting Composite Connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Connect Mission Planner to AutoPilot</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-connect-mission-planner-autopilot.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connect-mission-planner-to-autopilot">
+<span id="common-connect-mission-planner-autopilot"></span><h1>Connect Mission Planner to AutoPilot<a class="headerlink" href="#connect-mission-planner-to-autopilot" title="Permalink to this headline">¶</a></h1>
+<p>This article explains how to connect <em>Mission Planner</em> to an autopilot
+in order to receive telemetry and control the vehicle.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are separate instructions for connecting in order to <a class="reference internal" href="common-loading-firmware-onto-pixhawk.html#common-loading-firmware-onto-pixhawk"><span class="std std-ref">Load Firmware</span></a> for existing Ardupilot firmware installations, or for boards <a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#common-loading-firmware-onto-chibios-only-boards"><span class="std std-ref">without existing Ardupilot firmware</span></a> .</p>
+</div>
+<div class="section" id="setting-up-the-connection">
+<h2>Setting up the connection<a class="headerlink" href="#setting-up-the-connection" title="Permalink to this headline">¶</a></h2>
+<p>To establish a connection you must first choose the communication
+method/channel you want to use, and then set up the physical hardware
+and Windows device drivers. You can connect the PC and autopilot using
+USB cables, <a class="reference external" href="https://ardupilot.org/copter/docs/common-telemetry-landingpage.html#common-telemetry-landingpage" title="(in Copter)"><span class="xref std std-ref">Telemetry Radios</span></a>,
+<a class="reference external" href="https://ardupilot.org/rover/docs/common-mission-planner-bluetooth-connectivity.html#common-mission-planner-bluetooth-connectivity-detailed-connecting-with-mission-planner" title="(in Rover)"><span class="xref std std-ref">Bluetooth</span></a>,
+IP connections etc.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The driver for your connection hardware must be present on Windows
+as this makes your connection’s COM port and default data rate available
+to <em>Mission Planner</em>.</p>
+</div>
+<div class="figure" id="id2">
+<a class="reference external image-reference" href="../_images/pixhawk_usb_connection.jpg"><img alt="../_images/pixhawk_usb_connection.jpg" src="../_images/pixhawk_usb_connection.jpg" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-text">Pixhawk USB Connection</span></p>
+</div>
+<div class="figure" id="id3">
+<a class="reference external image-reference" href="../_images/new-radio-laptop.jpg"><img alt="../_images/new-radio-laptop.jpg" src="../_images/new-radio-laptop.jpg" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-text">Connection using SiK Radio</span></p>
+</div>
+<p>On <em>Mission Planner</em>, the connection and data rate are set up using the
+drop down boxes in the upper right portion of the screen.</p>
+<a class="reference external image-reference" href="../_images/MisionPlanner_ConnectButton.png"><img alt="../_images/MisionPlanner_ConnectButton.png" src="../_images/MisionPlanner_ConnectButton.png" /></a>
+<p>Once you’ve attached the USB or Telemetry Radio, Windows will
+automatically assign your autopilot a COM port number, and that will
+show in the drop-down menu (the actual number does not matter). The
+appropriate data rate for the connection is also set (typically the USB
+connection data rate is 115200 and the radio connection rate is 57600).</p>
+<p>Select the desired port and data rate and then press the <strong>Connect</strong>
+button to connect to the autopilot. After connecting <strong>Mission Planner</strong>
+will download parameters from the autopilot and the button will change
+to <strong>Disconnect</strong> as shown:</p>
+<a class="reference external image-reference" href="../_images/MisionPlanner_DisconnectButton.png"><img alt="../_images/MisionPlanner_DisconnectButton.png" src="../_images/MisionPlanner_DisconnectButton.png" /></a>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The “select port” dropdown also contains TCP or UDP port options
+that can be used to connect to an autopilot over a network.</p>
+</div>
+<p>The “Stats…” hotlink beneath the port selection box, if clicked, will give information about the connection, such as if <a class="reference internal" href="common-MAVLink2-signing.html#common-mavlink2-signing"><span class="std std-ref">Signing security</span></a> is active, link stats, etc. Sometimes this window pops up beneath the current screen and will have to be brought to the front to be seen.</p>
+<a class="reference external image-reference" href="../_images/MP-stats.png"><img alt="../_images/MP-stats.png" src="../_images/MP-stats.png" /></a>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If Mission Planner is unable to connect:</p>
+<ul class="simple">
+<li>Check that the correct baud rate is used for the selected method
+(115200 on USB or 57600 on Radio/Telemetry)</li>
+<li>If attaching via USB, be sure that a few seconds after power up have passed before attempting to connect. If you attempted to connect during the bootloader initialization time, Windows may get the wrong USB information. Connection attempts after this may require that the USB connection be  unplugged and re-plugged,then wait for bootloader to enter the main code ( few seconds), then attempt the connection. Occasionally, MP must be restarted if an attempt to connect is made while in the bootloader initialization period.</li>
+<li>If using a COM port on Windows, check that the connection’s COM port
+exists in the Windows Device Manager’s list of serial ports.</li>
+<li>If your autopilot has an F7 or H7 processor and has CAN ports, then see the section below, <a class="reference internal" href="#troubleshooting-composite-connections"><span class="std std-ref">Troubleshooting Composite Connections</span></a></li>
+<li>If using a USB port, try a different physical USB port</li>
+<li>If using a UDP or TCP connection, check that your firewall is not blocking IP traffic</li>
+</ul>
+<p>You should also ensure that the autopilot controller board has
+appropriate ArduPilot firmware installed and has booted correctly (on
+Pixhawk there are useful <a class="reference external" href="https://ardupilot.org/rover/docs/common-leds-pixhawk.html#common-leds-pixhawk" title="(in Rover)"><span class="xref std std-ref">LEDs</span></a> and
+<a class="reference external" href="https://ardupilot.org/rover/docs/common-sounds-pixhawkpx4.html#common-sounds-pixhawkpx4" title="(in Rover)"><span class="xref std std-ref">Sounds</span></a> which can tell you the state of the autopilot).</p>
+<p>If using a remote link (not USB) and Mission Planner connects, but does not download parameters or you cannot get commands, like mode changes acted upon,then the autopilot probably has Signing turned on. See <a class="reference internal" href="common-MAVLink2-signing.html#common-mavlink2-signing"><span class="std std-ref">MAVLink2 Signing</span></a>.</p>
+</div>
+<div class="section" id="troubleshooting-composite-connections">
+<span id="id1"></span><h2>Troubleshooting Composite Connections<a class="headerlink" href="#troubleshooting-composite-connections" title="Permalink to this headline">¶</a></h2>
+<p>Autopilots with F7 or H7 processors and having CAN interfaces use firmware that presents two USB interfaces: One for the normal MAVLink connection, and one for SLCAN serial connections to the CAN interface for configuration and firmware updates.This is called a composite USB device.</p>
+<p>By default, the MAVLink USB interface is SERIAL0 and the SLCAN USB interface is the highest SERIALx port the board presents. The Windows driver currently installed with Mission Planner may select to use either one, and since both are set by default in ArduPilot firmware for MAVLINK protocol, it will work fine, whichever one it chooses as the COM port.</p>
+<p>However, there is a situation where the user will find that it will not connect to the obvious COM port in the Mission Planner dropdown box.This occurs when the user accidentally changes the protocol of whichever SERIALx port the Windows driver is using as the MAVLink COM port to something other than MAVLink. This can easily happen if the user takes an existing parameter file from a vehicle configuration used with a different autopilot that has the protocol changed. For example, the user has a plane with non F7/H7 CAN capable autopilot and upgrades it to one that is, then loads his existing parameter file while setting up the plane with the new autopilot. As soon as the parameter file is loaded and the autopilot is rebooted, communication is lost and cannot be re-established.</p>
+<p>What has occurred, is that the protocol for the SERIALx port that Windows was using has been changed. Almost always, this is the highest numbered SERIALx port since that is commonly set to -1 on non-CAN capable autopilots, and the Windows COM port driver has selected this interface as the COM port instead of SERIAL0.</p>
+<p>The procedure to recover is as follows:</p>
+<ul class="simple" id="loading-composite-usb">
+<li>Go to Windows Device Manager and find the COM port being used by the autopilot in the Ports listings. It will have the COM Port # you used to connect initially to Mission Planner. Right click and it will present “Update driver software” as one of the options. Click it.</li>
+</ul>
+<img alt="../_images/devicemanager.png" src="../_images/devicemanager.png" />
+<ul class="simple">
+<li>Click the “Browse my computer……” option and then click the “Choose from a list…” option and you will see this screen:</li>
+</ul>
+<img alt="../_images/composite-driver.png" src="../_images/composite-driver.png" />
+<ul class="simple">
+<li>Scroll down the top list until “Composite USB” option appears and click it.</li>
+<li>Now reconnect your autopilot to the PC and two COM ports will be presented. One will connect (the remaining one with MAVLink Protocol) and the other will not. If you do not connect to one, try the other. But DO NOT disconnect the autopilot from the PC or the composite driver will unload and you will have to start over.</li>
+<li>Now that you are connected to Mission Planner, change back the protocol of the Serialx port protocol to 2 (MAVLink2). You can now disconnect and reconnect the autopilot and it will present only one COM port and you should be able to connect from now on. Do not change this protocol from now on unless trying to utilize the SLCAN interface. It may be a bit unfamiliar since the Mission Planner SERIALx port being used is no longer the normal SERIAL0 but rather,the highest port, but this does not affect anything in the autopilot’s configuration and operation.</li>
+</ul>
+</div>
+<div class="section" id="related-topics">
+<h2>Related topics<a class="headerlink" href="#related-topics" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/common-mission-planner-bluetooth-connectivity.html#common-mission-planner-bluetooth-connectivity-detailed-connecting-with-mission-planner" title="(in Rover)"><span class="xref std std-ref">Mission Planner Bluetooth Connectivity</span></a></p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-mission-planning.html" class="btn btn-neutral float-right" title="Mission Planning" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-loading-firmware-onto-chibios-only-boards.html" class="btn btn-neutral" title="Loading Firmware onto boards without existing ArduPilot firmware" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Connect Mission Planner to AutoPilot&amp;body=[Connect Mission Planner to AutoPilot](https://ardupilot.org/planner/docs/common-connect-mission-planner-autopilot.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

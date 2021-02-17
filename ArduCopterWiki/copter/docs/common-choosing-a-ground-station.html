@@ -1,0 +1,671 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Choosing a Ground Station &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Introducing Copter" href="introduction.html"/>
+        <link rel="next" title="What You Need to Build a MultiCopter" href="what-you-need.html"/>
+        <link rel="prev" title="Choosing an Autopilot" href="common-choosing-a-flight-controller.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="introduction.html">Introducing Copter</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#key-features">Key features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="introduction.html#learn-more-about-copter">Learn more about Copter</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-choosing-a-flight-controller.html">Choosing an Autopilot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Choosing a Ground Station</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-desktop">Comparison Desktop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-mobile">Comparison Mobile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-gcs-hardware">Additional GCS hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-all-vehicle-types.html">Supported vehicle types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="introduction.html">Introducing Copter</a> &raquo;</li>
+      
+    <li>Choosing a Ground Station</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-choosing-a-ground-station.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choosing-a-ground-station">
+<span id="common-choosing-a-ground-station"></span><h1>Choosing a Ground Station<a class="headerlink" href="#choosing-a-ground-station" title="Permalink to this headline">¶</a></h1>
+<p>This page gives a high-level overview of the available Ground Control
+Stations (GCS) and provides links so you can make the appropriate
+choice.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A ground station is typically a software application, running on a
+ground-based computer, that communicates with your UAV via <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">wireless telemetry</span></a>. It displays real-time data
+on the UAVs performance and position and can serve as a “virtual
+cockpit”, showing many of the same instruments that you would have if
+you were flying a real plane. A GCS can also be used to control a UAV in
+flight, uploading new mission commands and setting parameters. It is
+often also used to monitor the live video streams from a UAV’s cameras.</p>
+<p>There are at least ten different ground control stations. On desktop there is (<em>Mission
+Planner</em>, <em>APM Planner 2</em>, <em>MAVProxy</em>, <em>QGroundControl</em> and <em>UgCS</em>. For Tablet/Smartphone there is
+<em>Tower</em> (DroidPlanner 3), <em>MAVPilot</em>, <em>AndroPilot</em> and <em>SidePilot</em> that can be
+used to communicate with ArduPilot (i.e.
+<a class="reference external" href="https://ardupilot.org/copter/index.html#home" title="(in Copter)"><span class="xref std std-ref">Copter</span></a>,
+<a class="reference external" href="https://ardupilot.org/plane/index.html">Plane</a>,
+<a class="reference external" href="https://ardupilot.org/rover/index.html#home" title="(in Rover)"><span class="xref std std-ref">Rover</span></a>,
+<a class="reference external" href="https://ardupilot.org/antennatracker/index.html#home" title="(in AntennaTracker)"><span class="xref std std-ref">AntennaTracker</span></a>).</p>
+<p>The decision to select a particular GCS often depends on your vehicle
+and preferred computing platform:</p>
+<ul class="simple">
+<li><strong>Ready-to-fly</strong> users may prefer the portability and ease of use of
+<em>Tower</em> (Droid Planner 3), or another GCS running on a tablet or
+phone.</li>
+<li><strong>DIY/Kit</strong> users and developers often have to access configuration
+and analysis tools, and would therefore need (at least initially)
+<em>Mission Planner</em>, <em>APM Planner 2</em> or another more full-featured GCS.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This wiki primarily refers to set-up and configuration using the
+Mission Planner, because it was created first and is the most
+full-featured GCS.</p>
+</div>
+</div>
+<div class="section" id="comparison-desktop">
+<h2>Comparison Desktop<a class="headerlink" href="#comparison-desktop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mission-planner">
+<h3>Mission Planner<a class="headerlink" href="#mission-planner" title="Permalink to this headline">¶</a></h3>
+<p>Full featured and widely used GCS.</p>
+<ul class="simple">
+<li><strong>Platform</strong>: Windows, Mac OS X (Using Mono)</li>
+<li><strong>Licence</strong>: <a class="reference external" href="https://github.com/ArduPilot/MissionPlanner/blob/master/COPYING.txt">Open source</a>
+(GPLv3)</li>
+</ul>
+<a class="reference external image-reference" href="../_images/MP-FP-Screen.jpg"><img alt="../_images/MP-FP-Screen.jpg" src="../_images/MP-FP-Screen.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.msi">Download</a></li>
+<li><a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Wiki</span></a></li>
+<li><a class="reference external" href="https://discuss.ardupilot.org/c/ground-control-software/mission-planner">Support Forum</a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/MissionPlanner/issues">Issues List</a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/MissionPlanner">Source Code</a></li>
+</ul>
+</div>
+<div class="section" id="apm-planner-2-0">
+<h3>APM Planner 2.0<a class="headerlink" href="#apm-planner-2-0" title="Permalink to this headline">¶</a></h3>
+<p>The best autopilot for use on MAC and Linux platforms. It has a smaller
+user base and a reduced feature set when compared with Mission Planner.</p>
+<ul>
+<li><p class="first"><strong>Platform</strong>: Windows, Mac OS X, Linux</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Licence</strong>: <a class="reference external" href="https://github.com/ArduPilot/apm_planner/blob/master/license.txt">Open source</a></dt>
+<dd><p class="first">(GPLv3)</p>
+<a class="last reference external image-reference" href="../_images/planner2_choose_agcs.jpg"><img alt="../_images/planner2_choose_agcs.jpg" src="../_images/planner2_choose_agcs.jpg" /></a>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://ardupilot.org/planner2/index.html#home" title="(in APM Planner 2)"><span class="xref std std-ref">Wiki</span></a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://discuss.ardupilot.org/c/ground-control-software/apm-planner-2-0">Support Forum</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/ArduPilot/apm_planner/issues">Issues List</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/ArduPilot/apm_planner">Source Code</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="mavproxy">
+<h3>MAVProxy<a class="headerlink" href="#mavproxy" title="Permalink to this headline">¶</a></h3>
+<p>Linux GCS often used by Plane developers. Primarily a command line
+interface with graphical modules for map and mission editing. Written in
+Python, and extensible via python modules.</p>
+<ul class="simple">
+<li><strong>Platform</strong>: Linux</li>
+<li><strong>Licence</strong>: <a class="reference external" href="https://github.com/tridge/MAVProxy/blob/master/COPYING.txt">Open source</a>
+(GPLv3)</li>
+</ul>
+<a class="reference external image-reference" href="../_images/mavproxy_linux.jpg"><img alt="../_images/mavproxy_linux.jpg" src="../_images/mavproxy_linux.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://ardupilot.org/mavproxy/index.html#home" title="(in MAVProxy)"><span class="xref std std-ref">Wiki</span></a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/MAVProxy/issues">Issues List</a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/MAVProxy">Source Code</a></li>
+</ul>
+</div>
+<div class="section" id="qgroundcontrol">
+<h3>QGroundControl<a class="headerlink" href="#qgroundcontrol" title="Permalink to this headline">¶</a></h3>
+<p>QGroundControl works with MAVLink capable autopilots including ArduPilot.
+It’s unique among the GCS offerings as it runs on all platforms desktop and mobile.</p>
+<ul class="simple">
+<li><strong>Platform</strong>: Windows, Mac OS X, Linux, Android and iOS</li>
+<li><strong>Licence</strong>: <a class="reference external" href="http://www.qgroundcontrol.org/license">Open Source</a>
+(GPLv3)</li>
+</ul>
+<a class="reference external image-reference" href="../_images/QGroundControlTabletImage.jpg"><img alt="../_images/QGroundControlTabletImage.jpg" src="../_images/QGroundControlTabletImage.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="http://qgroundcontrol.com/">Website</a></li>
+<li><a class="reference external" href="https://groups.google.com/forum/#!forum/qgroundcontrol">Support Forum</a></li>
+<li><a class="reference external" href="https://gitter.im/mavlink/qgroundcontrol">Gitter</a></li>
+</ul>
+</div>
+<div class="section" id="ugcs-universal-ground-control-station">
+<h3>UgCS - Universal Ground Control Station<a class="headerlink" href="#ugcs-universal-ground-control-station" title="Permalink to this headline">¶</a></h3>
+<p>Universal and easy to use ground control station with a 3D interface.
+Supports APM, Pixhawk as well as drones from other manufacturers such as DJI, Mikrokopter and more.
+Intended for enthusiasts as well as professional users.</p>
+<p>It is capable of communicating with and controlling multiple drones simultaneously.</p>
+<p>UgCS supports multiple map layers as well as different map providers. Some of the features of UgCS include - DEM Import, ADS-B transponder and receiver support, Click &amp; Go mode, Joystick mode, image geotagging and video recording. UgCS also comes with a telemetry player, allowing the replay of all flights.</p>
+<p>UgCS comes with in-built no-fly zones around all major airports as well as the ability to create custom no-fly zones.</p>
+<p>Supports multi-node installation, meaning that it is possible to connect multiple pilots with UgCS laptops in the field to a central ground control server.</p>
+<ul class="simple">
+<li><strong>Platform</strong>: Windows, Mac OS X, Ubuntu</li>
+<li><strong>Licence</strong>: Proprietary with a free licence available as well (UgCS Open)</li>
+</ul>
+<a class="reference external image-reference" href="https://www.ugcs.com/files/2016-04/1459769168_elevation-profile.jpeg"><img alt="https://www.ugcs.com/files/2016-04/1459769168_elevation-profile.jpeg" src="https://www.ugcs.com/files/2016-04/1459769168_elevation-profile.jpeg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ugcs.com">UgCS Website</a></li>
+<li><a class="reference external" href="https://diydrones.com/group/ugcs">DIY Drones Group for UgCS Users</a></li>
+<li><a class="reference external" href="https://github.com/ugcs">UgCS Github Repository</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="comparison-mobile">
+<h2>Comparison Mobile<a class="headerlink" href="#comparison-mobile" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tower">
+<h3>Tower<a class="headerlink" href="#tower" title="Permalink to this headline">¶</a></h3>
+<p>Tower (a.k.a. “DroidPlanner 3”) is an Android GCS for phones and
+tablets. It is intended for end users and enthusiasts, and includes
+features like follow-me, “dronies” (i.e. “selfies” but taken with a
+drone) and special missions for 3D mapping.</p>
+<ul class="simple">
+<li><strong>Platform</strong>: Android Phones and Tablets</li>
+<li><strong>Licence</strong>: <a class="reference external" href="https://github.com/DroidPlanner/Tower/blob/develop/LICENSE.md">Open source</a>
+(GPLv3)</li>
+</ul>
+<a class="reference external image-reference" href="../_images/tower_droid_planner3_structure_scan.jpg"><img alt="../_images/tower_droid_planner3_structure_scan.jpg" src="../_images/tower_droid_planner3_structure_scan.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://play.google.com/store/apps/details?id=org.droidplanner.android">Download Tower</a>
+(and <a class="reference external" href="https://play.google.com/store/apps/details?id=org.droidplanner.services.android">3DR Services</a>)
+from Google Play.</li>
+<li><a class="reference external" href="https://github.com/arthurbenemann/droidplanner/wiki/Compatible-Devices">Android compatible hardware list</a></li>
+<li><a class="reference external" href="https://github.com/DroidPlanner/Tower/wiki">Wiki</a></li>
+<li><a class="reference external" href="https://discuss.ardupilot.org/c/ground-control-software/tower">Support Forum</a></li>
+<li><a class="reference external" href="https://github.com/DroidPlanner/Tower/issues">Issues List</a></li>
+<li><a class="reference external" href="https://github.com/DroidPlanner/droidplanner">Source Code</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Legacy versions (<a class="reference external" href="https://play.google.com/store/apps/details?id=org.droidplanner">DroidPlanner 2</a>
+and <a class="reference external" href="https://play.google.com/store/apps/details?id=com.droidplanner">Droid Planner 1</a>)
+can also be downloaded from Google Play.</p>
+</div>
+</div>
+<div class="section" id="mav-pilot-1-4">
+<h3>MAV Pilot 1.4<a class="headerlink" href="#mav-pilot-1-4" title="Permalink to this headline">¶</a></h3>
+<p>A GCS in your pocket that supports predominantly ArduPilot autopilot on iPhone/iPad. Supports for Plane, Copter &amp; Rover vehicle types</p>
+<p>See website for how-to on how connect it to your autopilot</p>
+<ul class="simple">
+<li><strong>Platform</strong>: iPhone, iPad</li>
+<li><strong>Licence</strong>: Proprietary</li>
+</ul>
+<a class="reference external image-reference" href="../_images/MAVPilot_1.4.png"><img alt="../_images/MAVPilot_1.4.png" src="../_images/MAVPilot_1.4.png" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/mav-pilot-1-4-for-iphone-released">Release announcement Blog &amp; Discussion</a></li>
+<li><a class="reference external" href="http://www.communistech.com/support/">Support Blog</a></li>
+<li><a class="reference external" href="http://www.communistech.com/forums/">Support Forum</a></li>
+<li><a class="reference external" href="https://itunes.apple.com/ca/developer/communis-tech/id649232032">iTunes Store link</a></li>
+</ul>
+</div>
+<div class="section" id="sidepilot">
+<h3>SidePilot<a class="headerlink" href="#sidepilot" title="Permalink to this headline">¶</a></h3>
+<p>ArduPilot compatible GCS that runs on iPhone/iPad.</p>
+<p>See website for how-to on how connect it to your autopilot</p>
+<ul class="simple">
+<li><strong>Platform</strong>: iPhone, iPad</li>
+<li><strong>Licence</strong>: Proprietary</li>
+</ul>
+<a class="reference external image-reference" href="../_images/sidepilot.jpg"><img alt="../_images/sidepilot.jpg" src="../_images/sidepilot.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/sidepilot-app-version-1-1-formerly-imavlink">Release announcement Blog &amp; Discussion</a></li>
+<li><a class="reference external" href="http://sidepilot.net">Website</a></li>
+<li><a class="reference external" href="http://sidepilot.net/forum">Support Forum</a></li>
+<li><a class="reference external" href="https://itunes.apple.com/us/app/sidepilot/id1138193193?ls=1&amp;mt=8">iTunes Store link</a></li>
+</ul>
+</div>
+<div class="section" id="andropilot">
+<h3>AndroPilot<a class="headerlink" href="#andropilot" title="Permalink to this headline">¶</a></h3>
+<p>Android GCS intended for enthusiasts.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">AndroPilot is not under active development. Its suitability for newer FW needs to be confirmed.</p>
+</div>
+<ul class="simple">
+<li><strong>Platform</strong>: Android Phones and Tablets</li>
+<li><strong>Licence</strong>: <a class="reference external" href="https://github.com/geeksville/arduleader/blob/master/LICENSE.md">Open Source</a>
+(GPLv3)</li>
+</ul>
+<a class="reference external image-reference" href="../_images/Andropilot_-_Android_Apps_on_Google_Play.jpg"><img alt="../_images/Andropilot_-_Android_Apps_on_Google_Play.jpg" src="../_images/Andropilot_-_Android_Apps_on_Google_Play.jpg" /></a>
+<ul class="simple">
+<li><a class="reference external" href="https://play.google.com/store/apps/details?id=com.geeksville.andropilot">Downloads (Google Play)</a></li>
+<li><a class="reference external" href="https://github.com/geeksville/arduleader/wiki/Android%20Device%20Compatibility%20List">Android compatible hardware list</a></li>
+<li><a class="reference external" href="https://github.com/geeksville/arduleader/wiki">Wiki</a></li>
+<li><a class="reference external" href="https://discuss.ardupilot.org/c/ground-control-software/other-gcs">Support Forum</a></li>
+<li><a class="reference external" href="https://github.com/geeksville/arduleader/issues">Issues List</a></li>
+<li><a class="reference external" href="https://github.com/geeksville/arduleader/tree/master/andropilot">Source Code</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-gcs-hardware">
+<h2>Additional GCS hardware<a class="headerlink" href="#additional-gcs-hardware" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="android">
+<h3>Android<a class="headerlink" href="#android" title="Permalink to this headline">¶</a></h3>
+<p>For Android devices, you will need:</p>
+<ul class="simple">
+<li>Android based tablet that can act as a USB host. Google Nexus tablets
+are recommended, and the compatible hardware lists for the different
+GCSs are listed in the table above.</li>
+<li><a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Telemetry Radio System</span></a> or
+similar (915 Mhz for US, 433 for Europe) which includes the
+bidirectional ground and air telemetry units.</li>
+<li>USB OTG cable (typically less than $2 on
+<a class="reference external" href="http://www.ebay.com/sch/i.html?_trksid=m570.l3201&amp;_nkw=usb+otg+cable&amp;_sacat=0">ebay</a>
+and
+<a class="reference external" href="http://www.amazon.com/T-Flash-Adapter-Samsung-GT-i9100-GT-N7000/dp/B005FUNYSA/ref=sr_1_5?ie=UTF8&amp;qid=1376262351&amp;sr=8-5&amp;keywords=android+otg+cable">Amazon</a>).</li>
+</ul>
+</div>
+<div class="section" id="ios">
+<h3>iOS<a class="headerlink" href="#ios" title="Permalink to this headline">¶</a></h3>
+<p>For iOS devices, you will need:</p>
+<ul class="simple">
+<li>iOS Based device such as an iPad or iPhone. If running iPad, the cellular version is recommended for better GPS support.</li>
+<li>Wifi or Bluetooth LE link to the Drone</li>
+<li>Bridge Connection to a:ref:<cite>SiK Telemetry Radio System &lt;common-sik-telemetry-radio&gt;</cite> via Wifi or Bluetooth LE</li>
+</ul>
+<blockquote>
+<div>See iOS App Vendors for more details.</div></blockquote>
+</div>
+<div class="section" id="desktop-pcs-windows-mac-linux">
+<h3>Desktop PCs (Windows/Mac/Linux<a class="headerlink" href="#desktop-pcs-windows-mac-linux" title="Permalink to this headline">¶</a></h3>
+<p>For Desktop devices you will need:</p>
+<ul class="simple">
+<li><a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Telemetry Radio System</span></a> or
+<a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">similar</span></a> (915 Mhz for US, 433 for
+Europe) which includes the bidirectional ground and air telemetry
+units.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="what-you-need.html" class="btn btn-neutral float-right" title="What You Need to Build a MultiCopter" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-choosing-a-flight-controller.html" class="btn btn-neutral" title="Choosing an Autopilot" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Choosing a Ground Station&amp;body=[Choosing a Ground Station](https://ardupilot.org/copter/docs/common-choosing-a-ground-station.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

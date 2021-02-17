@@ -1,0 +1,864 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived: Build Your Own Multicopter &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="Archived: Advanced MultiCopter Design" href="advanced-multicopter-design.html"/>
+        <link rel="prev" title="Archived: DJI F330 FlameWheel QuadCopter Assembly" href="dji-f330-flamewheel.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4fmu-overview.html">PX4FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vrgimbal.html">VR Gimbal Controller (3-Axis Open Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xbee-radios.html">Using Xbee radios for telemetry with APM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Build Your Own Multicopter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#there-are-lots-of-ways-you-can-put-together-a-multicopter">There are Lots of Ways you Can Put Together a MultiCopter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chinese-imports-good-deal-bad-deal">Chinese Imports Good Deal / Bad Deal?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inexpensive-ready-to-fly-nano-micro-or-small-quadcopter">Inexpensive, Ready To Fly Nano, Micro or Small QuadCopter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#all-inclusive-kit">All Inclusive Kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#almost-ready-to-fly">Almost Ready to Fly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-kit">Frame Kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scratch-built">Scratch Built</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brand-name-ready-to-fly">Brand Name Ready to Fly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#which-approach-is-right-for-you">Which Approach is Right for You</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-news.html">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="landing-gear.html">Landing Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived: Build Your Own Multicopter</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/build-your-own-multicopter.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="archived-build-your-own-multicopter">
+<span id="build-your-own-multicopter"></span><h1>Archived: Build Your Own Multicopter<a class="headerlink" href="#archived-build-your-own-multicopter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="there-are-lots-of-ways-you-can-put-together-a-multicopter">
+<h2>There are Lots of Ways you Can Put Together a MultiCopter<a class="headerlink" href="#there-are-lots-of-ways-you-can-put-together-a-multicopter" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Thoughtful, slow progression is better than jumping in with both
+feet, you can easily get discouraged by trying to do too much too
+fast.</li>
+<li>You are likely to have a good experience if you start with a simple,
+small QuadCopter, either a Ready to Fly or an All Inclusive Kit.</li>
+<li>For those with good DIY capabilities an Almost Ready To Fly build
+like the F450 FlameWheel described below can also work well.</li>
+<li>For your first MultiCopter, DO NOT initially try to build a Photo /
+Video or First Person View copter, just build a good QuadCopter.</li>
+<li>Even if you know that’s what you really want to do, it will take you
+some time to come up to speed on our copters and autopilots.</li>
+<li>If you just want to get a taste and have a lot of fun, try one of the
+little inexpensive, safe, sturdy, ready to use Micro-QuadCopters
+below.</li>
+<li>If you know you’re serious, try the <strong>Flamewheel ARF Build</strong> or if
+you just want to fly and can afford it get the high end <strong>Iris</strong>
+QuadCopter.</li>
+<li>The Iris includes a top end <strong>Pixhawk</strong> autopilot and both
+the Iris and the Flamewheel can do <strong>FPV</strong> or <strong>Video</strong> when you are
+ready.</li>
+<li>Don’t start with a <strong>Frame Up Build</strong> unless you have a complete
+article on how to build a really good simple Quadcopter like the Flip
+Sport.</li>
+<li>Absolutely do not start by trying to <strong>Build Your Own Frame</strong>, even
+among experienced builders there are more failures than successes.</li>
+<li>It is very important to <strong>NOT</strong> start out with a big (dangerous)
+multicopter with a bunch of photo or video stuff on it, you will
+regret it.</li>
+<li>A small, agile <strong>QuadCopter</strong> is always a lot more fun to fly than a
+big, ponderous and slow <strong>Hex</strong> or <strong>OctoCopter</strong> in any case.</li>
+<li>Except for top end professional HD video or photography requiring big
+cameras you are always better off thinking small, light and agile.</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Safety is very important with multicopters, keep plenty of
+distance from living or expensive things and review our <a class="reference internal" href="safety-multicopter.html#safety-multicopter"><span class="std std-ref">Safety Page</span></a>.</p>
+</div>
+</div>
+<div class="section" id="chinese-imports-good-deal-bad-deal">
+<h2>Chinese Imports Good Deal / Bad Deal?<a class="headerlink" href="#chinese-imports-good-deal-bad-deal" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>It is very tempting especially when just starting out to buy lots of
+Chinese direct import stuff because it is so much cheaper: Bad Idea!</li>
+<li>As you gain experience, you will learn which import items are
+serviceable, if you try to do it at the beginning things will not go
+well.</li>
+<li>I recommend you always get the main electronics (autopilot)
+from the primary source, in our case the Pixhawk from 3DRobotics.</li>
+<li>You will also want to get the electronic accessories (GPS,
+magentometer, telemetry and OSD if used) from 3DRobotics as well.</li>
+<li>If your going to do first person view, get a 3DRobotics FPV kit or a
+FatShark Attitude video goggle and transmitter.</li>
+<li>As for cameras, the GoPro Hero 3 and especially the Black is the one
+to get, because it is what everybody uses and it works well.</li>
+<li>The DJI Flamewheel ARF kit which is recommended is made in China but
+is a known quality setup, so where you get it is up to you.</li>
+<li>The Traxxas, Hubsan and Helimax highly recommended starter
+micro-Quadcopters are also made in China but are still a great way to
+start.</li>
+<li>Motors, Batteries, ESCs, frames and even FRSky or Turnigy RC
+transmitters and receivers can be very good deals direct from China.</li>
+<li>A lot of items we buy domestically are actually made in China and of
+course, quality varies widely, regardless of country of origin.</li>
+<li>A $25.00 RC-Timer motor is not likely to be of the same quality as
+the equivalent $100.00 Tiger-Motor, but hey, it’s only $25.00.</li>
+<li>Although direct Chinese imports generally have pretty reliable
+shipping, aftermarket support or returns are often very problematic.</li>
+<li>If you build in a ten to twenty percent broken, damaged or not
+included expectation for Chinese imports you will not be
+disappointed.</li>
+<li>In any case, start with two or three of the recommended “builds”
+below so that you can experience success and learn to fly first.</li>
+</ol>
+</div>
+<div class="section" id="inexpensive-ready-to-fly-nano-micro-or-small-quadcopter">
+<h2>Inexpensive, Ready To Fly Nano, Micro or Small QuadCopter<a class="headerlink" href="#inexpensive-ready-to-fly-nano-micro-or-small-quadcopter" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you are new to MultiCopters, I very strongly suggest you start
+with one of these inexpensive Ready To Fly QuadCopters.</p>
+</div>
+<ol class="arabic simple">
+<li>They come with everything you need including the radio and the
+battery, require no assembly, are very sturdy and are great for
+learning.</li>
+<li>They are also a ton of fun, can easily and safely be used indoors and
+typically cost less than a hundred dollars.</li>
+<li>Importantly you will get you a much better understanding of how they
+work and of what you really want to do next.</li>
+<li>The <a class="reference external" href="http://traxxas.com/products/models/heli/6208qr1">Traxxas QR1 QuadCopter</a> is an
+inexpensive RTF Micro Quadcopter that is great for a first
+experience. (Left image below).</li>
+<li>For $45.00 the <a class="reference external" href="http://www.amazon.com/Hubsan-X4-H107-Copter-2-4GHZ/dp/B009M1PO7W">(Hubsan
+X4)</a> is
+identical to the Traxxas and for $70.00 you can get it with a still
+photo and 720P HD video
+camera.<a class="reference external" href="http://www.amazon.com/Hubsan-X4-H107-Copter-2-4GHZ/dp/B009M1PO7W">Husban</a></li>
+<li>For $200.00 there is even a really easy to fly <strong>FPV</strong> version of the
+<a class="reference external" href="http://www.ebay.com/itm/like/171203630670?lpid=82&quot;">Hubsan</a> that
+comes with a RC transmitter with an excellent LCD display.</li>
+<li>Even the parts for the Hubsans are readily available: <a class="reference external" href="http://hobbyflip.com/">Hobby Flip</a></li>
+<li>The <a class="reference external" href="http://www.helimax-rc.com/helicopters/hmxe0834-1sq/index.html">Helimax 1SQ</a> is
+another low cost palm sized micro QuadCopter.</li>
+<li>Or even the really, really tiny $40.00 <a class="reference external" href="http://www.amazon.com/Estes-4606-Proto-Nano-Quadcopter/dp/B00G924W98">Estes Proto X</a> actually
+a Hubsan H111 which flies remarkably well (Middle and right images
+below).</li>
+</ol>
+<a class="reference external image-reference" href="../_images/6208-Stinger-3qtr-blue_o.jpg"><img alt="../_images/6208-Stinger-3qtr-blue_o.jpg" src="../_images/6208-Stinger-3qtr-blue_o.jpg" /></a>
+<a class="reference external image-reference" href="../_images/ProtoX1.jpg"><img alt="../_images/ProtoX1.jpg" src="../_images/ProtoX1.jpg" /></a>
+<a class="reference external image-reference" href="../_images/ProtoX.jpg"><img alt="../_images/ProtoX.jpg" src="../_images/ProtoX.jpg" /></a>
+<ul class="simple">
+<li>Below left is a larger, but very durable copter, the $88.00 UDI U818A
+2.4GHz Quadcopter with Camera from Amazon Prime.</li>
+<li>And a link to an important <a class="reference external" href="https://diydrones.com/profiles/blogs/noob-quadcopter-training-thank-you-community">Blog Article by RocklandUSA</a>
+for all people considering their first Multicopter purchase.</li>
+<li>The Blade Nano QX at $90.00 below right is also highly recommended,
+is very light and easy to fly and incredibly durable.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/SKU074490.14.jpg"><img alt="../_images/SKU074490.14.jpg" src="../_images/SKU074490.14.jpg" /></a>
+<a class="reference external image-reference" href="../_images/blh7600.jpg"><img alt="../_images/blh7600.jpg" src="../_images/blh7600.jpg" /></a>
+<ul class="simple">
+<li>If you are just starting out: Get one of these inexpensive, small,
+durable Quadcopters and learn to fly it well, it will save you a lot
+of money.</li>
+</ul>
+</div>
+<div class="section" id="all-inclusive-kit">
+<h2>All Inclusive Kit<a class="headerlink" href="#all-inclusive-kit" title="Permalink to this headline">¶</a></h2>
+<p>#. The easiest way to build is to buy a single kit that has all the parts
+necessary in one box and a set of instructions for each step.</p>
+<p>#. Outside of (Ready To Fly) a good all inclusive kit is the most reliable
+and straightforward way to construct a quality MultiCopter.</p>
+<p>#. Usually all of the components are well balanced with each other and the
+entire craft can be expected to perform well.</p>
+<p>#. For an all inclusive kit, assembly is just nuts and bolts and possibly
+some soldering.</p>
+<p>#. The assembly procedure is usually well explained in the supplied
+instructions.</p>
+<p>#. The downside is that often quality kits are a bit more expensive than
+other alternatives and customization has to be added on.</p>
+<p>#. If you are not already well qualified at Do It Yourself projects, A good
+all inclusive kit is definitely the best place to start.</p>
+<p>#. The innovative <a class="reference external" href="https://www.amazon.com/3DRobotics-3DR0171-3DR-IRIS-Quadcopter/dp/B00NWXY076">Iris QuadCopter</a> is
+actually <strong>Ready To Fly</strong> and comes with the top of the line
+<strong>Pixhawk</strong> autopilot. However, these are no longer produced/sold by 3DR.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">It is capable of fully autonomous flight and includes the RC
+transmitter, the battery and even telemetry, at $750.00 it is a real
+bargain.</p>
+</li>
+<li><p class="first">The Iris structurally strong and resilient and it is set up to
+support a GoPro camera or even FPV (First Person View) when you are
+ready.</p>
+<a class="reference external image-reference" href="../_images/AeduCopterAndIris.jpg"><img alt="../_images/AeduCopterAndIris.jpg" src="../_images/AeduCopterAndIris.jpg" /></a>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="almost-ready-to-fly">
+<h2>Almost Ready to Fly<a class="headerlink" href="#almost-ready-to-fly" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>If you need everything and want the most versatile copter possible
+you can’t beat the Iris above, it is simply a great deal.</li>
+<li>If you already have a RC transmitter you can save some money and
+still build a really high quality autonomous QuadCopter.</li>
+<li>Even if you are just starting there are a few really good choices.<ol class="arabic">
+<li>The <strong>DJI F450 Flamewheel QuadCopter ARF Kit</strong> may well be single
+the best choice at this time.</li>
+<li>This kit comes with frame with built in power distribution board,
+the 4 motors and the 4 Electronic Speed Controls and 8 Propellers.</li>
+<li>You need to add a <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Pixhawk</span></a> Flight
+controller, A battery and your Radio Control Transmitter and
+Receiver.</li>
+<li>The supplied equipment in the kit is all first rate and the real
+DJI Flamewheel frame is very stiff and sturdy (a good thing).</li>
+<li>Cost: F450 ARF kit $180.00, Pixhawk with GPS/Compass $280.00 and a
+Battery $35.00 = ($495.00) plus a PPM-Sum receiver.</li>
+</ol>
+</li>
+<li>As an alternative, the smaller <strong>DJI F330 Flamewheel Quadcopter</strong> is
+also an excellent choice and can be better in smaller spaces.<ol class="arabic">
+<li>The <a class="reference internal" href="dji-f330-flamewheel.html#dji-f330-flamewheel"><span class="std std-ref">Wiki page on constructing the F330</span></a> is applicable to the <strong>F450</strong> as
+well.</li>
+</ol>
+</li>
+<li>Most ARF kits that are cheaper than this are not nearly as sturdy and
+the components generally fail much more frequently.</li>
+<li>You can buy the <a class="reference external" href="http://www.amainhobbies.com/product_info.php/cPath/2_382_2405_3233_3237/products_id/235232/n/DJI-Innovations-Flame-Wheel-F450-ARF-Quadcopter-Kit-w-Motors-ESC-Propellers">F450 ARF kit Here!</a> This
+source has the <strong>F350 ARF</strong> kit also.</li>
+<li>DO NOT get a clone kit that looks like it, the real DJI motors and
+ESCs are top quality and the frame is stiff and strong, the clones
+are not.</li>
+<li>There are more expensive high quality ARF kits available but the
+FlameWheels will give great service and have very high performance.</li>
+<li>If you want to keep initial cost to a bare minimum, start with
+a <a class="reference external" href="http://www.hobbyking.com/hobbyking/store/__24723__Hobbyking_KK2_0_Multi_rotor_LCD_Flight_Control_Board.html">Simple Flight Controller</a> then
+graduate to a
+<a class="reference external" href="https://store.3dr.com/products/3dr-pixhawk">Pixhawk</a> when
+you are ready</li>
+<li>The F450 can also serve as a competent Gopro and Gimbal carrying
+photo and video copter or as an FPV platform.</li>
+<li>The <strong>DJI F550 ARF Hexacopter</strong> is a good choice for more advanced
+uses, but it is not ideal as a first MultiCopter.</li>
+</ol>
+<a class="reference external image-reference" href="../_images/FlamewheelF450FrameMotorsEscs.jpg"><img alt="../_images/FlamewheelF450FrameMotorsEscs.jpg" src="../_images/FlamewheelF450FrameMotorsEscs.jpg" /></a>
+</div>
+<div class="section" id="frame-kit">
+<h2>Frame Kit<a class="headerlink" href="#frame-kit" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Once you get into building your own MultiCopter based on a frame kit
+you are getting into the big leagues, this is really not for
+beginners.</p>
+</li>
+<li><p class="first">The exception is if you are carefully following a specific and highly
+detailed build.</p>
+</li>
+<li><p class="first">I am working on 2 Frame Kit based builds at the moment, a Flip 380
+Sport QuadCopter and a Tarot 650 Carbon Fiber Quadcopter.</p>
+</li>
+<li><p class="first">A little bit on the reasons for and methods used in each of the
+Builds.</p>
+</li>
+<li><p class="first">The Hoverthings <a class="reference external" href="http://www.hoverthings.com/the-flip-black">Flip 380 Sport</a> Frame is billed
+as the most indestructible frame ever.</p>
+<ol class="arabic">
+<li><p class="first">It uses incredibly stiff and strong CNC machined 1/4” thick
+Fiberglass arms and G10 Fiberglass center plates.</p>
+</li>
+<li><p class="first">It can incorporate the same motors and ESCs as used in the DJI
+Flamewheel and can use up to 10” propellers.</p>
+</li>
+<li><p class="first">I purchased the Flip Sport Kit plus an extra pair of “tab” type
+center sections and extra 7/8” spacers.</p>
+</li>
+<li><p class="first">The extra center plates mount below the stock plates on 7/8”
+spacers to accommodate the battery and flight gear.</p>
+</li>
+<li><p class="first">I am using 4 of the stock DJI Flamewheel motors and a special <a class="reference external" href="http://mymobilemms.com/OFFTHEGRIDWATER.CA/index.php?main_page=product_info&amp;cPath=2_4&amp;products_id=203">4 in 1 ESC</a> placed
+between the center plates of the copter.</p>
+<a class="reference external image-reference" href="../_images/3281_dimg2.jpg"><img alt="../_images/3281_dimg2.jpg" src="../_images/3281_dimg2.jpg" /></a>
+</li>
+<li><p class="first">The 4 in 1 ESC produces much less RF and DC interference and is
+neater than 4 ESCs and a power distribution board.</p>
+</li>
+<li><p class="first">I am using <a class="reference external" href="http://www.rcdude.com/servlet/the-2498/GemFan-DJI-Hub-10x4.5/Detail">GemFan DJI hub compatible 10” carbon filled propellers</a> because
+they are very tough and very efficient.</p>
+</li>
+<li><p class="first">My goal is to build an even tougher and higher performance copter
+than the DJI F450 Flamewheel - inexpensively.</p>
+</li>
+<li><p class="first">Although it’s a small copter the Flip is powerful and agile enough
+to use FPV video and/or a GoPro Camera and brushless gimbal.</p>
+</li>
+<li><p class="first">Here is a link to the <a class="reference internal" href="hoverthings-flip-sport-quadcopter.html#hoverthings-flip-sport-quadcopter"><span class="std std-ref">Hoverthings Flip Sport Quadcopter Wiki Build Page</span></a> using a Pixhawk autopilot.</p>
+<a class="reference external image-reference" href="../_images/FlipPX41.jpg"><img alt="../_images/FlipPX41.jpg" src="../_images/FlipPX41.jpg" /></a>
+</li>
+</ol>
+</li>
+<li><p class="first">The <a class="reference external" href="http://www.ebay.com/itm/Tarot-Iron-Man-650-Foldable-3K-carbon-fiber-Quad-copter-Quadcopter-Frame-TL65B02-/151050276421">Tarot 650</a> is
+a carbon fiber frame that is quite large for a QuadCopter and it can
+incorporate up to 17” propellers.</p>
+<ol class="arabic simple">
+<li>I am using 360kv slow speed, large diameter <strong>Pancake Motors</strong>
+designed to turn the more efficient large propellers at low
+speeds.</li>
+<li>I will be using a variety of 14” to 17” propellers to explore
+performance and efficiency at various propeller diameters.</li>
+<li>Although the Flip Sport build shown above could be appropriate for
+a first QuadCopter, this Tarot 650 build is definitely not.</li>
+<li>This quad is big enough to serve as a heavy lift or long endurance
+copter or to carry a big video or still camera, but:<ol class="arabic">
+<li>For lifting a 2KG payload with a quadcopter you need some
+serious motor and some serious prop.</li>
+<li><a class="reference external" href="http://www.rctigermotor.com/html/2013/Navigator_0910/38.html">Four Tigermotor MN4010 475 KV motors</a> at
+$86.00 each, four 15 x 5 or 16 x 5 props and four high quality
+30 amp ESCs.</li>
+<li>It needs 10,000mah of 4 cell Lipo batteries (two 5000’s) to
+achieve approximately ~10 minutes of flight time at 4KG total
+weight.</li>
+<li>It should be capable of lifting 4 KG total (including 2KG
+payload) and leave about 50% reserve thrust (minimum
+needed) (6kg total).</li>
+<li>You will need 16” x 5  props to achieve the thrust and
+efficiency necessary to lift 4KG total with reasonable flight
+times.</li>
+<li>That is why the bigger motors with the lower KV are required
+and they need to be high quality to withstand continuous high
+output.</li>
+<li>It is very highly recommended that you do not attempt to
+construct one of these for your first build.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p class="first">A really handy link for quickly calculating performance requirements
+for various multicopters and
+components: <a class="reference external" href="http://www.ecalc.ch/indexcalc.htm">eCalc</a></p>
+</li>
+</ol>
+<a class="reference external image-reference" href="../_images/copter_tarot_frame.jpg"><img alt="../_images/copter_tarot_frame.jpg" src="../_images/copter_tarot_frame.jpg" /></a>
+<p><strong>Or Perhaps a really tiny little `250 sized $10.00 frame &lt;http://www.hobbyking.com/hobbyking/store/__47075__HobbyKing_FPV250_Quad_Copter_A_Mini_Sized_FPV_Multi_Rotor_kit_.html&gt;`__
+with FPV capability you can fly indoors or out.</strong></p>
+<a class="reference external image-reference" href="../_images/fpv250_mini_quad_copter_frame.jpg"><img alt="../_images/fpv250_mini_quad_copter_frame.jpg" src="../_images/fpv250_mini_quad_copter_frame.jpg" /></a>
+<a class="reference external image-reference" href="../_images/fpv250_mini_quad_copter.jpg"><img alt="../_images/fpv250_mini_quad_copter.jpg" src="../_images/fpv250_mini_quad_copter.jpg" /></a>
+</div>
+<div class="section" id="scratch-built">
+<h2>Scratch Built<a class="headerlink" href="#scratch-built" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Although this is often attempted by those who have never used a
+multicopter, it very seldom turns out well.</li>
+<li>At the simplest level a functioning QuadCopter can be built out of
+sticks or dowels and plywood that will fly.</li>
+<li>But it is very unlikely to fly well or to be very serviceable or to
+well tolerate less than perfect “landings”.</li>
+<li>And this is no way to save money, RTF, Kits and ARF include high
+quality matched components and actually cost less.</li>
+<li>Even if you are an experienced model builder, machinist or engineer,
+DO NOT START HERE!</li>
+<li>Multicopters have their whole own set of flight dynamics and
+structural demands.</li>
+<li>Until you have become experienced with them you stand virtually no
+chance of designing and making a worthwhile MultiCopter.</li>
+<li>There is a really lovely QuadCopter design made by a newbie from bent
+sheet aluminum on our site right now.</li>
+<li>Unfortunately sheet aluminum is soft, the copter is heavy and hard
+landings are common so a very bent copter is inevitable.</li>
+<li>Even if you are very experienced, you will certainly need to make
+several copters before you achieve a worthwhile design.</li>
+<li>I won’t say Experts only, but you really need to go through at least
+3 or 4 commercial MultiCopters before you even think about doing
+this.</li>
+<li>I have made over a dozen different CAD designs so far and have not
+yet built one, I will make one, but I’m not ready yet and I know it.</li>
+</ol>
+</div>
+<div class="section" id="brand-name-ready-to-fly">
+<h2>Brand Name Ready to Fly<a class="headerlink" href="#brand-name-ready-to-fly" title="Permalink to this headline">¶</a></h2>
+<p>A few words about the <strong>Brand Name</strong> Ready To Fly QuadCopters like the
+<strong>Parrot</strong>, the <strong>DJI Phantom</strong> and the <strong>Blade 350QX</strong>.</p>
+<ol class="arabic simple">
+<li>Within the scope of their capabilities these are generally well made
+and often a reasonable bargain for what they do.</li>
+<li>But they are also not easily modified or improved on and are not easy
+to upgrade to a more powerful autopilot like the Pixhawk.</li>
+<li>So although they are a moderately capable one stop solution, they can
+also be a bit of a costly dead end.</li>
+<li>You can put together a <strong>Flamewheel ARF kit</strong> with a top end
+<strong>Pixhawk autopilot</strong> for about the same money and be way
+ahead.</li>
+</ol>
+</div>
+<div class="section" id="which-approach-is-right-for-you">
+<h2>Which Approach is Right for You<a class="headerlink" href="#which-approach-is-right-for-you" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">It is very important to match your approach to your capability level,
+if you overreach you can end up with a negative experience.</p>
+</li>
+<li><p class="first">It is also much more important to take a robust and conservative
+approach than to try to do everything the first time out.</p>
+<ol class="arabic simple">
+<li>The simplest approach is to get a <strong>Ready to Fly</strong> system or an
+<strong>All Inclusive Kit</strong>.</li>
+<li>However, a good <strong>Almost Ready To Fly</strong> kit plus some carefully
+chosen components can also result in an outstanding copter.</li>
+<li>The ARF approach can often cost somewhat less and enable you to
+construct a copter that is specifically tailored to your needs.</li>
+<li>The <strong>Frame Kit</strong> approach presumes that you have sufficient
+knowledge to specify appropriate components that will work
+together.</li>
+<li>But it does let you put together a copter that is specifically
+optimized for your needs and desires.</li>
+<li>Unless you find and scrupulously follow a comprehensive article
+detailing a specific “build” a Frame Kit should not be your first
+copter.</li>
+<li>Clearly that goes double for <strong>Scratch Built</strong>. It isn’t actually
+all that hard to build a MultiCopter frame.</li>
+<li>But the overall process and component matching to make it work
+well is really for the experienced MultiCopter operator / builder.</li>
+</ol>
+</li>
+<li><p class="first">There are expensive, high end Multicopters, which are generally
+oriented to commercial photo or video use and outside our scope here.</p>
+</li>
+<li><p class="first">All of the Copters I have and will be putting together incorporate
+a <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Pixhawk</span></a> autopilot</p>
+<ol class="arabic">
+<li><p class="first">These are the best and most capable autopilots available
+and they have great <strong>DIYDrones</strong> community support.</p>
+</li>
+<li><p class="first">Beware of clones and counterfeits, they often have small
+differences that end up making them completely unusable.</p>
+</li>
+<li><p class="first">Don’t say I didn’t warn you: “Caveat Emptor” and “You get what you
+pay for”.</p>
+<a class="reference external image-reference" href="../_images/PixhawkLabled.jpg"><img alt="../_images/PixhawkLabled.jpg" src="../_images/PixhawkLabled.jpg" /></a>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced-multicopter-design.html" class="btn btn-neutral float-right" title="Archived: Advanced MultiCopter Design" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dji-f330-flamewheel.html" class="btn btn-neutral" title="Archived: DJI F330 FlameWheel QuadCopter Assembly" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived: Build Your Own Multicopter&amp;body=[Archived: Build Your Own Multicopter](https://ardupilot.org/copter/docs/build-your-own-multicopter.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

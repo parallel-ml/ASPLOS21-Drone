@@ -1,0 +1,487 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Servo Gripper &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Grippers (for delivery)" href="common-gripper-landingpage.html"/>
+        <link rel="next" title="Joystick/Gamepad" href="common-joystick.html"/>
+        <link rel="prev" title="Electro Permanent Magnet Gripper (EPM688)" href="common-electro-permanent-magnet-gripper.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-electro-permanent-magnet-V3.html">Electro Permanent Magnet v3 (EPMv3)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-electro-permanent-magnet-gripper.html">Electro Permanent Magnet v1 (EPM688)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Servo Gripper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-the-servo-to-a-pixhawk">Connecting the servo to a Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-gripper-from-the-transmitter">Controlling Gripper from the transmitter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-gripper-during-a-mission">Controlling Gripper during a mission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-gripper-from-the-ground-station">Controlling Gripper from the ground station</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-joystick.html">Joystick or Gamepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rpm.html">RPM Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+          <li><a href="common-gripper-landingpage.html">Grippers (for delivery)</a> &raquo;</li>
+      
+    <li>Servo Gripper</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-gripper-servo.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="servo-gripper">
+<span id="common-gripper-servo"></span><h1>Servo Gripper<a class="headerlink" href="#servo-gripper" title="Permalink to this headline">¶</a></h1>
+<p>This article explains how to connect a servo to a autopilot and configure it for use as a gripper which is useful for delivery or bottle drop applications.
+The servo can be controlled directly by the pilot via a switch on the transmitter or as part of a mission.  You may wish to refer to the <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">general servo wiki page</span></a> for other ways servos can be controlled.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This servo gripper is included in Copter-3.5 (and higher).  If using an earlier version, a similar result can be accomplished by <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">controlling the servo as a camera shutter</span></a></p>
+</div>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/HiOw6OvJcik" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="section" id="connecting-the-servo-to-a-pixhawk">
+<h2>Connecting the servo to a Pixhawk<a class="headerlink" href="#connecting-the-servo-to-a-pixhawk" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Servo_Pixhawk.jpg"><img alt="../_images/Servo_Pixhawk.jpg" src="../_images/Servo_Pixhawk.jpg" /></a>
+<ul class="simple">
+<li>If using Copter, connect the servo to AUX OUT 1, 2, 3 or 4.  MAIN OUT 1 ~ 8 should be avoided because these update at 400hz.  If using Plane or Rover where all pins update at 50hz, any unused MAIN OUT or AUX OUT 1 ~ 4 may be used.</li>
+<li>AUX OUT 5 and 6 cannot be used by default because they are setup as <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relays</span></a>.  These pins can changed to Servo outputs by setting the <a class="reference internal" href="parameters.html#brd-pwm-count"><span class="std std-ref">BRD_PWM_COUNT</span></a> parameter to 6 and setting <a class="reference internal" href="parameters.html#relay-pin"><span class="std std-ref">RELAY_PIN</span></a> and <a class="reference internal" href="parameters.html#relay-pin2"><span class="std std-ref">RELAY_PIN2</span></a> to -1.</li>
+<li>The Pixhawk autopilot cannot provide power to the servos so an external BEC or ESC that can provide 5V should be used.</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>set which RC output is used by setting SERVOx_FUNCTION (or RCX_FUNCTION) to 28 (i.e. if using AUX OUT 1 on a Pixhawk, set <a class="reference internal" href="parameters.html#servo9-function"><span class="std std-ref">SERVO9_FUNCTION</span></a> to 28).</li>
+<li><a class="reference internal" href="parameters.html#grip-enable"><span class="std std-ref">GRIP_ENABLE</span></a> to 1 to enable the gripper feature and then refetch parameters from the ground station in order to make other gripper parameters visible.</li>
+<li><a class="reference internal" href="parameters.html#grip-type"><span class="std std-ref">GRIP_TYPE</span></a> to 1 to enable the servo gripper and reboot the autopilot</li>
+<li><a class="reference internal" href="parameters.html#grip-grab"><span class="std std-ref">GRIP_GRAB</span></a> to the pwm value (i.e. 1000 ~ 2000) for the gripper’s closed position</li>
+<li><a class="reference internal" href="parameters.html#grip-release"><span class="std std-ref">GRIP_RELEASE</span></a> to the pwm value for the gripper’s open position</li>
+<li><a class="reference internal" href="parameters.html#grip-neutral"><span class="std std-ref">GRIP_NEUTRAL</span></a> to the pwm value for the gripper’s neutral position (often the same as its closed position)</li>
+</ul>
+</div>
+<div class="section" id="controlling-gripper-from-the-transmitter">
+<h2>Controlling Gripper from the transmitter<a class="headerlink" href="#controlling-gripper-from-the-transmitter" title="Permalink to this headline">¶</a></h2>
+<p>The transmitter’s auxiliary switch can control the gripper.</p>
+<p>If using a firmware version prior to 4.0. CH7_OPT or CH8_OPT can be used to control the gripper by setting it to 19. If using the mission planner, select Config/Tuning &gt; Extended Tuning and set the Ch7 Opt or Ch8 Opt drop-down to “EPM” or “Gripper”.</p>
+<img alt="../_images/gripper_servo_auxswitch.png" src="../_images/gripper_servo_auxswitch.png" />
+<ul class="simple">
+<li>In firmware versions 4.0 later, use an RC channel for control by setting is <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> parameter to 19.</li>
+</ul>
+</div>
+<div class="section" id="controlling-gripper-during-a-mission">
+<h2>Controlling Gripper during a mission<a class="headerlink" href="#controlling-gripper-during-a-mission" title="Permalink to this headline">¶</a></h2>
+<p>The gripper position can be controlled during a mission in AUTO mode using the <a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#common-mavlink-mission-command-messages-mav-cmd"><span class="std std-ref">DO_GRIPPER</span></a> command.  Set the “drop/grab” column to 0 to close the gripper, 1 to open the gripper.</p>
+<a class="reference external image-reference" href="../_images/MissionList_DoGripper.png"><img alt="../_images/MissionList_DoGripper.png" src="../_images/MissionList_DoGripper.png" /></a>
+</div>
+<div class="section" id="controlling-gripper-from-the-ground-station">
+<h2>Controlling Gripper from the ground station<a class="headerlink" href="#controlling-gripper-from-the-ground-station" title="Permalink to this headline">¶</a></h2>
+<p>The gripper can be opened or closed in real-time from the ground station if the ground station sends a <a class="reference external" href="https://mavlink.io/en/messages/common.html#COMMAND_LONG">COMMAND_LONG</a> with the command field set to DO_GRIPPER (i.e. 211) but there are no ground stations (as far as we know) that support doing this.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-joystick.html" class="btn btn-neutral float-right" title="Joystick/Gamepad" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-electro-permanent-magnet-gripper.html" class="btn btn-neutral" title="Electro Permanent Magnet Gripper (EPM688)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Servo Gripper&amp;body=[Servo Gripper](https://ardupilot.org/copter/docs/common-gripper-servo.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

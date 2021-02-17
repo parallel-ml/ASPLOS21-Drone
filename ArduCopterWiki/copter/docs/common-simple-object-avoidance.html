@@ -1,0 +1,538 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Simple Object Avoidance &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Object Avoidance" href="common-object-avoidance-landing-page.html"/>
+        <link rel="next" title="Object Avoidance with Bendy Ruler" href="common-oa-bendyruler.html"/>
+        <link rel="prev" title="ADS-B" href="common-ads-b-receiver.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-rcoutput-mapping.html">Autopilot Output Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotune.html">AutoTune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-auxiliary-functions.html">Auxiliary Function Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel-7-and-8-options.html">Auxiliary Function Switches (3.6 and earlier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-temp-comp.html">Baro Temperature Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boat-mode.html">Boat mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-bootloader-update.html">Bootloader Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-canbus-setup-advanced.html">CAN Bus Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-setup-advanced.html">Compass Setup (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current-limiting-and-voltage-scaling.html">Current Limiting and Voltage Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-dshot.html">Brushless ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html">Extended Kalman Filter (EKF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geofencing-landing-page.html">Fence Failsafes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-flight-time-recorder.html">Flight Time Recorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-FPort-receivers.html">FPort Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gpios.html">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gps-for-yaw.html">GPS for Yaw (aka Moving Baseline)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gcs-only-operation.html">Ground Control Station Only Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ground-effect-compensation.html">Ground Effect Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FFT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lua-scripts.html">LUA Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Packet Signing (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ntf-devices.html">Notification Devices (LEDs,Buzzer,etc.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filter Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html#avoidance-strategies">Avoidance Strategies</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-object-avoidance-landing-page.html#avoidance-features">Avoidance Features</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-ads-b-receiver.html">Airborne Vehicles (ADSB)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Simple Object Avoidance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-oa-bendyruler.html">Bendy Path Planning Around Obstacles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-oa-dijkstras.html">Dijkstras Path Planning Around Obstacles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html#hardware">Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensor-setup.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Parameter List (Full)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-parameter-reset.html">Parameter Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rcmap.html">RC Input Channel Mapping (RCMAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-options.html">RC Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Configuration and Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-offset-compensation.html">Sensor Position Offset Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-testing.html">Sensor Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-passthrough.html">Serial Port to Port Passthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-options.html">Serial Port Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-port-setup.html">Telemetry Port Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following (Autonomous modes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-setup-advanced.html">UAVCAN Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ublox-gps.html">UBlox GPS Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="copter-flight-features.html">Flight Features</a> &raquo;</li>
+      
+          <li><a href="common-object-avoidance-landing-page.html">Object Avoidance</a> &raquo;</li>
+      
+    <li>Simple Object Avoidance</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-simple-object-avoidance.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simple-object-avoidance">
+<span id="common-simple-object-avoidance"></span><h1>Simple Object Avoidance<a class="headerlink" href="#simple-object-avoidance" title="Permalink to this headline">¶</a></h1>
+<p>Copter supports simple object avoidance horizontally and upward, while Rover avoids simple objects by only stopping. Both use rangefinders such as:</p>
+<ul class="simple">
+<li>360 degree lidar including the <a class="reference external" href="https://ardupilot.org/copter/docs/common-lightware-sf40c-objectavoidance.html#common-lightware-sf40c-objectavoidance" title="(in Copter)"><span class="xref std std-ref">Lightware SF40C</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/common-teraranger-tower-objectavoidance.html#common-teraranger-tower-objectavoidance" title="(in Copter)"><span class="xref std std-ref">TeraRanger Tower</span></a> or <a class="reference external" href="https://ardupilot.org/copter/docs/common-rplidar-a2.html#common-rplidar-a2" title="(in Copter)"><span class="xref std std-ref">RPLidarA2/A3</span></a></li>
+<li>Any of the other supported <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">lidars</span></a> .As of ArduPilot firmware versions 4.0 and higher, up to 9 rangefinders can be used for object avoidance. See <a class="reference internal" href="common-rangefinder-setup.html#common-rangefinder-setup"><span class="std std-ref">RangeFinders Setup Overview</span></a> for more information.</li>
+<li>Sensors capable of providing <a class="reference external" href="https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR">MAVLink Distance Sensor</a> messages (like <a class="reference external" href="https://www.youtube.com/watch?v=qk_hEtRASqg">OpenKai with a 3D camera</a>)</li>
+</ul>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/BDBSpR1Dw_8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>In addition, Simple Object Avoidance can use Geo-Fences and Fence Beacons as proximity sensors as detemined by the setting of the <a class="reference internal" href="parameters.html#avoid-enable"><span class="std std-ref">AVOID_ENABLE</span></a> parameter.</p>
+<p>See <a class="reference internal" href="common-rangefinder-setup.html#common-rangefinder-setup"><span class="std std-ref">RangeFinders Setup Overview</span></a> for general rangefinder setup information.</p>
+<div class="section" id="simple-object-avoidance-algorithms">
+<h2>Simple Object Avoidance Algorithms<a class="headerlink" href="#simple-object-avoidance-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>Horizontal object avoidance works in <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold</span></a> and <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> modes.  Upward object avoidance works in LOITER, ALTHOLD, and POSHOLD modes only.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only one proximity sensor source can be enabled, using either a 360 degree lidar or up to 9 rangefinders. While a second proximity sensor appears in the parameters list, it is not currently functional</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For Object Avoidance in AUTO and GUIDED modes in Copter and Rover, see <a class="reference internal" href="common-oa-bendyruler.html#common-oa-bendyruler"><span class="std std-ref">Object Avoidance with Bendy Ruler</span></a> or <a class="reference internal" href="common-oa-dijkstras.html#common-oa-dijkstras"><span class="std std-ref">Object Avoidance with Dijkstra’s</span></a></p>
+</div>
+<p>Details on how simple object avoidance is implemented for Copter in ALTHOLD and LOITER mode can be found <a class="reference external" href="https://ardupilot.org/dev/docs/code-overview-object-avoidance.html#code-overview-object-avoidance" title="(in Dev)"><span class="xref std std-ref">here in the developer wiki</span></a> and involves assessing all the objects detected, in all reported quadrants, and adds control input to the pilot’s,trying to move away from the aggregate threat or stop.</p>
+<p>In ALTHOLD mode, the aggregate threat is translated into an attempt to add lean input into the pilot’s commands to move the Copter away from the aggregate obstructions. The pilot can still overcome these additions to his command inputs and fly into a object, if determined to do so.</p>
+<p>In LOITER, either stopping in front of the object or a “sliding” algorithm is used to avoid it. “Sliding” involves slowing and slightly yawing as the vehicle approaches the object. For example, if Copter approaches a fence line at an angle, it will “slide along” the fence as the operator pushes the Copter toward the fence. Head-on approaches would stop, even if the pilot continues to “pushes” it forward.</p>
+</div>
+<div class="section" id="setup-the-proximity-sensor">
+<h2>Setup the Proximity Sensor<a class="headerlink" href="#setup-the-proximity-sensor" title="Permalink to this headline">¶</a></h2>
+<p>For 360 lidar follow the instructions corresponding to the lidar on the vehicle</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="common-lightware-sf40c-objectavoidance.html#common-lightware-sf40c-objectavoidance"><span class="std std-ref">Lightware SF40C</span></a></li>
+<li><a class="reference internal" href="common-teraranger-tower-objectavoidance.html#common-teraranger-tower-objectavoidance"><span class="std std-ref">TeraRanger Tower/ Tower EVO</span></a></li>
+<li><a class="reference internal" href="common-rplidar-a2.html#common-rplidar-a2"><span class="std std-ref">RPLidarA2/A3</span></a></li>
+</ul>
+</div></blockquote>
+<p>For other rangefinders follow the instructions found in there individual setup pages <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">here</span></a></p>
+<p>Be sure to read the <a class="reference internal" href="common-rangefinder-setup.html#common-rangefinder-setup"><span class="std std-ref">RangeFinders Setup Overview</span></a> page</p>
+</div>
+<div class="section" id="configuring-simple-avoidance-for-copter">
+<h2>Configuring Simple Avoidance for Copter<a class="headerlink" href="#configuring-simple-avoidance-for-copter" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>set <a class="reference internal" href="parameters.html#avoid-enable"><span class="std std-ref">AVOID_ENABLE</span></a> = 7 (“All”) to use all sources of barrier information including “Proximity” sensors</li>
+<li>in <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a></li>
+<li><ul class="first">
+<li>set <a class="reference internal" href="parameters.html#prx-type"><span class="std std-ref">PRX_TYPE</span></a> to a 360 deg Lidar type being used or = 4, to enable using range finders as “proximity sensors”</li>
+<li><a class="reference internal" href="parameters.html#avoid-margin"><span class="std std-ref">AVOID_MARGIN</span></a> controls how many meters from the barrier the vehicle will attempt to stop or try to slide along it</li>
+<li><a class="reference internal" href="parameters.html#avoid-behave"><span class="std std-ref">AVOID_BEHAVE</span></a> allows setting whether the vehicle should simply Stop in front of the barrier or Slide around it. This parameter only affects Copter, since Rover always stops.</li>
+</ul>
+</li>
+<li>in <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold</span></a><ul>
+<li><a class="reference internal" href="parameters.html#avoid-dist-max"><span class="std std-ref">AVOID_DIST_MAX</span></a> controls how far from a barrier the vehicle starts leaning away from the barrier</li>
+<li><a class="reference internal" href="parameters.html#avoid-angle-max"><span class="std std-ref">AVOID_ANGLE_MAX</span></a> controls how far the vehicle will try to lean away from the barrier</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="configuring-simple-avoidance-for-rover">
+<h2>Configuring Simple Avoidance for Rover<a class="headerlink" href="#configuring-simple-avoidance-for-rover" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>set <a class="reference internal" href="parameters.html#avoid-enable"><span class="std std-ref">AVOID_ENABLE</span></a> = 7 (“All”) to use all sources of barrier information including “Proximity” sensors.</li>
+<li>set <a class="reference internal" href="parameters.html#prx-type"><span class="std std-ref">PRX_TYPE</span></a> = “4” to enable using range finders as “proximity sensors”</li>
+<li>Rover attempts to stop the vehicle before it hits objects in all modes except MANUAL.</li>
+</ul>
+<div class="section" id="stop-avoidance">
+<h3>“Stop” Avoidance<a class="headerlink" href="#stop-avoidance" title="Permalink to this headline">¶</a></h3>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/ho9mlVwhgHA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+<div class="section" id="real-time-view">
+<h2>Real-time view<a class="headerlink" href="#real-time-view" title="Permalink to this headline">¶</a></h2>
+<p>Real-time distances can be seen in the Mission Planner’s proximity viewer</p>
+<img alt="../_images/copter-object-avoidance-radar-view.png" src="../_images/copter-object-avoidance-radar-view.png" />
+<p>This window can be opened by moving to the MP’s Flight Data screen, press Ctrl-F and push the Proximity button.</p>
+<a class="reference external image-reference" href="../_images/copter-object-avoidance-show-radar-view.png"><img alt="../_images/copter-object-avoidance-show-radar-view.png" src="../_images/copter-object-avoidance-show-radar-view.png" style="width: 300px;" /></a>
+</div>
+<div class="section" id="dataflash-logging">
+<h2>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this headline">¶</a></h2>
+<p>Upward and downward facing range finder distances can be seen in the DataFlash Log’s RFND message.</p>
+<p>The distance to the nearest object in 8 quadrants around the vehicle is recorded in the DataFlash log’s PRX messages.</p>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Simple Object Avoidance feature has the following limitations.  Future versions will likely resolve these.</p>
+<ul class="simple">
+<li>The vehicle should stop before hitting objects but will never back away from objects that approach the vehicle (a slow backing away will be added in future firmware versions)</li>
+<li>Avoidance is “sensor based” meaning it is <strong>not</strong> building up a 3D map and thus has no “memory” of where barriers were once they are out of view of the lidar.</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-oa-bendyruler.html" class="btn btn-neutral float-right" title="Object Avoidance with Bendy Ruler" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-ads-b-receiver.html" class="btn btn-neutral" title="ADS-B" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Simple Object Avoidance&amp;body=[Simple Object Avoidance](https://ardupilot.org/copter/docs/common-simple-object-avoidance.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

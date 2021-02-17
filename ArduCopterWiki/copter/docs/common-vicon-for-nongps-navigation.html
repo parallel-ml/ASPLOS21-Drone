@@ -1,0 +1,659 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using a Vicon indoor positioning system &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Non-GPS Navigation" href="common-non-gps-navigation-landing-page.html"/>
+        <link rel="next" title="ZED stereo camera for Non-GPS Navigation" href="common-zed.html"/>
+        <link rel="prev" title="Pozyx for Non-GPS Navigation" href="common-pozyx.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-rcoutput-mapping.html">Autopilot Output Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotune.html">AutoTune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-auxiliary-functions.html">Auxiliary Function Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel-7-and-8-options.html">Auxiliary Function Switches (3.6 and earlier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-temp-comp.html">Baro Temperature Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boat-mode.html">Boat mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-bootloader-update.html">Bootloader Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-canbus-setup-advanced.html">CAN Bus Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-setup-advanced.html">Compass Setup (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current-limiting-and-voltage-scaling.html">Current Limiting and Voltage Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-dshot.html">Brushless ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html">Extended Kalman Filter (EKF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geofencing-landing-page.html">Fence Failsafes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-flight-time-recorder.html">Flight Time Recorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-FPort-receivers.html">FPort Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gpios.html">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gps-for-yaw.html">GPS for Yaw (aka Moving Baseline)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gcs-only-operation.html">Ground Control Station Only Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ground-effect-compensation.html">Ground Effect Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FFT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lua-scripts.html">LUA Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Packet Signing (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-vio-tracking-camera.html">Intel RealSense T265</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-marvelmind.html">MarvelMind Beacons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">    Optical Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-optitrack.html">OptiTrack motion capture system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pozyx.html">Pozyx Beacons</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://ardupilot.org/dev/docs/ros-cartographer-slam.html">ROS with Google Cartographer (Developers only)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vicon Positioning System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-setup">Hardware Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#software-setup">Software Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyvicon">pyvicon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pymavlink">pymavlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mavproxy-setup">MAVProxy Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting">Connecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-parameters">Key Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#starting-vicon">Starting Vicon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-orientations">Checking Orientations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-flight">Test Flight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning">Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circle-mode">Circle Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-zed.html">Visual Odometry with OpenKai and ZED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-to-gps.html">GPS/Non-GPS Transitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-ntf-devices.html">Notification Devices (LEDs,Buzzer,etc.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensor-setup.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Parameter List (Full)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-parameter-reset.html">Parameter Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rcmap.html">RC Input Channel Mapping (RCMAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-options.html">RC Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Configuration and Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-offset-compensation.html">Sensor Position Offset Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-testing.html">Sensor Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-passthrough.html">Serial Port to Port Passthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-options.html">Serial Port Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-port-setup.html">Telemetry Port Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following (Autonomous modes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-setup-advanced.html">UAVCAN Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ublox-gps.html">UBlox GPS Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="copter-flight-features.html">Flight Features</a> &raquo;</li>
+      
+          <li><a href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a> &raquo;</li>
+      
+    <li>Using a Vicon indoor positioning system</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-vicon-for-nongps-navigation.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-a-vicon-indoor-positioning-system">
+<span id="common-vicon-for-nongps-navigation"></span><h1>Using a Vicon indoor positioning system<a class="headerlink" href="#using-a-vicon-indoor-positioning-system" title="Permalink to this headline">¶</a></h1>
+<p>Robotics labs commonly have an indoor flying facility using a Vicon
+indoor positioning system. These systems use infra-red cameras to give
+a high rate (200Hz) position and attitude via a network
+connection. ArduPilot can use this positioning information for precise
+indoor flight.</p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/XMb4MKi2HSQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Vicon system comes with a SDK that provides APIs for accessing the
+Vicon positioning data. To use the Vicon data with ArduPilot you need
+a tool which can use this API and map it onto MAVLink packets to send
+to ArduPilot.</p>
+<p>There are two types of MAVLink packets that can be used:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the GLOBAL_VISION_POSITION_ESTIMATE packet, which provides position
+(NED) and attitude (euler angles).</li>
+<li>the GPS_INPUT packet which provides position as latitude/longitude,
+altitude, velocity (3D) and yaw data.</li>
+</ul>
+</div></blockquote>
+<p>Right now the best approach is to use GPS_INPUT with the GPS yaw
+extension as the velocity data provided by the GPS packet is more
+valuable for good positioning than the attitude information in the
+GLOBAL_VISION_POSITION_ESTIMATE packet. In the future we will support
+a combined VISION MAVLink message which will provide position,
+velocity and attitude in one packet.</p>
+</div>
+<div class="section" id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this headline">¶</a></h2>
+<p>You will need a low-latency network link from your GCS computer to the
+copter, and from the GCS to your Vicon server. The recommened method
+is to use ethernet to the Vicon server and use a ESP8266 WiFi link
+running <a class="reference external" href="common-esp8266-telemetry">mavest8266</a> on the copter.</p>
+<p>You will also need to calibrate your Vicon, and ensure you have 4 good
+reflective markers on the vehicle positioned to give a good lock in
+the Vicon.</p>
+</div>
+<div class="section" id="software-setup">
+<h2>Software Setup<a class="headerlink" href="#software-setup" title="Permalink to this headline">¶</a></h2>
+<p>You will need a recent version of ArduPilot on your copter. As of
+September 2019 it is recommended that you use ArduPilot master. The
+recent version is needed to give support for yaw data in the GPS_INPUT
+MAVLink message.</p>
+<p>The setup described below uses the vicon module in MAVProxy to feed
+the Vicon data to your vehicle over MAVLink.</p>
+</div>
+<div class="section" id="pyvicon">
+<h2>pyvicon<a class="headerlink" href="#pyvicon" title="Permalink to this headline">¶</a></h2>
+<p>You will need to install the <a class="reference external" href="https://github.com/tridge/pyvicon">pyvicon</a> python package, using a python
+version of at least 3.6. To install pyvicon you will need to also
+install the Vicon SDK, version 1.10 or later, from <a class="reference external" href="https://www.vicon.com/products/software/datastream-sdk">ViconDataStream
+SDK</a></p>
+<p>Note that pyvicon does not build with python2.</p>
+<p>Once you have the SDK setup, you should install pyvicon like this:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>You will also need to add $HOME/.local/bin to your $PATH.</p>
+</div>
+<div class="section" id="pymavlink">
+<h2>pymavlink<a class="headerlink" href="#pymavlink" title="Permalink to this headline">¶</a></h2>
+<p>You will need a pymavlink version of at least 2.3.8. Install with:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">user</span> <span class="n">pymavlink</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mavproxy-setup">
+<h2>MAVProxy Setup<a class="headerlink" href="#mavproxy-setup" title="Permalink to this headline">¶</a></h2>
+<p>You will need MAVProxy version of at least 1.8.11. Install with:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">user</span> <span class="n">mavproxy</span>
+</pre></div>
+</div>
+<p>You will also need some other python3 libraries, install with:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libgtk</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">pathlib2</span> <span class="n">wxpython</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>Next you should put the IP address of your vicon server in your
+/etc/hosts file, so that you can do “ping vicon”. The name ‘vicon’ is
+used as the default hostname in the MAVProxy vicon module.</p>
+</div>
+<div class="section" id="connecting">
+<h2>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h2>
+<p>Setup your copter with the WiFi link running at baudrate 921600 and
+with MAVLink2 enabled. If your WiFi adapter is on Telem1, then you
+will need to set:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SERIAL1_PROTOCOL=2</li>
+<li>SERIAL1_BAUD=921600</li>
+</ul>
+</div></blockquote>
+<p>Next start MAVProxy like this:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mavproxy</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">master</span> <span class="p">:</span><span class="mi">14550</span> <span class="o">--</span><span class="n">aircraft</span> <span class="n">MyQuad</span> <span class="o">--</span><span class="n">console</span> <span class="o">--</span><span class="nb">map</span>
+</pre></div>
+</div>
+<p>For more details see the <a class="reference external" href="https://ardupilot.org/mavproxy/index.html#home" title="(in MAVProxy)"><span class="xref std std-ref">MAVProxy documentation</span></a></p>
+</div>
+<div class="section" id="key-parameters">
+<h2>Key Parameters<a class="headerlink" href="#key-parameters" title="Permalink to this headline">¶</a></h2>
+<p>You should set the following key parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li>EK3_ENABLE=1</li>
+<li>EK2_ENABLE=0</li>
+<li>AHRS_EKF_TYPE=3</li>
+<li>EK3_GPS_TYPE=0</li>
+<li>EK3_MAG_CAL=5</li>
+<li>EK3_ALT_SOURCE=2</li>
+<li>GPS_TYPE=14</li>
+<li>GPS_DELAY_MS=50</li>
+<li>COMPASS_USE=0</li>
+<li>COMPASS_USE2=0</li>
+<li>COMPASS_USE3=0</li>
+</ul>
+</div></blockquote>
+<p>After setting these parameters you should reboot your copter.</p>
+</div>
+<div class="section" id="starting-vicon">
+<h2>Starting Vicon<a class="headerlink" href="#starting-vicon" title="Permalink to this headline">¶</a></h2>
+<p>Inside MAVProxy load the vicon module with:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">vicon</span>
+</pre></div>
+</div>
+<p>If it doesn’t load correctly then enable debugging with “set moddebug
+3” then try to load the module again.</p>
+<p>Once loaded you set set vicon parameters with “vicon set”. Once you
+are happy with the parameters then do “vicon start”</p>
+<p>The MAVProxy console will then give status information for the Vicon,
+showing position, attitude and messages rates. The vehicle should also
+get GPS lock. It will show up at the GPS coordinates in the vicon
+module settings.</p>
+</div>
+<div class="section" id="checking-orientations">
+<h2>Checking Orientations<a class="headerlink" href="#checking-orientations" title="Permalink to this headline">¶</a></h2>
+<p>Use the Vicon status line in the MAVProxy console to check that you
+have the right orientation in the data coming from the Vicon. The VPos
+data is in NED format in meters. The VATT data is euler angles of
+roll, pitch yaw. Carefully check that these values are consistent
+while you rotate and move the vehicle before proceeding.</p>
+</div>
+<div class="section" id="test-flight">
+<h2>Test Flight<a class="headerlink" href="#test-flight" title="Permalink to this headline">¶</a></h2>
+<p>You should see ArduPilot first report that EKF3 gets yaw alignment,
+and then that it is using the GPS. After that you should be able to
+arm and fly.</p>
+<p>For a first test flight STABILIZE or ALT_HOLD mode is
+recommended. Then get the flight log from the microSD card and check
+that the EKF3 innovations are low. The position, velocity and yaw
+normalised innovations should all be low (below 0.1).</p>
+<p>Once you have confirmed low innovations you can try a flight in LOITER
+mode.</p>
+</div>
+<div class="section" id="tuning">
+<h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this headline">¶</a></h2>
+<p>If you have significant vibration then you will likely want to
+de-weight the accelerometers and instead tell the EKF to use the vicon
+data more. Try setting EK3_ACC_P_NSE to 2.0 to de-weight the
+accelerometer data. You may find this helps with position and height
+hold.</p>
+<p>For indoor flightw with a Vicon setup and a small quad you can push up
+the accelerations and yaw rate to much higher value than are used in a
+normal quad. Some suggestions for a small racing quad are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>INS_GYRO_FILTER=60</li>
+<li>INS_ACCEL_FILTER=30</li>
+<li>ATC_ACCEL_Y_MAX=100000</li>
+<li>ATC_SLEW_YAW=15000</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="circle-mode">
+<h2>Circle Mode<a class="headerlink" href="#circle-mode" title="Permalink to this headline">¶</a></h2>
+<p>A very useful mode for testing accuracy of flight is <cite>Circle Mode
+&lt;circle-mode&gt;</cite>. To use it indoors try:</p>
+<blockquote>
+<div><ul class="simple">
+<li>CIRCLE_RADIUS=100</li>
+<li>CIRCLE_RATE=40</li>
+</ul>
+</div></blockquote>
+<p>You should also set your RTL_ALT nice and low in case you hit a
+failsafe, or configure a instant disarm switch on your transmitter for
+when things go wrong.</p>
+<p>To fly in circle mode take off in LOITER and then move so you are 1m
+from the center of the room, pointing towards the middle of the
+room. Then switch to Circle mode and the vehicle should start
+circling, keeping its nose pointed at the center of the circle. You
+can try pushing up CIRCLE_RATE to higher values (in degrees/second) as
+you get more confident. The video at the top of this page has
+CIRCLE_RATE=150 for a 150 degree/second circle.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-zed.html" class="btn btn-neutral float-right" title="ZED stereo camera for Non-GPS Navigation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-pozyx.html" class="btn btn-neutral" title="Pozyx for Non-GPS Navigation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Using a Vicon indoor positioning system&amp;body=[Using a Vicon indoor positioning system](https://ardupilot.org/copter/docs/common-vicon-for-nongps-navigation.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

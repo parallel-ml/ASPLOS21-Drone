@@ -1,0 +1,640 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SiK Telemetry Radio &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Telemetry (landing page)" href="common-telemetry-landingpage.html"/>
+        <link rel="next" title="Configuring a Telemetry Radio using Mission Planner" href="common-configuring-a-telemetry-radio-using-mission-planner.html"/>
+        <link rel="prev" title="3DR Radio v1" href="common-3dr-radio-v1.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-joystick.html">Joystick or Gamepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rpm.html">RPM Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-telemetry-landingpage.html#short-range-10km">Short Range (&lt;10KM)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html">Bluetooth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pwlink.html">CUAV PW-Link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-esp8266-telemetry.html">ESP8266 wifi telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-frsky-telemetry.html">FrSky telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-hott-telemetry.html">HOTT telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-3dr-radio-v1.html">SiK Radio v1</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SiK Radio v2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html">SiK Radio configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html">SiK Radio advanced configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-telemetry-xbee.html">XBee</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-telemetry-landingpage.html#long-range">Long Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-telemetry-landingpage.html#applications-and-info">Applications and Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+          <li><a href="common-telemetry-landingpage.html">Telemetry (landing page)</a> &raquo;</li>
+      
+    <li>SiK Telemetry Radio</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-sik-telemetry-radio.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sik-telemetry-radio">
+<span id="common-sik-telemetry-radio"></span><h1>SiK Telemetry Radio<a class="headerlink" href="#sik-telemetry-radio" title="Permalink to this headline">¶</a></h1>
+<p>A <em>SiK Telemetry Radio</em> is one of the easiest ways to setup a telemetry
+connection between your Autopilot and a ground station. This article
+provides a basic user guide for how to connect and configure your radio.</p>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/3dr_radio_v2.jpg"><img alt="../_images/3dr_radio_v2.jpg" src="../_images/3dr_radio_v2.jpg" /></a>
+<p class="caption"><span class="caption-text">3DR Radio v2 (a consumer implementation of SiKRadio)</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This page was previously named <em>3DR Radio (version 2)</em> for
+3DRobotics’ trusted high quality implementation of SiK radio. As this
+radio is no longer available from 3DR, the page has been renamed to
+reflect the underlying open source radio platform.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://github.com/ArduPilot/SiK">SiK Telemetry Radio</a> is a small,
+light and inexpensive open source radio platform that typically allows
+ranges of better than 300m “out of the box” (the range can be extended
+to several kilometres with the use of a patch antenna on the ground).
+The radio uses <a class="reference external" href="https://github.com/ArduPilot/SiK">open source firmware</a>
+which has been specially designed to work well with MAVLink packets and
+to be integrated with the Mission Planner, Copter, Rover and Plane.</p>
+<p>The radios can be either 915Mhz or 433Mhz and you should purchase the
+model which is <a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">appropriate for your country/region</span></a>.</p>
+<p>As the platform is open source, implementation can be purchased from
+many different sources, including ArduPilot Partners:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://store.jdrones.com/jD_SiK_Radio_Telemetry_radio_p/rfsik20set900.htm">jD-SiK Telemetry Set</a> (jDrones)</li>
+<li><a class="reference external" href="https://store.mrobotics.io/ProductDetails.asp?ProductCode=mRo-sikv2">mRo SiK Telemetry Radio</a> (mRobotics)</li>
+<li><a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/telemetria">VirtualRobotix Telemetry Set</a> (VirtualRobotix)</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you’re looking for an alternative, the
+<a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900 Radio Modem</span></a> is highly recommended by many community members
+(The SiK platform was based on the RFD900 and both platforms have
+continued to evolve). It provides a significantly better range.</p>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The main features of the SiK Radio are listed below (see the <a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information"><span class="std std-ref">Advanced Configuration</span></a>
+for more information):</p>
+<ul class="simple">
+<li>Very small size</li>
+<li>Light weight (under 4 grams without antenna)</li>
+<li>Available in 900MHz or 433MHz (v2 only) variants</li>
+<li>Receiver sensitivity to -121 dBm</li>
+<li>Transmit power up to 20dBm (100mW)</li>
+<li>Transparent serial link</li>
+<li>Air data rates up to 250kbps</li>
+<li>MAVLink protocol framing and status reporting</li>
+<li>Frequency hopping spread spectrum (FHSS)</li>
+<li>Adaptive time division multiplexing (TDM)</li>
+<li>Support for LBT and AFA</li>
+<li>Configurable duty cycle</li>
+<li>Built-in error correcting code (can correct up to 25% data bit
+errors)</li>
+<li>Demonstrated range of several kilometres with a small omni antenna</li>
+<li>Can be used with a bi-directional amplifier for even more range</li>
+<li>Open source firmware</li>
+<li>AT commands for radio configuration</li>
+<li>RT commands for remote radio configuration</li>
+<li>Adaptive flow control when used with APM</li>
+<li>Based on HM-TRP radio modules, with Si1000 8051 micro-controller and
+Si4432 radio module</li>
+</ul>
+</div>
+<div class="section" id="status-leds">
+<h2>Status LEDs<a class="headerlink" href="#status-leds" title="Permalink to this headline">¶</a></h2>
+<p>The radios have 2 status LEDs, one red and one green. The meaning of the
+different LED states is:</p>
+<ul class="simple">
+<li>Green LED blinking - searching for another radio</li>
+<li>Green LED solid - link is established with another radio</li>
+<li>Red LED flashing - transmitting data</li>
+<li>Red LED solid - in firmware update mode</li>
+</ul>
+</div>
+<div class="section" id="connecting-the-radios">
+<h2>Connecting the radios<a class="headerlink" href="#connecting-the-radios" title="Permalink to this headline">¶</a></h2>
+<p>The radio has interchangeable air and ground modules, meaning that you
+use them as a pair but it does not matter which one goes on the vehicle
+and which remains on the ground.</p>
+<p>The radio has a micro-USB port, and a DF13 six-position port. The
+following sections explain how to connect these to autopilots
+and ground stations.</p>
+<a class="reference external image-reference" href="../_images/3dr_radio_v2.jpg"><img alt="../_images/3dr_radio_v2.jpg" src="../_images/3dr_radio_v2.jpg" /></a>
+<a class="reference external image-reference" href="../_images/3dr-radio-pinout.jpg"><img alt="../_images/3dr-radio-pinout.jpg" src="../_images/3dr-radio-pinout.jpg" /></a>
+<div class="section" id="connecting-to-pixhawk">
+<h3>Connecting to Pixhawk<a class="headerlink" href="#connecting-to-pixhawk" title="Permalink to this headline">¶</a></h3>
+<p>Use the 6 pin DF13 connector that should have come with the radio to connect the
+radio to your Pixhawk’s “Telem 1” (“Telem 2” or “Serial 4/5” can also be used but the
+default recommendation is “Telem1”).</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_Pixhawk.jpg"><img alt="../_images/Telemetry_3DR_Radio_Pixhawk.jpg" src="../_images/Telemetry_3DR_Radio_Pixhawk.jpg" /></a>
+</div>
+<div class="section" id="connecting-to-apm2-x">
+<h3>Connecting to APM2.x<a class="headerlink" href="#connecting-to-apm2-x" title="Permalink to this headline">¶</a></h3>
+<p>Use the 6-to-5 pin DF13 connector to connect the radio to your APM2’s Telem port
+Because of the limited number of serial ports on the APM2.x, the telemetry radio cannot
+be used while the board is also plugged in with the micro USB port.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_APM2.jpg"><img alt="../_images/Telemetry_3DR_Radio_APM2.jpg" src="../_images/Telemetry_3DR_Radio_APM2.jpg" /></a>
+</div>
+<div class="section" id="connecting-to-a-pc">
+<h3>Connecting to a PC<a class="headerlink" href="#connecting-to-a-pc" title="Permalink to this headline">¶</a></h3>
+<p>Connecting the radio to your Windows PC is as simple as connecting the
+micro USB cable (which should have been included with the radio) to your
+PC. The necessary drivers should be installed automatically and the
+radio will appear as a new “USB Serial Port” in the Windows Device
+Manager under Ports (COM &amp; LPT). The Mission Planner’s COM Port
+selection drop-down should also contain the same new COM port.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg"><img alt="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg" src="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg" /></a>
+<p>To connect the radios:</p>
+<ul class="simple">
+<li>Select the new COM port, set the baud rate drop down (which appears
+between the COM port and Connect buttons) to 57600.</li>
+<li>Press the <strong>Connect</strong> button and if the two radios connect
+successfully you should be able to lean your vehicle left and right
+and see its attitude update on the MP’s Flight Data screen’s
+artificial horizon.</li>
+</ul>
+</div>
+<div class="section" id="connecting-to-an-android-tablet">
+<h3>Connecting to an Android tablet<a class="headerlink" href="#connecting-to-an-android-tablet" title="Permalink to this headline">¶</a></h3>
+<p>Connecting the radio to an Android tablet using the L shaped micro USB
+cable (which should have been included with the radio). Then follow the
+directions in your <a class="reference internal" href="common-choosing-a-ground-station.html#common-choosing-a-ground-station"><span class="std std-ref">preferred Ground Station app</span></a>.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_Tablet.jpg"><img alt="../_images/Telemetry_3DR_Radio_Tablet.jpg" src="../_images/Telemetry_3DR_Radio_Tablet.jpg" /></a>
+</div>
+</div>
+<div class="section" id="configuring-using-the-mission-planner">
+<span id="common-sik-telemetry-radio-configuring-using-the-mission-planner"></span><h2>Configuring using the Mission Planner<a class="headerlink" href="#configuring-using-the-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p>Many users will not need to configure their radios! One case where you
+might do so is when you use your vehicle with others — in which case you
+will need to specify different radio channels (Net ID).</p>
+<p>Mission Planner supports configuring your radios using a simple GUI
+interface. For more information see <a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">Configuring a Telemetry Radio using Mission Planner</span></a>.</p>
+</div>
+<div class="section" id="expected-range">
+<h2>Expected range<a class="headerlink" href="#expected-range" title="Permalink to this headline">¶</a></h2>
+<p>Typical range achieved with the radios using standard configuration and
+antenna is around 500m, but the range varies a lot depending on noise
+sources and antenna setup.</p>
+<div class="section" id="diagnosing-range-issues">
+<h3>Diagnosing range issues<a class="headerlink" href="#diagnosing-range-issues" title="Permalink to this headline">¶</a></h3>
+<p>The first thing you should do when diagnosing range issues is the “one
+meter test”. Setup the two radios one meter apart and look at the local
+and remote RSSI. You should get a value of over 190 for a standard SiK
+radio. If you don’t then your antennas may be faulty or your radios may
+have been damaged. If you have ever run the radios without an antenna
+attached them the radio may have been damaged.</p>
+<p>If that test passes then have a look at your local and remote RSSI and
+noise from a flight. See the <a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information-diagnosing-range-problems"><span class="std std-ref">advanced setup page</span></a>
+for detailed information on diagnosing range issues using telemetry
+logs.</p>
+</div>
+</div>
+<div class="section" id="improving-the-range">
+<h2>Improving the range<a class="headerlink" href="#improving-the-range" title="Permalink to this headline">¶</a></h2>
+<p>The range can be improved by:</p>
+<ul class="simple">
+<li>Using an inexpensive 900Mhz yagi antenna on the ground like <a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=p2380057.m570.l1313.TR1.TRC0.A0.H0.X900mhz+yagi.TRS2&amp;_nkw=900mhz+yagi&amp;_sacat=0">these</a>  perhaps mounted on an <a class="reference external" href="https://ardupilot.org/antennatracker/index.html#home" title="(in AntennaTracker)"><span class="xref std std-ref">Antenna Tracker</span></a></li>
+<li>Replace at least one of the two radios with a higher powered
+<a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900</span></a></li>
+<li>Reduce the <code class="docutils literal notranslate"><span class="pre">AirRate</span></code> parameter which will increase range but at the
+expense of the rate of the data transfer.</li>
+</ul>
+<p>The graph below shows the ground and remote receiver strength vs
+distance from home (in meters) for a test flight of a <em>3DR Radio</em> (SiK
+implementation) on a SkyFun plane. The ground based radio was attached
+to a 3.5dB flat patch antenna. The SkyFun had a small ‘wire’ antenna.
+The graph shows the vehicle reached a distance of nearly 3km and the
+link was completely maintained throughout the flight.</p>
+<a class="reference external image-reference" href="../_images/3DR-915-txpower2-64kbps-ECC.jpg"><img alt="../_images/3DR-915-txpower2-64kbps-ECC.jpg" src="../_images/3DR-915-txpower2-64kbps-ECC.jpg" /></a>
+<p>Although anecdotal, another user provided a Tlog showing a good link
+kept while the vehicle was 4.5km from the base station, using default
+radio settings for a 3DR 900 radio. The plane used a small omni antenna,
+and a 8dB patch antenna on the ground station.</p>
+</div>
+<div class="section" id="support-for-different-countries-regions">
+<h2>Support for different countries/regions<a class="headerlink" href="#support-for-different-countries-regions" title="Permalink to this headline">¶</a></h2>
+<p>It is very important that you configure your radios to comply with your
+regional/country regulations for frequency, hopping channels and power
+levels. For information on radio -&gt; region frequency ranges and
+settings, see</p>
+<p><a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">Telemetry Radio Regional Regulations</span></a>.</p>
+</div>
+<div class="section" id="dr-radio-discussion-forum">
+<h2>3DR Radio Discussion Forum<a class="headerlink" href="#dr-radio-discussion-forum" title="Permalink to this headline">¶</a></h2>
+<p>The best place to get involved with the development or tuning of these
+radios is the <a class="reference external" href="https://discuss.ardupilot.org/c/hardware-discussion/radios-hardware">SiK Radios forum</a>. Join in on the
+forum to help make these radios even better!</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-configuring-a-telemetry-radio-using-mission-planner.html" class="btn btn-neutral float-right" title="Configuring a Telemetry Radio using Mission Planner" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-3dr-radio-v1.html" class="btn btn-neutral" title="3DR Radio v1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=SiK Telemetry Radio&amp;body=[SiK Telemetry Radio](https://ardupilot.org/copter/docs/common-sik-telemetry-radio.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

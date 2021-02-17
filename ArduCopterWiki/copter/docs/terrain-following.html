@@ -1,0 +1,487 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Terrain Following (in Auto, Guided, etc) &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Failsafe" href="failsafe-landing-page.html"/>
+        <link rel="next" title="Crash Check" href="crash_check.html"/>
+        <link rel="prev" title="Vibration Failsafe" href="vibration-failsafe.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html">Planning a Mission with Waypoints and Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-command-list.html">Copter Mission Command List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html">Mission Command List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html">Camera Control in Auto Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rally-points.html">Rally Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Terrain Following</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-a-mission-to-use-terrain-data">Setting up a Mission to use Terrain data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sources-of-terrain-data">Sources of Terrain Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-terrain-altitude-during-rtl-and-land">Using Terrain Altitude during RTL and Land</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failsafe-in-case-of-no-terrain-data">Failsafe in case of no Terrain data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terrain-spacing-and-accuracy">Terrain Spacing and Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terrain-accuracy">Terrain Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warning">Warning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-mission-at-2m-using-lidar">Example mission at 2m using Lidar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-mission-rewind.html">Rewind-on-resume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="configuring-hardware.html">Mandatory Hardware Configuration</a> &raquo;</li>
+      
+          <li><a href="failsafe-landing-page.html">Failsafe</a> &raquo;</li>
+      
+    <li>Terrain Following (in Auto, Guided, etc)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/terrain-following.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="terrain-following-in-auto-guided-etc">
+<span id="terrain-following"></span><h1>Terrain Following (in Auto, Guided, etc)<a class="headerlink" href="#terrain-following-in-auto-guided-etc" title="Permalink to this headline">¶</a></h1>
+<p>Copter 3.4 (and higher) support “terrain following” in nearly all modes including autonomous modes like <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">AUTO</span></a>, <a class="reference internal" href="ac2_guidedmode.html#ac2-guidedmode"><span class="std std-ref">Guided</span></a>, <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL</span></a> and <a class="reference internal" href="land-mode.html#land-mode"><span class="std std-ref">Land</span></a>.  This feature allows the vehicle to climb or descend to maintain a specified distance above the terrain using either a <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">downward facing Lidar or Sonar</span></a> or from <a class="reference external" href="https://en.wikipedia.org/wiki/Shuttle_Radar_Topography_Mission">SRTM</a> data (aka terrain altitude data) provided by the ground station using a mapping service such as Google maps.  Details of how the SRTM data is used can be found on the <a class="reference external" href="https://ardupilot.org/plane/docs/common-terrain-following.html#common-terrain-following" title="(in Plane)"><span class="xref std std-ref">plane terrain following page</span></a></p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/mT67QOAxuG8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>See <a class="reference internal" href="common-understanding-altitude.html#common-understanding-altitude"><span class="std std-ref">Understanding Altitude in ArduPilot</span></a> for altitude definitions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a>, <a class="reference internal" href="poshold-mode.html#poshold-mode"><span class="std std-ref">PosHold</span></a> and <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold</span></a> modes also support low altitude terrain following, called Surface Tracking.  Please refer to the <a class="reference internal" href="terrain-following-manual-modes.html#terrain-following-manual-modes"><span class="std std-ref">Surface Tracking</span></a> wiki page.</p>
+</div>
+<div class="section" id="setting-up-a-mission-to-use-terrain-data">
+<h2>Setting up a Mission to use Terrain data<a class="headerlink" href="#setting-up-a-mission-to-use-terrain-data" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">If relying on a <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">downward facing LIDAR ensure it is setup as described here</span></a></p>
+</li>
+<li><p class="first">If using GCS provided terrain data set the <a class="reference internal" href="parameters.html#terrain-enable"><span class="std std-ref">TERRAIN_ENABLE</span></a> parameter to 1</p>
+</li>
+<li><p class="first">Using a recent version of Mission Planner (or other GCS that supports terrain following) on the Flight Plan screen, set the altitude type to “Terrain”.  Once set all mission commands that include an “Alt” fields will be interpreted as altitudes-above-terrain.</p>
+</li>
+<li><p class="first">Upload the mission to the vehicle and execute the mission as you normally would in <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">AUTO</span></a></p>
+<a class="reference external image-reference" href="../_images/terrain_mission.png"><img alt="../_images/terrain_mission.png" src="../_images/terrain_mission.png" style="width: 500px;" /></a>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Do not set the <a class="reference internal" href="parameters.html#ek2-alt-source"><span class="std std-ref">EK2_ALT_SOURCE</span></a> or <code class="docutils literal notranslate"><span class="pre">EK3_ALT_SOURCE</span></code> parameters.  These parameters should be left at “0” (barometer).</p>
+<p class="last">Do not set the <a class="reference internal" href="parameters.html#ek2-rng-use-hgt"><span class="std std-ref">EK2_RNG_USE_HGT</span></a>  or <a class="reference internal" href="parameters.html#ek3-rng-use-hgt"><span class="std std-ref">EK3_RNG_USE_HGT</span></a> parameters.  These parameters should be left at “-1”.</p>
+</div>
+</div>
+<div class="section" id="sources-of-terrain-data">
+<h2>Sources of Terrain Data<a class="headerlink" href="#sources-of-terrain-data" title="Permalink to this headline">¶</a></h2>
+<p>The ground station is normally responsible for providing the raw terrain data which is sent to the aircraft via MAVLink. Right now only Mission Planner and MAVProxy support the required TERRAIN_DATA and TERRAIN_REQUEST MAVLink messages needed for terrain following download support. If you are using a different ground station , in order to download terrain data you will need to connect using one of those two ground stations in order to allow ArduPilot to load terrain data onto your board on the ground or in flight.  Once it is loaded, it is saved permanently on the microSD card.</p>
+<p>Both MissionPlanner and MAVProxy support the global SRTM database for terrain data. The ArduPilot SRTM server used by MAVProxy and Mission Planner has 100m grid spacing. Unless the ground control station uses a server with closer spacing, setting the <a class="reference internal" href="parameters.html#terrain-spacing"><span class="std std-ref">TERRAIN_SPACING</span></a> parameter lower than 100m provides no better resolution, and only consumes more space on the SD card.</p>
+<p>Terrain Data is downloaded any time you save or connect with a loaded mission with these ground stations, or, if flying, the autopilot will request data if its flying into an area not already downloaded. Assuming the ground station can provide it. Usually an internet connection is required by the ground station.</p>
+<p>Alternatively, you can download a set of terrain data tiles for any anticipated flight area using this <a class="reference external" href="https://terrain.ardupilot.org/">web utility</a>.</p>
+<img alt="../_images/common-terrain-dl-utility.png" src="../_images/common-terrain-dl-utility.png" />
+<p>It will create tiles for the specified radius around a geographic location. Then you can download them, unzip and write in the APM/TERRAIN folder of the SD card.</p>
+<p>You can also download .zip files for entire continents, or individual tiles from <a class="reference external" href="https://terrain.ardupilot.org/data/">here</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">A long standing bug in the downloaded terrain data files, which occasionally caused terrain data to be missing, even though supposedly downloaded, was fixed in Plane 4.0.6, Copter 4.0.4, and Rover 4.1. It will automatically be re-downloaded when connected to a compatible GCS. However, if you are relying on SD terrain data for an area and don’t plan on being connected to a GCS when flying over it, or its not part of a mission, you should download the area data using the utility above, or from the linked tiles data repository and place on your SD card in the Terrain directory.</p>
+</div>
+</div>
+<div class="section" id="using-terrain-altitude-during-rtl-and-land">
+<h2>Using Terrain Altitude during RTL and Land<a class="headerlink" href="#using-terrain-altitude-during-rtl-and-land" title="Permalink to this headline">¶</a></h2>
+<p>Set the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-follow" title="(in Plane)"><span class="xref std std-ref">TERRAIN_FOLLOW</span></a> parameter to 1 to enable using terrain data in <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL</span></a> and <a class="reference internal" href="land-mode.html#land-mode"><span class="std std-ref">Land</span></a> flight modes.  If set the vehicle will interpret the <a class="reference internal" href="parameters.html#rtl-alt"><span class="std std-ref">RTL_ALT</span></a> as an altitude-above-terrain meaning it will generally climb over hills on it’s return path to home.  Similarly Land will slow to the <a class="reference internal" href="parameters.html#land-speed"><span class="std std-ref">LAND_SPEED</span></a> (normally 50cm/s) when it is 10m above the terrain (instead of 10m above home).
+Currently setting this parameter is not recommended because of the edge case mentioned below involving the somewhat unlikely situation in which the vehicle is unable to retrieve terrain data during the <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL</span></a>.  In these cases the <a class="reference internal" href="parameters.html#rtl-alt"><span class="std std-ref">RTL_ALT</span></a> will be interpreted as an alt-above home.</p>
+</div>
+<div class="section" id="failsafe-in-case-of-no-terrain-data">
+<h2>Failsafe in case of no Terrain data<a class="headerlink" href="#failsafe-in-case-of-no-terrain-data" title="Permalink to this headline">¶</a></h2>
+<p>If the vehicle is executing a mission command that requires terrain data but it is unable to retrieve terrain data for two seconds (normally because the range finder fails, goes out of range or the Ground Station is unable to provide terrain data) the vehicle will switch to RTL mode (if it is flying) or disarm (if it is landed).</p>
+<p>Note that because it does not immediately have access to terrain data in this situation it will perform a normal RTL interpreting the <a class="reference internal" href="parameters.html#rtl-alt"><span class="std std-ref">RTL_ALT</span></a> as an altitude-above-home regardless of whether <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-follow" title="(in Plane)"><span class="xref std std-ref">TERRAIN_FOLLOW</span></a> has been set to “1” or not.</p>
+<p>One common problem reported by users is the vehicle immediately disarms when the user switches to AUTO mode to start a mission while the vehicle is on the ground.  The cause is the altitude reported by the range finder (which can be checked from the MP’s Flight Data screen’s Status tab’s sonar_range field) is shorter than the RNGFNDx_MIN_CM (for example <a class="reference internal" href="parameters.html#rngfnd1-min-cm"><span class="std std-ref">RNGFND1_MIN_CM</span></a>)parameter which means the range finder reports “unhealthy” when on the ground.  The solution is to reduce the RNGFNDx_MIN_CM value (to perhaps “5”).</p>
+</div>
+<div class="section" id="terrain-spacing-and-accuracy">
+<h2>Terrain Spacing and Accuracy<a class="headerlink" href="#terrain-spacing-and-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="parameters.html#terrain-spacing"><span class="std std-ref">TERRAIN_SPACING</span></a> parameter controls the size of the grid used when requesting terrain altitude from the Ground Station (it is not used if using a Lidar). This is 100m by default but reducing to 30 may provide better accuracy at the expense of more telemetry traffic between the GCS and autopilot, and 9x more file storage space on the SD card, but only if the ground station uses a server with that resolution. MavProxy and Mission Planner currently do not. Also, if the vehicle is moving very fast, the autopilot may not be able to retrieve and cache the data quickly enough for the increased resolution to be actually used.  It is therefore recommended that you use a <a class="reference internal" href="parameters.html#terrain-spacing"><span class="std std-ref">TERRAIN_SPACING</span></a> of 100 meters.</p>
+<p>If the ground station does not have terrain data available at the resolution requested by the aircraft then the ground station will interpolate as necessary to provide the requested grid size.</p>
+</div>
+<div class="section" id="terrain-accuracy">
+<h2>Terrain Accuracy<a class="headerlink" href="#terrain-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>The accuracy of the SRTM database varies over the surface of the earth.  Typical accuracy is around 10m but one developer noticed an inaccuracy of 35m at the peak of a ski hill.  This makes terrain following suitable for aircraft that are flying at altitudes of 60 meters or more.  For very accurate terrain following at lower altitudes it is recommended to use a <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">downward facing Lidar or Sonar</span></a>.</p>
+</div>
+<div class="section" id="warning">
+<h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+<p>When planning missions containing commands with different altitudes-above-terrain keep in mind that the vehicle’s altitude-above-terrain will gradually change between the waypoints.  I.e. it will not immediately climb or descend to the new target altitude-above-terrain as it starts towards the next waypoint.</p>
+<p>In practice it is best to set the initial take-off command’s altitude high enough to clear obstacles.</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/terrain-warning-diagram.png"><img alt="../_images/terrain-warning-diagram.png" src="../_images/terrain-warning-diagram.png" style="width: 500px;" /></a>
+</div></blockquote>
+<div class="section" id="example-mission-at-2m-using-lidar">
+<h3>Example mission at 2m using Lidar<a class="headerlink" href="#example-mission-at-2m-using-lidar" title="Permalink to this headline">¶</a></h3>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/r4RBP0_LQ5Y" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crash_check.html" class="btn btn-neutral float-right" title="Crash Check" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vibration-failsafe.html" class="btn btn-neutral" title="Vibration Failsafe" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Terrain Following (in Auto, Guided, etc)&amp;body=[Terrain Following (in Auto, Guided, etc)](https://ardupilot.org/copter/docs/terrain-following.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

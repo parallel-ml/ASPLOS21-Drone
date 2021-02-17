@@ -1,0 +1,455 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ArduPilot Partners Program &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Appendix" href="common-appendix.html"/>
+        <link rel="next" title="Stores" href="common-stores.html"/>
+        <link rel="prev" title="Corporate Partners" href="common-partners.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Partners Program</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-a-partners-program">Why a Partners Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-does-my-company-become-a-partner">How does my company become a partner?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-i-get-for-becoming-an-ardupilot-partner">What do I get for becoming an ArduPilot Partner?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-are-collected-funds-spent">How are collected funds spent?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-m-not-a-company-but-i-love-your-stuff-how-can-i-help">I’m not a company, but I love your stuff, how can I help?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it">I want a new feature, do I have to be a partner to get it?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+    <li>ArduPilot Partners Program</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-partners-program.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference internal image-reference" href="../_images/ArduPilotPartners2.png" id="common-partners-program"><img alt="../_images/ArduPilotPartners2.png" id="common-partners-program" src="../_images/ArduPilotPartners2.png" style="width: 480px;" /></a>
+<div class="section" id="ardupilot-partners-program">
+<h1>ArduPilot Partners Program<a class="headerlink" href="#ardupilot-partners-program" title="Permalink to this headline">¶</a></h1>
+<p>The ArduPilot Project is the result of an immense amount of effort from software and hardware engineers, beta testers, web developers, documenters, researchers and many others.  A vast number of individuals, institutions and companies use and contribute to ArduPilot - in the spirit of Free and Open Source Software we freely and openly welcome their involvement in the project.  There is no cost to use, or contribute to, any software provided by ArduPilot.
+The Project does incur costs though, so this page explains our Partners Program for <a class="reference internal" href="common-partners.html#common-partners"><span class="std std-ref">corporate sponsors</span></a>.</p>
+<div class="section" id="why-a-partners-program">
+<h2>Why a Partners Program<a class="headerlink" href="#why-a-partners-program" title="Permalink to this headline">¶</a></h2>
+<p>ArduPilot is a free and open-source software project that includes:</p>
+<ul class="simple">
+<li>Embedded firmware that is designed to serve as the control system for autonomous vehicles, and supports many different hardware targets listed on the Supported Hardware page</li>
+<li>A number of Ground Control Station software applications that allow management of vehicles running ArduPilot firmware, e.g. more convenient settings editing on an often more comfortable interface, firmware download and transfer, upgrading and conversion of settings between different devices and versions, fleet management, operations monitoring and more</li>
+<li>The <a class="reference external" href="https://ardupilot.org">https://ardupilot.org</a> website, <a class="reference external" href="https://discuss.ardupilot.org">https://discuss.ardupilot.org</a> forum and this wiki</li>
+<li>Server infrastructure dedicated to distributing software and firmware, and testing/building/distributing of the different variants for all the different supported platforms and options</li>
+<li>A global community of users with an enormous variety of goals and expectations</li>
+<li>A global team of developers with varying degrees of knowledge of the different aspects of the project’s code and of its management</li>
+</ul>
+<p>In order to continue providing, maintaining and improving the rich ArduPilot ecosystem, the Project relies heavily on generous donations of time from many people - but we also incur financial costs that must be covered.  Simplistically, meeting these costs is what the Partners Program achieves.</p>
+</div>
+<div class="section" id="how-does-my-company-become-a-partner">
+<h2>How does my company become a partner?<a class="headerlink" href="#how-does-my-company-become-a-partner" title="Permalink to this headline">¶</a></h2>
+<p>We ask for an annual donation of at least <a class="reference external" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BBF28AFAD58B2">$1000 USD through PayPal</a>  per year. For large companies or those who rely on ArduPilot as part of their core business, annual donations of <a class="reference external" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BBF28AFAD58B2">$5,000</a> , <a class="reference external" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BBF28AFAD58B2">$10,000</a>  or more are greatly appreciated. If this is your first time, please email <a class="reference external" href="mailto:partners&#37;&#52;&#48;ardupilot&#46;org">partners<span>&#64;</span>ardupilot<span>&#46;</span>org</a> to express your desire to become a partner and include your company logo if you would like it to appear on <a class="reference internal" href="common-partners.html#common-partners"><span class="std std-ref">Partners page</span></a>.  We will send you a reminder in a year and if all goes well, you may choose to extend for another year.</p>
+<p>In some countries it is not possible to donate through PayPal in which case you can donate by Credit Card using <a class="reference external" href="https://co.clickandpledge.com/advanced/default.aspx?wid=34115">Click&amp;Pledge</a>.  Be sure to enter the amount in the ArduPilot section, other sections are for other <a class="reference external" href="http://www.spi-inc.org/">SPI projects</a>. Other methods can be found on the <a class="reference external" href="http://www.spi-inc.org/donations/">SPI donations page</a>.</p>
+</div>
+<div class="section" id="what-do-i-get-for-becoming-an-ardupilot-partner">
+<h2>What do I get for becoming an ArduPilot Partner?<a class="headerlink" href="#what-do-i-get-for-becoming-an-ardupilot-partner" title="Permalink to this headline">¶</a></h2>
+<p>Beyond a warm feeling in your heart for helping a worthy project, we will coordinate an “Onboarding Meeting” and direct contact methods for the core Development Team members, so we can discuss your objectives, identify a unique engagement strategy for each Partner, and maintain good communication with you.  Your company can also attend the ArduPilot Partners monthly meeting.  This is a meeting held online, via our Mumble Server, on the first Wednesday or Thursday (depending upon your timezone) of each month.  It is attended by the core devs and presents an opportunity to get high-level updates on the project and influence how funds are spent (via proposals to the Funding Committee).  This update is recorded, and available to Partners shortly after it is held.  You may also find like-minded companies with whom you can cooperate in various ways.</p>
+</div>
+<div class="section" id="how-are-collected-funds-spent">
+<h2>How are collected funds spent?<a class="headerlink" href="#how-are-collected-funds-spent" title="Permalink to this headline">¶</a></h2>
+<p>Funds are first used to cover fixed costs including servers to host the wiki, forum, autotest and build servers, other running expenses, plus a part-time employee who oversees code quality (amongst other things).
+Any remaining funds will be used to pay for documentation efforts, hardware/software costs for developers working on ArduPilot related enhancements, and subsidise the annual Developers Conference.  A Funding Committee of 3 people is voted on annually from within the Development Team to oversee and control financial matters.</p>
+</div>
+<div class="section" id="i-m-not-a-company-but-i-love-your-stuff-how-can-i-help">
+<h2>I’m not a company, but I love your stuff, how can I help?<a class="headerlink" href="#i-m-not-a-company-but-i-love-your-stuff-how-can-i-help" title="Permalink to this headline">¶</a></h2>
+<p>Please see our more general, <a class="reference internal" href="common-donation.html#common-donation"><span class="std std-ref">how-to-donate</span></a> page but in short, we accept donations of any amount from individuals as well.  Also please consider helping out with documentation, beta testing or code development.  Tell your friends and post videos of your successes with ArduPilot!</p>
+</div>
+<div class="section" id="i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it">
+<h2>I want a new feature, do I have to be a partner to get it?<a class="headerlink" href="#i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it" title="Permalink to this headline">¶</a></h2>
+<p>No.  ArduPilot is, and always will be, open source.  Contributions to the code base, wherever they come from, are accepted based on their technical merits.  If you’re not in a position to make the changes yourself, please add it to the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues">Issues list</a> or consider contracting one of the companies listed on the <a class="reference internal" href="common-commercial-support.html#common-commercial-support"><span class="std std-ref">Commercial Support page</span></a> to make the change.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-stores.html" class="btn btn-neutral float-right" title="Stores" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-partners.html" class="btn btn-neutral" title="Corporate Partners" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=ArduPilot Partners Program&amp;body=[ArduPilot Partners Program](https://ardupilot.org/copter/docs/common-partners-program.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NEO V2 Pro GPS &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="GPS/Compass (landing page)" href="common-positioning-landing-page.html"/>
+        <link rel="next" title="NEO 3 Pro GPS" href="common-cuav-neo-3-pro.html"/>
+        <link rel="prev" title="CUAV C-RTK 9P GPS" href="common-cuav-c-rtk-9p-gps.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-joystick.html">Joystick or Gamepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rpm.html">RPM Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-avanon-adc.html">Avionics Anonymous Airspeed +Temp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-avanon-gnss-mag.html">Avionics Anonymous GNSS + Compass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-avanon-laserint.html">Avionics Anonymous GNSS/Mag: GNSS + Compass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-avanon-mag.html">Avionics Anonymous LIDAR Interface</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CUAV Neo v2 Pro UAVCAN GPS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#purchase">Purchase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-to-cuav-v5">Connect to CUAV v5+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-can-port-uavcan-and-configure-for-neo-v2-pro">Enable CAN port, UAVCAN, and Configure for NEO-V2 Pro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slcan-interface">SLCAN Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#neo-v2-internal-configuration">NEO-V2 Internal Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upgrade-firmware">Upgrade Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-information">More information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference external" href="https://store.jdrones.com/uc4g_slcan_v11_p/uc4hcmb01.htm">jDrones UAVCAN Starter kit</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.jdrones.com/uc4g_geneneral_node_v21_p/uc4hgnode21.htm">jDrones UAVCAN General Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matek-m8q.html">Matek M8Q-CAN/UAVCAN GPS+Compass+Baro+Airspeed I2C port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-matek-uavcan-dlvr.html">Matek UAVCAN DLVR-10 Airspeed Sensor</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.mrobotics.io/category-s/109.htm">mRo GPS, GPS+Compass,RTK, and UAVCAN modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mro-kitcan.html">mRo KitCAN CAN/UAVCAN Adapter Node+Compass+Baro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mrobotics-location-one-gps.html">mRo Location One GPS GPS+Compass+LED+Safety Switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mro-uavcan-adapter-node.html">mRo UAVCAN Adapter Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-uavcan-escs.html">UAVCAN ESCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-zubax-gnss-positioning-module-gps-compass-and-barometer.html">Zubax GNSS 2: GNSS + Compass + Barometer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+          <li><a href="common-positioning-landing-page.html">GPS/Compass (landing page)</a> &raquo;</li>
+      
+    <li>NEO V2 Pro GPS</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-cuav-neo-v2-pro.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="neo-v2-pro-gps">
+<span id="common-cuav-neo-v2-pro"></span><h1>NEO V2 Pro GPS<a class="headerlink" href="#neo-v2-pro-gps" title="Permalink to this headline">¶</a></h1>
+<p>NEO V2 pro is UAVCAN standard GPS developed by CUAV. It integrates industrial-grade compass, barometer, flight controller status light, buzzer, and safety switch all in one package. It has the characteristics of high safety and strong interference resistance.</p>
+<a class="reference external image-reference" href="../_images/neo-v2-pro.png"><img alt="../_images/neo-v2-pro.png" src="../_images/neo-v2-pro.png" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NEO V2 pro is supported in ArduPilot 4.0 firmware (and higher).</p>
+</div>
+<div class="section" id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Processor</strong><ul>
+<li>STM32F412</li>
+</ul>
+</li>
+<li><strong>Sensors</strong><ul>
+<li>Compass:RM3100</li>
+<li>Barometer:MS5611</li>
+</ul>
+</li>
+<li><strong>RTK Receiver</strong><ul>
+<li>Ublox M8N</li>
+</ul>
+</li>
+<li><strong>GNSS Bands</strong><ul>
+<li>GPS/QZSS L1 C/A,GLONASS L10F ,BeiDou B1I,Galileo E1B/C,SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN</li>
+</ul>
+</li>
+<li><strong>Nav. update rate</strong><ul>
+<li>RTK Up to 10HZ</li>
+</ul>
+</li>
+<li><strong>Position accuracy</strong><ul>
+<li>2M</li>
+</ul>
+</li>
+<li><strong>Acquisition</strong><ul>
+<li>Cold starts 26 s</li>
+<li>Aided starts 1 s</li>
+<li>Reacquisition 2 s</li>
+</ul>
+</li>
+<li><strong>Sensitivity</strong><ul>
+<li>Tracking &amp; Nav -167 dBm</li>
+<li>Cold starts -148 dBm</li>
+<li>Reacquisition -160 dBm</li>
+</ul>
+</li>
+<li><strong>Protocol</strong><ul>
+<li>support</li>
+</ul>
+</li>
+<li><strong>Interface Type</strong><ul>
+<li>GHR-04V-S</li>
+</ul>
+</li>
+<li><strong>Input voltage</strong><ul>
+<li>5V</li>
+</ul>
+</li>
+<li><strong>Operating temperature</strong><ul>
+<li>-10~70℃</li>
+</ul>
+</li>
+<li><strong>Size</strong><ul>
+<li>60x60x16mm</li>
+</ul>
+</li>
+<li><strong>Weight</strong><ul>
+<li>33g</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="purchase">
+<h2>Purchase<a class="headerlink" href="#purchase" title="Permalink to this headline">¶</a></h2>
+<p>You can buy it from <a class="reference external" href="https://store.cuav.net/index.php?id_product=111&amp;rewrite=cuav-neo-v2-pro-can-gps&amp;controller=product">CUAV store</a>.</p>
+</div>
+<div class="section" id="connect-to-cuav-v5">
+<h2>Connect to CUAV v5+<a class="headerlink" href="#connect-to-cuav-v5" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/connection-to-v5+.jpg"><img alt="../_images/connection-to-v5+.jpg" src="../_images/connection-to-v5+.jpg" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The connection to other flight controllers is similar.</p>
+</div>
+</div>
+<div class="section" id="enable-can-port-uavcan-and-configure-for-neo-v2-pro">
+<h2>Enable CAN port, UAVCAN, and Configure for NEO-V2 Pro<a class="headerlink" href="#enable-can-port-uavcan-and-configure-for-neo-v2-pro" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="common-canbus-setup-advanced.html#common-canbus-setup-advanced"><span class="std std-ref">CAN Bus Setup</span></a> and <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">UAVCAN Setup</span></a> for more information.</p>
+<p>Set the following parameters in all parameter tables of Mission planner and restart after writing</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#can-p1-driver"><span class="std std-ref">CAN_P1_DRIVER</span></a>     set to 1.</li>
+<li><a class="reference internal" href="parameters.html#can-p2-driver"><span class="std std-ref">CAN_P2_DRIVER</span></a>     set to 1.</li>
+<li><a class="reference internal" href="parameters.html#can-d1-protocol"><span class="std std-ref">CAN_D1_PROTOCOL</span></a> set to 1.</li>
+<li><a class="reference internal" href="parameters.html#can-d2-protocol"><span class="std std-ref">CAN_D2_PROTOCOL</span></a> set to 1.</li>
+<li><a class="reference internal" href="parameters.html#ntf-led-types"><span class="std std-ref">NTF_LED_TYPES</span></a>     set to 231.</li>
+<li><a class="reference internal" href="parameters.html#gps-type"><span class="std std-ref">GPS_TYPE</span></a>               set to 9.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/fc-set.png"><img alt="../_images/fc-set.png" src="../_images/fc-set.png" /></a>
+<p>NEO-V2 is now ready for operation</p>
+</div>
+<div class="section" id="slcan-interface">
+<h2>SLCAN Interface<a class="headerlink" href="#slcan-interface" title="Permalink to this headline">¶</a></h2>
+<p>If you need to set up NEO V2 PRO or upgrade its firmware, you need to enable SLCAN</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ArduPilot 4.0 or later firmware supports SLCAN.</p>
+</div>
+<ul class="simple">
+<li>Please connect NEO V2 pro to the flight controller’s CAN1 interface.</li>
+<li>Open mission planner and connect flight controller.</li>
+</ul>
+<p>Modify the following parameters in the Full Parameter tab of Mission Planner.</p>
+<p><strong>for CUAV V5+/nano:</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#can-slcan-cport"><span class="std std-ref">CAN_SLCAN_CPORT</span></a> set to 1</li>
+<li><a class="reference internal" href="parameters.html#serial7-protocol"><span class="std std-ref">SERIAL7_PROTOCOL</span></a>  set to 22</li>
+<li>Reboot flight controller</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CUAVV5 / NANO / FMUV5 flight controller running ArduPilot4.0 or later firmware will have two USB interfaces, one is flight controller’s console port (SERIAL0) running MAVLINK  and one is an SLCAN interface port; if there are not two ports showing in the Mission Planner Comm Port drop-down box, please uninstall the driver and reinstall. If you continue to have problems, see <a class="reference internal" href="common-connect-mission-planner-autopilot.html#troubleshooting-composite-connections"><span class="std std-ref">Troubleshooting Composite Connections</span></a></p>
+</div>
+<p><strong>For Pixhawk series / FMUv2 / FMU V3 / FMU V4</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#can-slcan-cport"><span class="std std-ref">CAN_SLCAN_CPORT</span></a> Set to 1</li>
+<li><a class="reference internal" href="parameters.html#can-slcan-timout"><span class="std std-ref">CAN_SLCAN_TIMOUT</span></a> Set to 0 (no timeout, reboot to return to normal operation)</li>
+<li><a class="reference internal" href="parameters.html#can-slcan-sernum"><span class="std std-ref">CAN_SLCAN_SERNUM</span></a> Set to 0</li>
+<li>Please do not reboot the flight controller until your operation is complete.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">STM32F4 does not support dual virtual USB ports, so  flight controllers using STM32F4 processor can only be used for SLCAN after the MAVLink connection on USB is closed; after writing the above settings, the USB interface becomes an SCLAN port; MAVLink connections can be made again after a reboot. Until then the USB connection can be used for SLCAN operations.</p>
+</div>
+</div>
+<div class="section" id="neo-v2-internal-configuration">
+<h2>NEO-V2 Internal Configuration<a class="headerlink" href="#neo-v2-internal-configuration" title="Permalink to this headline">¶</a></h2>
+<p>ArduPilot supports setting UAVCAN device internal settings through SLCAN, such as modifying node ID; enabling / disabling barometer, etc.</p>
+<a class="reference external image-reference" href="../_images/slcan3.png"><img alt="../_images/slcan3.png" src="../_images/slcan3.png" /></a>
+<ol class="arabic simple">
+<li>Select the COMM port corresponding to SLCAN.</li>
+<li>Select the UAVCAN section under Initial Setup&gt;Optional Hardware tab.</li>
+<li>Click “SLCAN NODE CAN1”  and</li>
+<li>Click “Inspector”</li>
+<li>Change configuration parameters for UAVCAN device</li>
+</ol>
+<p><strong>Enable barometer</strong></p>
+<ul class="simple">
+<li>Baro_enabled=1, 0=disabled</li>
+<li>Reboot</li>
+</ul>
+<p><strong>Modify device ID</strong></p>
+<ul class="simple">
+<li>Modify the CAN_NODE parameter</li>
+</ul>
+</div>
+<div class="section" id="upgrade-firmware">
+<h2>Upgrade Firmware<a class="headerlink" href="#upgrade-firmware" title="Permalink to this headline">¶</a></h2>
+<p><strong>Method One：</strong>
+Firmware upgrade using Mission planner</p>
+<a class="reference external image-reference" href="../_images/slcan.png"><img alt="../_images/slcan.png" src="../_images/slcan.png" /></a>
+<ol class="arabic simple">
+<li>Select the COMM port corresponding to SLCAN.</li>
+<li>Click “SLCAN NODE CAN1” on the UAVCAN section under Initial Setup&gt;Optional Hardware tab.</li>
+<li>Click “Update”</li>
+<li>Select “NO” in the pop-up prompt box (Tes is to select online firmware; No selects local firmware).</li>
+<li>Select firmware file.</li>
+</ol>
+<a class="reference external image-reference" href="../_images/slcan2.png"><img alt="../_images/slcan2.png" src="../_images/slcan2.png" /></a>
+<ul class="simple">
+<li>Wait for the flash process to complete.</li>
+</ul>
+<p><strong>Method Two：</strong></p>
+<p>Upgrade with UAVCAN GUI TOOL software</p>
+<p><a class="reference external" href="https://github.com/UAVCAN/gui_tool/releases">UAVCAN GUI TOOL download</a>.</p>
+<ul class="simple">
+<li>Select the device port corresponding to SLCAN and click “ok”</li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan.png"><img alt="../_images/uavcan.png" src="../_images/uavcan.png" /></a>
+<ul class="simple">
+<li>Click “√”; then double-click on the device information (marked in Figure 2 below).</li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan2.png"><img alt="../_images/uavcan2.png" src="../_images/uavcan2.png" /></a>
+<ul class="simple">
+<li>Click “update firmware”, the message box will pop up “yes”.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan3.png"><img alt="../_images/uavcan3.png" src="../_images/uavcan3.png" /></a>
+<ul class="simple">
+<li>The mode/heakth/uptime entry becomes “SOftware_update”</li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan4.png"><img alt="../_images/uavcan4.png" src="../_images/uavcan4.png" /></a>
+<ul class="simple">
+<li>Waiting for firmware write to complete.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan5.png"><img alt="../_images/uavcan5.png" src="../_images/uavcan5.png" /></a>
+</div>
+<div class="section" id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://doc.cuav.net/gps/neo-v2-pro/en/">CUAV docs</a>.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-cuav-neo-3-pro.html" class="btn btn-neutral float-right" title="NEO 3 Pro GPS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-cuav-c-rtk-9p-gps.html" class="btn btn-neutral" title="CUAV C-RTK 9P GPS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=NEO V2 Pro GPS&amp;body=[NEO V2 Pro GPS](https://ardupilot.org/copter/docs/common-cuav-neo-v2-pro.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

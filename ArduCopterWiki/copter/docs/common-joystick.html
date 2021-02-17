@@ -1,0 +1,610 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Joystick/Gamepad &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Peripheral Hardware" href="common-optional-hardware.html"/>
+        <link rel="next" title="Landing Gear/ Retractable Camera Mount" href="common-landing-gear.html"/>
+        <link rel="prev" title="Servo Gripper" href="common-gripper-servo.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Joystick or Gamepad</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-you-will-need">What you will need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-with-the-mission-planner">Setup with the Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-controls-before-flying">Testing the controls before flying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-failsafes">Testing the failsafes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reducing-lag-in-the-controls">Reducing lag in the controls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rpm.html">RPM Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+    <li>Joystick/Gamepad</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-joystick.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="joystick-gamepad">
+<span id="common-joystick"></span><h1>Joystick/Gamepad<a class="headerlink" href="#joystick-gamepad" title="Permalink to this headline">¶</a></h1>
+<p>This article explains how you can control your vehicle with a Joystick or Gamepad using the Mission Planner which sends “RC Override” messages to the vehicle.</p>
+<p>Other GCSs may also support “RC overrides” but they are not covered in
+this article.</p>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/joystick_LogitechF310.jpg"><img alt="../_images/joystick_LogitechF310.jpg" src="../_images/joystick_LogitechF310.jpg" /></a>
+<p class="caption"><span class="caption-text">Logitech F310 Joystick</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Even if flying with a joystick, you should keep a regular
+transmitter/receiver connected and ready for use as a backup.  In future
+versions of ArduPilot, after more failsafe testing has been completed this recommendation may change.</p>
+</div>
+<div class="section" id="what-you-will-need">
+<h2>What you will need<a class="headerlink" href="#what-you-will-need" title="Permalink to this headline">¶</a></h2>
+<p>You will need the following equipment:</p>
+<ul class="simple">
+<li>USB joystick or Gamepad such as the <a class="reference external" href="https://www.logitechg.com/en-us/products/gamepads/f310-gamepad.html">Logitech F310</a>
+(shown above).</li>
+<li>A <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry connection</span></a>
+between your ground station and vehicle.</li>
+<li>A laptop computer running <em>Mission Planner</em>.</li>
+</ul>
+</div>
+<div class="section" id="setup-with-the-mission-planner">
+<h2>Setup with the Mission Planner<a class="headerlink" href="#setup-with-the-mission-planner" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Connect your USB joystick/gamepad to the laptop computer</p>
+</li>
+<li><p class="first">Open the <em>Mission Planner Flight Data</em> screen. On the <strong>Actions</strong> tab
+push the <strong>Joystick</strong> button</p>
+<a class="reference external image-reference" href="../_images/joystick_MPSetup.png"><img alt="../_images/joystick_MPSetup.png" src="../_images/joystick_MPSetup.png" /></a>
+</li>
+<li><p class="first">Ensure the Logitech joystick appears in the drop-down</p>
+</li>
+<li><p class="first">The <strong>Enable</strong> button, once pushed, will tell the mission planner to
+start sending commands to the vehicle so for the initial setup do not
+push it.</p>
+</li>
+<li><p class="first">On the “Roll” row, click the <strong>Auto Detect</strong> button and then waggle
+the control you wish to use for roll, left and right.</p>
+</li>
+<li><p class="first">The channel can be reversed with the <em>Reverse</em> checkbox</p>
+</li>
+<li><p class="first">The Expo number should be in the range of -100 to 100</p>
+<ul class="simple">
+<li>0 = no expo</li>
+<li>100 = low response around the middle, very fast response at the
+edges</li>
+<li>-100 = very fast response around the middle, less response at the
+edges (very few people use negative expo)</li>
+</ul>
+</li>
+<li><p class="first">Repeat for <em>Pitch</em>, <em>Throttle</em> and <em>Rudder</em> and push the <strong>Save</strong> button</p>
+</li>
+<li><p class="first">You will likely want to set-up other buttons for <em>Arm</em> and <em>Disarm</em></p>
+</li>
+<li><p class="first">Instead of setting up a stick or button for ch5 (the flight mode
+channel), it is better to set individual buttons to initiate a flight
+mode by selecting <strong>Change Mode</strong> and then push the <strong>Settings</strong>
+button and select the flight mode from the drop-down (see pic above)</p>
+</li>
+<li><p class="first">When done, push the <strong>Save</strong> button</p>
+</li>
+<li><p class="first">In the <strong>CONFIG/TUNING | Full Parameter List</strong>, check that the
+<a class="reference internal" href="parameters.html#sysid-mygcs"><span class="std std-ref">SYSID_MYGCS</span></a>
+parameter matches the system ID of your GCS. This parameter limits
+which GCS can send override signals to the vehicle.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<dl class="last docutils">
+<dt>For Mission Planner the default GCS system ID is 255. The</dt>
+<dd><p class="first last">default system ID for APM Mission Planner 2 is 252 (but the GCS will
+automatically set its ID to match <em>SYSID_MYGCS</em> for RC Override
+commands).</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you get an error <strong>PreArm: RC not calibrated</strong> (following
+calibration) you will additionally need to manually change <code class="docutils literal notranslate"><span class="pre">RC1_MIN</span></code>
+to 1101 and <code class="docutils literal notranslate"><span class="pre">RC1_MAX</span></code> to 1901 (and then repeat for RC2_, RC3_ and
+RC4_ max/min parameters).</p>
+<p class="last">This error is caused because <em>Mission Planner</em> maps the Joystick exactly
+to the 1100 - 1900 range, but the pre-arm checks assume that if the
+values are not at least 1 pwm off the century value, that calibration
+has not been done.</p>
+</div>
+</div>
+<div class="section" id="testing-the-controls-before-flying">
+<h2>Testing the controls before flying<a class="headerlink" href="#testing-the-controls-before-flying" title="Permalink to this headline">¶</a></h2>
+<p>Before flying for the first time you should test that all features work
+well.</p>
+<p>To check the above controls move in the correct direction:</p>
+<ul class="simple">
+<li>Click the <strong>Enable</strong> button on the Joystick setup screen to enable
+sending messages to the vehicle</li>
+<li>Connect your autopilot to the computer with a USB cable</li>
+<li>Push the Mission Planner’s <strong>Connect</strong> button</li>
+<li>Go to the <strong>Initial Setup | Mandatory Hardware | Radio
+Calibration</strong> screen and ensure the green bars all move in the
+correct direction.  Remember the bars move in the same direction as
+the sticks except for Pitch which moves in the opposite direction.</li>
+<li>If any controls are reversed, check the <strong>Reverse</strong> checkbox on the
+Joystick setup screen.</li>
+</ul>
+<p>Next test you are able to arm, disarm and switch into the various flight
+modes (not need to connect the battery)</p>
+</div>
+<div class="section" id="testing-the-failsafes">
+<h2>Testing the failsafes<a class="headerlink" href="#testing-the-failsafes" title="Permalink to this headline">¶</a></h2>
+<p>All of these tests should be performed on the ground with the battery
+disconnected or at least with the propellers off the vehicle.</p>
+<p><strong>Simulate disabling the joystick in flight with transmitter off</strong> (i.e.
+no failover to regular transmitter):</p>
+<ol class="arabic simple">
+<li>Turn regular transmitter off</li>
+<li>Connect with the mission planner, push Joystick window’s <strong>Enable</strong>
+button and ensure RC overrides are being sent to the vehicle (use
+Radio Calibration screen) or Flight Data’s status screen.</li>
+<li>Arm vehicle, switch to Stabilize or Loiter mode and raise the throttle</li>
+<li>Ensure the motors are spinning by checking the Flight Data screen’s
+“ch1out” ~ “ch4out”</li>
+<li>Push Joystick screen’s <strong>Disable</strong> button</li>
+<li>“Failsafe” should appear on the HUD and the vehicle should switch to
+“LAND” or “RTL”</li>
+<li>Repeat the above test but at step #5 actually disconnect the joystick
+from the computer.  The results should be the same.</li>
+</ol>
+<a class="reference external image-reference" href="../_images/joystick_FailsafeTesting1.jpg"><img alt="../_images/joystick_FailsafeTesting1.jpg" src="../_images/joystick_FailsafeTesting1.jpg" /></a>
+<p><strong>Simulate failing over to the regular transmitter/receiver</strong></p>
+<ol class="arabic simple">
+<li>Turn the regular transmitter on and ensure you can control the
+vehicle (perhaps by checking the Radio calibration page or the Flight
+Data screen’s Status tab’s “ch1in” ~ “ch8in”).</li>
+<li>With the regular transmitter leave the vehicle in AltHold mode and
+raise the throttle to mid</li>
+<li>On the Joystick screen push the <strong>Enable</strong> button</li>
+<li>Arm the vehicle in STABILIZE mode and raise throttle to full (with
+the Joystick).</li>
+<li>Check the throttle is at full in the Flight Data screen’s Status tab
+by checking “ch3in” is very high (around 1900 usually)</li>
+<li>On the Joystick screen push the <strong>Disable</strong> button and check the
+“ch3in” has dropped to a mid value (around 1500)</li>
+<li>The vehicle should remain in its current flight mode (Stabilize) but
+controls have been returned to the transmitter.  The pilot’s inputs
+should be reflected in the “ch1in” ~ “ch8in” values.  Switch the
+vehicle to AltHold mode by moving the flight mode switch.</li>
+</ol>
+<p><strong>Simulate loss of radio contact</strong>:</p>
+<p>If radio contact is lost, the vehicle should respond as if the Joystick
+was “Disabled” or disconnected from the PC.  You can test this by
+repeating the test above but instead of pushing the <strong>Disable</strong> button
+on the Joystick screen, disconnect the radio.  In order to see the
+status of the vehicle you will need to connect two Mission Planner’s
+separately (only possible on Pixhawk).  The Mission Planner with the
+Joystick should be connected through telemetry and the 2nd Mission
+Planner should be connected through a USB connection.</p>
+</div>
+<div class="section" id="reducing-lag-in-the-controls">
+<h2>Reducing lag in the controls<a class="headerlink" href="#reducing-lag-in-the-controls" title="Permalink to this headline">¶</a></h2>
+<p>It is nearly impossible to make the Joystick as responsive as a regular
+transmitter but lag can be reduced by:</p>
+<ul>
+<li><p class="first">Reducing the rate of other telemetry data being sent between the
+vehicle and GCS from the MP’s <strong>Config/Tuning | Planner</strong> page</p>
+<a class="reference external image-reference" href="../_images/joystick_ReduceLag_MPRates.png"><img alt="../_images/joystick_ReduceLag_MPRates.png" src="../_images/joystick_ReduceLag_MPRates.png" /></a>
+</li>
+<li><p class="first">If using a SiK Radio or RFD900 Radio these can be put into
+<a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information-low-latency-mode"><span class="std std-ref">Low Latency mode as described here</span></a>.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-landing-gear.html" class="btn btn-neutral float-right" title="Landing Gear/ Retractable Camera Mount" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-gripper-servo.html" class="btn btn-neutral" title="Servo Gripper" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Joystick/Gamepad&amp;body=[Joystick/Gamepad](https://ardupilot.org/copter/docs/common-joystick.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

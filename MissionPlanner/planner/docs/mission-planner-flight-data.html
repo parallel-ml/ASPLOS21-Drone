@@ -1,0 +1,489 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mission Planner Flight Data Screen &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Mission Planner Ground Control Station" href="mission-planner-ground-control-station.html"/>
+        <link rel="next" title="Mission Planner Flight PLAN" href="mission-planner-flight-plan.html"/>
+        <link rel="prev" title="Mission Planner Ground Control Station" href="mission-planner-ground-control-station.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="mission-planner-ground-control-station.html#the-gcs-flight-data-screen-overview">The GCS Flight Data Screen Overview</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="mission-planner-ground-control-station.html#tips-for-using-the-flight-data-screen">Tips for using the Flight Data screen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mission-planner-ground-control-station.html#guided-mode">Guided Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+          <li><a href="mission-planner-ground-control-station.html">Mission Planner Ground Control Station</a> &raquo;</li>
+      
+    <li>Mission Planner Flight Data Screen</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/mission-planner-flight-data.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mission-planner-flight-data-screen">
+<span id="mission-planner-flight-data"></span><h1>Mission Planner Flight Data Screen<a class="headerlink" href="#mission-planner-flight-data-screen" title="Permalink to this headline">¶</a></h1>
+<p>This section covers the information you will need to use the features in
+the Mission Planner Flight DATA screen - selected in the Top menu of Mission
+Planner.:ref:<cite>An Introduction &lt;mission-planner-ground-control-station&gt;</cite> privodes a brief overview with pointers to the various areas of information.</p>
+<div class="section" id="heads-up-area-hud">
+<h2>Heads Up Area  (HUD)<a class="headerlink" href="#heads-up-area-hud" title="Permalink to this headline">¶</a></h2>
+<p>This is the area in the upper left side of the Mission Planner menu.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can detach the HUD to a separate window by double clicking
+anywhere in the window.  Close the window to put back in the
+Mission Planner.</p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>Several Options are available by right clicking the HUD.</p>
+<img alt="../_images/MP-HUD-rightclick.png" src="../_images/MP-HUD-rightclick.png" />
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Video:</dt>
+<dd><ul class="first last">
+<li>You can start or stop recording the HUD as an .avi video stored in the logs folder.</li>
+<li>Set MJPEG Source: Connect and display MJPEG video source from network</li>
+<li>Start Camera: If a video source has been selected in the CONFIG/Planner page, starts displaying it in the HUD window.</li>
+<li>Set GStreamer Source: Connect and display Gstreamer video stream</li>
+<li>HereLink Video: Display HereLink video, use same IP as when connecting MP via UDPCL to Herelink for telemetry. See Herelink documentation.</li>
+<li>GStreamer Stop: Stop GStreamer video</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the CONFIG/Planner screen, you can select to display video from a capture source on the PC in the HUD window, and have the HUD display overlaid or not on that video.</p>
+</div>
+<ul class="simple">
+<li>Set Aspect Ratio: clicking this alternates between 4:1 and 16:9 aspect ratio.</li>
+<li>User Items: You can add any of the telemetry parameters to the display by right clicking on the HUD, clicking User Items, and checking the items you want displayed.  Note that you can view all of the telemetry in the Control and Status area by clicking the Status button.</li>
+<li>Russian HUD: clicking this changes to/from a Russian style HUD (ground horizon fixed)</li>
+<li>Swap with Map: swap map to this window and vice versa</li>
+<li>Ground Color: Click to change ground color</li>
+</ul>
+</div>
+</div>
+<div class="section" id="control-and-status-lower-left">
+<h2>Control and Status (Lower Left)<a class="headerlink" href="#control-and-status-lower-left" title="Permalink to this headline">¶</a></h2>
+<p>The Control and Status area of the Flight Data screen is in the lower left hand portion of Mission Planner.  In this area you can select any of several different menu items. Some items provide information (status) and other items allow control of the vehicle using the telemety uplink. (Telemetry radio connection is required)</p>
+<ul class="simple">
+<li>Quick:  This allows a quick look at just a few telemetry values in large text.  Double click to add items.</li>
+<li>Actions: Use this area to control your Auto Pilot either for testing (using USB and no motor battery) or for controlling your vehicle. You can modes,arm/disarm (while on the ground),enable an attached joystick,restart a mission in the air, control a camera mount, etc.</li>
+<li>Gauges: This shows four popular telemetry gauges. Double click the speed gauge to change the top speed.</li>
+<li>Status: Clicking the Status menu button will display all of the telemetry parameters</li>
+<li>Servos/Relay: This allows the setting of any relay pins or setting/overriding RC values for channels 5 thru 14. (Use servo settings with caution, you could change flight modes)</li>
+<li><a class="reference internal" href="common-mission-planner-telemetry-logs.html#common-mission-planner-telemetry-logs"><span class="std std-ref">Telemetry Logs</span></a> :  Use this section to view, analyze, convert, and play back telemetry logs that are recorded by Mission Planner. See <a class="reference internal" href="common-recording-and-playing-back-missions.html#common-recording-and-playing-back-missions"><span class="std std-ref">Playing Back Missions with Tlogs</span></a> for specifics on playing back your mission and viewing the mission in the map area.</li>
+<li>Data Flash Logs:  This provides a means to download data flash logs, analyze them, or create KML/gpx files from them. Click Review a Log to open a log file and establish a new window to view/analyze the log. Details <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">here</span></a>.</li>
+<li><a class="reference internal" href="using-python-scripts-in-mission-planner.html#using-python-scripts-in-mission-planner"><span class="std std-ref">Scripts:</span></a> - A different way to create missions</li>
+</ul>
+</div>
+<div class="section" id="map-area">
+<h2>Map Area<a class="headerlink" href="#map-area" title="Permalink to this headline">¶</a></h2>
+<p>The map area on the right side of the Flight Data screen displays the vehicle track as it moves, provides other information and allows the user to enter some control actions - which send commands to the vehicle (telemetry required)</p>
+<p>Right click on the map area to select one of these options.</p>
+<img alt="../_images/MP-Map-rightclick.png" src="../_images/MP-Map-rightclick.png" />
+<ul class="simple">
+<li>Fly to here: (Command) This is guided mode  (see bottom of this page <a class="reference internal" href="mission-planner-ground-control-station.html#mission-planner-ground-control-station"><span class="std std-ref">Guided Mode</span></a>)</li>
+<li>Fly to here Alt:  (Command) Lets you enter an altitude.</li>
+<li>Fly to Coords: (Command) Lets you fly to a latitude and longitude</li>
+<li>Add POI: Lets you set, delete, save, and load Points of Interest to display on the map</li>
+<li>Point Camera Here: (Command) Points vehicle and camera at location</li>
+<li>Point Camera Coords: (Command) Point vehicle and camera at location using latitude and longitude coordinates</li>
+<li>Trigger Camera Now  (Command): Triggers camera if <a class="reference external" href="https://ardupilot.org/rover/docs/common-camera-shutter-with-servo.html#common-camera-shutter-with-servo" title="(in Rover)"><span class="xref std std-ref">setup</span></a>.</li>
+<li>Flight Planner:  You can open the flight planner window in the map window area and leave the rest of the Flight Data Screen as is. Click the “CLOSE” button at top to return.</li>
+<li>Set Home Here: (Command) Set new HOME position for RTL</li>
+<li>TakeOff: (Command) Takeoff and loiter at input altitude. Copter and QuadPlane only.</li>
+<li>Camera Overlap: If checked will show camera overlaps on the map during a survey mission</li>
+<li>Altitude Angel Settings: Allows reporting and connection to <a class="reference external" href="https://www.altitudeangel.com/">Altitude Angel services</a></li>
+<li>Stats : (in development)</li>
+</ul>
+</div>
+<div class="section" id="information-options-at-the-bottom-of-the-screen">
+<h2>Information/options at the bottom of the screen<a class="headerlink" href="#information-options-at-the-bottom-of-the-screen" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>hdop, sats: shows information about the GPS reception quality and
+the number of satellites in view.</li>
+<li>Legend:  Each color corresponds to the color of the corresponding
+line showing directions and headings. Black is the GPS track as
+you vehicle travels.</li>
+<li>Tuning:  Opens/closes the tuning window. Any value in the Status list (double click) can be graphed real time.</li>
+<li>Auto Pan: Checking this box will make the map follow the vehicle
+and thus keep the vehicle in the center of the screen.</li>
+<li>Zoom: Shows or selects the current zoom level of the map. You can also use the:</li>
+<li>Scroll bar: Use the scroll bar to change the zoom level of the map.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mission-planner-flight-plan.html" class="btn btn-neutral float-right" title="Mission Planner Flight PLAN" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mission-planner-ground-control-station.html" class="btn btn-neutral" title="Mission Planner Ground Control Station" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Mission Planner Flight Data Screen&amp;body=[Mission Planner Flight Data Screen](https://ardupilot.org/planner/docs/mission-planner-flight-data.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

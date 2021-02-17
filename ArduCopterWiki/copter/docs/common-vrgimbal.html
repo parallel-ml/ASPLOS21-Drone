@@ -1,0 +1,603 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived:VR Gimbal Controller (3-Axis Open Source) &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="Archived: Disabling the Built In GPS on APM2 to use an External GPS instead" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html"/>
+        <link rel="prev" title="Archived:Open Camera Control Board" href="common-camera-control-board.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4fmu-overview.html">PX4FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VR Gimbal Controller (3-Axis Open Source)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-the-vrgimbal-to-the-pixhawk">Connecting the VRGimbal to the Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operation">Operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-the-gimbal">Configuring the gimbal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-through-the-mission-planner">Set-up through the mission planner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-the-gimbal-software">Updating the gimbal software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-problems">Common Problems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-open-source-alternatives">Other Open Source Alternatives</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xbee-radios.html">Using Xbee radios for telemetry with APM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-your-own-multicopter.html">Build Your Own Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-news.html">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="landing-gear.html">Landing Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived:VR Gimbal Controller (3-Axis Open Source)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-vrgimbal.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="archived-vr-gimbal-controller-3-axis-open-source">
+<span id="common-vrgimbal"></span><h1>Archived:VR Gimbal Controller (3-Axis Open Source)<a class="headerlink" href="#archived-vr-gimbal-controller-3-axis-open-source" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>ARCHIVED</strong></p>
+</div>
+<p>This article explains how to set up and configure the VR Gimbal 3 Axes
+Brushless Gimbal Controller for use with ArduPilot.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://vrgimbal.wordpress.com/">VRGimbal</a>
+(<a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/gimbal-control-board/vrgimbal-2-axis-detail">2-axis</a>
+and
+<a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/gimbal-control-board/vrgimbal-3-axis-detail">3-axis</a>
+available) began as a fork of the open source <a class="reference external" href="https://sourceforge.net/projects/brushless-gimbal-brugi/">Martinez 2-axis brushless gimbal controller</a>
+to support the more powerful STM32 CPUs but since then has been mostly
+rewritten and includes significant enhancements including 3-axis support
+and MAVLink for serial communication with the autopilot or
+ground station.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/">Official quick start guide can be found here</a></li>
+<li><a class="reference external" href="https://code.google.com/archive/p/vrgimbal/source">Code can be found here</a></li>
+<li>Hardware schematics coming soon</li>
+</ul>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/KIqWXnAuKPo#t=25" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We do not yet have an recommended affordable 3-axis gimbal for use
+with the VRGimbal.  Testing by the ArduPilot dev team has so far been
+limited to using a Tarot 2-axis gimbal.</p>
+</div>
+</div>
+<div class="section" id="connecting-the-vrgimbal-to-the-pixhawk">
+<h2>Connecting the VRGimbal to the Pixhawk<a class="headerlink" href="#connecting-the-vrgimbal-to-the-pixhawk" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/VRGimbal_Wiring1.jpg"><img alt="../_images/VRGimbal_Wiring1.jpg" src="../_images/VRGimbal_Wiring1.jpg" /></a>
+<p>The IMU Sensor should be attached to the top or bottom of the camera so
+that the white arrow points forward.</p>
+<p>The Gimbal controller’s red and black power wires should be connected
+directly to a 3S or 4S battery.</p>
+<p>The Pitch, Roll and Yaw (if present) gimbal motors should be connected
+to MOT1, MOT2 and MOT3 respectively.</p>
+<p>The “RC2” pin (label on the underside of the board) should be connected
+to the Pixhawk’s AUX OUT 1 signal pin (see image above).</p>
+<p>The gound pin which is on the edge of the board near “RC2” should be
+connected to the Pixhawk’s AUX OUT 1 “-” pin (see image above).</p>
+</div>
+<div class="section" id="operation">
+<h2>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h2>
+<p>Upon powering the gimbal, the green power light (bottom right in the
+image above) should turn on immediately.  The gimbal should not be
+touched within the first 10seconds after start-up as it will be
+performing an IMU calibration.  Once the calibration is done the red LED
+(immediately left of the green LED) will come on and the controller will
+attempt to stabilize the cmaera.</p>
+<p><strong>LED meanings</strong></p>
+<p>Solid Green LED = power on</p>
+<p>Solid Red LED = calibration complete, stabilizing camera</p>
+</div>
+<div class="section" id="configuring-the-gimbal">
+<h2>Configuring the gimbal<a class="headerlink" href="#configuring-the-gimbal" title="Permalink to this headline">¶</a></h2>
+<p>Use a mini USB cable to connect the Gimbal board to your computer
+(Windows only?). If this is the first time you have plugged in the
+dongle you will see a USB device installation window but it will likely
+fail (see “BAD” device driver screen shot below).</p>
+<ol class="arabic">
+<li><p class="first">To update the Maple driver:</p>
+<ul class="simple">
+<li>Download the latest driver from
+<a class="reference external" href="http://www.radionav.it/virtualrobotix/fwtools/maple_usb_serial_win.zip">here</a>
+and unzip it to somewhere convenient on your computer</li>
+<li>In the device manager, right-mouse-button-click on the the Maple
+driver and select “Update Driver Software”, then “Browse my
+computer for driver software” and select the folder where you
+unzipped the driver.  Windows 8 machines may complain because the
+driver is not signed, instructions are
+<a class="reference external" href="https://www.makeuseof.com/tag/how-can-i-install-hardware-with-unsigned-drivers-in-windows-8/">here</a>
+on how to get around this.</li>
+<li>After the driver is installed, if the Maple device appears as COM9
+or higher you will not be able to connect.  The Control Panel’s
+Device Manager can be used to reassign the comport to the COM1 ~
+COM8 range.</li>
+</ul>
+<a class="reference external image-reference" href="../_images/VRGimbal_DeviceManager.png"><img alt="../_images/VRGimbal_DeviceManager.png" src="../_images/VRGimbal_DeviceManager.png" /></a>
+</li>
+<li><p class="first">Download and run the latest VRGimbal UI installation .msi file by
+going to the <a class="reference external" href="https://vrgimbal.wordpress.com/download/">VRGimbal wordpress site and select the top item from the Downloads menu</a>.  At
+the time this wiki page was written it was <a class="reference external" href="https://vrgimbal.wordpress.com/download/vrgimbal-1-13-2/">version 1.13</a>.
+After installation the “VRGimbal GUI” should appear in your start
+menu.</p>
+</li>
+<li><p class="first">Start the VRGimbal GUI from the start menu.</p>
+<a class="reference external image-reference" href="../_images/VRGimbalGUI_PitchAbsolute.png"><img alt="../_images/VRGimbalGUI_PitchAbsolute.png" src="../_images/VRGimbalGUI_PitchAbsolute.png" /></a>
+</li>
+<li><p class="first">Connect the gimbal to your computer with the mini USB cable</p>
+</li>
+<li><p class="first">On the VRGimbalGUI select the COM port and press the <strong>Open</strong> button</p>
+</li>
+<li><p class="first">Click on the <em>Pitch</em> tab, click the <strong>Absolute</strong> checkbox, press
+<strong>Send Config</strong> and <strong>Save to Flash</strong> buttons.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="set-up-through-the-mission-planner">
+<h2>Set-up through the mission planner<a class="headerlink" href="#set-up-through-the-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p>The channel 6 tuning knob’s output can be used to control the pitch
+angle of the gimbal by:</p>
+<ul class="simple">
+<li>Connect the Pixhawk to the mission planner</li>
+<li>Open the <strong>Initial Setup | Optional Hardware | Camera Gimbal</strong>
+screen set:<ul>
+<li>Tilt drop-down to RC9 (equivalent to AUX OUT1)</li>
+<li>Input Ch drop-down to RC6</li>
+<li>The “Stabilize Tilt” checkbox should not be checked</li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/Gimbal_Tarot_MPsetup.png"><img alt="../_images/Gimbal_Tarot_MPsetup.png" src="../_images/Gimbal_Tarot_MPsetup.png" /></a>
+</div>
+<div class="section" id="updating-the-gimbal-software">
+<h2>Updating the gimbal software<a class="headerlink" href="#updating-the-gimbal-software" title="Permalink to this headline">¶</a></h2>
+<p>Please see the <a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/firmware-upgrade/">VRGimbal firmware upgrade wordpress site</a>
+for details.</p>
+</div>
+<div class="section" id="common-problems">
+<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Camera is not level.  Perform the accelerometer calibration as
+described at the bottom of <a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/configuration-and-calibration/">this page</a>.</li>
+<li>Small gimbal motors emit a high pitches squeal.  Connect with the
+VRGimbalGui, Go to the Advanced tab and set the “PWM frequency” to
+High.  Press <strong>Send Config</strong> and <strong>Save to Flash</strong> buttons.</li>
+</ul>
+</div>
+<div class="section" id="other-open-source-alternatives">
+<h2>Other Open Source Alternatives<a class="headerlink" href="#other-open-source-alternatives" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://sourceforge.net/projects/brushless-gimbal-brugi/">Martinez 2-axis gimbal controllers</a>
+using the original AVR328 chip can be found at retailers including
+<a class="reference external" href="https://hobbyking.com/en_us/2-axis-brushless-camera-gimbal-stabilization-control-board-w-imu.html?___store=en_us">hobbyking</a>.</p>
+<p><a class="reference external" href="http://www.olliw.eu/2013/storm32bgc/?en">OlliW’s STorM3 BGC 3-Axis STM32 based brushless gimbal controller</a> is open source
+hardware, closed source (but free) gimbal firmware and open source
+windows configuration UI.</p>
+<p>Questions about the VRGimbal? Post to the <a class="reference external" href="http://www.virtualrobotix.com/group/vr-gimbal-user-group">VRGimbal User group</a> (not
+directly associated with the DIYDrones or 3dRobotics)</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html" class="btn btn-neutral float-right" title="Archived: Disabling the Built In GPS on APM2 to use an External GPS instead" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-camera-control-board.html" class="btn btn-neutral" title="Archived:Open Camera Control Board" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived:VR Gimbal Controller (3-Axis Open Source)&amp;body=[Archived:VR Gimbal Controller (3-Axis Open Source)](https://ardupilot.org/copter/docs/common-vrgimbal.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

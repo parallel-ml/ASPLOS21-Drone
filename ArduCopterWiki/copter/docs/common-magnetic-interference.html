@@ -1,0 +1,616 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Magnetic Interference &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot System Assembly Instructions" href="autopilot-assembly-instructions.html"/>
+        <link rel="next" title="Loading Firmware" href="common-loading-firmware-onto-pixhawk.html"/>
+        <link rel="prev" title="UBlox GPS + Compass Module" href="common-installing-3dr-ublox-gps-compass-module.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-rcoutput-mapping.html">Autopilot Output Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotune.html">AutoTune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-auxiliary-functions.html">Auxiliary Function Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel-7-and-8-options.html">Auxiliary Function Switches (3.6 and earlier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-temp-comp.html">Baro Temperature Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boat-mode.html">Boat mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-bootloader-update.html">Bootloader Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-canbus-setup-advanced.html">CAN Bus Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-setup-advanced.html">Compass Setup (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current-limiting-and-voltage-scaling.html">Current Limiting and Voltage Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-dshot.html">Brushless ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html">Extended Kalman Filter (EKF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geofencing-landing-page.html">Fence Failsafes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-flight-time-recorder.html">Flight Time Recorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-FPort-receivers.html">FPort Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gpios.html">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gps-for-yaw.html">GPS for Yaw (aka Moving Baseline)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gcs-only-operation.html">Ground Control Station Only Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ground-effect-compensation.html">Ground Effect Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-fft.html">In-Flight FFT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lua-scripts.html">LUA Scripting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Magnetic Interference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-changes-to-reduce-magnetic-interference-on-the-compass">Hardware changes to reduce magnetic interference on the compass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maxwell-s-equations-the-magnetic-field-on-the-axis-of-a-current-loop">Maxwell’s Equations - The Magnetic Field on the Axis of a Current Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#natural-and-artificial-magnetic-anomalies-warning">Natural and Artificial Magnetic Anomalies Warning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gps-for-yaw">GPS for yaw</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Packet Signing (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ntf-devices.html">Notification Devices (LEDs,Buzzer,etc.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensor-setup.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Parameter List (Full)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-parameter-reset.html">Parameter Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rcmap.html">RC Input Channel Mapping (RCMAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-options.html">RC Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Configuration and Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-offset-compensation.html">Sensor Position Offset Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-testing.html">Sensor Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-passthrough.html">Serial Port to Port Passthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-options.html">Serial Port Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-port-setup.html">Telemetry Port Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following (Autonomous modes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-setup-advanced.html">UAVCAN Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ublox-gps.html">UBlox GPS Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="autopilot-assembly-instructions.html">Autopilot System Assembly Instructions</a> &raquo;</li>
+      
+    <li>Magnetic Interference</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-magnetic-interference.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="magnetic-interference">
+<span id="common-magnetic-interference"></span><h1>Magnetic Interference<a class="headerlink" href="#magnetic-interference" title="Permalink to this headline">¶</a></h1>
+<p>This article covers general information related to magnetic
+interference.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Magnet Interference on a compass can have a serious impact on navigation
+on all vehicle types.</p>
+<p>This article explains what hardware changes you can make to reduce
+magnetic interference on the compass, along with supporting theoretical
+discussion. Information on how to set-up your compass can be found on
+<a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">Advanced Compass Setup</span></a>.</p>
+<p>On Copter magnetic interference can cause circling
+(also known as “toiletbowling”) in Loiter, RTL, AUTO flight
+modes.</p>
+<p>See also <a class="reference external" href="https://en.wikipedia.org/wiki/Magnetic_declination">Magnetic Declination</a>
+(wikipedia)</p>
+</div>
+<div class="section" id="hardware-changes-to-reduce-magnetic-interference-on-the-compass">
+<h2>Hardware changes to reduce magnetic interference on the compass<a class="headerlink" href="#hardware-changes-to-reduce-magnetic-interference-on-the-compass" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>The best way method is to use an <a class="reference internal" href="common-external-magnetometer-for-improved-performance.html#common-external-magnetometer-for-improved-performance"><span class="std std-ref">external compass</span></a>
+or <a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#common-installing-3dr-ublox-gps-compass-module"><span class="std std-ref">GPS+Compass</span></a>
+module mounted on a mast up and away from magnetic source of
+interference including the power distribution board (PDB).</li>
+<li>Keep the wires between the PDB, ESCs and battery as short as
+possible.  The wires from the ESCs to the motors are less important
+because they are AC and produce less interference.</li>
+<li>Twist the wires between the PDB, ESC and battery and use grounded
+shielding where possible.</li>
+<li>Replace the PDB and ESCs with a 4-in-1 ESC because they tend to
+poroduce less interference probably because their wires are shorter
+and closer together and they also have an aluminum plate on top which
+may help reduce the interference.</li>
+<li>Add aluminum shielding (even gutter tape) around the wires from the
+ESC to the motors may reduce the AC interference.  Aluminum will not
+help reduce the primary DC interference from the PDB, ESCs and the
+wires connecting them.</li>
+</ol>
+<a class="reference external image-reference" href="../_images/3281_dimg2.jpg"><img alt="../_images/3281_dimg2.jpg" src="../_images/3281_dimg2.jpg" /></a>
+</div>
+<div class="section" id="maxwell-s-equations-the-magnetic-field-on-the-axis-of-a-current-loop">
+<h2>Maxwell’s Equations - The Magnetic Field on the Axis of a Current Loop<a class="headerlink" href="#maxwell-s-equations-the-magnetic-field-on-the-axis-of-a-current-loop" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first">Geometric details (from <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/%E2%80%8Chbase/magnetic/curloo.html#c2">this web
+page.</a>)</p>
+<p class="last"><a class="reference external" href="../_images/loopa.gif"><img alt="loopa" src="../_images/loopa.gif" /></a></p>
+</td>
+<td><p class="first">The application of
+the <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/%E2%80%8Chbase/magnetic/biosav.html#c1">Biot-Savart
+law</a>
+on the centerline of a <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/%E2%80%8Chbase/magnetic/curloo.html#c1">current
+loop</a> involves
+integrating the z-component.</p>
+<p><a class="reference external" href="../_images/loopa2.gif"><img alt="image4" src="http://hyperphysics.phy-astr.gsu.edu/%E2%80%8Chbase/magnetic/imgmag/loopa2.gif" /></a></p>
+<p>The symmetry is such that all the
+terms in this element are constant
+except the distance element dL,
+which when integrated just gives the
+circumference of the circle. The
+magnetic field is then:</p>
+<p class="last"><a class="reference external" href="../_images/loopa3.gif"><img alt="image5" src="http://hyperphysics.phy-astr.gsu.edu/%E2%80%8Chbase/magnetic/imgmag/loopa3.gif" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>There are 3 things to get from this drawing and the equation for the
+magnetic field B as you move away from a current loop along the Z axis:</p>
+<ol class="arabic simple">
+<li>The magnetic field increases as a function of the enclosed loop area
+Pi R^2<ul>
+<li>Big loop = big magnetic field</li>
+<li>Reduce the magnetic field by twisting the loop to close it. aka
+twist the wires together and keep your return path close to the
+source</li>
+<li>In the case where you have a PDB and 4 ESCs you have 4 loops that
+start at the Deans connector on the PDB, go out to the ESC and
+return back to the Deans connector.  In the case of the 4 in 1 ESC
+the current flow is much more concentrated in one area and you
+don’t have the big loops so consequently you decrease the magnetic
+field.</li>
+</ul>
+</li>
+<li>The magnetic field increases as a function of current<ul>
+<li>Where there is the option, you can deliver the same power and
+decrease the magnetic field by increasing the voltage and
+decreasing the current.</li>
+</ul>
+</li>
+<li>The magnetic field decreases as a function of the cube of the
+distance<ul>
+<li>It is more complicated when you are close to the loop but when z
+&gt;&gt; R the denominator goes to z^3</li>
+</ul>
+</li>
+</ol>
+<p>There is one more thing and that is that the direction of the magnetic
+field depends on the direction that the current flows so when you rotate
+a battery it changes the magnetic field produced by the current flowing
+in the battery.</p>
+<p>It can’t be stated enough that minimizing the enclosed loop areas and
+moving the compass away from the current will help things work better
+and “yes”, power distribution boards with big circular thick high
+current PC traces on them produce significant semi-spherical fields as
+large or larger than their diameter.</p>
+</div>
+<div class="section" id="natural-and-artificial-magnetic-anomalies-warning">
+<h2>Natural and Artificial Magnetic Anomalies Warning<a class="headerlink" href="#natural-and-artificial-magnetic-anomalies-warning" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following information has not been objectively tested to
+determine its impact on a vehicle’s compass accuracy in flight.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Many things can distort the earth’s magnetic field in the area you
+are flying:</p>
+<ul class="simple">
+<li>Steel framed or reinforced concrete buildings, bridges and
+roadways, iron pipes and culverts, high power electric lines,
+heavy equipment, trucks and automobiles, steel tanks, electric
+motors and even computers.</li>
+<li>Flying between steel framed or reinforced high rise buildings will
+distort the magnetic field in addition to causing GPS
+multi-pathing.</li>
+</ul>
+</li>
+<li><p class="first">Safe distances for compass calibration</p>
+<ul>
+<li><p class="first">6” (15 cm) minimum: Metal rim glasses, pen/pencil, metal watch
+band, pocket knife, metal zipper/buttons, belt buckle, batteries,
+binoculars, cell phone, keys, camera, camcorder, survey nails,
+metal tape measure.</p>
+</li>
+<li><p class="first">18” (50 cm) minimum: Clipboard, data collector, computer, GPS
+antenna, 2-way radio, hand gun, hatchet, cell phone case with
+magnetic closure.</p>
+</li>
+<li><p class="first">6 ft (2 m) minimum: Bicycle, fire hydrant, road signs, sewer cap
+or drain, steel pole, ATV, guy wire, magnets, chain-link fence,
+bar-wire fence, data collectors</p>
+<p>that use a magnet to hold the stylus.</p>
+</li>
+<li><p class="first">15 ft (5 m) minimum: Electrical box, small car/truck, powerline,
+building with concrete &amp; steel.</p>
+</li>
+<li><p class="first">30 ft (10 m) minimum: Large truck, metal building, heavy
+machinery.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="gps-for-yaw">
+<h2>GPS for yaw<a class="headerlink" href="#gps-for-yaw" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Ardupilot supports the use of GPS heading information to reduce malfunctions caused by changes in the magnetic field in certain environments.</dt>
+<dd><ul class="first simple">
+<li><a class="reference external" href="https://ardupilot.org/copter/docs/common-gps-for-yaw.html">Configure GPS for yaw</a></li>
+</ul>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This feature is available in Copter 4.0.4 (and higher), Plane 4.0.6 (and higher) and Rover 4.1.0 (and higher);Ublox F9p must run firmware version 1.13 or higher.</p>
+</div>
+</dd>
+</dl>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/Kh_6TynYqEI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-loading-firmware-onto-pixhawk.html" class="btn btn-neutral float-right" title="Loading Firmware" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-installing-3dr-ublox-gps-compass-module.html" class="btn btn-neutral" title="UBlox GPS + Compass Module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Magnetic Interference&amp;body=[Magnetic Interference](https://ardupilot.org/copter/docs/common-magnetic-interference.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing Gyro Noise with In-Flight FFT &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Tuning" href="common-tuning.html"/>
+        <link rel="next" title="Measuring Vibration" href="common-measuring-vibration.html"/>
+        <link rel="prev" title="Managing Gyro Noise with the Static Notch and Dynamic Harmonic Notch Filters" href="common-imu-notch-filtering.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-rcoutput-mapping.html">Autopilot Output Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotune.html">AutoTune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-auxiliary-functions.html">Auxiliary Function Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel-7-and-8-options.html">Auxiliary Function Switches (3.6 and earlier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-temp-comp.html">Baro Temperature Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boat-mode.html">Boat mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-bootloader-update.html">Bootloader Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-canbus-setup-advanced.html">CAN Bus Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-setup-advanced.html">Compass Setup (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current-limiting-and-voltage-scaling.html">Current Limiting and Voltage Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-dshot.html">Brushless ESCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html">Extended Kalman Filter (EKF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geofencing-landing-page.html">Fence Failsafes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-flight-time-recorder.html">Flight Time Recorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-FPort-receivers.html">FPort Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gpios.html">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gps-for-yaw.html">GPS for Yaw (aka Moving Baseline)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gcs-only-operation.html">Ground Control Station Only Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ground-effect-compensation.html">Ground Effect Compensation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">In-Flight FFT Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-flight-setup">Pre-Flight Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initial-flight-and-post-flight-analysis">Initial Flight and Post-Flight Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#harmonic-notch-configuration">Harmonic Notch Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-configuration-flight-and-post-flight-analysis">Post Configuration Flight and Post-Flight Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#harmonic-notch-throttle-configuration">Harmonic Notch Throttle Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning">Tuning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-lua-scripts.html">LUA Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Packet Signing (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ntf-devices.html">Notification Devices (LEDs,Buzzer,etc.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filter Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensor-setup.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Parameter List (Full)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-parameter-reset.html">Parameter Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rcmap.html">RC Input Channel Mapping (RCMAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-options.html">RC Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Configuration and Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-offset-compensation.html">Sensor Position Offset Compensation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-sensor-testing.html">Sensor Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-passthrough.html">Serial Port to Port Passthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-serial-options.html">Serial Port Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-telemetry-port-setup.html">Telemetry Port Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following (Autonomous modes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-setup-advanced.html">UAVCAN Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ublox-gps.html">UBlox GPS Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="flying-arducopter.html">First Flight with Copter</a> &raquo;</li>
+      
+          <li><a href="common-tuning.html">Tuning</a> &raquo;</li>
+      
+    <li>Managing Gyro Noise with In-Flight FFT</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-imu-fft.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-gyro-noise-with-in-flight-fft">
+<span id="common-imu-fft"></span><h1>Managing Gyro Noise with In-Flight FFT<a class="headerlink" href="#managing-gyro-noise-with-in-flight-fft" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This feature will be released in ArduPilot 4.1. Most likely, the feature will only be included in autopilots with 2MB of memory. Check your autopilot’s <a class="reference internal" href="common-limited-firmware.html#common-limited-firmware"><span class="std std-ref">firmware limitations</span></a> after the release to determine if your autopilot has this feature.</p>
+</div>
+<p>As <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">discussed</span></a>, the effect of motor vibration on gyros in ArduPilot autopilot installations can be managed effectively through the use of targeted notch filtering. Dynamic notch filtering is most effective when the dynamic notch center frequency can be driven by ESC telemetry, but not all aircraft have access to ESC telemetry or the ESC telemetry is not entirely representative of the dominant noise.
+One alternative to ESC telemetry is to measure the noise peak directly through the use of digital signal processing techniques, most notably the Fast Fourier Transform or FFT.</p>
+<p>For helicopters, use of this feature depends on how well the rotor speed is being held. Any helicopter using an ESC governor will not need this feature even if the ESC cannot provide ArduCopter with the rotor speed. ESC governors hold rotor speed very well and the harmonic notch frequency can be set to the rotor speed set in the ESC governor. If the internal rotor speed controller governor is used, which requires an RPM sensor, then it is recommended that the harmonic notch use the measured RPM to set the notch frequency. This feature would be most useful for throttle curve method for controlling rotor speed.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-flight-setup">
+<span id="common-imu-fft-pre-flight-setup"></span><h3>Pre-Flight Setup<a class="headerlink" href="#pre-flight-setup" title="Permalink to this headline">¶</a></h3>
+<p>ArduPilot comes pre-configured with appropriate defaults for all FFT settings. The only initial setup required is:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#fft-enable"><span class="std std-ref">FFT_ENABLE</span></a> = 1 to enable the FFT engine. This then requires that you reboot your flight controller after which FFT support will be enabled and other FFT parameters should be visible in your GCS. With default parameter settings the FFT engine will run a self-check for frequency matching on your hardware. If you do not see any FFT errors then things are working properly.</li>
+</ul>
+<p>With FFT enabled it is best to first perform a test flight to check that your aircraft’s particular noise frequencies are being captured and to monitor CPU load, but if you are confident in the defaults then you can use the FFT to drive the <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">harmonic notch</span></a></p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-enable"><span class="std std-ref">INS_HNTCH_ENABLE</span></a> = 1 to enable the harmonic notch</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-mode"><span class="std std-ref">INS_HNTCH_MODE</span></a> = 4 to use the FFT detected frequency for controlling the harmonic notch frequency.</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> = 1 to set the harmonic notch reference value, which for FFT analysis generally means no scaling</li>
+</ul>
+</div>
+<div class="section" id="initial-flight-and-post-flight-analysis">
+<span id="common-imu-fft-flight-and-post-flight-analysis"></span><h3>Initial Flight and Post-Flight Analysis<a class="headerlink" href="#initial-flight-and-post-flight-analysis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Perform a hover flight of at least 30s in altitude hold and <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">download the dataflash logs</span></a></li>
+<li>Graph the log element FTN1.PkAvg which represents the FFT’s energy-weighted estimate of the average noise frequency for roll and pitch.</li>
+</ul>
+<p>On the graph there should be a fairly consistent estimate of the noise peak that corresponds to the motor rotational frequency. On a smaller Copter this is likely to be around 200Hz and on a larger Copter/Quadplane 100Hz or so. Here is an example from a 5” quad running on a Pixracer:</p>
+<a class="reference external image-reference" href="../_images/imu-in-flight-fft.png"><img alt="../_images/imu-in-flight-fft.png" src="../_images/imu-in-flight-fft.png" style="width: 450px;" /></a>
+<p>Once the pilot has throttled up there is a fairly consistent noise level at about 220Hz. In this flight the dynamic harmonic notch was set to track the FFT determined frequency and FFT analysis of the post-filter log shows that the gyro noise has been effectively eliminated:</p>
+<a class="reference external image-reference" href="../_images/imu-in-flight-fft-post-filter.png"><img alt="../_images/imu-in-flight-fft-post-filter.png" src="../_images/imu-in-flight-fft-post-filter.png" style="width: 450px;" /></a>
+</div>
+<div class="section" id="harmonic-notch-configuration">
+<h3>Harmonic Notch Configuration<a class="headerlink" href="#harmonic-notch-configuration" title="Permalink to this headline">¶</a></h3>
+<p>As described above the harmonic notch can be simply enabled through setting:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-enable"><span class="std std-ref">INS_HNTCH_ENABLE</span></a> = 1 to enable the harmonic notch</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> = 1</li>
+</ul>
+<p>The other key component of the harmonic notch is the bandwidth of the notch and the in-flight FFT can be used to determine this. Download a log from a stable hover and graph FTN1.BwAvg. This is the FFT’s energy-weighted estimate of the bandwidth of the noise peak. Here is a graph from the same flight above:</p>
+<a class="reference external image-reference" href="../_images/imu-in-flight-fft-bandwidth.png"><img alt="../_images/imu-in-flight-fft-bandwidth.png" src="../_images/imu-in-flight-fft-bandwidth.png" style="width: 450px;" /></a>
+<p>You can see that the bandwidth estimate is roughly 125Hz. Use this as follows:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-bw"><span class="std std-ref">INS_HNTCH_BW</span></a> = <em>bandwidth estimate</em></li>
+</ul>
+</div>
+<div class="section" id="post-configuration-flight-and-post-flight-analysis">
+<h3>Post Configuration Flight and Post-Flight Analysis<a class="headerlink" href="#post-configuration-flight-and-post-flight-analysis" title="Permalink to this headline">¶</a></h3>
+<p>With the dynamic harmonic notch configured perform another stable hover to check that the motor noise peak has been <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering-post-configuration-flight-and-post-flight-analysis"><span class="std std-ref">eliminated</span></a>. It is also important to check that the flight controller is not overloaded for the FFT length being used. Graph PM.Load and PM.NLon. PM.Load ideally should be below 60% and PM.NLon in the low 10’s - although experimentation shows that it is possible to fly a Pixracer with an FFT length of 128 and CPU load of 90% without instability.</p>
+<p>Other points to check:</p>
+<ul class="simple">
+<li>The FFT will only analyse frequencies between <a class="reference internal" href="parameters.html#fft-minhz"><span class="std std-ref">FFT_MINHZ</span></a> and <a class="reference internal" href="parameters.html#fft-maxhz"><span class="std std-ref">FFT_MAXHZ</span></a>. If your copter’s motor rpm is outside these bounds the results can be somewhat random, so make sure that these are set appropriately for your copter. <a class="reference internal" href="parameters.html#fft-maxhz"><span class="std std-ref">FFT_MAXHZ</span></a> should not be set above the Nyquist frequency, so a maximum of about 495Hz for most copters using standard gyros.</li>
+<li>FTN1.SnX, FTN1.SnY and FTN1.SnZ give an indication of the signal-to-noise ratio of the detected frequency. This value should be above <a class="reference internal" href="parameters.html#fft-snr-ref"><span class="std std-ref">FFT_SNR_REF</span></a>. For the example flight above the SNR was about 58dB.</li>
+</ul>
+</div>
+<div class="section" id="harmonic-notch-throttle-configuration">
+<h3>Harmonic Notch Throttle Configuration<a class="headerlink" href="#harmonic-notch-throttle-configuration" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to use the in-flight FFT to generate a precise estimate for <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> and <a class="reference internal" href="parameters.html#ins-hntch-freq"><span class="std std-ref">INS_HNTCH_FREQ</span></a>. Using a throttle estimate for driving the dynamic harmonic notch has very low CPU cost with minimal latency and can be a good option for certain applications.
+To set the harmonic notch this way:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#fft-minhz"><span class="std std-ref">FFT_MINHZ</span></a> to the lowest value that you want the harmonic notch frequency to be set to. Typically this should be above about 50Hz to stay clear of your copter’s control bandwidth.</li>
+<li>Perform a stable lengthy hover as you might do for learning the hover throttle.</li>
+<li>Land and disarm. The learned value for <a class="reference internal" href="parameters.html#ins-hntch-freq"><span class="std std-ref">INS_HNTCH_FREQ</span></a> at hover will be in <a class="reference internal" href="parameters.html#fft-freq-hover"><span class="std std-ref">FFT_FREQ_HOVER</span></a> and the learned value for <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> to scale <a class="reference internal" href="parameters.html#fft-minhz"><span class="std std-ref">FFT_MINHZ</span></a> to the learned hover frequency will be in <a class="reference internal" href="parameters.html#fft-thr-ref"><span class="std std-ref">FFT_THR_REF</span></a>. The values are not transferred automatically to the harmonic notch so you should set them based on the learned values.</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-mode"><span class="std std-ref">INS_HNTCH_MODE</span></a> = 1 to use the throttle-based dynamic harmonic notch.</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-freq"><span class="std std-ref">INS_HNTCH_FREQ</span></a> = <a class="reference internal" href="parameters.html#fft-minhz"><span class="std std-ref">FFT_MINHZ</span></a></li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> = <a class="reference internal" href="parameters.html#fft-thr-ref"><span class="std std-ref">FFT_THR_REF</span></a></li>
+</ul>
+<p>Alternatively, if you wish the hover frequency to be the lowest value for the harmonic notch:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-mode"><span class="std std-ref">INS_HNTCH_MODE</span></a> = 1 to use the throttle-based dynamic harmonic notch.</li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-freq"><span class="std std-ref">INS_HNTCH_FREQ</span></a> = <a class="reference internal" href="parameters.html#fft-freq-hover"><span class="std std-ref">FFT_FREQ_HOVER</span></a></li>
+<li>Set <a class="reference internal" href="parameters.html#ins-hntch-ref"><span class="std std-ref">INS_HNTCH_REF</span></a> = <a class="reference internal" href="parameters.html#mot-thst-hover"><span class="std std-ref">MOT_THST_HOVER</span></a></li>
+</ul>
+</div>
+<div class="section" id="how-it-works">
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h3>
+<p>The FFT takes a set of gyro samples, performs frequency analysis on that set and yields a set of frequency bins with associated energies representing how “much” of a noise signal is in that bin. For example if we take a set of samples of length 32 - referred to as the <em>FFT length</em> or <em>window size</em>, <em>N</em> - this would yield a set of frequency bins each of width <em>f</em><sub>s</sub> / <em>32</em> where <em>f</em><sub>s</sub> is the sampling frequency of the samples. Since these samples are from the gyros the sampling rate is most commonly 1KHz and therefore each bin is approximately 32Hz wide. FFT analysis will give an energy value for each bin representing the amount of noise energy of that frequency in the bin. So for instance if our motor noise is at 80Hz most of the energy will be in the third bin and we can thus tell from the energy values the approximate frequency of the noise. The highest frequency that can be detected by an FFT is the Nyquist frequency of <em>f</em><sub>s</sub> / <em>2</em></p>
+<p>Clearly increasing the FFT length yields much higher frequency resolution and one might think therefore that we should always use long FFTs. Two facts prevent this. Firstly the calculation of an FFT costs roughly <em>O(N log N)</em> in CPU time, thus longer FFTs quickly become prohibitively expensive. Secondly FFTs have a Heisenberg-like relationship between frequency and time - you can choose high time resolution or high frequency resolution, but you cannot have both at the same time. For multicopters time resolution is important because the calculated frequency might be used to drive time-sensitive controls such as the dynamic harmonic notch. Thus the choice of FFT length should be made carefully based on how accurate the frequency calculation needs to be versus the timeliness of the result. For larger multicopters or helicopters a high frequency resolution can be beneficial, whereas for smaller copters with sensitive attitude control high time resolution is important. The default of 32 generally works well and can be run on F4 processors. Higher values such as 128 require F7 processors and anything above this should typically only be run on an H7.</p>
+<p>An alternative to increasing the FFT length is to decrease the sample rate to yield higher frequency resolution. This has the drawback of reducing the highest frequency that can be detected, but for some lower frequency platforms (e.g. helicopters) this might be appropriate.</p>
+</div>
+<div class="section" id="tuning">
+<h3>Tuning<a class="headerlink" href="#tuning" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the options described above there are several tuning options available for the FFT which can be useful in certain circumstances</p>
+<div class="section" id="tuning-small-multicopters">
+<h4>Tuning Small MultiCopters<a class="headerlink" href="#tuning-small-multicopters" title="Permalink to this headline">¶</a></h4>
+<p>Small multicopters are generally characterized by a very pronounced motor rpm frequency peak. The peak is generally the first harmonic and there are rarely other significant harmonics. For this reason it can be sufficient to target the first harmonic alone. By default, the FFT engine tracks the top three frequency peaks and these can be observed by graphing FTN2[N].PkX for each peak. PkX is the noise on the roll axis. Here is an example from a 4” quad:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter.png"><img alt="../_images/fft-small-copter.png" src="../_images/fft-small-copter.png" style="width: 450px;" /></a>
+<p>As can be seen the roll and pitch axes track the main frequency peak quite closely and the secondary peaks are essentially tracking noise. Unfortunately this noise sometimes looks like the highest energy peak and can distort the primary tracked frequency. If this is the case it is possible to force the FFT engine to only track the primary peak by setting:</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="parameters.html#fft-hmnc-peak"><span class="std std-ref">FFT_HMNC_PEAK</span></a> = 1</li>
+</ul>
+<p>It is also possible to set <a class="reference internal" href="parameters.html#fft-hmnc-peak"><span class="std std-ref">FFT_HMNC_PEAK</span></a> to 2 and 3 to track the second and third peaks respectively.</p>
+<p>Another important metric for small copters is the frequency energy. This is most easily visualized by graphing the signal-to-noise ratio of the frequency energy, which is the ratio in dB of the gyro noise at startup to the gyro noise of the detected frequency peak in flight. Here is an example from the same 4” quad:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter-energy.png"><img alt="../_images/fft-small-copter-energy.png" src="../_images/fft-small-copter-energy.png" style="width: 450px;" /></a>
+<p>As can be seen there is a strong signal at about 50dB on roll and 40dB on pitch. The FFT engine uses the setting <a class="reference internal" href="parameters.html#fft-snr-ref"><span class="std std-ref">FFT_SNR_REF</span></a> to determine whether a detected frequency peak is actually a signal or just noise. The default setting is 25dB and so in this example the peak is correctly detected as a signal.</p>
+<p>Let’s look at a smaller copter. This is a 3” quad in a stable hover:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter-hover.png"><img alt="../_images/fft-small-copter-hover.png" src="../_images/fft-small-copter-hover.png" style="width: 450px;" /></a>
+<p>This time you can see that the the signal-to-noise ratio is right around the 25dB mark and if <a class="reference internal" href="parameters.html#fft-snr-ref"><span class="std std-ref">FFT_SNR_REF</span></a> was set to 25dB then the detected peak would be treated as noise a significant amount of the time. So for this copter I have set <a class="reference internal" href="parameters.html#fft-snr-ref"><span class="std std-ref">FFT_SNR_REF</span></a> to 15dB in order to detect the peak correctly. Mechanically it’s easy to see why this is necessary - the same MEMS gyros are used in pretty much all flight controllers, but the difference in vibrational energy of 10” props versus 3” props is enormous. Thus it is likely that for smaller builds it will be necessary to reduce <a class="reference internal" href="parameters.html#fft-snr-ref"><span class="std std-ref">FFT_SNR_REF</span></a>.</p>
+</div>
+<div class="section" id="tuning-large-multicopters">
+<h4>Tuning Large MultiCopters<a class="headerlink" href="#tuning-large-multicopters" title="Permalink to this headline">¶</a></h4>
+<p>Small multicopters are relatively simple from a noise perspective - the motors have nice, clean noise profiles and picking the noise frequency is algorithmically a relatively simple task. Larger multicopters are much more complex. There is much more noise energy and this noise energy can appear in unexpected places. On any copter motor noise frequencies will diverge during yaw due to the different motor rpms employed to effect a yaw manoeuvre. This divergence can also be seen as you add more motors - for instance Y6 or X8 configurations - or for any kind of imbalance - for instance Y6 with difference prop sizes in a coaxial configuration. These differences can make the fundamental harmonic frequency hard to find. Here are the detected frequency peaks for a Y6B:</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter.png"><img alt="../_images/fft-large-copter.png" src="../_images/fft-large-copter.png" style="width: 450px;" /></a>
+<p>As you can see the noisiest motor peak is around 150Hz, with the second noisiest around 75Hz. Then the third noisiest peak appears to be jumping between 120Hz and 225Hz. So what is going on here? Well, the frequency that the motors are turning at is indeed 75Hz, but the frequency that the FFT would target by default is 150Hz. From a control perspective this is bad. The harmonic notch targets increasing harmonics of the fundamental frequency, so if the harmonic notch is configured to target 150Hz then the 75Hz noise peak will not be notch filtered at all. 75Hz is getting down into the control frequencies of the aircraft and therefore ignoring this noise can be extremely problematic. The 150Hz signal is nice and clear, but the flip flopping between 120Hz and 225Hz seems odd. Mechanically this can be understood when you think about the configuration of my Y6B. It has larger props on the topside meaning that upper and lower props are almost certainly turning at different frequencies. It also is balanced around the centerline but slightly imbalanced front to back. This combination of factors means that there will be at least two fundamental harmonics, and this is almost certainly what the 120Hz signal is. The 225Hz signal is then the third harmonic of the 75Hz fundamental. So how do we target notches appropriately? We clearly want 75Hz to be treated as the fundamental harmonic. Fortunately, by default ArduPilot has <a class="reference internal" href="parameters.html#fft-hmnc-peak"><span class="std std-ref">FFT_HMNC_PEAK</span></a> set to 0, which means “auto”. In auto mode the flight controller tries to detect the situation where one frequency is the harmonic of another frequency and will return the lower frequency for use by the harmonic notch filter. This works quite well on quads, but on my Y6B the relationship is too soft to be useful - probably because of the 120Hz harmonic confusing things. So in this instance setting <a class="reference internal" href="parameters.html#fft-hmnc-peak"><span class="std std-ref">FFT_HMNC_PEAK</span></a> to 2, will allow us to accurately target the first harmonic.</p>
+<p>Things get more confusing when we look at the different axes. Here is roll, pitch and yaw for the highest energy peak on the same Y6B :</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter-axes.png"><img alt="../_images/fft-large-copter-axes.png" src="../_images/fft-large-copter-axes.png" style="width: 450px;" /></a>
+<p>As you can see roll is tracking quite nicely, pitch is flipping a little between the first and second harmonics and yaw is flipping all the time. Having different peaks detected on different axes is not uncommon on larger copters and can be problematic for the harmonic notch as the frequency used is the energy-weighted average of roll and pitch axes. If roll and pitch are tracking different peaks then the energy weighted average will be somewhere in-between - totally useless for the purposes of notch filtering.</p>
+<p>In order to address this problem it is possible to set <a class="reference internal" href="parameters.html#fft-hmnc-peak"><span class="std std-ref">FFT_HMNC_PEAK</span></a> to 4 to track the roll-axis only or 5 to track the pitch-axis only.</p>
+<p>Finally, it is possible - as is clearly the case here - that the noisiest peaks are not necessarily harmonics of one another. In this case it is possible to configure the harmonic notch to track the frequency peaks directly by setting bit two of <a class="reference internal" href="parameters.html#ins-hntch-opts"><span class="std std-ref">INS_HNTCH_OPTS</span></a> - so to 2 if no other options are configured. This results in very accurate frequency tracking and lower noise. Here is the log from a Solo with <a class="reference internal" href="parameters.html#ins-hntch-opts"><span class="std std-ref">INS_HNTCH_OPTS</span></a> set to 3 - dynamic harmonics and double notch:</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter-solo.png"><img alt="../_images/fft-large-copter-solo.png" src="../_images/fft-large-copter-solo.png" style="width: 450px;" /></a>
+<p>You can see that the dynamic notch frequency is tracking the two highest noise peaks precisely, resulting in a significant reduction in noise.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-measuring-vibration.html" class="btn btn-neutral float-right" title="Measuring Vibration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-imu-notch-filtering.html" class="btn btn-neutral" title="Managing Gyro Noise with the Static Notch and Dynamic Harmonic Notch Filters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Managing Gyro Noise with In-Flight FFT&amp;body=[Managing Gyro Noise with In-Flight FFT](https://ardupilot.org/copter/docs/common-imu-fft.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

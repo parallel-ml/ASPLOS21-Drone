@@ -1,0 +1,621 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Glossary &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Appendix" href="common-appendix.html"/>
+        <link rel="next" title="History of ArduPilot" href="common-history-of-ardupilot.html"/>
+        <link rel="prev" title="DOWNLOADS: Firmware" href="common-downloads_firmware.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Archived - Recording and Playing Back Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Archived - Loading ChiBios Firmware Onto Pixhawk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-toc-planning.html">Mission Planner – Proposed Table Of Contents (TOC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+    <li>Glossary</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-glossary.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glossary">
+<span id="common-glossary"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The glossary is not indexed. It is in alphabetical order so just
+scroll down to find the topic of interest.</p>
+</div>
+<p><strong>2.4 Ghz</strong>: The frequency used by digital (spread spectrum) radio
+communications in our applications, including 2.4Ghz RC, Bluetooth and
+some video transmission equipment. This is a different band than the
+older 72 Mhz band that is used for analog RC communications. To avoid
+radio frequency conflict is it often a good idea to use 72 Mhz radio
+equipment when you are using 2.4 Ghz onboard video transmitters, or use
+900 Mhz video when using 2.4 Ghz RC equipment.</p>
+<p><strong>AGL</strong>: Altitude above ground level</p>
+<p><strong>AHRS</strong>: Altitude Heading Reference System. An IMU (see below) plus the
+code to interpret the output from its sensors to establish a plane’s XYZ
+and heading orientation.</p>
+<p><strong>APM</strong>: <a class="reference external" href="https://www.sparkfun.com/products/retired/9710">ArduPilotMega</a>.</p>
+<p><strong>AMA</strong>: Academy of Model Aeronautics. The main US model aircraft
+association. The AMA works closely with the Federal Aviation
+Administration (FAA) to establish<a class="reference external" href="https://www.modelaircraft.org/aboutama/gov.aspx">reasonable rules</a>for the use
+of amateur UAVs. Each AMA chapter and field may have slightly different
+policies, but it’s possible to fly and test air frames and some
+technology on AMA fields without violating the association’s (or
+FAA/NAS) rules.</p>
+<p><strong>Arduino</strong>: An open source embedded processor project. Includes a
+hardware standard currently based on the Atmel Atmega168 microprocessor
+and necessary supporting hardware, and a software programming
+environment based on the C-like Processing language. Official site
+is <a class="reference external" href="http://www.arduino.cc/en/">here</a>.</p>
+<p><strong>APM (AutoPilot Mega)</strong>: Autopilot providing capabilities for
+stabilized flight, position maintenance and automated mission (waypoint)
+path following.</p>
+<p><strong>ATC</strong>: This could be the Atitude Control libray in Copter with params starting with “ATC_” or it could mean Air Traffic Control. Usually located at an airport control tower but can also be an app or service such as <a class="reference external" href="http://www.airmap.com">AirMap</a> or <a class="reference external" href="http://www.altitudeangel.com">Altitude Angel</a>.</p>
+<p><strong>Copter</strong>: Rotary-wing autopilot software variant of the ArduPilot
+project.</p>
+<p><strong>Plane</strong>: Fixed-wing autopilot software variant of the ArduPilot
+project.</p>
+<p><strong>Rover</strong>: Ground and water autopilot software variant of the ArduPilot
+project.</p>
+<p><strong>BEC</strong>: Battery Elimination Circuit. A voltage regulator found in ESCs
+(see below) and as a stand-alone product. Designed to provide constant
+5v voltage for RC equipment, autopilots and other onboard electronics.</p>
+<p><strong>Bootloader</strong>: Special software code stored in non-volatile memory in a
+microprocessor that can interface with a PC to download a user’s
+program. Also see Firmware.</p>
+<p><strong>COA</strong>: Certificate of Authorization. A FAA approval for a UAV flight.
+See
+the <a class="reference external" href="http://www.faa.gov/about/office_org/headquarters_offices/ato/service_units/systemops/aaim/organizations/uas/coa/">faa.gov</a> web
+site for more details and the <a class="reference external" href="https://www.diydrones.com/profiles/blogs/regulatory-faq">DIY Drones Regulatory FAQ</a>.</p>
+<p><strong>DCM</strong>: Direction Cosine Matrix. A algorithm that is a less processing
+intensive equivalent of the Kalman Filter.
+See <a class="reference external" href="https://diydrones.com/forum/topics/robust-estimator-of-the">this</a> for
+more.</p>
+<p><strong>Eagle file</strong>: The schematic and PCB design files (and related files
+that tell PCB fabs how to create the boards) generated by the
+free <a class="reference external" href="http://www.cadsoftusa.com/">Cadsoft Eagle</a> program. This is
+the most common standard used in the open source hardware world,
+although, ironically, it’s not open source software itself. Needless to
+say, this is not optimal, and the Eagle software is clumsy and hard to
+learn. One hopes that an open source alternative will someday emerge.</p>
+<p><strong>ESC</strong>: Electronic Speed Control. Device to control the motor in an
+electric aircraft. Serves as the connection between the main battery and
+the RC receiver. Usually includes a BEC, or Battery Elimination Circuit,
+which provides power for the RC system and other onboard electronics,
+such as an autopilot.</p>
+<p><strong>Firmware</strong>: The software or sketch that is loaded into the
+non-volatile memory of microprocessor based products. It is called
+‘firmware’ because it stays in the non-volatile memory even if power is
+removed - thus ‘non’ - volatile. In the case of the autopilots, it is
+the ‘program’ or application (App to smart phone users) that determines
+what the auto pilot does, and how.</p>
+<p><strong>FPV</strong>: First-person view. A technique that uses an onboard video
+camera and wireless connection to the ground allow a pilot on the ground
+with video goggles to fly with a cockpit view.</p>
+<p><strong>FTDI</strong>: A standard to convert USB to serial communications. Available
+as a chip for boards that have a USB connector, or in
+a <a class="reference external" href="http://store.jdrones.com/cable_ftdi_6pin_5v_p/cblftdi5v6p.htm">cable</a> to
+connected to breakout pins. FTDI stands for Future Technology Devices
+International, which is the name of the company that makes the chips.</p>
+<p><strong>GCS</strong>: Ground Control Station. Software running on a computer on the
+ground that receives telemetry information from an airborne UAV and
+displays its progress and status, often including video and other sensor
+data. Can also be used to transmit in-flight commands to the UAV.</p>
+<p><strong>Hard Iron magnetic distortion</strong>: distortions that arise from magnets
+or magnetized metals on the airframe that affect the compass. These
+distortions remain in the same location relative to the compass for all
+heading orientations. These distortions can be mostly compensated for by
+adding constant offsets to the values returned from the 3d magnetometer
+(compass).</p>
+<p><strong>HIL (Hardware-in-the-loop simulation)</strong>: Doing a simulation where
+software running on another computer generates data that simulates the
+data that would be coming from an autopilot’s sensors. The autopilot is
+running and doesn’t “know” that the data is simulated, so it responds
+just as it would to real sensor data. Hardware-in-the-loop uses the
+physical autopilot hardware connected to a simulator, as opposed to
+simulating the autopilot in software, too. In an “open loop” simulation,
+the software simulator feeds data to the hardware autopilot; in a
+“closed loop” simulation, the hardware feeds data back to the software
+simulator, too.</p>
+<p><strong>I2C</strong>: A serial bus that allows multiple low speed peripherals, such
+as sensors, to be connected to a microprocessor.
+See <a class="reference external" href="https://en.wikipedia.org/wiki/I%C2%B2C">this</a> for more.</p>
+<p><strong>IDE</strong>: An integrated development environment, such as
+the <a class="reference external" href="https://www.arduino.cc/en/Main/Software">Arduino</a> editor/downloader/serial
+monitor software. Often includes a debugger.</p>
+<p><strong>IMU</strong>: An inertial measurement unit such as the ArduPilot
+OilPan. Usually has at least three accelerometers (measuring the gravity
+vector in the x,y and z dimensions) and two gyros (measuring rotation
+around the tilt and pitch axis). Neither are sufficient by themselves,
+since accelerometers are thrown off by movement (ie, they are “noisy”
+over short periods of time), while gyros drift over time. The data from
+both types of sensors must be combined in software to determine true
+aircraft attitude and movement to create an AHRS (see above). One
+technique for doing this is the Kalman filter (see below). Now
+superseded by Autopilots which include CPU and sensors in one
+unit.</p>
+<p><strong>Inner loop/Outer loop</strong>: Usually used to refer to the stabilization
+and navigation functions of an autopilot. The stabilization function
+must run in real-time and as often as 100 times a second (“inner loop”),
+while the navigation function can run as infrequently as once per second
+and can tolerate delays and interruptions (“outer loop”).</p>
+<p><strong>INS</strong>: Inertial Navigation System. A way to calculate position based
+on an initial GPS reading followed by readings from motion and speed
+sensors using dead reckoning. Useful when GPS is not available or has
+temporarily lost its signal.</p>
+<p><strong>ICSP: In Circuit Serial Programmer</strong>. A way to load code to a
+microprocessor. Usually seen as a six-pin (two rows of three) connector
+on a PCB. To use this, you need a programmer, such as this one, that
+uses the SPI (Serial Peripheral Interface) standard.</p>
+<p><strong>Kalman Filter</strong>: A relatively complicated algorithm that, in our
+applications, is primarily used to combine accelerometer and gyro data
+to provide an accurate description of aircraft attitude and movement in
+real time.
+See <a class="reference external" href="http://tom.pycke.be/mav/71/kalman-filtering-of-imu-data">this</a> for
+more.</p>
+<p><strong>LOS</strong>: Line of Sight. See VLOS below.</p>
+<p><strong>LiPo</strong>: Lithium Polymer battery, aka LiPoly. Varients include Lithium
+Ion (Li-Ion) battery. This battery chemistry offers more power and
+lighter weight than NiMh and NiCad batteries.</p>
+<p><strong>MAVLink</strong>. The Micro Air Vehicle communications protocol used by the
+Copter and Plane line of autopilots.
+See <a class="reference external" href="http://qgroundcontrol.org/mavlink/start">here</a> for more info
+on MAVLink.</p>
+<p><strong>MAV</strong>: Micro Air Vehicle. A small UAV.
+More <a class="reference external" href="https://en.wikipedia.org/wiki/Micro_air_vehicle">here</a>.</p>
+<p><strong>NMEA</strong>: National Marine Electronics Association standard for GPS
+information. When we refer to “NMEA sentences”, we’re talking about
+ASCII strings from a GPS module that look like this:
+$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,<strong>47</strong></p>
+<p><strong>Oilpan</strong>: An arduino style shield meant to be paired with the
+ArduPilotMega. Contained the majority of the sensors (gyos,
+accelerometers, barometer, etc) that allow the ArduPilotMega to function
+as an autopilot, now superseded by subsequent Autopilots that
+incorporate CPU and sensors in one board.</p>
+<p><strong>OSD</strong>: On-screen display. A way to integrate data (often telemetry
+information) into the real-time video stream the aircraft is sending to
+the ground.</p>
+<p><strong>PCB</strong>: Printed circuit board. In our use, a specialized board designed
+and “fabbed” for a dedicated purpose, as opposed to a breadboard or
+prototype board, which can be used and resused for many projects.</p>
+<p><strong>PCM</strong>: Pulse Code Modulation: The technique some modern RC
+transmitters/receivers communicate the RC channels information. It is
+transmitted digitally using a digital code to represent the channel
+number, position of the transmitter stick or switch, and sometimes other
+information. Some modern RC systems also provide digital signals to
+control digital servos - typically specific to each manufacturer.</p>
+<p><strong>PDB</strong>: Power Distribution Board. A board used in multicopters to
+distribute power to multiple ESCs.</p>
+<p><strong>PIC</strong>: Pilot in Command. Refers to a FAA requirement that UAVs stay
+under a pilot’s direct control if they are flying under the recreational
+exemption to COA approval. See Line of Sight above. (Not to be confused
+with the PIC processor series by Microchip)</p>
+<p><strong>PID</strong>: Proportional/Integral/Derivative control method. A machine
+control algorithm that allows for more accurate sensor-motion control
+loops and less overcontrol.
+See <a class="reference external" href="https://en.wikipedia.org/wiki/PID_controller">this</a> for more.</p>
+<p><strong>POI</strong>: Point of Interest. Designates a spot that a UAV should keep a camera pointed towards.</p>
+<p><strong>PPM</strong>: <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-position_modulation">Pulse Position Modulation</a>.
+The square-wave pulse train used to transmit multiple channels of
+information between some RC transmitters and receivers. Some RC
+receivers provide a PPM output (sometimes referred to as the PPM Sum)
+which can be used on Pixhawk-series boards. Other receivers convert the PPM
+signal and only provide PWM signals for each channel.</p>
+<p><strong>PWM</strong>: Pulse Width Modulation. The square-wave signals used in RC
+control to drive servos and speed controllers. There is one PWM signal
+for each channel. The width varies from 1000 to 2000 microseconds, depending on the RC manufacturer.</p>
+<p><strong>PX4FMU/PX4IO</strong>: First version of Pixhawk-series autopilots (FMUv1). Discontinued.</p>
+<p><strong>RTL</strong>: Return to Launch. Fly back to the “home” location where the aircraft took off.</p>
+<p><strong>SiRF III</strong>: The standard used by most modern GPS modules. Includes
+!SiRF III binary mode, which is an alternative to the ASCII-based NMEA
+standard described above.</p>
+<p><strong>Sketch</strong>: The program files, drivers and other code generated by the
+Arduinio IDE for a single project.</p>
+<p><strong>SVN</strong>: Short for the Subversion version-control repository used by the
+DIY Drones and other teams for source code.</p>
+<p><strong>Telemetry System</strong>: A two way radio system to allow flight data to be
+sent from your aircraft and also to allow control or adjustment
+information to be sent back to it from a “ground station”, commonly a
+laptop computer. See the <a class="reference external" href="https://ardupilot.org/rover/docs/common-telemetry-landingpage.html#common-telemetry-landingpage" title="(in Rover)"><span class="xref std std-ref">telemetry landing page</span></a> for options.</p>
+<p><strong>Thermopile</strong>: An infrared detector. Often used in pairs in UAVs to
+measure tilt and pitch by looking at differences in the infrared
+signature of the horizon fore and aft and on both sides. This is based
+on the fact that there is always an infrared gradient between earth and
+sky, and that you can keep a plane flying level by ensuring that the
+readings are the same from both sensors in each pair, each looking in
+opposite directions. These have been largely displaced by electronic
+gyros and are no longer in common use.</p>
+<p><strong>UAV</strong>: Unmanned Aerial Vehicle. In the military, these are
+increasingly called Unmanned Aerial Systems (UAS), to reflect that the
+aircraft is just part of a complex system in the air and on the ground.
+Ground-based autonomous robots are called Unmanned Ground Vehicles
+(UGVs) and robot submersibles are called Autonomous Underwater Vehicles
+(AUVs). Robot boats are called Unmanned Surface Vehicles (USVs).</p>
+<p><strong>VLOS</strong>: Visual Line of Sight. The pilot’s ability to see an aircraft
+from the ground well enough to control it, without the use of artificial
+visual aids (aside from glasses). Required by FAA regs.</p>
+<p><strong>WAAS</strong>: Wide Area Augmentation System. A system of satellites and
+ground stations that provide GPS signal corrections, giving up to five
+times better position accuracy than uncorrected GPS.
+See <a class="reference external" href="https://en.wikipedia.org/wiki/Wide_Area_Augmentation_System">this</a> for
+more.</p>
+<p><strong>Xbee</strong>: The commercial name of the recommend ZigBee-compatible radio
+modems commonly used by amateur UAVs. They can be found at
+<a class="reference external" href="https://www.sparkfun.com/products/10421">sparkfun</a> although
+remember you also need a board to mount it on like this one
+from <a class="reference external" href="https://www.sparkfun.com/products/11812">sparkfun</a>.</p>
+<p><strong>ZigBee</strong>: A wireless communications standard, which has longer range
+than Bluetooth but lower power consumption than WiFi.</p>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-history-of-ardupilot.html" class="btn btn-neutral float-right" title="History of ArduPilot" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-downloads_firmware.html" class="btn btn-neutral" title="DOWNLOADS: Firmware" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Glossary&amp;body=[Glossary](https://ardupilot.org/planner/docs/common-glossary.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

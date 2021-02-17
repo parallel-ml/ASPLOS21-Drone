@@ -1,0 +1,813 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Python Scripts in Mission Planner &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Other Mission Planner Features" href="other-mission-planner-features.html"/>
+        <link rel="next" title="Swarming" href="swarming.html"/>
+        <link rel="prev" title="MAVLink2 Signing" href="common-MAVLink2-signing.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-ground-control-station.html">Flight DATA Screen Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-flight-plan.html">Flight PLAN Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-initial-setup.html">SETUP Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-configuration-and-tuning.html">CONFIGuration and Tuning Screens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-simulation.html">SIMULATION Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="other-mission-planner-features.html">Advanced Mission Planner Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-MAVLink2-signing.html">MAVLink2 Signing (security)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Python Scripts in Mission Planner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes-exposed-by-mission-planner-to-python">Classes Exposed by Mission Planner to Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-cpython-standard-libraries">Using CPython Standard Libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tutorials-and-sample-scripts">Tutorials and sample scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="swarming.html">Swarming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mp-tools.html">Advanced Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-language-translations.html">Language Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Flight Mode Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="mission-planner-features.html">Mission Planner Features/Screens</a> &raquo;</li>
+      
+          <li><a href="other-mission-planner-features.html">Other Mission Planner Features</a> &raquo;</li>
+      
+    <li>Using Python Scripts in Mission Planner</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/using-python-scripts-in-mission-planner.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-python-scripts-in-mission-planner">
+<span id="id1"></span><h1>Using Python Scripts in Mission Planner<a class="headerlink" href="#using-python-scripts-in-mission-planner" title="Permalink to this headline">¶</a></h1>
+<p>One of the cool features of the Mission Planner is that it can run
+Python scripts, which is an easy way to extend the functionality of the
+program beyond its built-in functions. It can also enable integration
+easily with other dlls and modules far beyond the original scope of the
+Mission Planner.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>You can easily program your UAV to do anything, from robotic acrobatics
+to just script-driven missions. Python 2.x is currently supported, up to
+2.7 (Mission Planner uses an implementation of
+<a class="reference external" href="http://ironpython.codeplex.com/">IronPython</a> internally)</p>
+<p>Aside from the regular Python commands, these are the special Mission
+Planner commands you can use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span><span class="o">.</span><span class="n">VARIABLENAME</span> <span class="o">=</span> <span class="n">currentstate</span>
+</pre></div>
+</div>
+<p>Any variable on the status tab in the planner can be used.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Script</span><span class="o">.</span><span class="n">METHODNAME</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>options are</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Script.Sleep(ms)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Script.ChangeParam(name,value)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Script.GetParam(name)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Script.ChangeMode(mode)</span></code> (same as displayed in mode setup screen
+‘AUTO’)</li>
+<li>&gt;<code class="docutils literal notranslate"><span class="pre">Script.WaitFor(string,timeout)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Script.SendRC(channel,pwm,sendnow)</span></code></li>
+</ul>
+<p>Here’s an example, which tells a multicopter to do a roll in the air!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Start Script&#39;</span>
+<span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Script</span><span class="o">.</span><span class="n">GetParam</span><span class="p">(</span><span class="s1">&#39;RC3_MIN&#39;</span><span class="p">),</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">cs</span><span class="o">.</span><span class="n">lat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Waiting for GPS&#39;</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s1">&#39;Got GPS&#39;</span>
+<span class="n">jo</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">13</span>
+<span class="k">print</span> <span class="n">jo</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">Clear</span><span class="p">()</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">WaitFor</span><span class="p">(</span><span class="s1">&#39;ARMING MOTORS&#39;</span><span class="p">,</span><span class="mi">30000</span><span class="p">)</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Motors Armed!&#39;</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">cs</span><span class="o">.</span><span class="n">alt</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># acro</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span> <span class="c1"># roll</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1370</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># throttle</span>
+
+<span class="k">while</span> <span class="n">cs</span><span class="o">.</span><span class="n">roll</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">45</span><span class="p">:</span> <span class="c1"># top half 0 - 180</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">cs</span><span class="o">.</span><span class="n">roll</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">45</span><span class="p">:</span> <span class="c1"># -180 - -45</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span> <span class="c1"># stabilize</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># level roll</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="c1"># 2 sec to stabilize</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1300</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># throttle back to land</span>
+<span class="n">thro</span> <span class="o">=</span> <span class="mi">1350</span> <span class="c1"># will descend</span>
+
+<span class="k">while</span> <span class="n">cs</span><span class="o">.</span><span class="n">alt</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+    <span class="n">Script</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">WaitFor</span><span class="p">(</span><span class="s1">&#39;DISARMING MOTORS&#39;</span><span class="p">,</span><span class="mi">30000</span><span class="p">)</span>
+<span class="n">Script</span><span class="o">.</span><span class="n">SendRC</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s1">&#39;Roll complete&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="classes-exposed-by-mission-planner-to-python">
+<h2>Classes Exposed by Mission Planner to Python<a class="headerlink" href="#classes-exposed-by-mission-planner-to-python" title="Permalink to this headline">¶</a></h2>
+<p>Mission Planner exposes classes using the following code:</p>
+<div class="figure" id="id2">
+<a class="reference external image-reference" href="../_images/mission_planner_scripts.jpg"><img alt="../_images/mission_planner_scripts.jpg" src="../_images/mission_planner_scripts.jpg" /></a>
+<p class="caption"><span class="caption-text">Linking classes into python</span></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scope</span><span class="o">.</span><span class="n">SetVariable</span><span class="p">(</span><span class="n">Variablename</span><span class="p">,</span> <span class="n">ClassInstance</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>That the following classes are exposed:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">scope.SetVariable(&quot;MAV&quot;,</span> <span class="pre">MainV2.comPort);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">scope.SetVariable(&quot;cs&quot;,</span> <span class="pre">MainV2.comPort.MAV.cs);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">scope.SetVariable(&quot;Script&quot;,</span> <span class="pre">this);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">scope.SetVariable(&quot;mavutil&quot;,</span> <span class="pre">this);</span></code></li>
+</ul>
+<p>This is where you can add your own classes. For now lets us explore the
+important methods and properties you can use into your script using
+these classes.</p>
+<p><strong>Class Name:</strong> Script.cs</p>
+<p><strong>Python Variable:</strong> Script , mavutil</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Method</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>bool ChangeParam (string param,
+float value)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Float GetParam (string param)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>bool ChangeMode (string mode)</td>
+<td>Changes flying mode</td>
+</tr>
+<tr class="row-odd"><td>bool SendRC (int channel, ushort
+pwm, bool sendnow)</td>
+<td>Send Chxout values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Class Name:</strong> CurrentState.cs</p>
+<p><strong>Python Variable:</strong> cs</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Method</td>
+<td>Type</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>roll</td>
+<td>float</td>
+<td>Roll (deg)</td>
+</tr>
+<tr class="row-odd"><td>pitch</td>
+<td>float</td>
+<td>Pitch (deg)</td>
+</tr>
+<tr class="row-even"><td>yaw</td>
+<td>float</td>
+<td>Yaw (deg)</td>
+</tr>
+<tr class="row-odd"><td>lat</td>
+<td>float</td>
+<td>Latitude (deg)</td>
+</tr>
+<tr class="row-even"><td>lng</td>
+<td>float</td>
+<td>Longitude (deg)</td>
+</tr>
+<tr class="row-odd"><td>groundcourse</td>
+<td>float</td>
+<td>Ground Course (deg)</td>
+</tr>
+<tr class="row-even"><td>alt</td>
+<td>float</td>
+<td>Altitude (dist)</td>
+</tr>
+<tr class="row-odd"><td>altoffsethome</td>
+<td>float</td>
+<td>Altitude Home Offset
+(dist)</td>
+</tr>
+<tr class="row-even"><td>gpsstatus</td>
+<td>float</td>
+<td>GPS Status</td>
+</tr>
+<tr class="row-odd"><td>gpshdop</td>
+<td>float</td>
+<td>GPS HDOP</td>
+</tr>
+<tr class="row-even"><td>satcount</td>
+<td>float</td>
+<td>Satellite Count</td>
+</tr>
+<tr class="row-odd"><td>altd100</td>
+<td>float</td>
+<td>Altitude / 100</td>
+</tr>
+<tr class="row-even"><td>altd1000</td>
+<td>float</td>
+<td>Altitude / 1000</td>
+</tr>
+<tr class="row-odd"><td>airspeed</td>
+<td>float</td>
+<td>Airspeed (speed)</td>
+</tr>
+<tr class="row-even"><td>targetairspeed</td>
+<td>float</td>
+<td>Airspeed Target (speed)</td>
+</tr>
+<tr class="row-odd"><td>groundspeed</td>
+<td>float</td>
+<td>Ground Speed (speed)</td>
+</tr>
+<tr class="row-even"><td>verticalspeed</td>
+<td>float</td>
+<td>Vertical Speed (speed)</td>
+</tr>
+<tr class="row-odd"><td>wind_dir</td>
+<td>float</td>
+<td>Wind Direction (deg)</td>
+</tr>
+<tr class="row-even"><td>wind_vel</td>
+<td>float</td>
+<td>Wind Velocity (speed)</td>
+</tr>
+<tr class="row-odd"><td>ax, ay, az</td>
+<td>float</td>
+<td>Acceleration Values in
+x,y,z</td>
+</tr>
+<tr class="row-even"><td>gx, gy, gz</td>
+<td>float</td>
+<td>Gyro Values in x,y,z</td>
+</tr>
+<tr class="row-odd"><td>mx, my, mz</td>
+<td>float</td>
+<td>Mag Values in x,y,z</td>
+</tr>
+<tr class="row-even"><td>failsafe</td>
+<td>bool</td>
+<td>Fail Safe Active or
+Not</td>
+</tr>
+<tr class="row-odd"><td>rxrssi</td>
+<td>float</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>chx1in, chx2in, ….
+chx8in</td>
+<td>float</td>
+<td>Input Channels from 1
+to 8</td>
+</tr>
+<tr class="row-odd"><td>ch1out, chx2out, ….
+chx8out</td>
+<td>float</td>
+<td>Output Channel form 1
+to 8</td>
+</tr>
+<tr class="row-even"><td>nav_roll</td>
+<td>float</td>
+<td>Roll Target (deg)</td>
+</tr>
+<tr class="row-odd"><td>nav_pitch</td>
+<td>float</td>
+<td>Pitch Target (deg)</td>
+</tr>
+<tr class="row-even"><td>nav_bearing</td>
+<td>float</td>
+<td>Bearing target (deg)</td>
+</tr>
+<tr class="row-odd"><td>target_bearing</td>
+<td>float</td>
+<td>Bearing Target (deg)</td>
+</tr>
+<tr class="row-even"><td>wp_dist</td>
+<td>float</td>
+<td>Distance to Next
+Waypoint (dist)</td>
+</tr>
+<tr class="row-odd"><td>alt_error</td>
+<td>float</td>
+<td>Altitude Error (dist)</td>
+</tr>
+<tr class="row-even"><td>ber_error</td>
+<td>float</td>
+<td>Bearing Error (dist)</td>
+</tr>
+<tr class="row-odd"><td>aspd_error</td>
+<td>float</td>
+<td>Airspeed Error (speed)</td>
+</tr>
+<tr class="row-even"><td>wpno</td>
+<td>float</td>
+<td>Flying Mode</td>
+</tr>
+<tr class="row-odd"><td>mode</td>
+<td>String</td>
+<td>Flying Mode</td>
+</tr>
+<tr class="row-even"><td>dimbrate</td>
+<td>float</td>
+<td>Climb Rate (speed)</td>
+</tr>
+<tr class="row-odd"><td>tot</td>
+<td>int</td>
+<td>Time over target (sec)</td>
+</tr>
+<tr class="row-even"><td>distTraveled</td>
+<td>float</td>
+<td>Distance Traveled
+(dist)</td>
+</tr>
+<tr class="row-odd"><td>timeInAir</td>
+<td>float</td>
+<td>Time in Air (sec)</td>
+</tr>
+<tr class="row-even"><td>turnrate</td>
+<td>float</td>
+<td>Turn Rate (speed)</td>
+</tr>
+<tr class="row-odd"><td>radius</td>
+<td>float</td>
+<td>Turn Radius (dist)</td>
+</tr>
+<tr class="row-even"><td>battery_voltage</td>
+<td>float</td>
+<td>Battery Voltage (volt)</td>
+</tr>
+<tr class="row-odd"><td>battery_remaining</td>
+<td>float</td>
+<td>Battery Remaining (%)</td>
+</tr>
+<tr class="row-even"><td>current</td>
+<td>float</td>
+<td>battery Current (Amps)</td>
+</tr>
+<tr class="row-odd"><td>HomeAlt</td>
+<td>float</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>DistToHome</td>
+<td>float</td>
+<td>Absolute Pressure Value</td>
+</tr>
+<tr class="row-odd"><td>press_abs</td>
+<td>float</td>
+<td>Absolute Pressure Value</td>
+</tr>
+<tr class="row-even"><td>sonarrange</td>
+<td>float</td>
+<td>Sonar Range (meters)</td>
+</tr>
+<tr class="row-odd"><td>sonarVoltage</td>
+<td>float</td>
+<td>Sonar Voltage (volt)</td>
+</tr>
+<tr class="row-even"><td>armed</td>
+<td>bool</td>
+<td>True if Armed</td>
+</tr>
+</tbody>
+</table>
+<p>Please note that although these properties are read/write howvever
+writing to some of them can corrupt the status. Use methods from Script
+class to control the vehicle. for example use Script.ChangeMode(xmode)
+rather than cs.mode = xmode.</p>
+<p><strong>Class Name:</strong> MavLink.cs</p>
+<p><strong>Python Variable:</strong> MAV</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="60%" />
+<col width="40%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Method</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>bool setParam (string paramname, float value)</td>
+<td>Same as Script.ChangeParam()</td>
+</tr>
+<tr class="row-odd"><td>bool doARM (bool armit)</td>
+<td>BE CAREFUL when using it.</td>
+</tr>
+<tr class="row-even"><td>byte getWPCount ( )</td>
+<td>Gets Waypoints Count.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="using-cpython-standard-libraries">
+<h2>Using CPython Standard Libraries<a class="headerlink" href="#using-cpython-standard-libraries" title="Permalink to this headline">¶</a></h2>
+<p>You can import standard libraries from your regular Python 2.x folders
+by adding this line to top of your script (replacing “c:\python27\lib”
+with whatever the folder is on your drive):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;c:\python27\lib&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, for example, we’re importing the serial, os, and threading
+libraries, which are in two folders in a typical Python 2.7
+installation. Appending the specific folder paths for those three
+libraries first allows us to import them with the next “import” command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;c:\Python27\Lib\site-packages&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;c:\Python27\Lib&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">serial</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">threading</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tutorials-and-sample-scripts">
+<h2>Tutorials and sample scripts<a class="headerlink" href="#tutorials-and-sample-scripts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/scripted-fixed-wing-acrobatics">Scripting fixed-wing acrobatics</a></li>
+<li><a class="reference external" href="https://diydrones.com/profiles/blogs/python-scripting-in-mission-planner">Adding new variables and classes</a></li>
+<li><a class="reference external" href="https://diydrones.com/forum/topics/how-to-python-script-a-time-based-flight-plan">Writing a time-based script</a></li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="swarming.html" class="btn btn-neutral float-right" title="Swarming" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-MAVLink2-signing.html" class="btn btn-neutral" title="MAVLink2 Signing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Using Python Scripts in Mission Planner&amp;body=[Using Python Scripts in Mission Planner](https://ardupilot.org/planner/docs/using-python-scripts-in-mission-planner.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

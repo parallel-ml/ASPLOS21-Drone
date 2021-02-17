@@ -1,0 +1,14 @@
+﻿Part,Multiplier,Unit Weight / g,Total Weight / g
+Frame,1,272,272
+Battery,1,248,248
+Motors,4,55,220
+ESC,4,28,112
+Rpi,1,50,50
+Propellers,4,10,40
+GPS ,1,30,30
+Navio2,1,23,23
+Misc,1,20,20
+RC Receiver,1,16.8,16.8
+Telemetry,1,15,15
+Power Module,1,15,15
+PPM Encoder,1,9,9

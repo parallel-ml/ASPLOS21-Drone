@@ -1,0 +1,527 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Training Centers &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Appendix" href="common-appendix.html"/>
+        <link rel="next" title="Wiki Editing Guide" href="common-wiki_editing_guide.html"/>
+        <link rel="prev" title="Top Contributors" href="common-team.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="#">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Training Centers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#australia">Australia</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#victorian-uas-training">Victorian UAS Training</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#japan">Japan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#drone-japan">Drone Japan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#france">France</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#drones-center-france">Drones Center France</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usa">USA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#letourneau-university-letu">LeTourneau University (LETU)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#south-korea">South Korea</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#d-makers">D-Makers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#books">Books</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+    <li>Training Centers</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-training-centers.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="training-centers">
+<span id="common-training-centers"></span><h1>Training Centers<a class="headerlink" href="#training-centers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="australia">
+<h2>Australia<a class="headerlink" href="#australia" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="victorian-uas-training">
+<h3>Victorian UAS Training<a class="headerlink" href="#victorian-uas-training" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="https://www.victorianuastraining.com.au/"><img alt="../_images/logo_victorian_uas_training.jpg" src="../_images/logo_victorian_uas_training.jpg" /></a>
+<p>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Location:</strong> Ballarat, Victoria</li>
+<li><strong>Language:</strong> English</li>
+<li><strong>Description:</strong> Government-Approved training center that can train you on flying with ArduPilot.  This center provides training for commercial use in compliance with government regulations. Full CASA/3DR certified Training, AOC for commercial use of Fixed wing and Rotary wing.</li>
+<li><strong>Contact:</strong> <a class="reference external" href="https://www.victorianuastraining.com.au/">www.victorianuastraining.com.au</a> or email: <a class="reference external" href="mailto:info&#37;&#52;&#48;victorianuastraining&#46;com&#46;au">info<span>&#64;</span>victorianuastraining<span>&#46;</span>com<span>&#46;</span>au</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="japan">
+<h2>Japan<a class="headerlink" href="#japan" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="drone-japan">
+<h3><a class="reference external" href="https://www.drone-j.com/">Drone Japan</a><a class="headerlink" href="#drone-japan" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Location:</strong> Tokyo, Japan</li>
+<li><strong>Languages:</strong> Japanese, English</li>
+<li><strong>Description:</strong> ArduPilot operation and software development training including writing new flight modes, attitude control and sensor drivers.</li>
+<li><strong>Schedule:</strong> One or two days training per month for four months.  Custom training including intensive courses available on request.</li>
+<li><strong>Contact:</strong> <a class="reference external" href="https://www.drone-j.com/">drone-j.com</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="france">
+<h2>France<a class="headerlink" href="#france" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="drones-center-france">
+<h3><a class="reference external" href="https://www.drones-center.com/">Drones Center France</a><a class="headerlink" href="#drones-center-france" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Location:</strong> 30min from Paris, France</li>
+<li><strong>Languages:</strong> French, English</li>
+<li><strong>Description:</strong> Operational training for all types of aircraft from experienced pilots.</li>
+<li><strong>Schedule:</strong> One-on-one or group training to fit your schedule.</li>
+<li><strong>Contact:</strong> <a class="reference external" href="http://www.drones-center.com/">Drones-Center.com</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="usa">
+<h2>USA<a class="headerlink" href="#usa" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="letourneau-university-letu">
+<h3><a class="reference external" href="https://www.letu.edu/">LeTourneau University (LETU)</a><a class="headerlink" href="#letourneau-university-letu" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Location:</strong> Longview, TX, USA</li>
+<li><strong>Language:</strong> English</li>
+<li><dl class="first docutils">
+<dt><strong>Description:</strong> four courses:</dt>
+<dd><ul class="first last">
+<li>Intro to RPAS (history, applications, and regulations leading to the FAA part 107 certificate), Lab: build and fly RC airplane, program and drive APM:Rover</li>
+<li>RPAS Operations (system architecture, control theory, and operational considerations), Lab: flight training with APM:Copter and APM:Plane</li>
+<li>Flight Control Systems (systems engineering: discussion of robotic flight control and payload integration, MavLink UDP), Lab: ArduPilot test and integration into new airframes; advanced payload integration</li>
+<li>Operations in the National Airspace System (real-world application of prior courses; data management/processing/analysis, geotagging, etc), Lab: use of ArduPilot vehicles used in prior courses to pursue data collection projects that benefit the community</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>Courses</strong> <a class="reference external" href="https://catalog.letu.edu/preview_program.php?catoid=13&amp;poid=4687&amp;returnto=1119">here</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="south-korea">
+<h2>South Korea<a class="headerlink" href="#south-korea" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d-makers">
+<h3><a class="reference external" href="https://www.dmakers.co.kr">D-Makers</a><a class="headerlink" href="#d-makers" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Location:</strong> Sangju-si or Incheon, South Korea</li>
+<li><strong>Languages:</strong> Korean, English</li>
+<li><strong>Description:</strong> Supplies education programs about making and operating drones using ArduPilot and Pixhawk.</li>
+<li><strong>Schedule:</strong> One-on-one or group training to fit your schedule.</li>
+<li><strong>Contact:</strong> <a class="reference external" href="https://www.dmakers.co.kr">dmakers.co.kr</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="books">
+<h2>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.amazon.in/Designing-Purpose-Built-Drones-ArduPilot-Pixhawk/dp/1786469162">Designing Purpose-Built Drones for ArduPilot Pixhawk 2.1: Build drones with ArduPilot</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your school would like to be added to this list, please send an email to <a class="reference external" href="mailto:partners&#37;&#52;&#48;ardupilot&#46;org">partners<span>&#64;</span>ardupilot<span>&#46;</span>org</a>.  Please send your company information including a logo to and express your desire to be added to the Training centers page.  Please include any evidence you can provide of the types of training provided.We ask that you consider supporting ArduPilot by becoming a <a class="reference external" href="https://ardupilot.org/about/Partners">Partner</a></p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-wiki_editing_guide.html" class="btn btn-neutral float-right" title="Wiki Editing Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-team.html" class="btn btn-neutral" title="Top Contributors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Training Centers&amp;body=[Training Centers](https://ardupilot.org/copter/docs/common-training-centers.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

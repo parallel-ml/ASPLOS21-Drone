@@ -1,0 +1,490 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DOWNLOADS: Firmware &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Appendix" href="common-appendix.html"/>
+        <link rel="next" title="Glossary" href="common-glossary.html"/>
+        <link rel="prev" title="Donating to ArduPilot project" href="common-donation.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="#">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Firmware (downloads)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#firmware">Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arducopter-apm-2-x-firmware">ArduCopter APM 2.x Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arducopter-apm-1-0-firmware">ArduCopter APM 1.0 Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bootloader">Bootloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apm2-x-autopilot">APM2.x Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Archived - Recording and Playing Back Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Archived - Loading ChiBios Firmware Onto Pixhawk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mission-planner-toc-planning.html">Mission Planner – Proposed Table Of Contents (TOC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+    <li>DOWNLOADS: Firmware</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-downloads_firmware.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="downloads-firmware">
+<span id="common-downloads-firmware"></span><h1>DOWNLOADS: Firmware<a class="headerlink" href="#downloads-firmware" title="Permalink to this headline">¶</a></h1>
+<p>The latest firmware for all of the vehicles is available from the <a class="reference external" href="https://firmware.ardupilot.org/">firmware server</a>.
+This includes:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://firmware.ardupilot.org/Copter">Copter</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/Plane">Plane</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/Rover">Rover</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/AntennaTracker">AntennaTracker</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/Sub">Sub</a></li>
+</ul>
+<p>This page provides additional links to a number of specific builds that are considered “significant” - for example, the last builds of
+Copter to fit on the APM2.x board.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The firmware server additionally hosts GCS installers and other tools:</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner">Mission Planner</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/Tools/APMPlanner">APM Planner 2.0</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/SiK">RadioSiK</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/devbuild">Developer Builds</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/Tools">Build and Development Tools</a></li>
+<li><a class="reference external" href="https://github.com/ArduPilot/companion">Companion Computers and associated example code</a></li>
+<li><a class="reference external" href="https://firmware.ardupilot.org/AP_Periph">AP Peripherals</a></li>
+</ul>
+</div>
+<div class="section" id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this headline">¶</a></h2>
+<p>The following firmware is “special” in that it represents some significant milestone - e.g. “the last version of a build for a particular autopilot”.</p>
+<div class="section" id="arducopter-apm-2-x-firmware">
+<h3>ArduCopter APM 2.x Firmware<a class="headerlink" href="#arducopter-apm-2-x-firmware" title="Permalink to this headline">¶</a></h3>
+<p>ArduCopter v3.2.1 firmware for APM 2.x. This is the <strong>last build</strong> of ArduCopter that still fits on the <strong>APM 2.x</strong> boards.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/firmware/ArduCopter_APM_2.0_Firmware_3.2.1.zip">ArduCopter_APM_2.0_Firmware_3.2.1.zip</a></li>
+</ul>
+</div>
+<div class="section" id="arducopter-apm-1-0-firmware">
+<h3>ArduCopter APM 1.0 Firmware<a class="headerlink" href="#arducopter-apm-1-0-firmware" title="Permalink to this headline">¶</a></h3>
+<p>ArduCopter v3.2.1 firmware for APM 1.0. This is the last build of ArduCopter that still fits on the <strong>APM 1.0</strong> boards.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/firmware/ArduCopter_APM_1.0_Firmware_3.2.1.zip">ArduCopter_APM_1.0_Firmware_3.2.1.zip</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bootloader">
+<h2>Bootloader<a class="headerlink" href="#bootloader" title="Permalink to this headline">¶</a></h2>
+<p>Bootloaders for various electronics created by ArduPilot Group</p>
+</div>
+<div class="section" id="apm2-x-autopilot">
+<h2>APM2.x Autopilot<a class="headerlink" href="#apm2-x-autopilot" title="Permalink to this headline">¶</a></h2>
+<p>Bootloader for APM2.x autopilot series</p>
+<ul class="simple">
+<li>Bootloader for: <a class="reference external" href="https://firmware.ardupilot.org/downloads/bootloader/Arduino-usbdfu.hex">32u2 MCU</a></li>
+<li>Bootloader for: <a class="reference external" href="https://firmware.ardupilot.org/downloads/bootloader/stk500boot_v2_mega2560.hex">2560 MCU</a></li>
+</ul>
+<p>You need AVR programmer with ISP connector to burn these boot loaders.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the <a class="reference external" href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a> for more details.</p>
+</div>
+<div class="section" id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Permalink to this headline">¶</a></h2>
+<p>Operating a powered vehicle of any kind can be a lot of fun.
+However, nothing will ruin your day at the park more quickly than an accident or running afoul of the law.
+Since we want you to have a great experience, please make sure that you do all of the following:</p>
+<ul class="simple">
+<li>Operate within all local laws and regulations.
+For example, in the United States, current regulations require you to operate most UAVs under 400
+foot above ground level, within line of site, and away from obstructions and populated areas.
+Since these regulations vary from place to place, even within the same country, ensure that
+you understand what you need to do to stay compliant.</li>
+<li>Never operate the vehicle or software in a way that could be dangerous to you, other people, or property.
+Propellers, while rotating, could easily cut you; if a UAV fell on a person or object,
+it could cause injury; a UAV caught in power lines could cause an outage.
+As Ben Franklin said, “An ounce of prevention is worth a pound of cure.”</li>
+<li>Always keep in mind that software and hardware failures happen.
+Although we design our products to minimize such issues, you should always operate with the understanding that
+a failure could occur at any point of time and without warning.
+As such, you should take the appropriate precautions to minimize danger in case of failure.</li>
+<li>Never use the software or hardware for manned vehicles.
+The software and hardware we provide is only for use in unmanned vehicles.</li>
+</ul>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-donation.html" class="btn btn-neutral" title="Donating to ArduPilot project" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=DOWNLOADS: Firmware&amp;body=[DOWNLOADS: Firmware](https://ardupilot.org/planner/docs/common-downloads_firmware.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

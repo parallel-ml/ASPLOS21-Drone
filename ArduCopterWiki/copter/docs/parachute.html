@@ -1,0 +1,530 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parachute &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Failsafe" href="failsafe-landing-page.html"/>
+        <link rel="next" title="Independent Watchdog" href="common-watchdog.html"/>
+        <link rel="prev" title="Crash Check" href="crash_check.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">First Time Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">Install Ground Station Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">Autopilot System Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware to boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware to boards without existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">Configuration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">Basic System Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">Frame Type Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">Motor Numbering and Direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">Radio Control Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">Accelerometer Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">Compass Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">RC Transmitter Mode Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">ESC Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">Configure Motor Range (optional)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="failsafe-landing-page.html">Failsafe Mechanisms</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="radio-failsafe.html">Radio Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="failsafe-battery.html">Battery Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gcs-failsafe.html">GCS Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ekf-inav-failsafe.html">EKF Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vibration-failsafe.html">Vibration Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="terrain-following.html">Terrain Data Loss Failsafe (see section on loss of terrain data induced RTL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crash_check.html">Crash Check</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Parachute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="configuring-hardware.html">Mandatory Hardware Configuration</a> &raquo;</li>
+      
+          <li><a href="failsafe-landing-page.html">Failsafe</a> &raquo;</li>
+      
+    <li>Parachute</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/parachute.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parachute">
+<span id="id1"></span><h1>Parachute<a class="headerlink" href="#parachute" title="Permalink to this headline">¶</a></h1>
+<p>This topic describes how to set up manual and automatic parachute
+release.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">A parachute ejection can be dangerous.  This feature should be used with caution</p>
+</div>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/KmjPZIQ9c0A" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Video above is from Henri’s <a class="reference external" href="https://diydrones.com/forum/topics/diy-parachute-deployment-mechanism-for-multicopter">DIYDrones discussion that led to this feature being added to Copter</a>.</p>
+<div class="section" id="what-you-will-need">
+<h2>What you will need<a class="headerlink" href="#what-you-will-need" title="Permalink to this headline">¶</a></h2>
+<p>A complete parachute mechanism like one of these:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.skycat.pro/shop/">SkyCat</a></li>
+<li><a class="reference external" href="http://store.caddrones.com/products">CAD Drones</a></li>
+</ul>
+<p>OR if you prefer a DIY solution, parachute release mechanism that can be
+triggered by a PWM signal (i.e. a Servo) and a parachute large enough to
+slow your multicopter’s decent to less than 5m/s. Some recommended
+parachute vendors:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://fruitychutes.com/uav_rpv_drone_recovery_parachutes.htm">Fruity Chutes</a></li>
+<li><a class="reference external" href="https://www.opale-paramodels.com/fr/57-parachutiste-rc">Opale Paramodels</a></li>
+<li><a class="reference external" href="http://1uas.com/Gears/Parachutes-Protection-System/Mars-Mini">Mars Mini</a></li>
+</ul>
+</div>
+<div class="section" id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this headline">¶</a></h2>
+<p>The parachute release mechanism can be triggered from either a Relay or a PWM (i.e. Servo) but because of <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/1239">an issue with the Relay pins being pulled high at start-up</a>,
+we recommend using PWM, in particular any of the Pixhawk’s AUX OUT 1 to 4 pins.</p>
+<a class="reference external image-reference" href="../_images/Parachute_Pixhawk.jpg"><img alt="../_images/Parachute_Pixhawk.jpg" src="../_images/Parachute_Pixhawk.jpg" /></a>
+</div>
+<div class="section" id="setup-through-the-mission-planner">
+<h2>Setup through the mission planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this headline">¶</a></h2>
+<p>To configure the parachute release please first connect with the Mission
+Planner and then open the Config/Tuning &gt;&gt; Full Parmeter List page and
+set the following parameters.</p>
+<ul class="simple">
+<li><a class="reference internal" href="parameters.html#chute-enabled"><span class="std std-ref">CHUTE_ENABLED</span></a> = “1”</li>
+<li><a class="reference internal" href="parameters.html#chute-type"><span class="std std-ref">CHUTE_TYPE</span></a> = “10” to release with a servo</li>
+<li><a class="reference internal" href="parameters.html#chute-servo-on"><span class="std std-ref">CHUTE_SERVO_ON</span></a> should be set to the servo position required to release the parachute</li>
+<li><a class="reference internal" href="parameters.html#chute-servo-off"><span class="std std-ref">CHUTE_SERVO_OFF</span></a> should be the “resting” servo position.  I.e. the position the servo is in before the parachute is released</li>
+<li>set <a class="reference internal" href="parameters.html#servo9-function"><span class="std std-ref">SERVO9_FUNCTION</span></a> = “27”.  <cite>SERVO9_</cite> refers to the Pixhawk’s AUX OUT 1.  To use AUX OUT2 instead set <a class="reference internal" href="parameters.html#servo10-function"><span class="std std-ref">SERVO10_FUNCTION</span></a> to 27, etc.</li>
+<li><a class="reference internal" href="parameters.html#chute-crt-sink"><span class="std std-ref">CHUTE_CRT_SINK</span></a> should be set to the sink rate in m/s that will trigger the chute release.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="parameters.html#chute-crt-sink"><span class="std std-ref">CHUTE_CRT_SINK</span></a> has a bug that will be fixed in future releases which prevents the parachute from being triggered if the vehicle falls in a level attitude, no matter how fast.</p>
+</div>
+<a class="reference external image-reference" href="../_images/Parachute_MPSetup1.png"><img alt="../_images/Parachute_MPSetup1.png" src="../_images/Parachute_MPSetup1.png" /></a>
+<a class="reference external image-reference" href="../_images/Parachute_MPSetup2.png"><img alt="../_images/Parachute_MPSetup2.png" src="../_images/Parachute_MPSetup2.png" /></a>
+<p>Setup Ch7 to manually deploy the parachute from the Mission Planner’s
+Extended Tuning page.</p>
+<a class="reference external image-reference" href="../_images/Parachute_MPSetup_Ch7.png"><img alt="../_images/Parachute_MPSetup_Ch7.png" src="../_images/Parachute_MPSetup_Ch7.png" /></a>
+</div>
+<div class="section" id="when-will-the-parachute-deploy">
+<h2>When will the parachute deploy?<a class="headerlink" href="#when-will-the-parachute-deploy" title="Permalink to this headline">¶</a></h2>
+<p>When the “Crash Check” feature determines that the vehicle has lost
+attitude control and has begun falling, the motors will be stopped and
+the parachute will deploy automatically.  The following must all be true
+for a full 2 seconds for the crash checker to trigger the parachute
+release:</p>
+<ul class="simple">
+<li>The motors are armed</li>
+<li>The vehicle is not “landed” (the vehicle will consider itself landed
+if the output throttle is less than 25%, the motors have hit their
+lower limit, the vehicle is not rotating by more than 20deg/sec and
+the pilot is not requesting a climb.  All this must be true for 1
+second for the vehicle to consider itself landed)</li>
+<li>The vehicle is not in FLIP or ACRO flight mode</li>
+<li>the roll and/or pitch angle of the vehicle is 20 degrees off from the
+target lean angle</li>
+<li>the barometer shows the vehicle is not climbing</li>
+<li>the vehicle is above the <a class="reference internal" href="parameters.html#chute-alt-min"><span class="std std-ref">CHUTE_ALT_MIN</span></a> altitude</li>
+</ul>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/xaw3-oSahtE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="testing-the-chute">
+<h2>Testing the chute<a class="headerlink" href="#testing-the-chute" title="Permalink to this headline">¶</a></h2>
+<p>Depending upon the release mechanism a parachute deployment can be
+dangerous so please take care when performing these tests, removing the
+parachute and vehicle propellers as is appropriate.</p>
+<p>To test manual deployment:</p>
+<ul class="simple">
+<li>Set the <a class="reference internal" href="parameters.html#chute-alt-min"><span class="std std-ref">CHUTE_ALT_MIN</span></a> parameter to zero to disable the minimum
+altitude check</li>
+<li>Arm the vehicle in stabilize mode and raise the throttle above
+minimum</li>
+<li>move the Ch7 switch to the high position</li>
+</ul>
+<p>You should see the motors stop, the parachute servo move and if
+telemetry is attached, “Parachute: Released!” should appear on the
+Flight Data screen’s HUD.</p>
+<p>To test the automatic deployment:</p>
+<ul class="simple">
+<li>Set the <a class="reference internal" href="parameters.html#chute-alt-min"><span class="std std-ref">CHUTE_ALT_MIN</span></a> parameter to zero to disable the minimum
+altitude check</li>
+<li>Arm the vehicle in stabilize mode and raise the throttle above
+minimum</li>
+<li>somehow tilt the vehicle over by at least 20 degrees</li>
+</ul>
+<p>After 2 seconds, the motors should stop, the parachute servo will move
+and if telemetry is attached, “Parachute: Released!” should appear on
+the Flight Data screen’s HUD.</p>
+<p>After the test is complete, return the <a class="reference internal" href="parameters.html#chute-alt-min"><span class="std std-ref">CHUTE_ALT_MIN</span></a> to the desired
+altitude (default is 10m)</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-watchdog.html" class="btn btn-neutral float-right" title="Independent Watchdog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="crash_check.html" class="btn btn-neutral" title="Crash Check" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Parachute&amp;body=[Parachute](https://ardupilot.org/copter/docs/parachute.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

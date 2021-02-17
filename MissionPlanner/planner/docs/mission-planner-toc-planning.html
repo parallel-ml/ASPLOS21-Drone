@@ -1,0 +1,575 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mission Planner - Proposed Table Of Contents (TOC) &mdash; Mission Planner  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_default.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mission Planner  documentation" href="../index.html"/>
+        <link rel="up" title="Appendix" href="common-appendix.html"/>
+        <link rel="next" title="Table of Contents" href="common-table-of-contents.html"/>
+        <link rel="prev" title="Archived:Loading ChibiOS firmware onto Pixhawk" href="common-loading-chibios-firmware-onto-pixhawk.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Mission Planner
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-overview.html">Mission Planner Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-installation.html">Installing Mission Planner (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware onto boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware onto boards without existing ArduPilot firmware (first time only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-features.html">Mission Planner Features/Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mission-planner-building.html">Mission Planner Building</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Archived - Recording and Playing Back Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Archived - Loading ChiBios Firmware Onto Pixhawk</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mission Planner – Proposed Table Of Contents (TOC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#legend-for-the-proposed-toc-for-mission-planner">Legend for the ‘Proposed’ TOC for Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-things-to-consider">Other things to consider.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mission Planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+    <li>Mission Planner - Proposed Table Of Contents (TOC)</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/planner/source/docs/mission-planner-toc-planning.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mission-planner-proposed-table-of-contents-toc">
+<span id="mission-planner-toc-planning"></span><h1>Mission Planner - Proposed Table Of Contents (TOC)<a class="headerlink" href="#mission-planner-proposed-table-of-contents-toc" title="Permalink to this headline">¶</a></h1>
+<p>Revision date:  11/24/2013</p>
+<p>This proposal suggests what may be a good structure for the Mission
+Planner wiki Table of Contents and perhaps for the Main website
+“Instructions” menu for those items that are “instructions”.</p>
+<p>Use <a class="reference external" href="https://groups.google.com/forum/#!forum/ardu-wiki-editors">https://groups.google.com/forum/#!forum/ardu-wiki-editors</a> to make
+suggestions, requests or notify the group you have changed this plan.</p>
+<p><strong>Proposed Mission Planner TOC (color, text styles added only to
+emphasize the major topics and sub topics.)</strong></p>
+<ul class="simple">
+<li>-<strong>OVERVIEW</strong>
+<a class="reference internal" href="mission-planner-overview.html#mission-planner-overview"><span class="std std-ref">mission-planner-overview</span></a>)
+New 8/3/2013 ready to add to TOC (Not a common page) Covers the
+following topics<ul>
+<li><strong>What is Mission Planner</strong></li>
+<li><strong>History</strong></li>
+<li><strong>Support</strong> Help menu, additional support etc.</li>
+<li><strong>Navigating</strong> the Documentation.</li>
+</ul>
+</li>
+<li>-<strong>INSTALLATION</strong> New page. Not common. Just a TOC header/ index to
+these pages<ul>
+<li><strong>Windows Installer</strong>
+( <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-installation.html#install-mission-planner" title="(in Mission Planner)"><span class="xref std std-ref">install mission planner</span></a> )</li>
+<li><strong>Advanced Installation</strong>
+(<a class="reference internal" href="mission-planner-advanced-installation.html#mission-planner-advanced-installation"><span class="std std-ref">mission-planner-advanced-installation</span></a>) New
+8/7/13. ready to add to TOC (Not a common page)</li>
+<li>Installing in Apple computers - create new page if we have
+details.</li>
+</ul>
+</li>
+<li>-<strong>FEATURES</strong> (<a class="reference internal" href="mission-planner-features.html#mission-planner-features"><span class="std std-ref">mission-planner-features</span></a>)
+New 8/7/13 not a common page. An index to sub titles<ul>
+<li><strong>Flight Data</strong>
+(<a class="reference internal" href="mission-planner-flight-data.html#mission-planner-flight-data"><span class="std std-ref">mission-planner-flight-data</span></a>)
+Not common. The New page (8/7/13) will contain all of the stuff
+below including the links (that exist). This outline just shows
+how the Table of Contents should look - Not sure how to do that.<ul>
+<li><strong>*An Introduction*</strong>
+(<a class="reference internal" href="mission-planner-ground-control-station.html#mission-planner-ground-control-station"><span class="std std-ref">common-mission-planner-ground-control-station</span></a>)</li>
+<li><strong>*Heads Up Area</strong> * Additional information not covered by the
+Flight data page
+-see <a class="reference internal" href="mission-planner-flight-data.html#mission-planner-flight-data"><span class="std std-ref">mission-planner-flight-data</span></a> for
+final layout</li>
+<li><strong>*Control and Status (Lower Left)
+Area*</strong> see <a class="reference internal" href="mission-planner-flight-data.html#mission-planner-flight-data"><span class="std std-ref">mission-planner-flight-data</span></a> for
+final layout.<ul>
+<li>Quick</li>
+<li>Actions</li>
+<li>Gauges:</li>
+<li>Status</li>
+<li>Servos:</li>
+<li>Telemetry
+Logs (<a class="reference internal" href="common-mission-planner-telemetry-logs.html#common-mission-planner-telemetry-logs"><span class="std std-ref">common-mission-planner-telemetry-logs</span></a>)<ul>
+<li><em>Playing Back Missions with
+Tlogs</em> <a class="reference internal" href="common-recording-and-playing-back-missions.html#common-recording-and-playing-back-missions"><span class="std std-ref">common-recording-and-playing-back-missions</span></a></li>
+</ul>
+</li>
+<li>Data Flash Logs</li>
+<li>Scripts:
+( <a class="reference internal" href="using-python-scripts-in-mission-planner.html#using-python-scripts-in-mission-planner"><span class="std std-ref">common-using-python-scripts-in-mission-planner</span></a>.)</li>
+</ul>
+</li>
+<li><strong>Map Area</strong> –
+see <a class="reference internal" href="mission-planner-flight-data.html#mission-planner-flight-data"><span class="std std-ref">mission-planner-flight-data</span></a> for
+final layout<ul>
+<li>Guided Mode
+(<a class="reference internal" href="mission-planner-ground-control-station.html#mission-planner-ground-control-station"><span class="std std-ref">common-mission-planner-ground-control-station</span></a>)
+link to the header for Guided mode using #Guided-mode or
+whatever it is.</li>
+<li>other
+sections see <a class="reference internal" href="mission-planner-flight-data.html#mission-planner-flight-data"><span class="std std-ref">mission-planner-flight-data</span></a> for
+final layout</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Flight Plan</strong> (
+<a class="reference internal" href="mission-planner-flight-plan.html#mission-planner-flight-plan"><span class="std std-ref">mission-planner-flight-plan</span></a> )
+Not common. New page 8/7/13 TOC header and index with some screen
+detail See that page for layout and sections Draft<ul>
+<li><strong>*Planning a Mission with Way points and Events*</strong>
+(<a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events"><span class="std std-ref">Planning a Mission with Waypoints and Events</span></a>)</li>
+<li><strong>*Using Python Scripts in Mission Planner*</strong>
+(<a class="reference internal" href="using-python-scripts-in-mission-planner.html#using-python-scripts-in-mission-planner"><span class="std std-ref">common-using-python-scripts-in-mission-planner</span></a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Initial
+Setup</strong> (<a class="reference internal" href="mission-planner-initial-setup.html#mission-planner-initial-setup"><span class="std std-ref">Mission Planner Initial SETUP</span></a> )
+Not common. New page 8/8/13 TOC header and index with some detail not
+covered in other areas. Introduction</li>
+<li><strong>*Other Setup Items:*</strong> See
+<a class="reference internal" href="mission-planner-initial-setup.html#mission-planner-initial-setup"><span class="std std-ref">mission-planner-initial-setup</span></a> for
+first draft (Required items - introduction but mostly refer the
+reader to vehicle sections for details.</li>
+<li><strong>Configuration/Tuning</strong> (
+<a class="reference internal" href="mission-planner-configuration-and-tuning.html#mission-planner-configuration-and-tuning"><span class="std std-ref">mission-planner-configuration-and-tuning</span></a> New
+page 8/8/13 This page has the introduction to and the links in the
+following subsection. .<ul>
+<li><strong>*Intro?</strong> * This may or may not be useful. Not sure where it is
+now used.</li>
+<li><strong>*Planner</strong> * see
+<a class="reference internal" href="mission-planner-configuration-and-tuning.html#mission-planner-configuration-and-tuning"><span class="std std-ref">mission-planner-configuration-and-tuning</span></a> Point
+out some details (even if not connected)</li>
+<li><strong>*Other (after connection)*</strong> see
+<a class="reference internal" href="mission-planner-configuration-and-tuning.html#mission-planner-configuration-and-tuning"><span class="std std-ref">mission-planner-configuration-and-tuning</span></a> section
+with the following span IDs sections<ul>
+<li>sections …. as appropriate</li>
+<li>Complete Parameter list:
+see <a class="reference internal" href="mission-planner-configuration-and-tuning.html#mission-planner-configuration-and-tuning"><span class="std std-ref">mission-planner-configuration-and-tuning</span></a>
+section to explain <strong>saving, comparing, loading parameters.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Simulation</strong> ( <a class="reference internal" href="mission-planner-simulation.html#mission-planner-simulation"><span class="std std-ref">mission-planner-simulatio/</span></a>)
+Not common New page 8/8/13 Probably some sub sections too, but I have
+no idea what this is. It would be nice to explain and have setup and
+prerequisites,</li>
+<li><strong>Terminal</strong> ) Not common. New page 8/8/13 General introduction to
+the screen, a screen image with red explanations of each button.<ul>
+<li>Sensor
+Testing<strong>:</strong> ( <a class="reference external" href="https://ardupilot.org/rover/docs/common-sensor-testing.html#common-sensor-testing" title="(in Rover)"><span class="xref std std-ref">common-sensor-testing/</span></a> )</li>
+<li><strong>*Screen Actions*</strong> see
+(` &lt;mission-planner-simulation&gt;`__) Explain each of the buttons
+hat does Show Settings, setup Radio, tests do? Some folks are
+afraid to click and see what happens.</li>
+<li><strong>*Flash Data Logs*</strong> (<a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">Downloading and Analysing data logs in Mission Planner</span></a>)</li>
+</ul>
+</li>
+<li><strong>Help</strong> In the table of contents , put a link to the support section
+of the overview page.</li>
+<li><strong>Console</strong> (TBD) Do we need a section for the console what is is why
+it is not important for normal users etc. It is mentioned in other
+mission planner features and in the support section (Help screen) of
+overview.</li>
+<li><strong>Other Mission Planner
+Features</strong> (<a class="reference internal" href="other-mission-planner-features.html#other-mission-planner-features"><span class="std std-ref">common-other-mission-planner-features/</span></a> ).</li>
+</ul>
+<p><strong>GROUND CONTROL STATIONS FOR PHONES AND TABLETS.</strong> - #HW Removed
+section here - these have been merged into the “Choosing a GCS topic” -
+there is no need for separate docs.</p>
+<div class="section" id="legend-for-the-proposed-toc-for-mission-planner">
+<h2>Legend for the ‘Proposed’ TOC for Mission Planner<a class="headerlink" href="#legend-for-the-proposed-toc-for-mission-planner" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Each bullet, text color or style indicates the proposed location in
+the order of the TOC and the indentation in the TOC.</li>
+<li>(page url) A Link to find the wiki page to be used. (TBD) indicates
+the page is not yet created.</li>
+</ul>
+<p>Creating and Naming new pages</p>
+<p>If you create a new page in the Planner wiki, consider these
+suggestions:</p>
+<ul class="simple">
+<li>The wiki page should have significant content about how the MP works,
+and how to use it.</li>
+<li>A page with Vehicle Specific content, organized to fulfill BOTH the
+Vehicle specific information AND MP manual content, and is to be used
+in the vehicle wikis should start with the name “common-” so it can
+be automatically copied to the Vehicle wikis.</li>
+<li>If the new page is not in the proposed TOC, add it above in the right
+place and with the correct indentation.</li>
+</ul>
+</div>
+<div class="section" id="other-things-to-consider">
+<h2>Other things to consider.<a class="headerlink" href="#other-things-to-consider" title="Permalink to this headline">¶</a></h2>
+<p>Feel free to work with the group to change this process or this page to
+make the effort of organization and contribution easier.</p>
+<p>For Editors without privileges to organize the site, menus and TOCs, Use
+this as a guideline for inputs and request to change the Organization or
+the TOC and the content of the Planner wiki. The ‘Proposed’ TOC above
+thus becomes the combined inputs of the editors. and is a work in
+progress for the process of migration of pages to common area, adding
+pages to the website’s Planner area, and the Mission Planner TOC, Make
+requests, suggestions etc
+here <a class="reference external" href="https://groups.google.com/forum/#!forum/ardu-wiki-editors">https://groups.google.com/forum/#!forum/ardu-wiki-editors</a></p>
+<p>For those who do the TOCs and website organization, come here to view
+the requests/suggestions for TOC changes.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-table-of-contents.html" class="btn btn-neutral float-right" title="Table of Contents" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-loading-chibios-firmware-onto-pixhawk.html" class="btn btn-neutral" title="Archived:Loading ChibiOS firmware onto Pixhawk" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Mission Planner - Proposed Table Of Contents (TOC)&amp;body=[Mission Planner - Proposed Table Of Contents (TOC)](https://ardupilot.org/planner/docs/mission-planner-toc-planning.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

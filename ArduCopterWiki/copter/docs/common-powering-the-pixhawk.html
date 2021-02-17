@@ -1,0 +1,575 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Powering the Pixhawk &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Pixhawk Wiring Quick Start" href="common-pixhawk-wiring-and-quick-start.html"/>
+        <link rel="next" title="Advanced Pixhawk Quadcopter Wiring Chart" href="advanced-pixhawk-quadcopter-wiring-chart.html"/>
+        <link rel="prev" title="Pixhawk Wiring Quick Start" href="common-pixhawk-wiring-and-quick-start.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">First Time Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">Install Ground Station Software</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">Autopilot System Assembly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#rc-input">RC input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-flight-controller-wiring.html#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">Installing GPS+Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">Loading Firmware to boards with existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">Loading Firmware to boards without existing ArduPilot firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">Connect Mission Planner to AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="initial-setup.html">First Time Setup</a> &raquo;</li>
+      
+          <li><a href="autopilot-assembly-instructions.html">Autopilot System Assembly Instructions</a> &raquo;</li>
+      
+          <li><a href="common-flight-controller-wiring.html">Typical Autopilot Wiring Connections</a> &raquo;</li>
+      
+          <li><a href="common-pixhawk-wiring-and-quick-start.html">Pixhawk Wiring Quick Start</a> &raquo;</li>
+      
+    <li>Powering the Pixhawk</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-powering-the-pixhawk.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="powering-the-pixhawk">
+<span id="common-powering-the-pixhawk"></span><h1>Powering the Pixhawk<a class="headerlink" href="#powering-the-pixhawk" title="Permalink to this headline">¶</a></h1>
+<p>This article explains how to power the
+<a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Pixhawk</span></a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>For most users powering the Pixhawk is as simple as connecting a 6-pin
+DF13 cable from one of the <a class="reference internal" href="common-powermodule-landingpage.html#common-powermodule-landingpage"><span class="std std-ref">supported power modules</span></a> into the Pixhawk’s “Power”
+port as shown below.</p>
+<div class="figure" id="id1">
+<a class="reference external image-reference" href="../_images/pixhawkpower-port.jpg"><img alt="../_images/pixhawkpower-port.jpg" src="../_images/pixhawkpower-port.jpg" /></a>
+<p class="caption"><span class="caption-text">Pixhawk Power Port</span></p>
+</div>
+<p>The module will provide a steady ~5V to Pixhawk and allow the Pixhawk to
+measure the current and/or voltage of the main battery. Depending on the
+power module you may also have connections to provide backup power and
+power to supply the servo rail.</p>
+<p>The type of power module also determines what size batteries can be used
+(most multicopters draw less than 20amps when hovering and rarely
+consume more than 90amps at full throttle).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Pixhawk does <strong>not</strong> <em>supply</em> power to the servo rail. Powering
+the servo rails is normally done by an ESC or alternatively a separate
+source such as a BEC (as shown in the
+<a class="reference internal" href="#common-powering-the-pixhawk-pixhawk-poweresc-wiring-overview"><span class="std std-ref">wiring overview below</span></a>).</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Some power modules explicitly provide support for powering the
+servo rail, backup power and support for larger batteries. Using this
+sort of module means that you don’t need to think about most of the
+wiring issues discussed in the rest of this article.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Pixhawk supplies power for an RC receiver if that receiver is connected via a 3-conductor servo cable to the RC connector on the Pixhawk. If that receiver is also connected to the SBus port on the
+Pixhawk to communicate an analog RSSI signal via a 3-conductor cable, there is an opportunity to inadvertently power the servo bus from the primary PixHawk power input thru the radio.</p>
+</div>
+<p>Some radios (e.g., FRSky) will pass power received on their RC output cable out on their analog RSSI port. And the PixHawk servo-rail power bus includes the SBus +5v pin.</p>
+<p>Removing the center conductor from the RSSI monitoring cable will avoid powering the Pixhawk servo bus from the wrong (or from multiple) voltage sources thru the RC radio receiver.</p>
+</div>
+<div class="section" id="powering-backup-off-the-servo-rail">
+<h2>Powering/backup off the servo rail<a class="headerlink" href="#powering-backup-off-the-servo-rail" title="Permalink to this headline">¶</a></h2>
+<p>Pixhawk can be powered off the servo rail instead of from a power
+module. This is achieved by connecting a 5V BEC (with or without a
+servo) to a power (+) pin and a ground (-) pin of the “MAIN OUT” or “AUX
+OUT” pins. You <strong>must</strong> also add a Zener diode (part number 1N5339) to
+condition the power across the rail and restrict it to less than 5.7V.</p>
+<a class="reference external image-reference" href="../_images/servo-power-wiring.jpg"><img alt="../_images/servo-power-wiring.jpg" src="../_images/servo-power-wiring.jpg" /></a>
+<a class="reference external image-reference" href="../_images/zener-diode.jpg"><img alt="../_images/zener-diode.jpg" src="../_images/zener-diode.jpg" style="width: 300px;" /></a>
+<p>This method can also be used as backup power for Pixhawk when using a
+power module. If the voltage provided by the power module falls too low
+(4V?), Pixhawk will take power from the output rail. See the <em>voltage
+ratings</em> section below for more information on powering Pixhawk.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The servo rail can supply servos requiring up to 10.5V (but not also power the Pixhawk). Voltages above 5V cannot be used to power the Pixhawk via the servo rail. In this case the Zener diode <strong>must not be used</strong>.</p>
+</div>
+</div>
+<div class="section" id="pixhawk-power-esc-wiring-overview">
+<span id="common-powering-the-pixhawk-pixhawk-poweresc-wiring-overview"></span><h2>Pixhawk Power/ESC Wiring Overview<a class="headerlink" href="#pixhawk-power-esc-wiring-overview" title="Permalink to this headline">¶</a></h2>
+<p>The block diagram below synthesizes an overview of Pixhawk’s power and
+ESC wiring. In this diagram, a 3DR power module (or equivalent device)
+powers Pixhawk through its power port (primary source). One power source
+is enough but obviously not redundant if the power module fails to power
+this primary source. Therefore the diagram adds a second backup power
+source via a 5V BEC that wires to Pixhawk’s output servo rail. If the
+primary source fails, Pixhawk will automatically switch to this second
+power source.</p>
+<div class="figure" id="id2">
+<a class="reference external image-reference" href="../_images/common_Wiring_Pixhawk2.jpg"><img alt="../_images/common_Wiring_Pixhawk2.jpg" src="../_images/common_Wiring_Pixhawk2.jpg" /></a>
+<p class="caption"><span class="caption-text">Pixhawk Power/ESC Wiring Overview</span></p>
+</div>
+<p><em>Diagram acronyms:</em></p>
+<ul class="simple">
+<li><em>PDB = Power Distribution Board.</em></li>
+<li><em>PM = pixhawk power port.</em></li>
+<li><em>PM/Atto = optional power module from 3DR or Attopilot alternative
+for higher than 4S battery voltages.</em></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Looking for a detailed explanation of power wiring with Pixhawk?
+<a class="reference external" href="http://pixhawk.org/users/actuators/pwm_escs_and_servos">Click here for more information about connecting ESCs and servos to Pixhawk.</a></p>
+</div>
+</div>
+<div class="section" id="general-wiring-recommendations">
+<h2>General wiring recommendations<a class="headerlink" href="#general-wiring-recommendations" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Always connect a ground reference wire with your ESC’s signal wires
+on the Pixhawk servo rail (output ports 1-8). Indeed an ESC’s signal
+wire should never be left floating without its ground reference
+(THERE IS NO SETUP WHICH WOULDN’T REQUIRE SIGNAL GROUND TO BE
+CONNECTED).</p>
+</li>
+<li><p class="first">It is dangerous to power the Pixhawk <strong>only</strong> from the servo rail,
+especially with digital servos. Servos may cause voltage spikes (as
+shown on illustration below that shows the servo rail voltage on an
+oscilloscope when a single digital servo attached to a Pixhawk is
+moved rapidly ). The key thing is that the digital servo causes the
+voltage on the rail to rise above the critical 5.7V level. Above that
+level the Pixhawk power management will cut power to the FMU and the
+Pixhawk will reboot.
+<strong>If that happens when flying you will lose your aircraft.</strong></p>
+<a class="reference external image-reference" href="../_images/servo-V-spike.jpg"><img alt="../_images/servo-V-spike.jpg" src="../_images/servo-V-spike.jpg" /></a>
+<p>It is up to the user to provide a clean source of power for the cases
+when it is powered off the servo rail. Servos by themselves are not
+quiet enough.</p>
+</li>
+<li><p class="first">Do not connect a BEC power source to the RC IN port (black ground,
+red power and white signal wires from the receiver’s PPM output are
+connected to these RC pins)</p>
+</li>
+<li><p class="first">Adding an external Zener is a recommendation specifically for systems
+that are using 5V servos and have the servo rail configured for back
+up power. Connect the recommended Zener diode with its polarity as
+indicated on the diagram. Use as short wires as possible or even
+better, use a standard 3 position JR servo connector with the diode
+legs directly inserted (and soldered) in the servo female pins. To
+complement the diode, it is also useful to add a capacitor in parallel
+to the diode. The capacitor will smooth out eventual voltage ripples.
+As advised for the diode, the capacitor should be connected with as
+short wires as possible. Do not oversize the capacitor.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="advanced-power-supply-configuration">
+<h2>Advanced power supply configuration<a class="headerlink" href="#advanced-power-supply-configuration" title="Permalink to this headline">¶</a></h2>
+<p>This section explains how to set up triple redundant power sources
+(power module as primary, with two backup BECs).</p>
+<p>In this scheme, a simple MBR1545CT integrated circuit is used. This
+circuit takes two BECs on its inputs, and outputs only off the BEC with
+the highest voltage (i.e. if BEC1 outputs 5.25V and BEC2 outputs 5.45V,
+MBR1545CT will pass BEC2 and blocks BEC1). Here is a tie bus circuit
+wiring diagram and example realisation with the MBR1545CT integrated
+circuit and a 6 pin JST connector:</p>
+<a class="reference external image-reference" href="../_images/MBR1545CT-diagram2.jpg"><img alt="../_images/MBR1545CT-diagram2.jpg" src="../_images/MBR1545CT-diagram2.jpg" /></a>
+<a class="reference external image-reference" href="../_images/MBR1545CT.jpg"><img alt="../_images/MBR1545CT.jpg" src="../_images/MBR1545CT.jpg" /></a>
+</div>
+<div class="section" id="voltage-ratings">
+<h2>Voltage ratings<a class="headerlink" href="#voltage-ratings" title="Permalink to this headline">¶</a></h2>
+<p>Pixhawk can be triple-redundant on the power supply if three power
+sources are supplied. The three rails are: Power module input, servo
+rail input, USB input.</p>
+<p><strong>Normal Operation Maximum Ratings</strong></p>
+<p>Under these conditions all power sources will be used in this order to
+power the system.</p>
+<p>Power module input (4.1V to 5.7V) [refers to the voltage coming into
+Pixhawk from the power module]</p>
+<p>Servo rail input (4.1V to 5.7V)</p>
+<p>USB power input (4.1V to 5.7V)</p>
+<p><strong>Absolute Maximum Ratings</strong></p>
+<p>Under these conditions the system will not draw any power (will not be
+operational), but will remain intact.</p>
+<p>Power module input (0V to 20V) [refers to the voltage coming into
+Pixhawk from the power module]</p>
+<p>Servo rail input (0V to 20V)</p>
+<p>USB power input (0V to 6V)</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced-pixhawk-quadcopter-wiring-chart.html" class="btn btn-neutral float-right" title="Advanced Pixhawk Quadcopter Wiring Chart" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-pixhawk-wiring-and-quick-start.html" class="btn btn-neutral" title="Pixhawk Wiring Quick Start" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Powering the Pixhawk&amp;body=[Powering the Pixhawk](https://ardupilot.org/copter/docs/common-powering-the-pixhawk.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

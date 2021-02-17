@@ -1,0 +1,488 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Traditional Helicopter — Connecting and Calibrating the System &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Traditional Helicopters" href="traditional-helicopters.html"/>
+        <link rel="next" title="Traditional Helicopter – Swashplate Setup" href="traditional-helicopter-swashplate-setup.html"/>
+        <link rel="prev" title="Traditional Helicopter – Mounting the Autopilot to the Frame" href="trad-heli-mounting.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Pixhawk</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Connecting and Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autopilot-info">Autopilot Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-servo-and-rx-connection">Overview of servo, and RX connection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rc-calibration">RC Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compass-calibration">Compass Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accelerometer-calibration">Accelerometer Calibration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-swashplate-setup.html">Swashplate Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-rsc-setup.html">Rotor Speed Control Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tuning.html">Traditional Helicopter – Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tuning.html#advanced-tuning-for-hover-trim-loiter-flight-mode-and-waypoint-flying">Advanced Tuning for Hover Trim, Loiter Flight Mode and Waypoint Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="traditional-helicopters.html">Traditional Helicopters</a> &raquo;</li>
+      
+    <li>Traditional Helicopter — Connecting and Calibrating the System</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/traditional-helicopter-connecting-apm.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="traditional-helicopter-connecting-and-calibrating-the-system">
+<span id="traditional-helicopter-connecting-apm"></span><h1>Traditional Helicopter — Connecting and Calibrating the System<a class="headerlink" href="#traditional-helicopter-connecting-and-calibrating-the-system" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="autopilot-info">
+<h2>Autopilot Info<a class="headerlink" href="#autopilot-info" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhackv5.jpg"><img alt="../_images/pixhackv5.jpg" src="../_images/pixhackv5.jpg" /></a>
+<p>A autopilot with internally damped IMU’s is highly recommended for helicopters. Experience has shown the tuning, handling and stability performance of your helicopter will be greatly improved over the first generation Pixhawk.</p>
+<p>Before you begin connecting the system it is recommended to review the docs for the autopilot you select.</p>
+</div>
+<div class="section" id="overview-of-servo-and-rx-connection">
+<h2>Overview of servo, and RX connection<a class="headerlink" href="#overview-of-servo-and-rx-connection" title="Permalink to this headline">¶</a></h2>
+<p>The RC input for many ardupilot compatible autopilots is either PPM SUM (8 channels) or S.Bus (up to 18 channels).  Some controllers also accept Spektrum satellite receivers.  For receivers that only output PWM, a PPM encoder is required to connect to the autopilot, however this is not recommended for applications requiring minimum possible latency.  For all helicopter frames, an RC radio that has at least 6 channels is required.  For flight controllers, traditional helicopter and quadheli frames require one that has at least 5 output channels. The dual helicopter frame requires the flight controller have at least 7 output channels.</p>
+<p>The default receiver channel to ArduCopter RC input function mapping is as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>RC Receiver
+Channel</td>
+<td>Ardupilot RC
+Input Function</td>
+</tr>
+<tr class="row-even"><td>1 (Aileron)</td>
+<td>Roll (note)</td>
+</tr>
+<tr class="row-odd"><td>2 (Elevator)</td>
+<td>Pitch (note)</td>
+</tr>
+<tr class="row-even"><td>3 (Throttle)</td>
+<td>Collective(note)</td>
+</tr>
+<tr class="row-odd"><td>4 (Rudder)</td>
+<td>Yaw (note)</td>
+</tr>
+<tr class="row-even"><td>5 (Gear)</td>
+<td>Flight Mode</td>
+</tr>
+<tr class="row-odd"><td>6 (Aux 1)</td>
+<td>Tuning</td>
+</tr>
+<tr class="row-even"><td>7 (Aux 2)</td>
+<td>Aux</td>
+</tr>
+<tr class="row-odd"><td>8 (Aux 3)</td>
+<td>Motor Interlock
+(throttle)</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Functions are already mapped by RCMAP parameters.</p>
+<p>The output on most controllers for SERVO’s 1 thru 8 are labled Main Out:</p>
+<a class="reference external image-reference" href="../_images/PH21_2.jpg"><img alt="../_images/PH21_2.jpg" src="../_images/PH21_2.jpg" /></a>
+<p>The <a class="reference internal" href="common-rcoutput-mapping.html#common-rcoutput-mapping"><span class="std std-ref">autopilot output functions wiki</span></a> shows the complete list of servo output functions.  The default swashplate is H3-120 where Motor 1 (servo function 33) left front servo, goes to output 1; Motor 2 (output function 34), right front servo goes to output 2; and Motor 3 (output function 35), rear (elevator) servo goes to output 3. See the <a class="reference internal" href="traditional-helicopter-swashplate-setup.html#traditional-helicopter-swashplate-setup"><span class="std std-ref">swashplate setup wiki</span></a> for more details.</p>
+<p>Tail servo is designated as Motor 4 (servo function 36) and is defaulted to output 4. Direct Drive Fixed Pitch (DDFP) tail rotors will also be connected to Motor 4 and the tail type parameter (<a class="reference internal" href="parameters.html#h-tail-type"><span class="std std-ref">H_TAIL_TYPE</span></a>) set to DDFP.  Direct Drive Variable Pitch (DDVP) tail rotors will use Motor 4 (defaulted to output 4) to control tail rotor pitch and the tail ESC (servo function 32) connection is defaulted to output 7. This is automatically configured as tail RSC for the servo 7 function when the tail type parameter (<a class="reference internal" href="parameters.html#h-tail-type"><span class="std std-ref">H_TAIL_TYPE</span></a>) is set to DDVP.</p>
+<p>The throttle servo or ESC for the main rotor motor is defaulted to output 8.  This is automatically configured as Heli RSC (servo function 31) for the servo 8 function. See the <a class="reference internal" href="traditional-helicopter-rsc-setup.html#traditional-helicopter-rsc-setup"><span class="std std-ref">rotor speed control setup wiki</span></a> for more details on RSC setup.  All traditional helicopter frames are required to use Motor Interlock.  This feature adds an extra layer of safety when working with helicopters.  Motor interlock enables the motor to drive the rotor/tailrotor.  This is similar to throttle hold in RC helicopters.  Motor interlock enabled (throttle hold off) means the motor is allowed to drive the rotor/tailrotor and the rotor speed control handles the rotor runup/shutdown.  Motor interlock disabled (throttle hold on) means the motor is not allowed to drive the rotor/tailrotor.  In order to arm the helicopter, the motor interlock must be disabled (throttle hold on). In ArduCopter 3.6 and earlier, the motor interlock and RC passthrough mode is tied to RC channel 8 only.  The RC transmitter channel 8 must have the PWM within 10 pwm of the RC8_MIN for motor interlock disabled (throttle hold on).  All other PWM values will set motor interlock enabled (throttle hold off).  In ArduCopter 4.0, the RCn_Option parameter can be set to motor interlock for a user selectable channel.  The transmitter channel on which the motor interlock is set requires the PWM to be low (&lt;1200 PWM) for motor interlock disabled (throttle hold on) and above 1200 PWM for motor interlock enabled (throttle hold off).</p>
+<p>Check the docs for your selected autopilot but most require a separate power supply to the servo rail to power your servos at their appropriate rated voltage.</p>
+<p>Connect telemetry radios, GPS/compass module, power to autopilot itself, and any other peripherals as per the instructions in the owners manual for the unit.</p>
+<div class="section" id="rc-calibration">
+<h3>RC Calibration<a class="headerlink" href="#rc-calibration" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before powering the autopilot and servo rail for the first time,
+disconnect the rudder linkage from the tail servo or bellcrank on the tail
+gearbox. If you have a piston engine helicopter, also disconnect the throttle
+servo linkage.</p>
+</div>
+<p>The RC MUST be calibrated before proceeding once the autopilot is powered up. RC calibration is identical to all other vehicles. With helicopters using the ArduPilot system there can be no mixes in the RC radio. All the outputs must be
+“pure”, i.e. use either airplane mode in your radio, or helicopter mode with H1 or “straight” swash.
+<a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">See this topic</span></a>.</p>
+</div>
+<div class="section" id="compass-calibration">
+<h3>Compass Calibration<a class="headerlink" href="#compass-calibration" title="Permalink to this headline">¶</a></h3>
+<p>It is recommended to calibrate the compasses at this time as well. This is the same as all other vehicles.
+<a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">See this topic</span></a>.</p>
+</div>
+<div class="section" id="accelerometer-calibration">
+<h3>Accelerometer Calibration<a class="headerlink" href="#accelerometer-calibration" title="Permalink to this headline">¶</a></h3>
+<p>If the accelerometers were not calibrated on the bench prior to installation it must be calibrated before proceeding.(It is usually easier to calibrate on the bench and then re-calibrate only the level position, if required, once installed.)
+<a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">See this topic</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="traditional-helicopter-swashplate-setup.html" class="btn btn-neutral float-right" title="Traditional Helicopter – Swashplate Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="trad-heli-mounting.html" class="btn btn-neutral" title="Traditional Helicopter – Mounting the Autopilot to the Frame" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Traditional Helicopter — Connecting and Calibrating the System&amp;body=[Traditional Helicopter — Connecting and Calibrating the System](https://ardupilot.org/copter/docs/traditional-helicopter-connecting-apm.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

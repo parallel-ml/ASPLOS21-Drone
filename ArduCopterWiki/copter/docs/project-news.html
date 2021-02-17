@@ -1,0 +1,692 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archived: Copter Project News &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Archived Topics" href="common-archived-topics.html"/>
+        <link rel="next" title="Archived: Troubleshooting" href="troubleshooting.html"/>
+        <link rel="prev" title="Archived: PDF Guides" href="pdf-guides.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="#">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-training-centers.html">Training Centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-archived-topics.html">Archived Topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-loading-chibios-firmware-onto-pixhawk.html">Loading ChibiOS firmware onto Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio-overview.html">NAVIO+ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-apm25-and-26-overview.html">APM 2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4fmu-overview.html">PX4FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-qualcomm-snapdragon-flight-kit.html">Qualcomm Snapdragon Flight Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-camera-control-board.html">Open Camera Control Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vrgimbal.html">VR Gimbal Controller (3-Axis Open Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-disabling-the-built-in-gps-on-apm2-to-use-an-external-gps-instead.html">External GPS AP2.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-gps-module.html">GPS Module (External)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-external-magnetometer-for-improved-performance.html">External Compass (Magnetometer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-recording-and-playing-back-missions.html">Recording and Playing Back Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-using-a-current-sensor.html">AttoPilot Current/Voltage Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pxfmini-wiring-quick-start.html">PXFmini Wiring Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-edge-quick-start.html">Edge Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xbee-radios.html">Using Xbee radios for telemetry with APM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick-start-guide.html">Quick Start for RTFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hil-quad.html">HIL Quad Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tradhelihil.html">Traditional Helicopter Simulator – TradHeliHIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="px4fmu-only-wiring.html">Installing the PX4FMU on a QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-gps-failsafe.html">GPS Failsafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-archived-tuning.html">Archived: Traditional Helicopter – Tuning with Copter 3.3 and earlier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hoverthings-flip-sport-quadcopter.html">Hoverthings Flip Sport Quadcopter (detailed build)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dji-f330-flamewheel.html">DJI F330 FlameWheel QuadCopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-your-own-multicopter.html">Build Your Own Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-multicopter-design.html">Advanced MultiCopter Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="improving-the-capabilities-of-your-multicopter.html">Improving the Capabilities of Your Multicopter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-guides.html">PDF Guides</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Copter Project News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="landing-gear.html">Landing Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-mouse-based-optical-flow-sensor-adns3080.html">ADNS3080 Mouse Sensor (no longer supported)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sonar.html">Analog Sonar (AC3.1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html">Copter 3.4.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-3-x">Copter 3.3.x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archived-tricopter.html#copter-3-2-1-and-earlier">Copter 3.2.1 (and earlier)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-appendix.html">Appendix</a> &raquo;</li>
+      
+          <li><a href="common-archived-topics.html">Archived Topics</a> &raquo;</li>
+      
+    <li>Archived: Copter Project News</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/project-news.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="archived-copter-project-news">
+<span id="project-news"></span><h1>Archived: Copter Project News<a class="headerlink" href="#archived-copter-project-news" title="Permalink to this headline">¶</a></h1>
+<p>This page contains information and links about Copter
+releases/milestones.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduCopter/ReleaseNotes.txt">The latest cumulative release notes for Copter can always be found on Github here</a>.
+This includes point releases which may not be included on this
+page.</p>
+</div>
+<ul class="simple">
+<li>Sep 01, 2016 Copter (AC) <strong>3.4.0-rc3</strong> released for beta testing. Minor Enhancements and bug fixes.
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.4/ArduCopter/ReleaseNotes.txt">Release Notes</a>.</li>
+<li>Aug 08, 2016 Copter (AC) <strong>3.4.0-rc2</strong> released for beta testing.  Major Enhancements.
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.4/ArduCopter/ReleaseNotes.txt">Release Notes</a>.</li>
+<li>May 28, 2016 Copter (AC) <strong>3.4.0-rc1</strong> released for beta testing. Major Enhancements.
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.4/ArduCopter/ReleaseNotes.txt">Release Notes</a>.</li>
+<li>Feb 24, 2016 Copter (AC) <strong>3.3.3</strong> released. Minor bug fixes.
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.3/ArduCopter/ReleaseNotes.txt">Release Notes</a>.</li>
+<li>Nov 4, 2015 Copter (AC) <strong>3.3.2</strong> released. Enhancements and bug
+fixes. Helicopter improvements. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.3/ArduCopter/ReleaseNotes.txt">here</a>.</li>
+<li>Oct 26, 2015 Copter (AC) <strong>3.3.1</strong> released. Bug fixes, Compiler
+upgrade. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.3/ArduCopter/ReleaseNotes.txt">here</a>.</li>
+<li>Sep 29, 2015 Copter (AC) <strong>3.3</strong> released. Enhancements and bug
+fixes. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/Copter-3.3/ArduCopter/ReleaseNotes.txt">here</a>.
+Release announcement: <a class="reference external" href="https://diydrones.com/profiles/blogs/copter-3-3-released">Copter-3.3 released!</a>.</li>
+<li>Feb 11, 2015 Copter (AC) <strong>3.2.1</strong> released. Enhancements and bug
+fixes. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/ArduCopter-3.2.1/ArduCopter/ReleaseNotes.txt">here</a>.
+Release announcement:
+<a class="reference external" href="https://diydrones.com/profiles/blogs/arducopter-3-2-1-released">here</a>.</li>
+<li>November 07, 2014 Copter (AC) <strong>3.2</strong> released. Numerous enhancements
+and bug fixes. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/ArduCopter-3.2/ArduCopter/ReleaseNotes.txt">here</a></li>
+<li>May 27, 2014: Copter (AC) <strong>3.1.5</strong> released. Enhancements and bug
+fixes. Details
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/ArduCopter-3.1.2/ArduCopter/ReleaseNotes.txt">here</a></li>
+<li>January 25, 2014: Copter <strong>3.1.1</strong> released. Mostly enhancements and
+bug fixes for Pixhawk. <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-3-1-released?commentId=705844%3AComment%3A1540849">Details here</a>.</li>
+<li>December 14, 2013: Copter 3.1 released. Major feature additions and
+performance improvements. <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-3-1-released">Details here</a>.</li>
+<li>July 11, 2013: Copter 3.01 released. Major performance improvements.
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-3-0-1-released">Details here.</a></li>
+<li>April 5, 2013: Copter 2.9.1b released. Adds some performance
+enhancing parameter changes and a few small bug fixes.
+Details <a class="reference external" href="https://diydrones.com/forum/topics/apm-copter-2-9-1-b-has-been-released">here</a>.</li>
+<li>Jan 17, 2013: Copter 2.9/2.9.1 released. Major performance
+improvements and some bug fixes.
+Details <a class="reference external" href="https://www.diydrones.com/forum/topics/arducopter-2-9-released">here</a>.</li>
+<li>Oct 19, 2012: Copter 2.8/2.81 released. Bug fixes and performance
+improvements. <a class="reference external" href="https://www.diydrones.com/forum/topics/arducopter-2-8-released?xg_sourceactivity">Details here</a>.</li>
+<li>Sept 1, 2012: Copter 2.7.2 and 2.7.3 released. Bug fixes and
+performance improvements. <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-7-2-released">Details here.</a></li>
+<li>Aug 1, 2012: Copter 2.7.1 released. Minor maintenance release with a
+few bug fixes. Also includes preliminary support for the Digital
+Motion Processor (DMP) in the MPU-6000 sensor. Details
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-7-1-released">here</a>
+.</li>
+<li>July 24, 2012: Copter 2.7 released. Many performance improvements,
+including in loiter and waypoints. Adds 3-axis camera stabilization,
+altitude limits and geofencing. More details
+<a class="reference external" href="https://diydrones.com/profiles/blogs/arducopter-2-7-released">here</a>
+; details on geofencing
+<a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">here</span></a> .</li>
+<li>June 14, 2012: Copter 2.6 released. Includes performance
+enhancements, MAVLink 1.0 support, dataflash erase speedups
+(including proper MAVLink connectivity during erase, to improve first
+use experience) and support for new 3DR uBlox GPS. Details
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-6-released">here</a>
+.</li>
+<li>May 14, 2012: Copter 2.5.5 released. Fixes a bug that affected some
+APM 2 boards with a newer version of the MPU-6000 sensor. Fixes bug
+that required some APM 2 boards to be reset after power-on. Various
+stability improvements. Details
+<a class="reference external" href="https://diydrones.com/profiles/blogs/updated-arducopter-and-arduplane-code-apm2-users-please-upgrade">here</a>
+.</li>
+<li>March 24, 2012: Copter 2.5.3 released. Maintenance release with some
+bug fixes, including changing to a more appropriate throttle setting
+for most people in Alt Hold and re-enabling the Ch 7 auto-trim.
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-5-released?commentId=705844%3AComment%3A816307">Details here.</a></li>
+<li>March 17, 2012: Copter 2.5 released. First code optimized for the APM
+2 board, which will now outperform APM 1. Significant improvements in
+DCM code for performance and stability. More details in the release
+post
+<a class="reference external" href="https://www.diydrones.com/forum/topics/arducopter-2-5-released">here</a>
+.</li>
+<li>Feb 19, 2012: Copter 2.4 released. This is mostly bug fixes and
+performance improvements. Recommended for all users. <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-4-released">More details in the release post here.</a></li>
+<li>Jan 31, 2012: Copter 2.3 released. This is the feature complete
+release of 2.x, and is recommended for all users. More details in the
+release post
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-3-released">here</a> .</li>
+<li>Jan 14, 2012: Copter 2.2 released. Mostly performance enhancement,
+bug fixes and improved APM 2 compatibility. Autoland now much
+improved. More details
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-2-beta">here</a>
+.</li>
+<li>Dec 16, 2011: Copter 2.1 released. This is the first version that
+supports both the APM 1 and APM 2 boards. If you’re building it with
+Arduino, you’ll need the “relaxpatch” version of Arduino. To
+harmonize with APM 2, the hardware CLI switch is no longer used–you
+now get into the CLI by hitting “Enter” three times in a terminal.
+Other details are in the announcement post
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-0-56">here</a> .</li>
+<li>Dec 3, 2011: Copter 2.0.55 released. Most stable flying version yet.
+Includes new stability patch by default and a new DCM gain and clamp
+value that should reduce drift due to linear acceleration in missions
+or long flights. Switched rate gain calculation to use raw IMU rather
+than the DCM’s omega. This crisps up the response a lot. 1280 has
+lost local flash logging, sorry, but it’s just not supportable any
+longer. Some older tests have returned now the program memory is
+freed. Remember, to use the new logging format on the 2560, you need
+to erase it at least once to format it.</li>
+<li>Nov 30, 2011: Copter 2.0.54 released. Bug fixes, better alt hold, CH7
+switch to Simple Mode enabled.</li>
+<li>Nov 19, 2011: Copter 2.0.50 released. Many bug fixes and performance
+enhancements. Log files will now overwrite from the beginning when
+the dataflash is full (rather than stopping). Initial compatibility
+with MAVLink 1.0. A full list of changes is
+<a class="reference external" href="https://www.diydrones.com/forum/topics/arducopter-2-0-50">here</a> .</li>
+<li>Oct 16, 2011: Copter 2.0.49 released. Tweaked Alt Hold PIDs, Loiter
+PIDs based on SIM testing and feedback. Increased distance error for
+loiter for faster return to center. Params for camera roll gain
+fixed.</li>
+<li>Oct 14, 2011: Copter 2.0.48 released. The PWM output has been set to
+400hz (to counter the low pass filter in most Turnigy PWMs). The
+DCM’s Roll and Pitch gains were lowered to .03 (recommendation of
+Hein Hollander). MAVLink has gotten a re-work for performance and
+memory savings.</li>
+<li>Oct 7, 2011: Copter 2.0.47 released. Fixed RTL overshooting bug.
+Better loiter PIDs</li>
+<li>Oct 2, 2011: Copter 2.0.46 released. Rolls up all changes since
+2.0.42, including improved sensor filtering, loiter and waypoint
+navigation. Simple mode has been changed and Guided mode added <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-0-43">(see
+this post for more
+information).</a></li>
+<li>Sept 11, 2011: Copter 2.0.42 released. Includes much more efficient
+DCM processing, now running 25% faster. Should be most stable yet.
+Also includes improved Circle mode.</li>
+<li>Sept 7, 2011: Copter 2.0.40 released. Totally new control laws, which
+are much more effective. Loiter should now stay within a 1m box and
+RTL is rock solid. New Alt Hold mixes the temperature sensor reading
+with the barometric pressure sensor readings for drift-free results.
+New flight modes, including user configurable ones. This is a release
+candidate for the first non-beta code.</li>
+<li>August 23, 2011: Copter 2.0.39b released. Many bug fixes and some
+experimental new control laws. This release is mostly for beta
+testing feedback to prepare for 2.0.40, which is a non-beta release
+candidate.</li>
+<li>July 30, 2011: Copter Beta 2.0.38 released. Lots of changes, big and
+small. Moved ground start to first arming. Added ground start flag.
+Moved throttle_integrator to 50hz loop. CAMERA_STABILIZER
+deprecated - now always on. Renamed current logging bit mask to match
+APM. Added MA filter to PID - D term. Adjusted PIDs based on
+continued testing and new PID filter. Added MASK_LOG_SET_DEFAULTS
+to match APM. Moved some stuff out of ground start into system start
+where it belonged. Added slower Yaw gains for DCM when the copter is
+in the air. Changed camera output to be none scaled PWM. Fixed bug
+where ground_temperature was unfiltered. Shortened Baro startup
+time. Fixed issue with Nav_WP integrator not being reset. RTL no
+longer yaws towards home. Circle mode for flying a 10m circle around
+the point where it was engaged (not tested at all! Consider it
+experimental).</li>
+<li>July 17, 2011: Copter Beta 2.0.37 released. Added rate of change
+limit for noisy Sonars. Code converted to static functions to save
+memory.</li>
+<li>July 16, 2011: AC Beta 2.0.36 released. Added Yaw control when
+descending in Alt hold, lowered kP &amp; kD for Alt hold a tad, Adjusted
+RTL behavior to do speed control up to 4m to home, then go into
+Loiter. Fixed issue with AUTO not getting proper input.</li>
+<li>July 12, 2011: AC Beta 2.0.35 released. Added camera reversing
+parameters in AP_Var, Added RTL Throttle Hold set/check, Added
+dynamic speed control to slow down as you reach waypoints and RTL
+Home, upped Yaw Dead zone slightly. Available as a hex firmware
+download in the Mission Planner.</li>
+<li>July 9, 2011: AC Beta 2.0.34 preview released. Lots of new control
+laws and needs more testing before we give this wide release. Right
+now it’s download only (get the file from the download section above
+and compile and load with Arduino). Full description of the changes
+in this release is
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2034-preview">here.</a></li>
+<li>July 2, 2011: AC Beta 2.0.32 released: New Loiter PIDs, tuned down
+control on standard frame, shunk the mixing range for sonar from 3
+meters to 2 meters, added framework for Guided mode - not tested!
+removed pitch and roll deadzone, decoupled S, MPLE mode from LOITER
+PIDs Synced MAVLink with APM, Logs report correct WP number now.
+Disabled Sonar spike filter.</li>
+<li>June 29, 2011: AC Beta 2.0.30 released. Minor bug fixes. Note that
+there is a known issue with the magnetometer, due to a change in the
+sensor used in recent DIY Drones magnetometer boards. The code to
+autodetect which one you have is still a big wonky and compass
+readings my be off by a factor of 2. We’ll fix that in the next
+update.</li>
+<li>June 27, 2011: AC Beta 2.0.28 released. Fixed serious bug (exit from
+!Alt_Hold left quad with controls reversed) in 2.0.26, and other
+tweaks. All users should upgrade immediately.</li>
+<li>June 24, 2011: AC2 Beta 2.0.26 released: Minor updates. Arming motors
+now for only Stabilize, Simple, and Acro Modes. V Octo Support.</li>
+<li>June 19, 2011: AC2 Beta 2.0.25 released. This brings Copter
+(traditional heli) into the AC2 trunk, giving it full MAVLink
+capability, too. Many other tweaks and performance improvements
+(details
+<a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2024b">here</a> ).
+Getting close now!</li>
+<li>June 5, 2011: Much improved Mission Planner 1.0 released. Check out
+the <a class="reference external" href="https://www.diydrones.com/profiles/blogs/new-apm-planner-10">gorgeous new design!</a></li>
+<li>June 3, 2011: <a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2023">AC2 Beta 2.0.23 released.</a>
+Minor bug fixes and tuning to improve loiter and hex airframe
+performance. Sonar test added to CLI test suite.</li>
+<li>May 27, 2011: AC2 Beta 2.0.16
+<a class="reference external" href="https://diydrones.com/forum/topics/705844:Topic:393643">released</a>
+. Improvements in yaw control, minor changes in LED function, and
+other bug fixes. The Mission Planner has also been updated, so check
+the Update menu item in that to upgrade. Just a few more things left
+to get beta test feedback on before we’ll feel confident in taking
+AC2 out of beta.</li>
+<li>May 18, 2011: <a class="reference external" href="https://www.diydrones.com/profiles/blogs/ac2-206-beta">AC2 beta 2.0.6</a>
+released. We’re still bug-fixing at a rapid pace, so thanks for your
+patience. The Mission Planner has been significantly revamped,
+especially on the firmware upload process, which is now based on
+visual icons. Frame choices are now made at firmware upload time, but
+orientation (x vs +) can be made in the CLI. We still recommend that
+new users stick with the <a class="reference external" href="https://code.google.com/archive/p/ardupirates/wikis/Softwares_Building.wiki">ArduPirates code</a>
+, but people with well-tested hardware are invited to join the AC2
+beta test. Feedback at DIY Drones, please.</li>
+<li>May 14, 2011: AC2 beta is improving quickly, thanks to the huge
+increase in feedback and testing from the open beta release. The
+latest tested version can always be downloaded from the Mission
+Planner. At this point, we feel that it is stable enough for most
+users with well-tested hardware, although please remember it’s still
+in beta so there may still be some bugs and you’re flying at your own
+risk. Go through the setup process carefully and please read the
+manual before flying!</li>
+<li>May 7, 2011: Copter 2 first beta released. Details
+<a class="reference external" href="https://www.diydrones.com/profiles/blogs/arducopter-20-beta-first">here</a>
+. This is an early public beta and may be unstable. Some features and
+portions of the manual are a work in progress and will be changed
+over the next few weeks. Most users are advised to continue using
+<a class="reference external" href="https://code.google.com/archive/p/ardupirates/wikis/Softwares_Building.wiki">ArduPirates code</a>
+until Copter 2 comes out of beta.</li>
+<li>May 5, 2011: Manual revised for Copter 2. Older Copter 1 manual
+unavailable (was on old google.code site).</li>
+</ul>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Archived: Troubleshooting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pdf-guides.html" class="btn btn-neutral" title="Archived: PDF Guides" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Archived: Copter Project News&amp;body=[Archived: Copter Project News](https://ardupilot.org/copter/docs/project-news.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

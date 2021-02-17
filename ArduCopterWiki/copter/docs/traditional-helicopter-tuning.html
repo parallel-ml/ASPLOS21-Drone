@@ -1,0 +1,835 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Traditional Helicopter – Tuning &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Traditional Helicopters" href="traditional-helicopters.html"/>
+        <link rel="next" title="Tricopter Configuration" href="tricopter.html"/>
+        <link rel="prev" title="Traditional Helicopter - Pre-Flight Testing" href="trad-heli-preflight-testing.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Pixhawk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-connecting-apm.html">Connecting and Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-swashplate-setup.html">Swashplate Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-rsc-setup.html">Rotor Speed Control Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traditional Helicopter – Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-arducopter-flight-control-law-description">General ArduCopter Flight Control Law Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup-of-pitch-and-roll-tuning-parameters">Initial Setup of Pitch and Roll Tuning Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuning-the-yaw-axis-rudder">Tuning the Yaw Axis (Rudder)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-ff-and-accel-x-max-parameters-for-desired-pitch-and-roll-response">Setting _FF and ACCEL_x_MAX Parameters for Desired Pitch and Roll Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuning-the-d-and-p-gain">Tuning the D and P gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-the-i-gain-imax-and-ilmi">Setting the I gain, IMAX, and ILMI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-tuning-for-hover-trim-loiter-flight-mode-and-waypoint-flying">Advanced Tuning for Hover Trim, Loiter Flight Mode and Waypoint Flying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hover-trim">Hover Trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjusting-i-gains-for-high-speed-autonomous-flight">Adjusting I-gains For High-Speed Autonomous Flight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="traditional-helicopters.html">Traditional Helicopters</a> &raquo;</li>
+      
+    <li>Traditional Helicopter – Tuning</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/traditional-helicopter-tuning.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="traditional-helicopter-tuning">
+<span id="id1"></span><h1>Traditional Helicopter – Tuning<a class="headerlink" href="#traditional-helicopter-tuning" title="Permalink to this headline">¶</a></h1>
+<p>This tuning guide is applicable to current versions of ArduCopter for traditional
+helicopters. See the <a class="reference internal" href="traditional-helicopter-archived-tuning.html#traditional-helicopter-archived-tuning"><span class="std std-ref">old tuning guide which is archived here</span></a> for old versions.</p>
+<p>For making setting changes to traditional helicopters, users are reminded to
+use only the Full or Complete Parameter List in your ground station software.
+<strong>Do not use the Basic, Extended or Advanced Tuning pages that are designed for
+multi-rotor aircraft.</strong> These pages will make unwanted setting changes to
+traditional helicopters. And remember to write the changes to the flight
+controller after making them or they won’t be saved!</p>
+<div class="section" id="general-arducopter-flight-control-law-description">
+<h2>General ArduCopter Flight Control Law Description<a class="headerlink" href="#general-arducopter-flight-control-law-description" title="Permalink to this headline">¶</a></h2>
+<p>Users should generally understand the flight control laws before tuning. At
+a high level, the arducopter control laws are designed as a model following
+architecture where the software converts the pilot input into a commanded
+attitude (Stabilize Mode) or commanded rate (Acro mode) and controls the
+aircraft to achieve that commanded value. In the background, the software keeps
+track of, or predicts, where the aircraft should be in space (i.e. pitch and
+roll attitude) based on the inputs of the pilot or autopilot. It has two
+controllers (attitude and rate) that work together to ensure the actual aircraft
+is following the software’s predicted pitch and roll rates and attitudes.</p>
+<p>The pilot’s commands are limited by the amount of acceleration that can be
+commanded through the <a class="reference internal" href="parameters.html#atc-accel-p-max"><span class="std std-ref">ATC_ACCEL_P_MAX</span></a> for pitch and <a class="reference internal" href="parameters.html#atc-accel-r-max"><span class="std std-ref">ATC_ACCEL_R_MAX</span></a> for roll.
+The initial responsiveness (crispness/sluggishness) of the aircraft to the pilot
+input can be adjusted through the <a class="reference internal" href="parameters.html#atc-input-tc"><span class="std std-ref">ATC_INPUT_TC</span></a> parameter (in AC 3.5 or earlier,
+this parameter was called RC_FEEL). The pilot input and these parameters are
+used to determine the requested rate required to achieve the desired response
+that is fed to the rate controller.</p>
+<p>The attitude controller is used to ensure the actual attitude of the aircraft
+matches the predicted attitude of the autopilot. It uses the
+<a class="reference internal" href="parameters.html#atc-ang-pit-p"><span class="std std-ref">ATC_ANG_PIT_P</span></a> in pitch and the <a class="reference internal" href="parameters.html#atc-ang-rll-p"><span class="std std-ref">ATC_ANG_RLL_P</span></a> in roll to determine a rate that is
+fed to the rate controller that will drive the aircraft to the predicted
+attitude.</p>
+<p>The rate controller receives the sum of the requested rate resulting
+from the pilot input and the rate from the attitude controller and determines
+the swashplate commands required to achieve the input rate. The rate controller
+uses a PID control algorithm and a feed forward path to control the aircraft and
+achieve the input rate. The feed forward path uses the input rate and applies
+the <a class="reference internal" href="parameters.html#atc-rat-pit-vff"><span class="std std-ref">ATC_RAT_PIT_VFF</span></a> gain for pitch and <a class="reference internal" href="parameters.html#atc-rat-rll-vff"><span class="std std-ref">ATC_RAT_RLL_VFF</span></a> gain for roll to
+determine its portion of the swashplate command. The PID algorithm uses the
+error between the actual rate and input rate to determine its portion of the
+swashplate command. These are summed and sent to the mixing unit where the servo
+positions are determined.</p>
+<p>So this tuning method uses the FF gain initially to ensure the requested rates
+match the actual rates.  However the rates can vary from the requested due to
+disturbances. The P and D gains are then used to guard against disturbances
+that cause the actual rates to deviate from the requested rates. So the P and D
+gain may not be able to keep the actual rates exactly matching the requested
+rates.  Since the software is tracking where the orientation of the aircraft
+should be, then any error between the requested and actual rates will result in
+attitude error. So there is a feature called the integrator that continually
+sums the rate errors which effectively calculates the error in attitude.  The
+I gain is multiplied by the integrator and summed with the other outputs of the
+rate controller.  The integrator is limited by the <a class="reference internal" href="parameters.html#atc-rat-rll-imax-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_IMAX</span></a> in roll and
+<a class="reference internal" href="parameters.html#atc-rat-pit-imax-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_IMAX</span></a> in pitch.  When ground speed is less than 5 m/s, the
+integrator is leaked off (reduced at a specified rate) and another parameter,
+<a class="reference internal" href="parameters.html#atc-rat-rll-ilmi"><span class="std std-ref">ATC_RAT_RLL_ILMI</span></a> and <a class="reference internal" href="parameters.html#atc-rat-pit-ilmi"><span class="std std-ref">ATC_RAT_PIT_ILMI</span></a>, only lets it leak off so much.  If the
+ILMI, or integrator leak minimum, is zero then the integrator will not be
+allowed to grow and the attitude will not be driven to exactly match the
+software’s predicted attitude.  However, if this is non zero or large enough for
+attitude errors that may be encountered at low speeds and in a hover, then the
+actual attitude will track the predicted attitude. The reason for the leak and
+ILMI parameter is that a larger amount of integrator is needed for forward
+flight. However, in a hover and in particular during air ground transition,
+allowing large amounts of integrator can cause the aircraft to flip itself on
+its side.  So the integrator leak along with the leak minimum parameter keep
+enough of the integrator to make it effective in keeping the attitudes matching
+but not so powerful to cause the aircraft to roll over.</p>
+</div>
+<div class="section" id="initial-setup-of-pitch-and-roll-tuning-parameters">
+<h2>Initial Setup of Pitch and Roll Tuning Parameters<a class="headerlink" href="#initial-setup-of-pitch-and-roll-tuning-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Below are the initial parameters values that should be used to start the tuning
+of your helicopter. Use the suggested parameters in the yaw section below for
+the tail. The helicopter will be easily controllable with just the FF set to
+0.15 on pitch and roll in the event that you need to modify the tail settings
+from the defaults.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="0%" />
+<col width="88%" />
+<col width="12%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-accel-p-max"><span class="std std-ref">ATC_ACCEL_P_MAX</span></a></td>
+<td>110000</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-accel-r-max"><span class="std std-ref">ATC_ACCEL_R_MAX</span></a></td>
+<td>110000</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-ang-pit-p"><span class="std std-ref">ATC_ANG_PIT_P</span></a></td>
+<td>4.5</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-ang-rll-p"><span class="std std-ref">ATC_ANG_RLL_P</span></a></td>
+<td>4.5</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_D</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td colspan="2">ATC_RAT_PIT_FILT/
+<a class="reference internal" href="parameters.html#atc-rat-pit-flte-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_FLTE</span></a> **</td>
+<td>20</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-i-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_I</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-ilmi"><span class="std std-ref">ATC_RAT_PIT_ILMI</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-imax-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_IMAX</span></a></td>
+<td>0.40</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_P</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-pit-vff"><span class="std std-ref">ATC_RAT_PIT_VFF</span></a></td>
+<td>0.15</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_D</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td colspan="2">ATC_RAT_RLL_FILT/
+<a class="reference internal" href="parameters.html#atc-rat-rll-flte-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_FLTE</span></a> **</td>
+<td>20</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-i-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_I</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-ilmi"><span class="std std-ref">ATC_RAT_RLL_ILMI</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-imax-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_IMAX</span></a></td>
+<td>0.40</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_P</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="parameters.html#atc-rat-rll-vff"><span class="std std-ref">ATC_RAT_RLL_VFF</span></a></td>
+<td>0.15</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="parameters.html#atc-input-tc"><span class="std std-ref">ATC_INPUT_TC</span></a></td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<p>** This param name changed in ArduPilot 4.0 and later.</p>
+</div>
+<div class="section" id="tuning-the-yaw-axis-rudder">
+<h2>Tuning the Yaw Axis (Rudder)<a class="headerlink" href="#tuning-the-yaw-axis-rudder" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to make sure the tail functions properly before proceeding
+with tuning pitch and roll.</p>
+<p><strong>Important Note</strong> - UAV helicopters, as opposed to sport helicopters, will
+usually be running low headspeed and higher disc loading. With a mechanically
+driven tail this also means lower than normal tail speed and reduced tail
+authority. If your helicopter meets this description, it is recommended to set
+<a class="reference internal" href="parameters.html#atc-rat-yaw-vff"><span class="std std-ref">ATC_RAT_YAW_VFF</span></a> to 0.05 before the first test hover.</p>
+<p>Below are the current default settings for yaw. Spool up the heli and hover it
+no more than .25 meters above ground in Stabilize flight mode and test the
+starting tail settings. If the tail seems “loose” and doesn’t want to hold
+increase the <a class="reference internal" href="parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_P</span></a>. If the tail rapidly shakes side to side reduce the
+<a class="reference internal" href="parameters.html#atc-ang-yaw-p"><span class="std std-ref">ATC_ANG_YAW_P</span></a>.</p>
+<p>In all cases it is not recommended to adjust <a class="reference internal" href="parameters.html#atc-ang-yaw-p"><span class="std std-ref">ATC_ANG_YAW_P</span></a> below 3.5 or
+<a class="reference internal" href="parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_P</span></a> above 0.38. If your helicopter cannot seem to achieve a solid tail
+within those limits you likely have a mechanical problem with the tail - either
+excessive “slop” or play in the linkage, binding of the linkage or a servo
+problem. Correct the problem before proceeding with roll and pitch tuning.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="87%" />
+<col width="13%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#atc-accel-y-max"><span class="std std-ref">ATC_ACCEL_Y_MAX</span></a></td>
+<td>27000</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="parameters.html#atc-ang-yaw-p"><span class="std std-ref">ATC_ANG_YAW_P</span></a></td>
+<td>4.5</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_D</span></a></td>
+<td>0.003</td>
+</tr>
+<tr class="row-even"><td>ATC_RAT_YAW_FILT/
+<a class="reference internal" href="parameters.html#atc-rat-yaw-flte-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_FLTE</span></a> *</td>
+<td>20</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-i-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_I</span></a></td>
+<td>0.12</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-ilmi"><span class="std std-ref">ATC_RAT_YAW_ILMI</span></a></td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-imax-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_IMAX</span></a></td>
+<td>0.33</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_YAW_P</span></a></td>
+<td>0.18</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#atc-rat-yaw-vff"><span class="std std-ref">ATC_RAT_YAW_VFF</span></a></td>
+<td>0.024</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>This param name changed in ArduPilot 4.0 and later.</li>
+</ul>
+</div>
+<div class="section" id="setting-ff-and-accel-x-max-parameters-for-desired-pitch-and-roll-response">
+<h2>Setting _FF and ACCEL_x_MAX Parameters for Desired Pitch and Roll Response<a class="headerlink" href="#setting-ff-and-accel-x-max-parameters-for-desired-pitch-and-roll-response" title="Permalink to this headline">¶</a></h2>
+<p>In both pitch and roll axes, the FF gain is set so that the actual aircraft
+rate matches the desired rate. To do this, the RATE message in the log is
+required to compare the P.des and P signals for pitch and the R.des and R
+signals for roll. With the FF gains set to 0.15, takeoff and establish a hover
+in Stabilize flight mode, then make some sharp stick inputs in both pitch and
+roll. Land and pull the log from the microSD card and look at the signals in
+your ground station software. If the actual rate is more than the desired rate
+then you’ll want to decrease FF. If it is less, increase FF. If the desired
+and actual rates are offset by some amount it means that your swash was not
+properly leveled in the setup or the CG is not right.  In this case, just make
+sure the change in rate is similar between desired and actual.  If you get the
+rates to match and they feel like they are too fast, then reduce the
+<code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_x_MAX</span></code> parameter and repeat the process above to match the desired and
+actual rates.</p>
+<p>If while tuning the FF gain the aircraft starts to oscillate, reduce the
+ATC_ANG_xxx_P gain for that axis until the oscillations stop.  However for most
+helicopters the suggested values above should not cause this problem.</p>
+<p>With a flybar head, where the linkage rate is normally lower, it is recommended
+to start with 0.22 FF for both pitch and roll and you will likely have to go
+higher with FF. But for a flybarless head, FF shouldn’t be more than 0.22
+unless you have really really slow servos or slow linkage rate. With all
+helicopters, the FF gain compensates for differences in servo and linkage
+speed.</p>
+<p>The final setting for <code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_x_MAX</span></code> parameters will depend on the size of the
+helicopter.  Large 800-900 class machines will typically be in the 36000-52000
+range; smaller 450-500 class machines will typically be in the 90000-110000
+range. You may want to experiment with the <a class="reference internal" href="parameters.html#atc-input-tc"><span class="std std-ref">ATC_INPUT_TC</span></a> parameter as well to get
+the initial aircraft response the way you like it.  It is recommended to keep the
+<a class="reference internal" href="parameters.html#atc-input-tc"><span class="std std-ref">ATC_INPUT_TC</span></a> parameter between 0.15 and 0.25 (for <code class="docutils literal notranslate"><span class="pre">RC_FEEL</span></code> with AC 3.5 or earlier,
+the recommended range was 25 to 50).  Once this process is complete, the aircraft
+should have the desired feel in snappiness and rate.</p>
+<p>Below is a graph showing an example of Rate Roll Desired vs actual Rate Roll.
+The peak corresponds to a rapid stick input and the amplitude (height) of the
+peaks should be approximately the same with no more than 100 milliseconds
+offset.</p>
+<img alt="../_images/TradHeli_tuning_example1_1.png" src="../_images/TradHeli_tuning_example1_1.png" />
+<p><strong>Note on Tuning Flybar Helicopers</strong> - for flybar heads the flybar is a
+mechanical version of the rate PID loop. So flybar is tuned using only FF in
+pitch and roll. The rate D and P gains mentioned in the next topic below are
+left set to zero for flybar. I-gain, IMAX, and ILMI are tuned just like FBL.
+Below is a plot of beginning a tune on a flybar helicopter using the starting
+setting of <a class="reference internal" href="parameters.html#atc-rat-rll-vff"><span class="std std-ref">ATC_RAT_RLL_VFF</span></a> = 0.22. The graph shows the aircraft’s response to
+the rate request of the attitude controller is low, meaning the FF value must
+be increased to achieve proper rate response. For all flybar helicopters be sure
+to set <a class="reference internal" href="parameters.html#h-flybar-mode"><span class="std std-ref">H_FLYBAR_MODE</span></a> = 1</p>
+<img alt="../_images/TradHeli_tuning_example3_1.png" src="../_images/TradHeli_tuning_example3_1.png" />
+</div>
+<div class="section" id="tuning-the-d-and-p-gain">
+<h2>Tuning the D and P gain<a class="headerlink" href="#tuning-the-d-and-p-gain" title="Permalink to this headline">¶</a></h2>
+<p>Once you have the heli responding nicely with the rate FF gain, now tune the
+PID gains. The rate PID controller provides stability to reject disturbances and
+keep the actual aircraft following the software predicted rates.</p>
+<p>Start with the D gain.  Use the <a class="reference internal" href="common-transmitter-tuning.html#common-transmitter-tuning"><span class="std std-ref">Transmitter based tuning</span></a> feature of ArduCopter.  Make the following parameter changes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="83%" />
+<col width="17%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune"><span class="std std-ref">TUNE</span></a></td>
+<td>21</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TUNE_LOW</span></code> (prior to 4.0)</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune-min"><span class="std std-ref">TUNE_MIN</span></a> (4.0 and later)</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TUNE_HIGH</span></code> (prior to 4.0)</td>
+<td>30</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune-max"><span class="std std-ref">TUNE_MAX</span></a> (4.0 and later)</td>
+<td>0.030*</td>
+</tr>
+</tbody>
+</table>
+<p><em>for futaba radios this equates to one increment in the knob to 0.001</em></p>
+<p>Adjust the tuning knob until the <a class="reference internal" href="parameters.html#atc-rat-rll-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_D</span></a> and <a class="reference internal" href="parameters.html#atc-rat-pit-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_D</span></a> gains are
+0.001. Lift into a hover and make some sharp stick inputs in roll.  Most
+helicopters will see roll oscillations before they see pitch oscillations.
+That is why roll inputs are suggested.  If it doesn’t shake, increase the gain
+by 0.001 and try it again. At the value where you get the rapid shaking, cut
+that value in half and enter it as the final tuning value for <a class="reference internal" href="parameters.html#atc-rat-rll-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_D</span></a> and
+<a class="reference internal" href="parameters.html#atc-rat-pit-d-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_D</span></a>.  Test hover the heli and make some rapid stick movements in both
+pitch and roll to make sure it’s stable.</p>
+<p>Now tune the P gains.  Make the following tuning parameter changes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="83%" />
+<col width="17%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune"><span class="std std-ref">TUNE</span></a></td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TUNE_LOW</span></code> (prior to 4.0)</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune-min"><span class="std std-ref">TUNE_MIN</span></a> (4.0 and later)</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TUNE_HIGH</span></code> (prior to 4.0)</td>
+<td>300</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parameters.html#tune-max"><span class="std std-ref">TUNE_MAX</span></a> (4.0 and later)</td>
+<td>0.3*</td>
+</tr>
+</tbody>
+</table>
+<p><em>for futaba radios this equates to one increment in the knob to 0.01</em></p>
+<p>Adjust the tuning knob until the <a class="reference internal" href="parameters.html#atc-rat-rll-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_P</span></a> and <a class="reference internal" href="parameters.html#atc-rat-pit-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_P</span></a>  gains are
+0.05. Lift into a hover and roll aggressively from side to side.  If it doesn’t
+shake, increase the gain by 0.01 and try it again. At the value where you get
+the rapid shaking, cut that value in half and enter it as the final tuning value
+for <a class="reference internal" href="parameters.html#atc-rat-rll-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_P</span></a> and <a class="reference internal" href="parameters.html#atc-rat-pit-p-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_P</span></a>.  Test hover the heli and make some rapid
+stick movements in both pitch and roll to make sure it’s stable.</p>
+<p>After tuning the P and D gain the aircraft should feel much smoother.</p>
+</div>
+<div class="section" id="setting-the-i-gain-imax-and-ilmi">
+<h2>Setting the I gain, IMAX, and ILMI<a class="headerlink" href="#setting-the-i-gain-imax-and-ilmi" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to set the <a class="reference internal" href="parameters.html#atc-rat-pit-i-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_PIT_I</span></a> gain equal to the <a class="reference internal" href="parameters.html#atc-rat-pit-vff"><span class="std std-ref">ATC_RAT_PIT_VFF</span></a>
+gain and the <a class="reference internal" href="parameters.html#atc-rat-rll-i-ac-attitudecontrol-heli"><span class="std std-ref">ATC_RAT_RLL_I</span></a> gain equal to the <a class="reference internal" href="parameters.html#atc-rat-rll-vff"><span class="std std-ref">ATC_RAT_RLL_VFF</span></a> gain.  The IMAX
+value limits amount of integrator error that can be stored to counter large
+disturbances in attitude.  In the pitch axis this is set by the integrator error
+required to hold the aircraft attitude at high forward speeds.  The starting
+value is 0.4.  To check this set the value to IMAX = 1, fly the aircraft at the
+maximum desired speed.  Pull the log and look at what the maximum I value is in
+the PIDP message.  Set IMAX for 0.1 above the maximum value.  You could do the
+same for the roll axis but typically 0.4 should be sufficient.  ILMI is set for
+the maximum amount of integrator that you want to retain in a hover to help
+maintain attitude.  It is recommended that this value is no larger than 0.1</p>
+<p>Below is a graph of desired roll attitude vs actual roll attitude for a
+helicopter in high-speed autonomous flight with the ILMI parameters set to zero.
+The effect of the I-gain and IMAX parameters, properly set, will make the
+helicopter track the desired attitude very closely at speed exceeding 5m/s for
+more than 2 seconds (what we call “dynamic flight”). It should be within 1-2
+degrees of desired in dynamic flight. Towards the right side of the graph the
+helicopter came to a stop in hover and the pilot switched to Stabilize flight
+mode. You will notice a discrepancy between the actual and desired roll attitude
+at that point. This is the effect of having ILMI set to zero. The ILMI can be
+considered to be a sort of “auto trim” for hover that will reduce the
+discrepancy between desired and actual pitch and roll attitude when the
+helicopter is not in dynamic flight.</p>
+<img alt="../_images/TradHeli_tuning_example2_1.png" src="../_images/TradHeli_tuning_example2_1.png" />
+</div>
+</div>
+<div class="section" id="advanced-tuning-for-hover-trim-loiter-flight-mode-and-waypoint-flying">
+<h1>Advanced Tuning for Hover Trim, Loiter Flight Mode and Waypoint Flying<a class="headerlink" href="#advanced-tuning-for-hover-trim-loiter-flight-mode-and-waypoint-flying" title="Permalink to this headline">¶</a></h1>
+<p>At this point you should have a helicopter that is responsive and yet stable.
+But we need to trim the helicopter so it hovers pretty much hands-off in
+Stabilize flight mode. And adjust the I-gains for Auto flight mode so it tracks
+attitude properly under full autopilot control.</p>
+<div class="section" id="hover-trim">
+<h2>Hover Trim<a class="headerlink" href="#hover-trim" title="Permalink to this headline">¶</a></h2>
+<p>Trimming the helicopter in pitch and roll axes is an important step to keep the
+aircraft from drifting in modes like Stabilize and Althold.  The trim attitude
+in the roll axis is affected by the tail rotor thrust.  All conventional single-
+rotor helicopters with a torque-compensating tail rotor hover either right skid
+low or left skid low, depending on which way the main rotor turns. The
+ArduCopter software has a parameter, <a class="reference internal" href="parameters.html#atc-hovr-rol-trm"><span class="std std-ref">ATC_HOVR_ROL_TRM</span></a>, to compensate for this
+phenomenon. Longitudinal CG location will affect the trim attitude in the pitch
+axis.  There is no parameter to tell the autopilot what pitch attitude
+the aircraft hovers with no drift. It always targets zero deg pitch as measured
+by the autopilot. Therefore the actual pitch attitude the aircraft
+hovers may be 5 deg nose high but the autopilot AHRS Trim value is set
+to make it think the attitude is zero deg.</p>
+<p>In order to trim the aircraft, set the <a class="reference internal" href="parameters.html#atc-hovr-rol-trm"><span class="std std-ref">ATC_HOVR_ROL_TRM</span></a> parameter to zero.
+During the initial setup of the autopilot, the <code class="docutils literal notranslate"><span class="pre">AHRS_TRIM_x</span></code> values are set
+during the accelerometer calibration on the last step that has you level the
+aircraft. For that step you should have made certain that the shaft was
+perfectly straight up in pitch and roll. For this trim procedure, it is
+recommended that you check it and using the method below.</p>
+<p>Measure the actual frame angle (on a portion of the frame that is perpendicular
+to the mainshaft) in pitch and roll with your digital pitch gauge. Connected to
+your ground station software with MavLink, note the pitch and roll angle the
+autopilot is “seeing”. Adjust the <a class="reference internal" href="parameters.html#ahrs-trim-x"><span class="std std-ref">AHRS_TRIM_X</span></a> and <a class="reference internal" href="parameters.html#ahrs-trim-y"><span class="std std-ref">AHRS_TRIM_Y</span></a> values so
+the autopilot “sees” the identical frame angle you measured with the
+digital pitch gauge. You can use the Level Horizon function in your ground station
+to level the horizon with the helicopter at actual level. That function will
+make the adjustments to the AHRS_TRIM’s for you.</p>
+<p>The above is necessary so we can accurately measure the roll angle to set the
+<a class="reference internal" href="parameters.html#atc-hovr-rol-trm"><span class="std std-ref">ATC_HOVR_ROL_TRM</span></a>. The autopilot now “knows” when the mainshaft is
+perfectly vertical.</p>
+<p>Load the helicopter with its normal payload, and hover the helicopter
+in no-wind conditions in Stabilize flight mode. Land it and pull the log, noting
+the roll angle that you had to hold with the stick to keep the helicopter from
+drifting. Enter this value in the <a class="reference internal" href="parameters.html#atc-hovr-rol-trm"><span class="std std-ref">ATC_HOVR_ROL_TRM</span></a> parameter in centidegrees.
+For a CW turning main rotor if it took 3.5 degrees of right roll to compensate,
+enter 350. Negative values are for a CCW turning main rotor that requires left
+roll to compensate.</p>
+<p><strong>Important Note</strong> - do not use the radio trims at all. Make sure they are
+centered.</p>
+<p>After setting the <a class="reference internal" href="parameters.html#atc-hovr-rol-trm"><span class="std std-ref">ATC_HOVR_ROL_TRM</span></a> now hover the helicopter again. If it still
+drifts make small adjustments to the <a class="reference internal" href="parameters.html#servo1-trim"><span class="std std-ref">SERVO1_TRIM</span></a> , <a class="reference internal" href="parameters.html#servo2-trim"><span class="std std-ref">SERVO2_TRIM</span></a> and <a class="reference internal" href="parameters.html#servo3-trim"><span class="std std-ref">SERVO3_TRIM</span></a> .
+The chances of getting the swashplate perfectly level during bench setup is very
+low and this dynamic tuning is needed to trim the helicopter. If it requires
+large deviation from your original <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> values it is likely you have a CG
+problem, or your initial setup when leveling the swashplate was not very
+accurate.</p>
+<p>Your helicopter is now trimmed properly. This trimming procedure makes the
+difference between a helicopter that is difficult to handle vs one that flies
+with true scale quality and handling.</p>
+</div>
+<div class="section" id="adjusting-i-gains-for-high-speed-autonomous-flight">
+<h2>Adjusting I-gains For High-Speed Autonomous Flight<a class="headerlink" href="#adjusting-i-gains-for-high-speed-autonomous-flight" title="Permalink to this headline">¶</a></h2>
+<p>Prepare a mission with your ground station software that will fly the
+helicopter, preferably in a figure-8 pattern to make both right and left turns,
+at a speed of 6 m/s. Fly the helicopter on this mission, pull the logs from the
+microSD card and look at the AHRS desired vs actual pitch, roll and yaw
+attitudes in dynamic flight. They should track within 1-2 degrees. If they do
+not, increase the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_I</span></code> value for that axis until they do.</p>
+<p>Now, fly the same mission, but at higher speed of 9-10 m/s, and analyze the logs
+the same way. Make further adjustments to the I-gains and IMAX values as
+required. It is not clear what I-gain values will be required as no two
+helicopters are the same. But I-gain values from 0.25 - 0.38 are common in pitch
+and roll, and 0.18 - 0.30 in yaw. IMAX values of 0.40 - 0.45 are common, however
+refer to the ‘Setting the I gain, IMAX, and ILMI’ section on how to determine
+what the IMAX value should be.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tricopter.html" class="btn btn-neutral float-right" title="Tricopter Configuration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="trad-heli-preflight-testing.html" class="btn btn-neutral" title="Traditional Helicopter - Pre-Flight Testing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Traditional Helicopter – Tuning&amp;body=[Traditional Helicopter – Tuning](https://ardupilot.org/copter/docs/traditional-helicopter-tuning.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

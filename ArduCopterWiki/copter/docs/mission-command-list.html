@@ -1,0 +1,726 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Copter Mission Command List &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Mission Planning" href="common-mission-planning.html"/>
+        <link rel="next" title="Mission Commands" href="common-mavlink-mission-command-messages-mav_cmd.html"/>
+        <link rel="prev" title="Planning a Mission with Waypoints and Events" href="common-planning-a-mission-with-waypoints-and-events.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html">Planning a Mission with Waypoints and Events</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Copter Mission Command List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#takeoff">Takeoff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#waypoint">Waypoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spline-waypoint">Spline Waypoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loiter-time">Loiter_Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loiter-turns">Loiter_Turns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loiter-unlimited">Loiter_Unlimited</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-to-launch">Return-To-Launch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#land">Land</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delay">Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-place">Package Place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-set-roi">Do-Set-ROI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condition-delay">Condition-Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condition-distance">Condition-Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condition-yaw">Condition-Yaw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-jump">Do-Jump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-change-speed">Do-Change-Speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-set-home">Do-Set-Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-set-cam-trigg-dist">Do-Set-Cam-Trigg-Dist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-set-relay">Do-Set-Relay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-repeat-relay">Do-Repeat-Relay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-set-servo">Do-Set-Servo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-repeat-servo">Do-Repeat-Servo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-digicam-control">Do-Digicam-Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-fence-enable">Do-Fence-Enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-mount-control">Do-Mount-Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-gripper">Do-Gripper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html">Mission Command List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html">Camera Control in Auto Missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rally-points.html">Rally Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-geotagging-images-with-mission-planner.html">Geotagging Images with Mission Planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-following.html">Terrain Following</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-mission-rewind.html">Rewind-on-resume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-mission-planning.html">Mission Planning</a> &raquo;</li>
+      
+    <li>Copter Mission Command List</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/copter/source/docs/mission-command-list.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="copter-mission-command-list">
+<span id="mission-command-list"></span><h1>Copter Mission Command List<a class="headerlink" href="#copter-mission-command-list" title="Permalink to this headline">¶</a></h1>
+<p>This page provides details of all the mission commands
+(i.e. <a class="reference external" href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT">MAVLink commands</a>) supported by Copter that can be run as part of a mission (i.e. <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">AUTO flight mode</span></a>).</p>
+<p>Each of the commands below is either a “Navigation” command or a “Do”
+command.  Navigation commands (i.e. “TakeOff” and “Waypoint”) affect the
+location of the vehicle while “Do” commands (i.e. “Do-Set-Servo” and
+“Do-Cam-Trigg-Dist”) are for auxiliary functions and do not affect the
+vehicle’s position.  During a mission at most one “Navigation” command
+and one “Do” command can be running at one time.  The “Do” commands will
+be run in order as soon as the preceding navigation command before them
+completes.  For more information on setting up missions please refer to the
+<a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events"><span class="std std-ref">Planning a Mission with Waypoints and Events</span></a>
+page.</p>
+<div class="section" id="takeoff">
+<h2>Takeoff<a class="headerlink" href="#takeoff" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/TakeOff.jpg"><img alt="../_images/TakeOff.jpg" src="../_images/TakeOff.jpg" /></a>
+<p>The vehicle will climb straight up from its current location to the
+altitude specified (in meters). This should be the first command of
+nearly all missions. If the mission is begun while the copter is already
+flying, the vehicle will climb straight up to the specified altitude, if
+the vehicle is already above the specified altitude the takeoff command
+will be ignored and the mission will move onto the next command
+immediately.</p>
+</div>
+<div class="section" id="waypoint">
+<h2>Waypoint<a class="headerlink" href="#waypoint" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/WayPoint.jpg"><img alt="../_images/WayPoint.jpg" src="../_images/WayPoint.jpg" /></a>
+<p>The vehicle will fly a straight line to the location specified as a lat,
+lon and altitude (in meters).</p>
+<p><strong>Delay</strong> - the amount of time to wait (in seconds) at the waypoint
+before proceeding to the next command</p>
+<p><strong>Hit Rad</strong> - not supported - meant to hold the distance (in meters)
+from the target point that will qualify the waypoint as complete. This
+command is not supported. Instead the <a class="reference internal" href="parameters.html#wpnav-radius"><span class="std std-ref">WPNAV_RADIUS</span></a> parameter should be
+used (see “WP Radius” field in above screen shot or adjust through the
+Standard Parameters List).  Even the <a class="reference internal" href="parameters.html#wpnav-radius"><span class="std std-ref">WPNAV_RADIUS</span></a> is only used when the
+waypoint has a Delay. With no delay specified the waypoint will be
+considered complete when the virtual point that the vehicle is chasing
+reaches the waypoint. This can be 10m (or more) ahead of the vehicle
+meaning that the vehicle will turn towards the following waypoint long
+before it actually reaches the current waypoint</p>
+<p><strong>Yaw Ang</strong> - not supported - meant to hold the resulting yaw angle in
+degrees (0=north, 90 = east). Instead use a
+<a class="reference internal" href="#mission-command-list-condition-yaw"><span class="std std-ref">CONDITION_YAW</span></a> command.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets.  If left as zero it
+will hold the current location.</p>
+<p><strong>Alt</strong> - the target altitude above home in meters.  If left as zero it
+will hold the current altitude.</p>
+</div>
+<div class="section" id="spline-waypoint">
+<h2>Spline Waypoint<a class="headerlink" href="#spline-waypoint" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_SplineWaypoint.jpg"><img alt="../_images/MissionList_SplineWaypoint.jpg" src="../_images/MissionList_SplineWaypoint.jpg" /></a>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Spline_%28mathematics%29">Spline</a> waypoints take all the same arguments as regular waypoints (lat, lon, alt, delay) but when executed the vehicle will fly smooth paths (both vertically and horizontally) instead of straight lines.  Spline waypoints can be mixed with regular straight line waypoints as shown in the image above.</p>
+<p>The Mission Planner shows the path the vehicle will take.  The image
+above shows some characteristics of the spline</p>
+<ul class="simple">
+<li>The 1 second delay at the end of Waypoint #1 causes the vehicle to
+stop so Spline command #2 begins by taking a sharp 90degree turn</li>
+<li>The direction of travel as the vehicle passes through Spline Waypoint
+#3 is parallel to an imaginary line drawn between waypoints #2 and #4</li>
+<li>Waypoint #5 is a straight line so the vehicle lines itself up to
+point towards waypoint #5 even before reaching waypoint #4.</li>
+</ul>
+</div>
+<div class="section" id="loiter-time">
+<h2>Loiter_Time<a class="headerlink" href="#loiter-time" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_LoiterTime.png"><img alt="../_images/MissionList_LoiterTime.png" src="../_images/MissionList_LoiterTime.png" /></a>
+<p>The vehicle will fly to and then wait at the specified location for the
+specified number of seconds.  This is the same as a Waypoint command.</p>
+<p><strong>Times</strong> - the number of seconds to remain at the location.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets. If left as zero it
+will hold at the current location.</p>
+<p><strong>Alt</strong> - the target altitude above home in meters. If left as zero it
+will hold at the current altitude.</p>
+</div>
+<div class="section" id="loiter-turns">
+<h2>Loiter_Turns<a class="headerlink" href="#loiter-turns" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_LoiterTurns.png"><img alt="../_images/MissionList_LoiterTurns.png" src="../_images/MissionList_LoiterTurns.png" /></a>
+<p>The mission equivalent of the <a class="reference internal" href="circle-mode.html#circle-mode"><span class="std std-ref">Circle flight mode</span></a>.  The vehicle will fly a circle around the
+specified lat, lon and altitude (in meters).  The radius of the circle
+is controlled by the <a class="reference internal" href="parameters.html#circle-radius"><span class="std std-ref">CIRCLE_RADIUS</span></a> parameter (i.e. cannot be set as
+part of the mission).</p>
+<p><strong>Turn</strong> - the number of full rotations to complete around the point.</p>
+<p><strong>Dir 1=CW</strong> - the direction to turn around the point. -1 = counter
+clockwise, +1 = clockwise.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets.  If left as zero it
+will circle around the current location.</p>
+<p><strong>Alt</strong> - the target altitude above home in meters.  If left as zero it
+will circle at the current altitude.</p>
+</div>
+<div class="section" id="loiter-unlimited">
+<h2>Loiter_Unlimited<a class="headerlink" href="#loiter-unlimited" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_LoiterUnlimited.png"><img alt="../_images/MissionList_LoiterUnlimited.png" src="../_images/MissionList_LoiterUnlimited.png" /></a>
+<p>The vehicle will fly to and then wait at the specified location
+indefinitely.  The mission will not proceed past this command.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets. If left as zero it
+will wait at the current location.</p>
+<p><strong>Alt</strong> - the target altitude above home in meters. If left as zero it
+will wait at the current altitude.</p>
+</div>
+<div class="section" id="return-to-launch">
+<h2>Return-To-Launch<a class="headerlink" href="#return-to-launch" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_RTL.png"><img alt="../_images/MissionList_RTL.png" src="../_images/MissionList_RTL.png" /></a>
+<p>Mission equivalent of the <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL flight mode</span></a>.  As
+described on the RTL flight mode wiki page, the vehicle will first climb
+to the <a class="reference internal" href="parameters.html#rtl-alt"><span class="std std-ref">RTL_ALT</span></a> parameter’s specified altitude (default is 15m) before
+returning home.  The home location is where the vehicle was last armed.</p>
+<p>This command takes no parameters and generally should be the last
+command in the mission.</p>
+</div>
+<div class="section" id="land">
+<h2>Land<a class="headerlink" href="#land" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_Land.png"><img alt="../_images/MissionList_Land.png" src="../_images/MissionList_Land.png" /></a>
+<p>Vehicle will land at its current location or at the lat/lon coordinates
+provided.  This is the mission equivalent of the <a class="reference internal" href="land-mode.html#land-mode"><span class="std std-ref">LAND flight mode</span></a>.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets. If left as zero it
+will land at the current location.</p>
+</div>
+<div class="section" id="delay">
+<h2>Delay<a class="headerlink" href="#delay" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_NavDelay.png"><img alt="../_images/MissionList_NavDelay.png" src="../_images/MissionList_NavDelay.png" /></a>
+<p>Support for the Delay command was added in Copter-3.4.</p>
+<p>Vehicle will remain at its current location until the specified number of seconds has passed or the absolute time is reached.
+The first column (“Seconds”) holds the number of seconds to delay.  Set to -1 if this field should be ignored.
+The “hour UTC”, “minute UTC” and “second UTC” fields can be used to specify an absolute time (<a class="reference external" href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>).  The example above will cause the vehicle to take-off at 1:30pm UTC.  Note that the hour and/or minute field can also be ignored by setting them to -1.</p>
+<p>This is a video made during the development of this feature.  Note in the video CONDITION_DELAY command is used but in its final version this DELAY command should be used.</p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/9VK3yjIyCSo" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="package-place">
+<h2>Package Place<a class="headerlink" href="#package-place" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_packageplace.png"><img alt="../_images/MissionList_packageplace.png" src="../_images/MissionList_packageplace.png" /></a>
+<p>Support for Package Place was added in Copter-3.5.</p>
+<p>Vehicle flies to the specified location and descends until it senses (using motor output) that the package has reached the ground.  The gripper is then released to unload the package.
+The first column (“Max Desc”) hold the maximum descent (in meters) that the vehicle should descend.  If the package has still not reached the ground despite this descent, the package will not be released and the vehicle will advance to the next mission command.</p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/m4GK4ALqluc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="do-set-roi">
+<span id="mission-command-list-do-set-roi"></span><h2>Do-Set-ROI<a class="headerlink" href="#do-set-roi" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoSetRoi.jpg"><img alt="../_images/MissionList_DoSetRoi.jpg" src="../_images/MissionList_DoSetRoi.jpg" /></a>
+<p>Points the nose of the vehicle or <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a> at the “region of interest”.  In the example above the nose or camera would be pointed at the red marker.</p>
+<p>The nose will continue to point at the red marker until the end of the mission OR “clear” the do-set-roi and cause the vehicle to return to its default behaviour (i.e. pointing at the next waypoint) by adding a second DO_SET_ROI command later in the mission with all zero for Lat, Lon and Alt.</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets.</p>
+<p><strong>Alt</strong> - the target altitude above home in meters.</p>
+<div style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe src="https://www.youtube.com/embed/W8NCFHrEjfU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+<div class="section" id="condition-delay">
+<h2>Condition-Delay<a class="headerlink" href="#condition-delay" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_ConditionDelay.png"><img alt="../_images/MissionList_ConditionDelay.png" src="../_images/MissionList_ConditionDelay.png" /></a>
+<p>Delays the start of the next “Do” command for the specified number of
+seconds. In the example above, Command #4 (Do-Set-Roi) is delayed so
+that it only starts 5 seconds after the vehicle has passed Waypoint #2.
+Note: this command does not stop the vehicle. Also note that the delay
+timer is only active until the next waypoint is reached, so if the “Do”
+command hasn’t been triggered by then it never will be.</p>
+<p><strong>Time (sec)</strong> - the time to delay the next “Do” command in seconds.</p>
+</div>
+<div class="section" id="condition-distance">
+<h2>Condition-Distance<a class="headerlink" href="#condition-distance" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_ConditionDistance.png"><img alt="../_images/MissionList_ConditionDistance.png" src="../_images/MissionList_ConditionDistance.png" /></a>
+<p>Delays the start of the next “Do” command until the vehicle is within
+the specified number of meters of the next waypoint. In the example
+above, Command #4 (Do-Set-Roi) is delayed so that it only starts once
+the vehicle is within 50m of waypoint #5. Note: this command does not
+cause the vehicle to stop or pause during the mission, it only affects
+“Do” commands.</p>
+<p><strong>Dist (m)</strong> - how close the vehicle should be to the next waypoint (in
+meters) before beginning the next “Do” command.</p>
+</div>
+<div class="section" id="condition-yaw">
+<span id="mission-command-list-condition-yaw"></span><h2>Condition-Yaw<a class="headerlink" href="#condition-yaw" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_ConditionYaw.png"><img alt="../_images/MissionList_ConditionYaw.png" src="../_images/MissionList_ConditionYaw.png" /></a>
+<p>Point the nose of the vehicle to the specified heading by a specified
+amount.</p>
+<p><strong>Deg</strong> - the desired heading in degrees (0 = North, 90 = East, etc)
+when “rel/abs” field is “0” (meaning absolute)</p>
+<p>OR the change in heading (in degrees) when “rel/abs” field is “1”
+(meaning relative)</p>
+<p><strong>Sec</strong> - not supported.  meant to limit the rotation speed (in deg/sec)
+as the vehicle turns to the desired heading</p>
+<p><strong>Dir (1=CW, -1=CCW)</strong> - Used only when relative heading is specified
+(i.e. “rel/abs” = “1”) denotes whether the autopilot should add
+(CW) or subtract (CCW) the degrees (Deg) from the current heading to
+calculate the target heading. The vehicle will always turn in direction
+that most quickly gets it to the new target heading regardless if CW or
+CCW are used.</p>
+<p><strong>rel/abs</strong> - allows specifying the heading (i.e “Deg” field) as an
+absolute heading (if “0”) or relative to the current heading (if “1”)</p>
+</div>
+<div class="section" id="do-jump">
+<h2>Do-Jump<a class="headerlink" href="#do-jump" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoJump.png"><img alt="../_images/MissionList_DoJump.png" src="../_images/MissionList_DoJump.png" /></a>
+<p>Jump to the specified mission command the specified number of times
+before continuing with the mission.  In the example above the vehicle
+would fly back-and-forth between waypoints #1 and #2 a total of 3 times
+before flying on to waypoint #4.</p>
+<p><strong>WP #</strong> - the mission command to jump to.</p>
+<p><strong>Repeat</strong> - the maximum number of times we should perform the jump. -1
+means always jump</p>
+<p>Despite the name, Do-Jump is really a “Nav” command rather than a “Do”
+command, so conditional commands like CONDITION_DELAY won’t affect
+Do-Jump, it will always perform the jump as soon as it hits that
+command.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">No more that fifteen (15) Do-Jump commands can be used in a mission.  Subsequent Do-Jumps will be ignored.</p>
+</div>
+</div>
+<div class="section" id="do-change-speed">
+<h2>Do-Change-Speed<a class="headerlink" href="#do-change-speed" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoChangeSpeed.png"><img alt="../_images/MissionList_DoChangeSpeed.png" src="../_images/MissionList_DoChangeSpeed.png" /></a>
+<p>Change the target horizontal speed (in meters/sec) of the vehicle.</p>
+<p><strong>speed m/s</strong> - the desired maximum speed in meters/second.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The speed parameter should be in the SECOND COLUMN, not the first column as shown in the screenshot above</p>
+</div>
+</div>
+<div class="section" id="do-set-home">
+<h2>Do-Set-Home<a class="headerlink" href="#do-set-home" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoSetHome.png"><img alt="../_images/MissionList_DoSetHome.png" src="../_images/MissionList_DoSetHome.png" /></a>
+<p>This command should be avoided if possible and instead use <a class="reference internal" href="common-rally-points.html#common-rally-points"><span class="std std-ref">Rally Points</span></a> which can also control the position used for Return-To-Launch.</p>
+<p><strong>Current(1)/Spec(0)</strong> - if “1” use the current location as the new home, if “0” use the specified Lat and Lon coordinate (not labelled yet!)</p>
+<p><strong>Lat, Lon</strong> - the latitude and longitude targets.</p>
+</div>
+<div class="section" id="do-set-cam-trigg-dist">
+<h2>Do-Set-Cam-Trigg-Dist<a class="headerlink" href="#do-set-cam-trigg-dist" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoSetCamTriggDist.png"><img alt="../_images/MissionList_DoSetCamTriggDist.png" src="../_images/MissionList_DoSetCamTriggDist.png" /></a>
+<p>Trigger the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">camera shutter</span></a>
+at regular distance intervals. For example the command above will cause
+the camera shutter to trigger after every 5m that the vehicle travels.</p>
+<p><strong>Dist (m)</strong> - distance interval in meters.</p>
+<p>To stop the camera from triggering, add a DO_SET_CAM_TRIGG_DIST later in the mission with Dist = 0</p>
+</div>
+<div class="section" id="do-set-relay">
+<span id="mission-command-list-do-set-relay"></span><h2>Do-Set-Relay<a class="headerlink" href="#do-set-relay" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoSetRelay.png"><img alt="../_images/MissionList_DoSetRelay.png" src="../_images/MissionList_DoSetRelay.png" /></a>
+<p>Set a <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relay</span></a> pin’s voltage high or low.  The
+columns are mislabeled in the Mission Planner (issue here).</p>
+<p><strong>First column is Relay number</strong> : 0 = First Relay, 1 = Second Relay</p>
+<p><strong>Second column is On/Off</strong> : 0 = Off (i.e. 0V), 1 = On (i.e. 3.3V on
+Pixhawk, 5V on APM)</p>
+</div>
+<div class="section" id="do-repeat-relay">
+<h2>Do-Repeat-Relay<a class="headerlink" href="#do-repeat-relay" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoRepeatRelay.png"><img alt="../_images/MissionList_DoRepeatRelay.png" src="../_images/MissionList_DoRepeatRelay.png" /></a>
+<p>Toggle the <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relay</span></a> pin’s voltage a specified number of
+times. In the example above, assuming the relay was off to begin with,
+it would be set high and then after 3 seconds it would be toggled low
+again.</p>
+<p><strong>First column is Relay number</strong> : 0 = First Relay, 1 = Second Relay</p>
+<p><strong>Repeat #</strong> : how many times the relay should be toggled</p>
+<p><strong>Delay(s)</strong> - Number of seconds between each toggle.</p>
+</div>
+<div class="section" id="do-set-servo">
+<h2>Do-Set-Servo<a class="headerlink" href="#do-set-servo" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoSetServo.png"><img alt="../_images/MissionList_DoSetServo.png" src="../_images/MissionList_DoSetServo.png" /></a>
+<p>Move a <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo</span></a> to a particular PWM value. In the
+example above, the servo attached to output channel 8 would be moved to
+PWM 1700 (servo’s generally accept PWM values between 1000 and 2000).</p>
+<p><strong>Ser No</strong> : the output channel the servo is attached to</p>
+<p><strong>PWM</strong> : PWM value to output to the servo</p>
+</div>
+<div class="section" id="do-repeat-servo">
+<h2>Do-Repeat-Servo<a class="headerlink" href="#do-repeat-servo" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoRepeatServo.png"><img alt="../_images/MissionList_DoRepeatServo.png" src="../_images/MissionList_DoRepeatServo.png" /></a>
+<p>Repeatedly move a <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo</span></a> back and forth between
+its mid position and a specified PWM value. In the example above, the
+servo attached to output channel 8 would be moved to PWM 1700, then
+after 4 second, back to mid (default is 1500 which is held in the
+<a class="reference internal" href="parameters.html#rc8-trim"><span class="std std-ref">RC8_TRIM</span></a> parameter), after another 4 seconds it would be moved to 1700
+again, then finally after 4 more seconds it would be moved back to mid.</p>
+<p><strong>Ser No</strong> : the output channel the servo is attached to</p>
+<p><strong>PWM</strong> : PWM value to output to the servo</p>
+<p><strong>Repeat #</strong> : Number of times to move the servo to the specified PWM
+value</p>
+<p><strong>Delay (s)</strong> : the delay in seconds between each servo movement</p>
+</div>
+<div class="section" id="do-digicam-control">
+<h2>Do-Digicam-Control<a class="headerlink" href="#do-digicam-control" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoDigicamControl.png"><img alt="../_images/MissionList_DoDigicamControl.png" src="../_images/MissionList_DoDigicamControl.png" /></a>
+<p>Trigger the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">camera shutter</span></a>
+once. This command takes no additional arguments.</p>
+</div>
+<div class="section" id="do-fence-enable">
+<h2>Do-Fence-Enable<a class="headerlink" href="#do-fence-enable" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoFenceEnable.png"><img alt="../_images/MissionList_DoFenceEnable.png" src="../_images/MissionList_DoFenceEnable.png" /></a>
+<p>Enable(1) or Disable(0) the Copter <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">Cylindrical Fence</span></a> and/or Copter <a class="reference internal" href="common-polygon_fence.html#common-polygon-fence"><span class="std std-ref">Inclusion and Exclusion Fences</span></a>. This command takes no additional arguments.</p>
+</div>
+<div class="section" id="do-mount-control">
+<h2>Do-Mount-Control<a class="headerlink" href="#do-mount-control" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoMountControl.png"><img alt="../_images/MissionList_DoMountControl.png" src="../_images/MissionList_DoMountControl.png" /></a>
+<p>Controls the roll, pitch and yaw angle of the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a>. This can be used to point the camera in specific directions at various times in the mission.</p>
+</div>
+<div class="section" id="do-gripper">
+<h2>Do-Gripper<a class="headerlink" href="#do-gripper" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/MissionList_DoGripper.png"><img alt="../_images/MissionList_DoGripper.png" src="../_images/MissionList_DoGripper.png" /></a>
+<p>This command allows opening and closing a <a class="reference internal" href="common-gripper-servo.html#common-gripper-servo"><span class="std std-ref">servo gripper</span></a> or <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">EPM gripper</span></a>.
+Set the “drop/grab” column to 0 to close the gripper, 1 to open the gripper.  The first column, “Gripper No” is ignored because we currently only support a single gripper per vehicle.</p>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-mavlink-mission-command-messages-mav_cmd.html" class="btn btn-neutral float-right" title="Mission Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-planning-a-mission-with-waypoints-and-events.html" class="btn btn-neutral" title="Planning a Mission with Waypoints and Events" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Copter Mission Command List&amp;body=[Copter Mission Command List](https://ardupilot.org/copter/docs/mission-command-list.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

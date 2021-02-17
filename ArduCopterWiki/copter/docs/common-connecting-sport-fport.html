@@ -1,0 +1,512 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Connecting to FrSky Sport and FPort &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="FrSky Telemetry" href="common-frsky-telemetry.html"/>
+        <link rel="next" title="FlightDeck FrSky Taranis App" href="common-frsky-flightdeck.html"/>
+        <link rel="prev" title="FrSky Telemetry" href="common-frsky-telemetry.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-ads-b-receiver.html">ADS-B Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-powermodule-landingpage.html">Battery Monitors (aka Power Modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-baro-external.html">Barometer (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-buzzer.html">Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-cameras-and-gimbals.html">Cameras &amp; Gimbals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-companion-computers.html">Companion Computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprayer.html">Crop Sprayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-display-onboard.html">Display (Onboard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-fuel-sensors.html">Fuel Flow and Level Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-positioning-landing-page.html">GPS/Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-gripper-landingpage.html">Grippers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-joystick.html">Joystick or Gamepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-landing-gear.html">Landing Gear/ Retractable Camera Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-external-leds.html">LEDs (external)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-multiple-rx.html">Multiple Radio Control Receivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">    Non-GPS navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-osd-boards-on-screen-display.html">On-Screen Display (OSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-optical-flow-sensors-landingpage.html">Optical Flow Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parachute.html">Parachute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-power-tether.html">Power Tether</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-ppm-encoder.html">PPM Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision-landing-with-irlock.html">Precision Landing and Loiter (IRLock)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rc-systems.html">Radio Control Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rangefinder-landingpage.html">Rangefinders (Sonar, Lidar, Depth Cameras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rssi-received-signal-strength-indication.html">Received Signal Strength Indication (RSSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-relay.html">Relay Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rpm.html">RPM Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-safety-switch-pixhawk.html">Safety Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-servo-landingpage.html">Servos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-telemetry-landingpage.html">Telemetry Radio</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-telemetry-landingpage.html#short-range-10km">Short Range (&lt;10KM)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html">Bluetooth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pwlink.html">CUAV PW-Link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-esp8266-telemetry.html">ESP8266 wifi telemetry</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-frsky-telemetry.html">FrSky telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-hott-telemetry.html">HOTT telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-3dr-radio-v1.html">SiK Radio v1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-sik-telemetry-radio.html">SiK Radio v2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html">SiK Radio configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html">SiK Radio advanced configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-telemetry-xbee.html">XBee</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-telemetry-landingpage.html#long-range">Long Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-telemetry-landingpage.html#applications-and-info">Applications and Info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-adapter-node.html">UAVCAN Adapter Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-uavcan-peripherals.html">UAVCAN Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-video-landingpage.html">Video (High Defintion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-daiwa-winch.html">Winch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-optional-hardware.html">Peripheral Hardware</a> &raquo;</li>
+      
+          <li><a href="common-telemetry-landingpage.html">Telemetry (landing page)</a> &raquo;</li>
+      
+          <li><a href="common-frsky-telemetry.html">FrSky Telemetry</a> &raquo;</li>
+      
+    <li>Connecting to FrSky Sport and FPort</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-connecting-sport-fport.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connecting-to-frsky-sport-and-fport">
+<span id="common-connecting-sport-fport"></span><h1>Connecting to FrSky Sport and FPort<a class="headerlink" href="#connecting-to-frsky-sport-and-fport" title="Permalink to this headline">¶</a></h1>
+<p>Some FrSky receivers have the ability to relay telemetry data from the vehicle to the transmitter.</p>
+<p>This was done initially via their SPort capability. And later, via an additional new protocol called <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">FPort</span></a> which also includes the RC data to the autopilot.</p>
+<p>In order to connect to these ports on the FrSky reciever, any UART on the autopilot (normally a “TELEM” port) is used. However, both SPort and FPort are bi-directional protocols and require signal inversion in both directions in order to interface to the autopilot’s UART.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if Sport is being used to send telemetry, then RC data must still be sent to the autopilot via its RCin pin as PPM or SBus from the FrSky receiver. See <a class="reference internal" href="common-flight-controller-wiring.html#common-flight-controller-wiring"><span class="std std-ref">Typical Autopilot Wiring Connections</span></a>.</p>
+</div>
+<p>If the autopilot uses an F7 or H7 processor, then this can be done by appropriately configuring the UART port on the autopilot. However, most F4 based autopilots do not have this capability and required inverters externally. A few F4 autopilots have these on the boards themselves and label the port “FrSky Telem”, but most do not. Those require an added <a class="reference internal" href="#frsky-cables"><span class="std std-ref">bi-directional inverter</span></a> connected between the autopilot and the receiver’s SPort or FPort.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">F4 autopilots with on-board inversion (Pixracer,MindPX V2) default to having the inversion on, only requiring that the TX and RX pins be tied together and connected to the Sport/Fport on the receiver and the appropriate <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> be set for that port.</p>
+</div>
+<p>In addition, some FrSky receivers provide an optional pad with the SPort or FPort already “inverted”, so no external inversion is required if that is used. The various connection configurations are shown below (FPort is used in the diagrams, but just substitute SPort for the FPort labels in the images when using SPort connections):</p>
+<div class="section" id="connections">
+<h2>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/FPort-wiring-a.jpg"><img alt="../_images/FPort-wiring-a.jpg" src="../_images/FPort-wiring-a.jpg" /></a>
+<a class="reference external image-reference" href="../_images/FPort-wiring-b.jpg"><img alt="../_images/FPort-wiring-b.jpg" src="../_images/FPort-wiring-b.jpg" /></a>
+<a class="reference external image-reference" href="../_images/FPort-wiring-c.jpg"><img alt="../_images/FPort-wiring-c.jpg" src="../_images/FPort-wiring-c.jpg" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">some boards can have the FPort connected to the UARTs RX pin instead of TX pin as shown above. See <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">FPort Receivers</span></a> for more information.</p>
+</div>
+<div class="section" id="bi-directional-inverter-cables">
+<span id="frsky-cables"></span><h3>Bi-Directional Inverter cables<a class="headerlink" href="#bi-directional-inverter-cables" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="craft-and-theory-pixhawk-to-frsky-telemetry-cables">
+<h4>Craft and Theory Pixhawk to FrSky Telemetry Cables<a class="headerlink" href="#craft-and-theory-pixhawk-to-frsky-telemetry-cables" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="http://www.craftandtheoryllc.com/product-category/frsky-smartport-telemetry-cables/">Craft and Theory</a> supplies cost-effective all-in-one X-receiver cables with connectors for the various FrSky receivers.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="http://www.craftandtheoryllc.com/product/telemetry-cable-flightdeck-taranis-opentx-ardupilot-arducopter-pixhawk-2-cube-servo-frsky-smartport-smart-port-df13-jst-gh-serial/"><img alt="../_images/FrSky_Hardware3.jpg" src="../_images/FrSky_Hardware3.jpg" style="width: 50%;" /></a>
+</div>
+</div>
+<div class="section" id="yaapu-telemetry-cable">
+<h4>Yaapu Telemetry Cable<a class="headerlink" href="#yaapu-telemetry-cable" title="Permalink to this headline">¶</a></h4>
+<p>On <a class="reference external" href="https://www.amazon.com/Telemetry-Converter-Pixhawk-Taranis-Receiver/dp/B07KJFWTCB">Amazon</a></p>
+</div>
+<div class="section" id="diy-cable-for-smartport">
+<h4>DIY cable for SmartPort<a class="headerlink" href="#diy-cable-for-smartport" title="Permalink to this headline">¶</a></h4>
+<p>You can make your own cable using the following components (Frsky no longer produces, but still is available from some E-Bay sellers):</p>
+<a class="reference external image-reference" href="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg"><img alt="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg" src="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg" /></a>
+<ul class="simple">
+<li>TTL-to-RS232 converter such as the <a class="reference external" href="http://www.ebay.com/sch/i.html?_trksid=p2050601.m570.l1313.TR11.TRC1.A0.H0.Xfrsky+ful-1.TRS0&amp;_nkw=frsky+ful-1&amp;_sacat=0&amp;_from=R40">FrSky FUL-1</a></li>
+<li><a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=frsky+spc+cable&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=spc+cable">SPC cable</a></li>
+<li><a class="reference external" href="https://www.unmannedtechshop.co.uk/df13-6-position-connector-30cm-pack-of-5/">DF13 6 position connector</a>
+which will be cut and soldered to the TTL-to-RS232 converter</li>
+<li><a class="reference external" href="http://www.molex.com/molex/products/family?key=picoblade&amp;channel=products&amp;chanName=family&amp;pageTitle=Introduction&amp;parentKey=wire_to_board_connectors">Molex Picoblade</a>
+4 position telemetry wire which will be cut and soldered to the
+TTL-to-RS232 converter (should be included with the receiver)</li>
+</ul>
+<p>Or a more compact version using the following components:</p>
+<p>-<a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=max3232+rs-232+to+TTL&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=max3232+breakout&amp;LH_TitleDesc=0">MAX3232 RS-232 to TTL converter breakout board</a></p>
+<p>-Any silicon <a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=p2334524.m570.l1313.TR4.TRC1.A0.H0.X1n4148.TRS0&amp;_nkw=1n4148&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=1n4118&amp;LH_TitleDesc=0">diode</a></p>
+<blockquote>
+<div><div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/DIY_SPort_Cable.jpg"><img alt="../_images/DIY_SPort_Cable.jpg" src="../_images/DIY_SPort_Cable.jpg" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-text">DIY FRSky Smartport adapter cable</span></p>
+</div>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">DO NOT PLUG THE TELEMETRY CABLE TO THE AUTOPILOT OR RECIEVER WHILE POWER IS ON!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-frsky-flightdeck.html" class="btn btn-neutral float-right" title="FlightDeck FrSky Taranis App" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-frsky-telemetry.html" class="btn btn-neutral" title="FrSky Telemetry" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=Connecting to FrSky Sport and FPort&amp;body=[Connecting to FrSky Sport and FPort](https://ardupilot.org/copter/docs/common-connecting-sport-fport.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>

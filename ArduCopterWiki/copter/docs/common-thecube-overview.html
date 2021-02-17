@@ -1,0 +1,792 @@
+
+
+<!-- Path to wiki directories, without backslash -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Cube Overview &mdash; Copter  documentation</title>
+  
+
+  <!-- favicon -->
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  
+  <!-- favicon end -->
+  
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Copter  documentation" href="../index.html"/>
+        <link rel="up" title="Autopilot Hardware Options" href="common-autopilots.html"/>
+        <link rel="next" title="The Cube Orange With ADSB-In Overview" href="common-thecubeorange-overview.html"/>
+        <link rel="prev" title="F4BY FMU" href="common-f4by.html"/>  
+  <script type="text/javascript">
+  window.liveSettings = {
+    api_key: "53747d3f35bf4cec9372629094cd9fe2",
+    picker: "bottom-right",
+    detectlang: true,
+    autocollect: true,
+    dynamic: false
+  };
+  </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+
+
+<body class="wy-body-for-nav" role="document">
+
+        
+    <div id='cssmenu'>
+        <ul>
+           <li><a href='/ardupilot/index.html'>Home</a>
+              <ul>
+                 <li><a href='/copter/index.html'>Copter</a></li>
+                 <li><a href='/plane/index.html'>Plane</a></li>
+                 <li><a href='/rover/index.html'>Rover</a></li>
+                 <li><a href='http://ardusub.com/'>Sub</a></li>
+                 <li><a href='/antennatracker/index.html'>AntennaTracker</a></li>
+                 <li><a href='/planner/index.html'>Mission Planner</a></li>
+                 <li><a href='/planner2/index.html'>APM Planner 2</a></li>
+                 <li><a href='/mavproxy/index.html'>MAVProxy</a></li>
+                 <li><a href='/dev/docs/companion-computers.html'>Companion Computers</a></li>
+                 <li><a href='/dev/index.html'>Developer</a></li>
+              </ul>
+           </li>
+           
+          
+           
+           <li><a href='https://firmware.ardupilot.org/'>Downloads</a>
+              <ul>
+                <li><a href='https://firmware.ardupilot.org/Tools/MissionPlanner/'>Mission Planner</a></li>
+                <li><a href='https://firmware.ardupilot.org/Tools/APMPlanner/'>APM Planner 2</a></li>
+                   <li><a title="Advanced User Tools" href="common-downloads_advanced_user_tools.html">Advanced User Tools</a></li>
+                   <li><a title="Developer Tools" href="common-downloads_developer_tools.html">Developer Tools</a></li>
+                   <li><a title="Firmware" href="common-downloads_firmware.html">Firmware</a></li>
+                </ul>
+           </li>
+           
+           <li><a href='https://discuss.ardupilot.org' />Community</a>
+              <ul>
+                 <li><a href='https://discuss.ardupilot.org/'>Support Forums</a></li>
+                 <li><a href='https://www.facebook.com/groups/ArduPilot.org'>Facebook</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Chat (Discord)</a></li>
+                 <li><a href='https://ardupilot.org/discord'>Developer Voice (Discord)</a></li>
+				 <li><a href='https://ardupilot.org/dev/docs/common-contact-us.html'>Contact us</a></li>
+				 <li><a href='https://ardupilot.org/dev/index.html#getting-involved'>Getting involved</a></li>
+                   <li><a title="Commercial Support" href="common-commercial-support.html">Commercial Support</a></li>
+                   <li><a title="Dev Team" href="common-team.html">Development Team</a></li>
+                   <li><a title="Training Centers" href="common-training-centers.html">UAS Training Centers</a></li>
+              </ul>
+           </li>
+             <li><a title="Stores" href="common-stores.html">Stores</a></li>
+
+
+             <li><a title="SWAG Shop" href="https://shop.ardupilot.org">SWAG</a></li>
+
+           
+           
+                        <li><a title="About" href="../index.html">About</a>
+               <ul>
+                   <li><a title="Project News" href="project-news.html">News</a></li>
+                   <li><a title="History of ArduPilot" href="common-history-of-ardupilot.html">History</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/license-gplv3.html'>License</a></li>
+                   <li><a href='https://ardupilot.org/dev/docs/trademark.html'>Trademark</a></li>
+                   <li><a title="Acknowledgments" href="common-acknowledgments.html">Acknowledgments</a></li>
+                   <li><a title="Wiki Editing Guide" href="common-wiki_editing_guide.html">Wiki Editing Guide</a></li>
+               </ul>
+             </li>
+        </ul>
+        
+<style>
+#jdlogo {
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  color: #dddddd;
+}
+#jdlogo a:visited,
+#jdlogo a:link {
+  color: #9B59B6;
+}
+#jdlogo a:hover,
+#jdlogo a:active {
+  color: #CACACA;
+}
+</style>
+
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Copter
+        
+
+        
+          
+          <img src="../_static/ardupilot_logo.png" class="logo" />
+        
+        </a>
+
+        
+          
+          
+        
+
+        
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        
+        
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">AutoPilot Hardware Options</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#open-hardware">Open hardware</a><ul class="current">
+<li class="toctree-l3"><a class="reference external" href="https://github.com/mirkix/BBBMINI">BBBMini* (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-beagle-bone-blue.html">Beagle Bone Blue (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-cuav-x7-overview.html">CUAV X7/ X7 Pro</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hex/ProfiCNC Cube Black</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-features">System Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-cube-connector-pin-assignments">The Cube connector pin assignments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cubepilot-ecosystem">Cubepilot Ecosystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-information">More Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#carrier-board-design">Carrier Board Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-images">More Images</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubeorange-overview.html">Hex/ProfiCNC Cube Orange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubepurple-overview.html">Hex/ProfiCNC Cube Purple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-thecubeyellow-overview.html">Hex/ProfiCNC Cube Yellow</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">Hex/ProfiCNC Cube Green</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm">mRo X2.1</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/mro-x2.1-777-mr.htm">mRo X2.1-777</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/PocketPilot/PocketPilot">PocketPilot* (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2**</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#closed-hardware">Closed hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#firmware-limitations">Firmware Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-autopilots.html#discontinued-boards">Discontinued boards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">First Time Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">First Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">If A Problem Arises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copter-flight-features.html">Flight Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">Mission Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-logs.html">Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">Peripheral Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">Traditional Helicopters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricopter.html">Tricopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singlecopter-and-coaxcopter.html">SingleCopter and CoaxCopter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">User Alerts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-table-of-contents.html">Full Table of Contents</a></li>
+</ul>
+
+          
+        
+        
+        <!-- add paypal and dronecode logos -->
+                <div style="margin: auto; padding-left:20px; padding-right:20px; width=100%">
+
+        <hr />
+        <form style="margin:auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="BBF28AFAD58B2" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate" />
+        </form>
+        <br>
+        <a href="common-donation.html">Individual</a>
+        <a href="common-partners.html">Partners</a>
+        <a href="https://shop.ardupilot.org">SWAG Shop</a>
+
+        <hr />
+        </div>
+        <!-- endadd paypal and dronecode logos -->
+              
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Copter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="common-autopilots.html">Autopilot Hardware Options</a> &raquo;</li>
+      
+    <li>The Cube Overview</li>
+      <li class="wy-breadcrumbs-aside">
+                
+          
+            <a href="https://github.com/ArduPilot/ardupilot_wiki/blob/master/common/source/docs/common-thecube-overview.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-cube-overview">
+<span id="common-thecube-overview"></span><h1>The Cube Overview<a class="headerlink" href="#the-cube-overview" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="../_images/connect-to-com-port.jpg"><img alt="../_images/connect-to-com-port.jpg" src="../_images/connect-to-com-port.jpg" style="width: 360px;" /></a>
+<div class="section" id="system-features">
+<h2>System Features<a class="headerlink" href="#system-features" title="Permalink to this headline">¶</a></h2>
+<p>The Cube autopilot is a further evolution of the Pixhawk autopilot. It is designed for commercial systems and manufacturers who wish to fully integrate a autopilot into their system. On top of the existing features of Pixhawk, it has the following enhancements:</p>
+<ul class="simple">
+<li>3 sets of IMU sensors for extra redundancy</li>
+<li>2 sets of IMU are vibration-isolated mechanically, reducing the effect of frame vibration to state estimation</li>
+<li>IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs</li>
+<li>The entire flight management unit(FMU) and inertial management unit(IMU) are housed in a relatively small form factor (a cube). All inputs and outputs go through a 80-pin DF17 connector, allowing a plug-in solution for manufacturers of commercial systems. Manufacturers can design their own carrier boards to suite their specific needs.</li>
+</ul>
+</div>
+<div class="section" id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Processor</strong><ul>
+<li>32-bit ARM Cortex M4 core with FPU</li>
+<li>168 Mhz/256 KB RAM/2 MB Flash</li>
+<li>32-bit failsafe co-processor</li>
+</ul>
+</li>
+<li><strong>Sensors</strong><ul>
+<li>Three redundant IMUs (accels, gyros and compass)</li>
+<li>InvenSense MPU9250, ICM20948 and/or ICM20648 as first and third IMU (accel and gyro)</li>
+<li>ST Micro L3GD20+LSM303D or InvenSense ICM2076xx as backup IMU (accel and gyro)</li>
+<li>Two redundant MS5611 barometers</li>
+</ul>
+</li>
+<li><strong>Power</strong><ul>
+<li>Redundant power supply with automatic failover</li>
+<li>Servo rail high-power (7 V) and high-current ready</li>
+<li>All peripheral outputs over-current protected, all inputs ESD
+protected</li>
+</ul>
+</li>
+<li><strong>Interfaces</strong><ul>
+<li>14x PWM servo outputs (8 from IO, 6 from FMU)</li>
+<li>S.Bus servo output</li>
+<li>R/C inputs for CPPM, Spektrum / DSM and S.Bus</li>
+<li>Analogue / PWM RSSI input</li>
+<li>5x general purpose serial ports, 2 with full flow control</li>
+<li>2x I2C ports</li>
+<li>SPI port (un-buffered, for short cables only not recommended for use)</li>
+<li>2x CAN Bus interface</li>
+<li>3x Analogue inputs (3.3V and 6.6V)</li>
+<li>High-powered piezo buzzer driver (on expansion board)</li>
+<li>High-power RGB LED (I2C driver compatible connected externally only)</li>
+<li>Safety switch / LED</li>
+<li>Optional carrier board for Intel Edison</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-cube-connector-pin-assignments">
+<h2>The Cube connector pin assignments<a class="headerlink" href="#the-cube-connector-pin-assignments" title="Permalink to this headline">¶</a></h2>
+<p>This section details the pin assignments of the standard carrier board of The Cube. There are other types of carrier boards available, please refer to the manufacturer pages for pinouts of specific carrier board.</p>
+<a class="reference external image-reference" href="../_images/pixhawk2-pinout.jpg"><img alt="../_images/pixhawk2-pinout.jpg" src="../_images/pixhawk2-pinout.jpg" style="width: 240px;" /></a>
+<p><strong>TELEM1, TELEM2 ports</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin </th>
+<th>Signal </th>
+<th>Volt </th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>CTS</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>RTS</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>GPS1 port</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>SCL I2C1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>SDA I2C1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>Button</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>7 (blk)</td>
+<td>button LED</td>
+<td>GND</td>
+</tr>
+<tr>
+<td> (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>GPS2 port</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>SCL I2C2</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>SDA I2C2</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>ADC</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>ADC IN</td>
+<td></td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>I2C2</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>SCL</td>
+<td>+3.3 (pullups)</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>SDA</td>
+<td>+3.3 (pullups)</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>CAN1&amp;2</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>CAN_H</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CAN_L</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>POWER1&amp;2</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CURRENT</td>
+<td>up to +3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>VOLTAGE</td>
+<td>up to +3.3V</td>
+</tr>
+<td>5 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p><strong>USB</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin </th>
+<th>Signal </th>
+<th>Volt </th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>D_plus</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>D_minus</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>BUZZER</td>
+<td>battery voltage</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>Boot/Error LED</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="cubepilot-ecosystem">
+<h2>Cubepilot Ecosystem<a class="headerlink" href="#cubepilot-ecosystem" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Cubepilot_ecosystem.jpg"><img alt="../_images/Cubepilot_ecosystem.jpg" src="../_images/Cubepilot_ecosystem.jpg" /></a>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p>For more information and instructions on setting up and using the Cubepilot system see  <a class="reference external" href="https://docs.cubepilot.org/user-guides/">Cubepilot Docs</a></p>
+<p>For technical help and support on the cubepilot system see  <a class="reference external" href="https://discuss.cubepilot.org/">Cubepilot Forum</a></p>
+<p>Company information on Cubpilot can be found at  <a class="reference external" href="http://www.proficnc.com">www.proficnc.com</a></p>
+</div>
+<div class="section" id="carrier-board-design">
+<h2>Carrier Board Design<a class="headerlink" href="#carrier-board-design" title="Permalink to this headline">¶</a></h2>
+<p>The reference design files of the standard carrier board are available in <a class="reference external" href="https://github.com/proficnc/The-Cube">github</a>, or <a class="reference external" href="https://github.com/ArduPilot/Schematics/tree/master/ProfiCNC">here</a> ,this serve as a starting point for designers to design their own system based on The Cube autopilot.</p>
+</div>
+<div class="section" id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this headline">¶</a></h2>
+<p>Official retailers are listed <a class="reference external" href="http://www.proficnc.com/stores">here</a>.</p>
+</div>
+<div class="section" id="more-images">
+<h2>More Images<a class="headerlink" href="#more-images" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhawk2-overhead.jpg"><img alt="../_images/pixhawk2-overhead.jpg" src="../_images/pixhawk2-overhead.jpg" style="width: 360px;" /></a>
+</div>
+</div>
+
+
+            
+            
+             
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-thecubeorange-overview.html" class="btn btn-neutral float-right" title="The Cube Orange With ADSB-In Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common-f4by.html" class="btn btn-neutral" title="F4BY FMU" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+  
+  
+  Questions, issues, and suggestions about this page can be raised on the <a href="https://discuss.ardupilot.org">forums</a>. Issues and suggestions may be posted on the forums or the <a href="https://github.com/ArduPilot/ardupilot_wiki/issues/new?title=The Cube Overview&amp;body=[The Cube Overview](https://ardupilot.org/copter/docs/common-thecube-overview.html)%20-%20Describe%20the%20issue/suggestion%20and%20improve%20the%20title.%20Please%20keep%20a%20link%20to%20the%20original%20article%20if%20relevant.&amp;labels=docs">Github Issue Tracker</a>.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <a style="float:right;" rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        &copy; Copyright 2020, ArduPilot Dev Team.
+
+    </p>
+  </div>
+  
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/./useralerts.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/menubar.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<!-- Google Analytics -->
+<!-- This is official ArduPilot analytics account -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(["_setSiteSpeedSampleRate", 0]);
+  ga('create', 'UA-75650032-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Analytics -->
+
+</body>
+</html>
